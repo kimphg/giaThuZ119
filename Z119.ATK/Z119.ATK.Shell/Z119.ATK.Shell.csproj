@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2DDE2BA7-1725-4D0D-A9CE-9D045B7F0178}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Z119.ATK.Shell</RootNamespace>
+    <AssemblyName>Z119.ATK.Shell</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="microsoft.windowsapicodepack, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\microsoft.windowsapicodepack.dll</HintPath>
+    </Reference>
+    <Reference Include="microsoft.windowsapicodepack.shell, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\microsoft.windowsapicodepack.shell.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.Common, Version=13.0.40.190, Culture=neutral, PublicKeyToken=dc6ad606294fc298, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Z119.ATK.Power\bin\Debug\NationalInstruments.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.Common.Native, Version=13.0.40.190, Culture=neutral, PublicKeyToken=dc6ad606294fc298, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Z119.ATK.Power\bin\Debug\NationalInstruments.Common.Native.dll</HintPath>
+    </Reference>
+    <Reference Include="NationalInstruments.VisaNS, Version=13.0.45.167, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Z119.ATK.Power\bin\Debug\NationalInstruments.VisaNS.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="fAccessories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fAccessories.Designer.cs">
+      <DependentUpon>fAccessories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fCheckForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fCheckForm.Designer.cs">
+      <DependentUpon>fCheckForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fPower1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fPower1.Designer.cs">
+      <DependentUpon>fPower1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fSwitchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSwitchForm.designer.cs">
+      <DependentUpon>fSwitchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fHelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fHelpForm.Designer.cs">
+      <DependentUpon>fHelpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fLoginForm.Designer.cs">
+      <DependentUpon>fLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fMainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fMainWindow.Designer.cs">
+      <DependentUpon>fMainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fOxiloForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fOxiloForm.Designer.cs">
+      <DependentUpon>fOxiloForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fPowerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fPowerForm.Designer.cs">
+      <DependentUpon>fPowerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fSystemCheckingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSystemCheckingForm.Designer.cs">
+      <DependentUpon>fSystemCheckingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fSystemEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fSystemEditForm.Designer.cs">
+      <DependentUpon>fSystemEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fLoadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fLoadForm.Designer.cs">
+      <DependentUpon>fLoadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fTEST.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fTEST.Designer.cs">
+      <DependentUpon>fTEST.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MyControls\ElectronicAccessories.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyControls\MyImage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MyControls\MyPanel.cs" />
+    <Compile Include="MyControls\MyTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="fProgramForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fProgramForm.Designer.cs">
+      <DependentUpon>fProgramForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project\fCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project\fCreate.Designer.cs">
+      <DependentUpon>fCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Project\fOpen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Project\fOpen.Designer.cs">
+      <DependentUpon>fOpen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="fAccessories.resx">
+      <DependentUpon>fAccessories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fCheckForm.resx">
+      <DependentUpon>fCheckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fHelpForm.resx">
+      <DependentUpon>fHelpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fOxiloForm.resx">
+      <DependentUpon>fOxiloForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fPower1.resx">
+      <DependentUpon>fPower1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fSwitchForm.resx">
+      <DependentUpon>fSwitchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fLoginForm.resx">
+      <DependentUpon>fLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fMainWindow.resx">
+      <DependentUpon>fMainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fPowerForm.resx">
+      <DependentUpon>fPowerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fSystemEditForm.resx">
+      <DependentUpon>fSystemEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fLoadForm.resx">
+      <DependentUpon>fLoadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fTEST.resx">
+      <DependentUpon>fTEST.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project\fCreate.resx">
+      <DependentUpon>fCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Project\fOpen.resx">
+      <DependentUpon>fOpen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Z119.ATK.Check\Z119.ATK.Check.csproj">
+      <Project>{c64c1e56-e0f4-4356-a1ef-b4e5239d8c2b}</Project>
+      <Name>Z119.ATK.Check</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Z119.ATK.Common\Z119.ATK.Common.csproj">
+      <Project>{eb0b458f-afc0-4226-b131-330538c12c54}</Project>
+      <Name>Z119.ATK.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Z119.ATK.Load\Z119.ATK.Load.csproj">
+      <Project>{9e6a1830-f2a4-48fa-afa1-3e6f7be9d99e}</Project>
+      <Name>Z119.ATK.Load</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Z119.ATK.Model\Z119.ATK.Model.csproj">
+      <Project>{cd4666be-20bc-4592-b186-c5885288e3f2}</Project>
+      <Name>Z119.ATK.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Z119.ATK.Oxilo\Z119.ATK.Oxilo.csproj">
+      <Project>{30333d9c-98ac-4a6b-acf6-4ae1e5fcae52}</Project>
+      <Name>Z119.ATK.Oxilo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Z119.ATK.Power\Z119.ATK.Power.csproj">
+      <Project>{709656d8-8f0e-429c-8ae5-bbbd4bc548c9}</Project>
+      <Name>Z119.ATK.Power</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Z119.ATK.Program\Z119.ATK.Program.csproj">
+      <Project>{83c07c2f-4b8b-44a4-b9c5-2fe94b967c1a}</Project>
+      <Name>Z119.ATK.Program</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Z119.ATK.Switch\Z119.ATK.Switch.csproj">
+      <Project>{f4808307-7bc3-4a05-9957-e1ed4cfd329d}</Project>
+      <Name>Z119.ATK.Switch</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\field-flower-flowers-infinite-Favim.com-489199.jpg" />
+    <None Include="Resources\2017-11-07_16-36-00.png" />
+    <None Include="Resources\2017-11-07_16-37-32.png" />
+    <None Include="Resources\3821-4.jpg" />
+    <Content Include="Resources\Error.png" />
+    <None Include="Resources\Quartz Regular.ttf" />
+    <None Include="Resources\Administrator-icon.png" />
+    <Content Include="Resources\bat-ngo-radar-chuyen-tom-ten-lua-hanh-trinh-cua-viet-nam-hinh-4.jpg" />
+    <None Include="Resources\Customer-service-icon.png" />
+    <None Include="Resources\Man-icon.png" />
+    <None Include="Resources\Off.png" />
+    <None Include="Resources\On.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
