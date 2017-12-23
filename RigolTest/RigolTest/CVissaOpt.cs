@@ -3,7 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NationalInstruments.VisaNS;
+/*
+ * 
+VisaSharedComponents32.msi (Device driver)
 
+NIVISAruntime.msi package: NI-VISA_Runtime
+
+----------------------------------------------------------------------------------------------------------------------------
+
+MStudioCommon.2005.msi package: MStudioCommon2005
+
+----------------------------------------------------------------------------------------------------------------------------
+
+MStudioVisa.2005.msi package: NI-VISA
+
+----------------------------------------------------------------------------------------------------------------------------
+
+VC2005MSMs_x86.msi package: VSMSM
+ * */
 namespace RigolTest
 {
     public class CVisaOpt 
@@ -38,7 +55,7 @@ namespace RigolTest
                 mRes = ResourceManager.GetLocalManager();
                 if (mRes == null)
                 {
-                    //throw new Exception("本机未安装Visa的.Net支持库！");
+                    throw new Exception("本机未安装Visa的.Net支持库！");
                 }
                 ResourceArray = mRes.FindResources(strRes);
 
