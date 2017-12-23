@@ -239,6 +239,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SharpVisaCLI\SharpVisaCLI.csproj">
+      <Project>{43c68bf0-3b35-4fc4-80f8-6500b8ae59b7}</Project>
+      <Name>SharpVisaCLI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Z119.ATK.Check\Z119.ATK.Check.csproj">
       <Project>{c64c1e56-e0f4-4356-a1ef-b4e5239d8c2b}</Project>
       <Name>Z119.ATK.Check</Name>
@@ -255,17 +259,9 @@
       <Project>{cd4666be-20bc-4592-b186-c5885288e3f2}</Project>
       <Name>Z119.ATK.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Z119.ATK.Oxilo\Z119.ATK.Oxilo.csproj">
-      <Project>{30333d9c-98ac-4a6b-acf6-4ae1e5fcae52}</Project>
-      <Name>Z119.ATK.Oxilo</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Z119.ATK.Power\Z119.ATK.Power.csproj">
       <Project>{709656d8-8f0e-429c-8ae5-bbbd4bc548c9}</Project>
       <Name>Z119.ATK.Power</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Z119.ATK.Program\Z119.ATK.Program.csproj">
-      <Project>{83c07c2f-4b8b-44a4-b9c5-2fe94b967c1a}</Project>
-      <Name>Z119.ATK.Program</Name>
     </ProjectReference>
     <ProjectReference Include="..\Z119.ATK.Switch\Z119.ATK.Switch.csproj">
       <Project>{f4808307-7bc3-4a05-9957-e1ed4cfd329d}</Project>

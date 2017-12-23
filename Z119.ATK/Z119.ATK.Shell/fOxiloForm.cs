@@ -13,32 +13,37 @@ namespace Z119.ATK.Shell
 {
     public partial class fOxiloForm : Form
     {
-        private Thread cpuThread;
-        private int[] cpuArray = new int[100];
-        private int[] cpuArray1 = new int[100];
+        private Thread oscilloThread;
+        private int[] dataArray = new int[800];
+        private int[] dataArrayOld = new int[100];
+        string dataLabel1 = "data";
+        string dataLabel2 = "dataReference";
         public fOxiloForm()
         {
+            
             InitializeComponent();
 
-            chart1.Series["Series1"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            //chart1.Series["dataReference"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
 
-            Random r = new Random();
-            for (int i = 0; i < 100; i++)
-            {
-                cpuArray1[i] = r.Next(0, 1000);
-            }
+            //Random r = new Random();
+            //for (int i = 0; i < 100; i++)
+            //{
+            //    dataArrayOld[i] = r.Next(0, 1000);
+            //}
 
-            chart1.Series["Series2"].Points.Clear();
-            for (int i = 0; i < cpuArray1.Length - 1; i++)
-            {
-                chart1.Series["Series2"].Points.AddY(cpuArray1[i]);
-            }
+            //chart1.Series["Series2"].Points.Clear();
+            //for (int i = 0; i < dataArrayOld.Length - 1; i++)
+            //{
+            //    chart1.Series["Series2"].Points.AddY(dataArrayOld[i]);
+            //}
+            
         }
 
         int n = 0;
-        private void getPerformanceCounters()
+        private void getOscilloData()
         {
-            //var cpuCounter = new PerformanceCounter("Processor Information", "% Processor Time", "_Total");
+            listBoxDevices.Items.Clear();
+            SharpVisaCLI.Program.List((inst) => { listBoxDevices.Items.Add(inst); });
             while (true)
             {
                 Random r = new Random();
@@ -46,7 +51,7 @@ namespace Z119.ATK.Shell
 
                 for (int i = 0; i < 100; i++)
                 {
-                    cpuArray[i] = r.Next(0, 1000);
+                    dataArray[i] = r.Next(0, 1000);
                 }
 
                 if (chart1.IsHandleCreated)
@@ -71,23 +76,33 @@ namespace Z119.ATK.Shell
         private void UpdateCpuChart()
         {
             chart1.Series["Series1"].Points.Clear();
-            for (int i = 0; i < cpuArray.Length - 1; i++)
+            for (int i = 0; i < dataArray.Length - 1; i++)
             {
-                chart1.Series["Series1"].Points.AddY(cpuArray[i]);
+                chart1.Series["Series1"].Points.AddY(dataArray[i]);
             }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
                 
-            cpuThread = new Thread(new ThreadStart(getPerformanceCounters));
-            cpuThread.IsBackground = true;
-            cpuThread.Start();
+            oscilloThread = new Thread(new ThreadStart(getOscilloData));
+            oscilloThread.IsBackground = true;
+            oscilloThread.Start();
         }
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            cpuThread.Abort();
+            oscilloThread.Abort();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

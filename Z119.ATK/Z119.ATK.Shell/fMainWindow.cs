@@ -20,7 +20,8 @@ namespace Z119.ATK.Shell
 
         #endregion
 
-        public fMainWindow()
+        public 
+            fMainWindow()
         {
             InitializeComponent();
 
@@ -344,6 +345,7 @@ namespace Z119.ATK.Shell
             fOxiloForm foxilo = new fOxiloForm();
             foxilo.FormClosing += Foxilo_FormClosing;
             foxilo.MdiParent = this;
+            
             foxilo.Show();
         }
 
