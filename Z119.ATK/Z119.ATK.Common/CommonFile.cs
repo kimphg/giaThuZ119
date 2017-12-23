@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,11 +8,22 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Xml.Linq;
 namespace Z119.ATK.Common
 {
-    public class CommonFile
+    public class ConfigData
     {
+        static Dictionary<string, Dictionary<string, string>> config;
+        static Dictionary<string, string> profiles;
+        
+        public static void LoadConfigFile()
+        {
+            config = new Dictionary<string, Dictionary<string, string>>() ;
+            var doc = XDocument.Load(@"C:/ATK/Config/config.xml");
+            var rootNodes = doc.Root.DescendantNodes().OfType<XElement>();
+            config = rootNodes.ToDictionary(n => n.Name.ToString(), n => n.Value);
+        }
+        //new code
         public static void SaveIntoFile(object model, string folderPath)
         {
             SaveFileDialog sfd = new SaveFileDialog();

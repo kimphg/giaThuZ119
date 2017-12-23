@@ -12,12 +12,12 @@ namespace Z119.ATK.Check
     {
         public void SaveIntoFile(CheckBindingModel model)
         {
-            Z119.ATK.Common.CommonFile.SaveIntoFile(model, Const.FD_HIENTHI);
+            Z119.ATK.Common.ConfigData.SaveIntoFile(model, Const.FD_HIENTHI);
         }
 
         public CheckBindingModel OpenFile()
         {
-            return Z119.ATK.Common.CommonFile.OpenFile(Const.FD_HIENTHI) as CheckBindingModel;
+            return Z119.ATK.Common.ConfigData.OpenFile(Const.FD_HIENTHI) as CheckBindingModel;
         }
     }
 }

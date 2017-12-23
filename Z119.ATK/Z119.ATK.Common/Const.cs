@@ -9,12 +9,12 @@ namespace Z119.ATK.Common
     public class Const
     {
         // path Main
-        public static string PATH_ROOT =  @"D:\ATK\DuAn";
-        public static string PATH_CUREENT = @"D:\ATK\DuAn";
+        public static string PATH_ROOT =  @"C:\ATK\Config";
+        public static string PATH_CUREENT = @"C:\ATK\Config";
 
        // public static string FOLDER_ROOT = "DuAn";
 
-        public static string PROJECT_NAME = @"D:\ATK\DuAn";
+        public static string PROJECT_NAME = @"C:\ATK\Config";
 
         public static string FILE_NAME_PATH = "ProjectPath.txt";
         public static string IMAGES_LIBLARY_NAME = "HinhAnhLinhKien";

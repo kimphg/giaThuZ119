@@ -14,15 +14,21 @@ namespace Z119.ATK.Shell
     public partial class fOxiloForm : Form
     {
         private Thread oscilloThread;
-        private int[] dataArray = new int[800];
-        private int[] dataArrayOld = new int[100];
-        string dataLabel1 = "data";
-        string dataLabel2 = "dataReference";
+        private int[] dataArray = new int[600];
+        private int[] dataArrayOld = new int[600];
+        string deviceName;
+        string dataLabel1 = "Data";
+        string dataLabel2 = "Reference data";
         public fOxiloForm()
         {
             
             InitializeComponent();
-
+            chart1.ChartAreas[0].AxisY.Maximum = 125;
+            chart1.ChartAreas[0].AxisY.Minimum = -125;
+            listBoxDevices.Items.Clear();
+            SharpVisaCLI.Program.List((inst) => { listBoxDevices.Items.Add(inst); });
+            listBoxDevices.SetSelected(0,true);
+            StartConnection();
             //chart1.Series["dataReference"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
 
             //Random r = new Random();
@@ -39,52 +45,56 @@ namespace Z119.ATK.Shell
             
         }
 
-        int n = 0;
+        
         private void getOscilloData()
         {
-            listBoxDevices.Items.Clear();
-            SharpVisaCLI.Program.List((inst) => { listBoxDevices.Items.Add(inst); });
+            
+            var req = ":waveform:data?";
+            
             while (true)
             {
-                Random r = new Random();
-
-
-                for (int i = 0; i < 100; i++)
+                SharpVisaCLI.Program.Send(deviceName, req, (res) =>
                 {
-                    dataArray[i] = r.Next(0, 1000);
-                }
-
-                if (chart1.IsHandleCreated)
-                {
-                    try
-                    {
-                        this.Invoke((MethodInvoker)delegate { UpdateCpuChart(); });
-                    }
-                    catch (Exception)
-                    { }
-
-                }
-                else
-                {
-
-                }
-
-                Thread.Sleep(100);
+                    DrawData(res);
+                });
             }
         }
 
-        private void UpdateCpuChart()
+        private void DrawData(string res)
         {
-            chart1.Series["Series1"].Points.Clear();
-            for (int i = 0; i < dataArray.Length - 1; i++)
+            byte[] data = Encoding.ASCII.GetBytes(res);
+            if (data.Length >= dataArray.Length+10)
+            for (int i = 0; i < dataArray.Length; i++)
             {
-                chart1.Series["Series1"].Points.AddY(dataArray[i]);
+                dataArray[i] = data[i+10]-127;
+            }
+            try
+            {
+                this.Invoke((MethodInvoker)delegate { UpdateChart(); });
+            }
+            catch (Exception)
+            { }
+        }
+
+        private void UpdateChart()
+        {
+            chart1.Series[dataLabel1].Points.Clear();
+            for (int i = 0; i < dataArray.Length; i++)
+            {
+                chart1.Series[dataLabel1].Points.AddY(dataArray[i]);
             }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-                
+            deviceName = (string)listBoxDevices.SelectedItem;
+            StartConnection();
+        }
+
+        private void StartConnection()
+        {
+            
+            deviceName = (string)listBoxDevices.SelectedItem;
             oscilloThread = new Thread(new ThreadStart(getOscilloData));
             oscilloThread.IsBackground = true;
             oscilloThread.Start();

@@ -23,25 +23,35 @@ namespace SharpVisaCLI
 		
 		public static void Exec(string args, Action<string> callback)
 		{
-			using(var proc = new Process()) {
-				proc.StartInfo.FileName = Assembly.GetAssembly(typeof(Program)).Location;
-				proc.StartInfo.Arguments = args;
-				proc.StartInfo.RedirectStandardError = true;
-				proc.StartInfo.UseShellExecute = false;
-				proc.StartInfo.RedirectStandardOutput = true;
-				proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-				proc.StartInfo.CreateNoWindow = true;
-				proc.Start();
-				var output = proc.StandardOutput.ReadToEnd();
-				var error = proc.StandardError.ReadToEnd();
-				proc.WaitForExit();
-				if (proc.ExitCode != 0) {
-					throw new Exception(string.Format("{0} error {1}\n{2}", 
-					                                  proc.StartInfo.FileName, 
-					                                  proc.ExitCode, error));
-				}
-				if (callback != null) callback(output);
-			}
+            try
+            {
+                using (var proc = new Process())
+                {
+                    proc.StartInfo.FileName = Assembly.GetAssembly(typeof(Program)).Location;
+                    proc.StartInfo.Arguments = args;
+                    proc.StartInfo.RedirectStandardError = true;
+                    proc.StartInfo.UseShellExecute = false;
+                    proc.StartInfo.RedirectStandardOutput = true;
+                    proc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                    proc.StartInfo.CreateNoWindow = true;
+                    proc.Start();
+                    var output = proc.StandardOutput.ReadToEnd();
+                    var error = proc.StandardError.ReadToEnd();
+                    proc.WaitForExit();
+                    if (proc.ExitCode != 0)
+                    {
+                        throw new Exception(string.Format("{0} error {1}\n{2}",
+                                                          proc.StartInfo.FileName,
+                                                          proc.ExitCode, error));
+                    }
+                    if (callback != null) callback(output);
+                }
+            }
+            catch (Exception e)
+            {
+                
+                return;
+            }
 		}
 		
 		public static void Main(string[] args)

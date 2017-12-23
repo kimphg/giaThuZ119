@@ -17,7 +17,8 @@ namespace Z119.ATK.Shell
         #region Properties
         List<Project.fOpen> lstForm = new List<Project.fOpen>();
         Project.fOpen _project1;
-
+        System.Collections.Hashtable projects;
+        System.Collections.Hashtable configs;
         #endregion
 
         public 
@@ -30,8 +31,12 @@ namespace Z119.ATK.Shell
             Height = Screen.PrimaryScreen.WorkingArea.Height;
 
             // Menu project
-            DisibledMenu();
+            DisableMenu();
             Initialize();
+            //fOxiloForm formtest = new fOxiloForm();
+            //formtest.MdiParent = this;
+
+            //formtest.Show();
             // End Menu project
         }
 
@@ -41,14 +46,14 @@ namespace Z119.ATK.Shell
 
         #region Methods =========================================
 
-        public void DisibledMenu()
+        public void DisableMenu()
         {
             tsmenuItemProgram.Enabled = false;
             tsmenuItemControl.Enabled = false;
             tsmenuItemTool.Enabled = false;
         }
 
-        public void EnabledMenu()
+        public void EnableMenu()
         {
             tsmenuItemProgram.Enabled = true;
             tsmenuItemControl.Enabled = true;
@@ -160,7 +165,7 @@ namespace Z119.ATK.Shell
         {
             (sender as Project.fOpen).Close();
             
-            EnabledMenu();
+            EnableMenu();
 
             tsmenuItemSystem.Enabled = false;
 
@@ -345,7 +350,7 @@ namespace Z119.ATK.Shell
             fOxiloForm foxilo = new fOxiloForm();
             foxilo.FormClosing += Foxilo_FormClosing;
             foxilo.MdiParent = this;
-            
+            foxilo.StartPosition = FormStartPosition.Manual;
             foxilo.Show();
         }
 

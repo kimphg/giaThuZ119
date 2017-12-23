@@ -22,12 +22,12 @@ namespace Z119.ATK.Switch
 
         public void SaveIntoFile(SwitchBindingModel model)
         {
-            Z119.ATK.Common.CommonFile.SaveIntoFile(model, Const.FD_CHUYENMACH);
+            Z119.ATK.Common.ConfigData.SaveIntoFile(model, Const.FD_CHUYENMACH);
         }
 
         public SwitchBindingModel OpenFile()
         {
-            return Z119.ATK.Common.CommonFile.OpenFile(Const.FD_CHUYENMACH) as SwitchBindingModel;
+            return Z119.ATK.Common.ConfigData.OpenFile(Const.FD_CHUYENMACH) as SwitchBindingModel;
         }
     }
 
