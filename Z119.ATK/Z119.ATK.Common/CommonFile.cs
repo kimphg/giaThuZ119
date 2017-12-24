@@ -11,24 +11,151 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 namespace Z119.ATK.Common
 {
-    public class ConfigData
+    public class ProjectManager
     {
-        static Dictionary<string, Dictionary<string, string>> config;
-        static Dictionary<string, string> profiles;
-        
-        public static void LoadConfigFile()
+         Dictionary<string, Dictionary<string, string>> allProfiles;
+         Dictionary<string, string> profilesData;
+         ListBox profileList;
+         string[] dirEntries;
+         private event EventHandler _selectedProject;
+         public event EventHandler SelectedProject
         {
-            config = new Dictionary<string, Dictionary<string, string>>() ;
-            var doc = XDocument.Load(@"C:/ATK/Config/config.xml");
-            var rootNodes = doc.Root.DescendantNodes().OfType<XElement>();
-            config = rootNodes.ToDictionary(n => n.Name.ToString(), n => n.Value);
+            add
+            {
+                _selectedProject += value;
+            }
+            remove
+            {
+                _selectedProject -= value;
+            }
+        }
+        public void LoadProject()
+        {
+            dirEntries = Directory.GetFileSystemEntries(Const.PATH_PROJECT, "*", SearchOption.TopDirectoryOnly);
+            using (Form form = new Form())
+            {
+                form.Text = "Chọn dự án";
+                FlowLayoutPanel flp = new FlowLayoutPanel();
+                // profile list
+                flp.Controls.Add(new Label() { Text = "Danh sách các dự án:" });
+                profileList = new ListBox();
+                profileList.DataSource = dirEntries;
+                flp.Controls.Add(profileList);
+                //ok button
+                Button button1 = new Button();
+                button1.Text = "OK";
+                button1.Click += new EventHandler(button1_Click);
+                flp.Controls.Add(button1);
+                form.AcceptButton = button1;
+                button1.DialogResult = System.Windows.Forms.DialogResult.OK;
+                //create profile button
+                Button button2 = new Button();
+                button2.Text = "Tạo mới";
+                button2.Click += new EventHandler(button2_Click);
+                
+                flp.Controls.Add(button2);
+
+                flp.Dock = DockStyle.Fill;
+                form.Controls.Add(flp);
+                form.ShowDialog();
+            }
+            
+        }
+
+        private  void initProject()
+        {
+
+            // Tạo 3 Folder trong path current
+            string fdNguon = Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_NGUON;
+            string fdChuyenMach = Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_CHUYENMACH;
+            string fdHienThi = Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_HIENTHI;
+
+            string fdTai = Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_Tai;
+
+            string fdHinhAnh = Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_HIENTHI + @"\HinhAnh";
+            string fSoDoNguyenLy = fdHinhAnh + @"\SoDoNguyenLy";
+            string fSoDoLapRap = fdHinhAnh + @"\SoDoLapRap";
+
+            // Kiểm tra tồn tại và tạo mới
+            if (!Directory.Exists(fdNguon))
+                Directory.CreateDirectory(fdNguon);
+            if (!Directory.Exists(fdChuyenMach))
+                Directory.CreateDirectory(fdChuyenMach);
+            if (!Directory.Exists(fdHienThi))
+                Directory.CreateDirectory(fdHienThi);
+
+            if (!Directory.Exists(fdTai))
+                Directory.CreateDirectory(fdTai);
+
+            if (!Directory.Exists(fdHinhAnh))
+                Directory.CreateDirectory(fdHinhAnh);
+            if (!Directory.Exists(fSoDoNguyenLy))
+                Directory.CreateDirectory(fSoDoNguyenLy);
+            if (!Directory.Exists(fSoDoLapRap))
+                Directory.CreateDirectory(fSoDoLapRap);
+
+            // Chọn xong prọect và tạo các folder xong
+            // Tạo xong rồi thì phải roai một cái event lên để thông báo cho fmain
+            if (_selectedProject != null)
+            {
+                _selectedProject(this, new EventArgs());
+            }
+            
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //System.Drawing.Size size = new System.Drawing.Size(200, 70);
+            Form inputBox = new Form();
+            FlowLayoutPanel flp = new FlowLayoutPanel();
+            inputBox.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            //inputBox.ClientSize = size;
+            inputBox.Text = "Đặt tên dự án mới";
+
+            System.Windows.Forms.TextBox textBox = new TextBox();
+            //textBox.Size = new System.Drawing.Size(size.Width - 10, 23);
+            //textBox.Location = new System.Drawing.Point(5, 5);
+            //textBox.Text = input;
+            flp.Controls.Add(textBox);
+
+            Button okButton = new Button();
+            okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            okButton.Name = "okButton";
+            //okButton.Size = new System.Drawing.Size(75, 23);
+            okButton.Text = "&OK";
+            //okButton.Location = new System.Drawing.Point(size.Width - 80 - 80, 39);
+            flp.Controls.Add(okButton);
+
+            Button cancelButton = new Button();
+            cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            cancelButton.Name = "cancelButton";
+            //cancelButton.Size = new System.Drawing.Size(75, 23);
+            cancelButton.Text = "&Cancel";
+            //cancelButton.Location = new System.Drawing.Point(size.Width - 80, 39);
+            flp.Controls.Add(cancelButton);
+            flp.Dock = DockStyle.Fill;
+            inputBox.Controls.Add(flp);
+            inputBox.AcceptButton = okButton;
+            inputBox.CancelButton = cancelButton;
+
+            DialogResult result = inputBox.ShowDialog();
+            string projectDir = Const.PATH_PROJECT+ "\\"+textBox.Text;
+            Directory.CreateDirectory(projectDir);
+            dirEntries = Directory.GetFileSystemEntries(Const.PATH_PROJECT, "*", SearchOption.AllDirectories);
+            profileList.DataSource = dirEntries;
+        }
+
+        private  void button1_Click(object sender, EventArgs e)
+        {
+            // Cập nhật lại path current
+            Z119.ATK.Common.Const.PATH_CURRENT = profileList.SelectedItem.ToString();
+            initProject();
         }
         //new code
         public static void SaveIntoFile(object model, string folderPath)
         {
             SaveFileDialog sfd = new SaveFileDialog();
 
-            sfd.InitialDirectory = Z119.ATK.Common.Const.PATH_CUREENT + @"\" + folderPath;
+            sfd.InitialDirectory = Z119.ATK.Common.Const.PATH_ROOT + @"\" + folderPath;
 
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -44,17 +171,20 @@ namespace Z119.ATK.Common
         }
 
 
-        public static object OpenFile(string folderPath)
+        public static object  OpenFile(string fileName)
         {
             try
             {
-                OpenFileDialog ofd = new OpenFileDialog();
+                string fullFileName = Const.PATH_CURRENT + "\\" + fileName;
+                //OpenFileDialog ofd = new OpenFileDialog();
 
-                ofd.InitialDirectory = Z119.ATK.Common.Const.PATH_CUREENT + @"\" + folderPath;
+                //ofd.InitialDirectory = Z119.ATK.Common.Const.PATH_PROJECT + @"\" + folderPath;
 
-                if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                //if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                //{
+                if(File.Exists(fullFileName))
                 {
-                    FileStream fs = new FileStream(ofd.FileName, FileMode.Open);
+                    FileStream fs = new FileStream(fullFileName, FileMode.Open);
                     IFormatter formatter = new BinaryFormatter();
                     var data = formatter.Deserialize(fs);
                     fs.Close();
@@ -70,11 +200,11 @@ namespace Z119.ATK.Common
         {
             if (!File.Exists(Const.FILE_NAME_PATH))
             {
-                File.WriteAllText("ProjectPath.txt", Const.PATH_CUREENT);
+                File.WriteAllText("ProjectPath.txt", Const.PATH_ROOT);
             }
             string s = File.ReadAllText("ProjectPath.txt");
             Const.PATH_ROOT = s;
-            Const.PATH_CUREENT = s;
+            Const.PATH_ROOT = s;
             Const.PROJECT_NAME = s;
 
             // Create new folder image liblary

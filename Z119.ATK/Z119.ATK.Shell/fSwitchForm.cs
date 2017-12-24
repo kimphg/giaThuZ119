@@ -1007,5 +1007,12 @@ namespace Z119.ATK.Shell
                 (sender as ToolStripMenuItem).Text = "Thu nhỏ";
             }
         }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SwitchBindingModel model = new SwitchBindingModel();
+            InputDataFromDataGridView(model);
+            _switchManager.SaveIntoFile(model);
+        }
     }
 }

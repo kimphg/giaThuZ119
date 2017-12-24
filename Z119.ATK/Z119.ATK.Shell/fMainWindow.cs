@@ -17,10 +17,10 @@ namespace Z119.ATK.Shell
         #region Properties
         List<Project.fOpen> lstForm = new List<Project.fOpen>();
         Project.fOpen _project1;
-        System.Collections.Hashtable projects;
-        System.Collections.Hashtable configs;
+        //System.Collections.Hashtable projects;
+        //System.Collections.Hashtable configs;
         #endregion
-
+        Common.ProjectManager projMan;
         public 
             fMainWindow()
         {
@@ -33,6 +33,10 @@ namespace Z119.ATK.Shell
             // Menu project
             DisableMenu();
             Initialize();
+            projMan = new Common.ProjectManager();
+            
+            projMan.SelectedProject += frm_SelectedProject;
+            projMan.LoadProject();
             //fOxiloForm formtest = new fOxiloForm();
             //formtest.MdiParent = this;
 
@@ -135,7 +139,7 @@ namespace Z119.ATK.Shell
         // Kiểm tra đã chọn project hay chưa
         public bool IsSelectedProject()
         {
-            return !Z119.ATK.Common.Const.PATH_CUREENT.Equals(Z119.ATK.Common.Const.PATH_ROOT);
+            return !Z119.ATK.Common.Const.PATH_CURRENT.Equals(Z119.ATK.Common.Const.PATH_ROOT);
         }
 
         // Xóa tất cả các form Childrent
@@ -163,7 +167,7 @@ namespace Z119.ATK.Shell
         // Sau khi chon project thi bao len laf da chon
         void frm_SelectedProject(object sender, EventArgs e)
         {
-            (sender as Project.fOpen).Close();
+            //(sender as Project.fOpen).Close();
             
             EnableMenu();
 
@@ -181,7 +185,8 @@ namespace Z119.ATK.Shell
             //MessageBox.Show("Đã chọn dự án");
 
             frmPower = new fPower1();
-            frmSwitch = new fSwitchForm();
+            frmSwitch = Z119.ATK.Common.ProjectManager.OpenFile("fswitch") as fSwitchForm;//new fSwitchForm();
+            if (frmSwitch == null) frmSwitch = new fSwitchForm();
             frmTai = new fLoadForm();
             fcheck = new fCheckForm();
 
@@ -203,19 +208,31 @@ namespace Z119.ATK.Shell
 
             frmPower.Show();
             frmPower.Location = new Point(0, 0);
-           
+
+            frmSwitch.WindowState = FormWindowState.Normal;
+            frmSwitch.StartPosition = FormStartPosition.Manual;
             frmSwitch.Show();
             frmSwitch.Location = new Point(929, 0);
 
+            frmTai.WindowState = FormWindowState.Normal;
+            frmTai.StartPosition = FormStartPosition.Manual;
             frmTai.Show();
             frmTai.Location = new Point(1247, 0);
 
-            
+            fcheck.WindowState = FormWindowState.Normal;
+            fcheck.StartPosition = FormStartPosition.Manual;
             fcheck.Show();
             fcheck.Location = new Point(100, 100);
 
             fcheck.StartAll += fcheck_StartAll;
             fcheck.StopAll += fcheck_StopAll;
+            // newcode start
+            fScheme fSodo = new fScheme();
+            fSodo.WindowState = FormWindowState.Normal;
+            fSodo.StartPosition = FormStartPosition.Manual;
+            fSodo.MdiParent = this;
+            fSodo.Show();
+            fSodo.Location = new Point(100, 100);
         }
 
         private void Fcheck_FormClosing(object sender, FormClosingEventArgs e)

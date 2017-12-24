@@ -65,7 +65,7 @@ namespace Z119.ATK.Shell
             }
             this.DialogResult = DialogResult.OK;
 
-            Common.ConfigData.ReadFolderPath();
+            Common.ProjectManager.ReadFolderPath();
 
             this.Close();
         }

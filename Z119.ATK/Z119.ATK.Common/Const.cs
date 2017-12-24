@@ -10,8 +10,8 @@ namespace Z119.ATK.Common
     {
         // path Main
         public static string PATH_ROOT =  @"C:\ATK\Config";
-        public static string PATH_CUREENT = @"C:\ATK\Config";
-
+        public static string PATH_PROJECT = @"C:\ATK\Projects";
+        public static string PATH_CURRENT = @"C:\ATK\";
        // public static string FOLDER_ROOT = "DuAn";
 
         public static string PROJECT_NAME = @"C:\ATK\Config";

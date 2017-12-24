@@ -60,8 +60,8 @@ namespace Z119.ATK.Shell
 
             splitContainer2.SplitterDistance = splitContainer2.Width / 2;
 
-            LoadPrincipleDiagram(Z119.ATK.Common.Const.PATH_CUREENT + @"\" + Z119.ATK.Common.Const.FD_HIENTHI + @"\HinhAnh\SoDoNguyenLy");
-            LoadAssemblyDiagram(Z119.ATK.Common.Const.PATH_CUREENT + @"\" + Z119.ATK.Common.Const.FD_HIENTHI + @"\HinhAnh\SoDoLapRap");
+            LoadPrincipleDiagram(Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_HIENTHI + @"\HinhAnh\SoDoNguyenLy");
+            LoadAssemblyDiagram(Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_HIENTHI + @"\HinhAnh\SoDoLapRap");
 
             if (!string.IsNullOrEmpty(cmbAssemblyDiagram.Text))
                 cmbAssemblyDiagram_SelectionChangeCommitted(null, null);

@@ -83,6 +83,12 @@
     <Compile Include="fPower1.Designer.cs">
       <DependentUpon>fPower1.cs</DependentUpon>
     </Compile>
+    <Compile Include="fScheme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fScheme.Designer.cs">
+      <DependentUpon>fScheme.cs</DependentUpon>
+    </Compile>
     <Compile Include="fSwitchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fPower1.resx">
       <DependentUpon>fPower1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fScheme.resx">
+      <DependentUpon>fScheme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fSwitchForm.resx">
       <DependentUpon>fSwitchForm.cs</DependentUpon>

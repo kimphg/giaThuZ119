@@ -68,7 +68,7 @@ namespace Z119.ATK.Shell
             string path = txtPathRoot.Text;
             File.WriteAllText(Const.FILE_NAME_PATH, path);
             
-            Common.ConfigData.ReadFolderPath();
+            Common.ProjectManager.ReadFolderPath();
             
             if (_done != null)
                 _done(null, null);

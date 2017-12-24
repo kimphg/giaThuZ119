@@ -136,15 +136,15 @@ namespace Z119.ATK.Shell.Project
             String path = (cmbFolder.SelectedValue as Tuple<string, string>).Item2.ToString()+ @"\" +cmbProject.Text;
             
             // Cập nhật lại path current
-            Z119.ATK.Common.Const.PATH_CUREENT = path;
+            Z119.ATK.Common.Const.PATH_CURRENT = path;
             // Tạo 3 Folder trong path current
-            string fdNguon = Z119.ATK.Common.Const.PATH_CUREENT + @"\" + Z119.ATK.Common.Const.FD_NGUON;
-            string fdChuyenMach = Z119.ATK.Common.Const.PATH_CUREENT + @"\" + Z119.ATK.Common.Const.FD_CHUYENMACH;
-            string fdHienThi = Z119.ATK.Common.Const.PATH_CUREENT + @"\" + Z119.ATK.Common.Const.FD_HIENTHI;
+            string fdNguon = Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_NGUON;
+            string fdChuyenMach = Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_CHUYENMACH;
+            string fdHienThi = Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_HIENTHI;
             
-            string fdTai = Z119.ATK.Common.Const.PATH_CUREENT + @"\" + Z119.ATK.Common.Const.FD_Tai;
+            string fdTai = Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_Tai;
 
-            string fdHinhAnh = Z119.ATK.Common.Const.PATH_CUREENT + @"\" + Z119.ATK.Common.Const.FD_HIENTHI + @"\HinhAnh";
+            string fdHinhAnh = Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_HIENTHI + @"\HinhAnh";
             string fSoDoNguyenLy = fdHinhAnh + @"\SoDoNguyenLy";
             string fSoDoLapRap = fdHinhAnh + @"\SoDoLapRap";
 
