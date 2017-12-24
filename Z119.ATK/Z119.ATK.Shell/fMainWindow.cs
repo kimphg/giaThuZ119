@@ -233,6 +233,7 @@ namespace Z119.ATK.Shell
             fSodo.MdiParent = this;
             fSodo.Show();
             fSodo.Location = new Point(100, 100);
+            fSodo.LoadScheme();
         }
 
         private void Fcheck_FormClosing(object sender, FormClosingEventArgs e)
