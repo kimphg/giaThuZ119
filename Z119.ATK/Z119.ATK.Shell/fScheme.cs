@@ -23,6 +23,10 @@ namespace Z119.ATK.Shell
         {
             Position = pos;
         }
+        public schemePoint()
+        {
+            
+        }
     }
     public partial class fScheme : Form
     {
@@ -38,7 +42,7 @@ namespace Z119.ATK.Shell
         {
             InitializeComponent();
             InitGui();
-
+            LoadschemePoints();
             this.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseWheel);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(fScheme_MouseDown);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(fScheme_MouseUp);
@@ -46,10 +50,22 @@ namespace Z119.ATK.Shell
             
             cmNoselect = new ContextMenu();
             cmNoselect.MenuItems.Add("Đặt điểm đo", new EventHandler(fScheme_NewPoint));
+            cmNoselect.MenuItems.Add("Lưu sơ đồ đo", new EventHandler(fScheme_SavePointList));
             cmSelect = new ContextMenu();
             cmSelect.MenuItems.Add("Lưu điểm đo", new EventHandler(fScheme_SavePointData));
             cmSelect.MenuItems.Add("Xóa điểm đo", new EventHandler(fScheme_DelPointData));
             
+        }
+
+        private void LoadschemePoints()
+        {
+            schemePointList = Z119.ATK.Common.ProjectManager.LoadObject<List<schemePoint>>("schemePointList");
+            if (schemePointList == null) schemePointList = new List<schemePoint>();
+        }
+
+        private void fScheme_SavePointList(object sender, EventArgs e)
+        {
+            Z119.ATK.Common.ProjectManager.SaveObject<List<schemePoint>>(schemePointList, "schemePointList");
         }
 
         private void fScheme_DelPointData(object sender, EventArgs e)
@@ -69,7 +85,7 @@ namespace Z119.ATK.Shell
 
         private void fScheme_SavePointData(object sender, EventArgs e)
         {
-            throw new NotImplementedException();!!!
+            throw new NotImplementedException();
         }
 
         private void fScheme_NewPoint(object sender, EventArgs e)
