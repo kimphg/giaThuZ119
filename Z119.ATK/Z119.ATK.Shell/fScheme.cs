@@ -27,8 +27,22 @@ namespace Z119.ATK.Shell
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(fScheme_MouseDown);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(fScheme_MouseUp);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(fScheme_MouseMove);
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(fScheme_NewPoint);
+            ContextMenu cm = new ContextMenu();
+
+            cm.MenuItems.Add("Đặt điểm đo", new EventHandler(fScheme_NewPoint));
+
+            pictureBox1.ContextMenu = cm;
         }
 
+        private void fScheme_NewPoint(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+       
+
+        
         private void fScheme_MouseMove(object sender, MouseEventArgs e)
         {
             if (_mousePressed)
