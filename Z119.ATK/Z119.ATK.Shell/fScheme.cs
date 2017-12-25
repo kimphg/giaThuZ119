@@ -10,6 +10,20 @@ using System.Windows.Forms;
 
 namespace Z119.ATK.Shell
 {
+    public class schemePoint
+    {
+        public Point Position;
+        bool selected;
+        public bool Selected
+        {
+            get { return selected; }
+            set { selected = value; }
+        }
+        public schemePoint(Point pos)
+        {
+            Position = pos;
+        }
+    }
     public partial class fScheme : Form
     {
         Bitmap image1;
@@ -18,6 +32,8 @@ namespace Z119.ATK.Shell
         private int imgdx=0, imgdy=0;
         bool _mousePressed=false;
         Point pOld,pNew;
+        List<schemePoint> schemePointList = new List<schemePoint>();
+        ContextMenu cmNoselect, cmSelect;
         public fScheme()
         {
             InitializeComponent();
@@ -27,27 +43,53 @@ namespace Z119.ATK.Shell
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(fScheme_MouseDown);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(fScheme_MouseUp);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(fScheme_MouseMove);
-            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(fScheme_NewPoint);
-            ContextMenu cm = new ContextMenu();
+            
+            cmNoselect = new ContextMenu();
+            cmNoselect.MenuItems.Add("Đặt điểm đo", new EventHandler(fScheme_NewPoint));
+            cmSelect = new ContextMenu();
+            cmSelect.MenuItems.Add("Lưu điểm đo", new EventHandler(fScheme_SavePointData));
+            cmSelect.MenuItems.Add("Xóa điểm đo", new EventHandler(fScheme_DelPointData));
+            
+        }
 
-            cm.MenuItems.Add("Đặt điểm đo", new EventHandler(fScheme_NewPoint));
+        private void fScheme_DelPointData(object sender, EventArgs e)
+        {
+            foreach (schemePoint p in schemePointList)
+            {
+                if (p.Selected)
+                {
+                    schemePointList.Remove(p);
+                    this.Refresh();
+                    break;
+                }
 
-            pictureBox1.ContextMenu = cm;
+            }
+        }
+
+
+        private void fScheme_SavePointData(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();!!!
         }
 
         private void fScheme_NewPoint(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var formPosition = pOld;
+            schemePoint schemePos = new schemePoint(toSchemePos(formPosition));//
+            schemePointList.Add(schemePos);
+            this.Refresh();
         }
 
-       
+        private Point toSchemePos(Point formPosition)
+        {
+            return new Point(Convert.ToInt32((formPosition.X - imgdx) / zoomscale), Convert.ToInt32((formPosition.Y - imgdy) / zoomscale));
+        }
 
-        
         private void fScheme_MouseMove(object sender, MouseEventArgs e)
         {
             if (_mousePressed)
             {
-                pNew = e.Location;
+                pNew = this.PointToClient(Cursor.Position);
                 imgdx += pNew.X - pOld.X;
                 imgdy += pNew.Y - pOld.Y;
                 pOld = pNew;
@@ -64,8 +106,35 @@ namespace Z119.ATK.Shell
         private void fScheme_MouseDown(object sender, MouseEventArgs e)
         {
             _mousePressed = true;
-            pOld = e.Location;
+            pOld = this.PointToClient(Cursor.Position);
+            if (CheckSelection(pOld))
+            {
+                pictureBox1.ContextMenu = cmSelect;
+            }
+            else 
+            pictureBox1.ContextMenu = cmNoselect;
+            this.Refresh();
+        }
 
+        private bool CheckSelection(Point checkPoint)
+        {
+            bool foundSeleted = false;
+            foreach (schemePoint p in schemePointList)
+            {
+                Point center = toFormPos(p.Position);
+                
+                if ((Math.Abs(center.X - checkPoint.X) < 4)
+                    & (Math.Abs(center.Y - checkPoint.Y) < 4)
+                    &(!foundSeleted))
+                {
+                    p.Selected = true;
+                    foundSeleted = true;
+                    
+                }
+                else p.Selected = false;
+                
+            }
+            return foundSeleted;
         }
         
 
@@ -94,6 +163,23 @@ namespace Z119.ATK.Shell
             // Create a local version of the graphics object for the PictureBox.
             Graphics g = e.Graphics;
             g.DrawImage(image1, new Rectangle(imgdx, imgdy, Convert.ToInt32(image1.Width * zoomscale), Convert.ToInt32(image1.Height * zoomscale)));
+            foreach (schemePoint p in schemePointList)
+            {
+                if (p.Selected)
+                {
+                    Point center = toFormPos(p.Position);
+                    center.Offset(-5, -5);
+                    g.DrawRectangle(new Pen(Color.Red, 4), new Rectangle(center, new Size(7, 7)));
+                }
+                else
+                {
+                    Point center = toFormPos(p.Position);
+                    center.Offset(-3, -3);
+                    g.DrawRectangle(new Pen(Color.Red, 2), new Rectangle(center, new Size(5, 5)));
+
+                }
+                
+            }
             /*
             // Draw a string on the PictureBox.
             g.DrawString("This is a diagonal line drawn on the control",
@@ -101,6 +187,11 @@ namespace Z119.ATK.Shell
             // Draw a line in the PictureBox.
             g.DrawLine(System.Drawing.Pens.Red, pictureBox1.Left, pictureBox1.Top,
                 pictureBox1.Right, pictureBox1.Bottom);*/
+        }
+
+        private Point toFormPos(Point p)
+        {
+            return new Point(Convert.ToInt32(p.X * zoomscale + imgdx),Convert.ToInt32( p.Y * zoomscale + imgdy));
         }
 
         public void LoadScheme()
