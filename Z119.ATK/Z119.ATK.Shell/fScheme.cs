@@ -33,10 +33,10 @@ namespace Z119.ATK.Shell
             
             cmNoselect = new ContextMenu();
             cmNoselect.MenuItems.Add("Đặt điểm đo", new EventHandler(fScheme_NewPoint));
-            cmNoselect.MenuItems.Add("Lưu tất cả các điểm đo", new EventHandler(fScheme_SavePointList));
+            cmNoselect.MenuItems.Add("Lưu tất cả các điểm đo", new EventHandler(SavePointList));
             cmSelect = new ContextMenu();
-            cmSelect.MenuItems.Add("Lấy giá trị điểm đo", new EventHandler(fScheme_SavePointRefData));
-            cmSelect.MenuItems.Add("Đặt giá trị tham chiếu", new EventHandler(fScheme_SavePointData));
+            cmSelect.MenuItems.Add("Lấy giá trị điểm đo", new EventHandler(fScheme_SavePointData ));
+            cmSelect.MenuItems.Add("Đặt giá trị tham chiếu", new EventHandler(fScheme_SavePointRefData));
             cmSelect.MenuItems.Add("Xóa điểm đo", new EventHandler(fScheme_DelPointData));
             
         }
@@ -48,6 +48,7 @@ namespace Z119.ATK.Shell
                 if (p.Selected)
                 {
                     p.refData = fOxiloForm.getData();
+                    SavePointList();
                     break;
                 }
 
@@ -56,13 +57,17 @@ namespace Z119.ATK.Shell
 
         private void LoadschemePoints()
         {
-            schemePointList = Z119.ATK.Common.ProjectManager.LoadObject<List<schemePoint>>("schemePointList");
+            schemePointList = Z119.ATK.Common.ProjectManager.LoadObject<List<schemePoint>>(Z119.ATK.Common.Const.FILE_POINT_DATA);
             if (schemePointList == null) schemePointList = new List<schemePoint>();
         }
 
-        private void fScheme_SavePointList(object sender, EventArgs e)
+        private void SavePointList(object sender, EventArgs e)
         {
-            Z119.ATK.Common.ProjectManager.SaveObject<List<schemePoint>>(schemePointList, "schemePointList");
+            SavePointList();
+        }
+        private void SavePointList()
+        {
+            Z119.ATK.Common.ProjectManager.SaveObject<List<schemePoint>>(schemePointList, Z119.ATK.Common.Const.FILE_POINT_DATA);
         }
 
         private void fScheme_DelPointData(object sender, EventArgs e)
@@ -87,6 +92,7 @@ namespace Z119.ATK.Shell
                 if (p.Selected)
                 {
                     p.mesData = fOxiloForm.getData();
+                    SavePointList();
                     break;
                 }
 
@@ -248,8 +254,9 @@ namespace Z119.ATK.Shell
                     if (fc==null)
                     {
                         fOxiloForm foxilo = new fOxiloForm();
-                        foxilo.StartPosition = FormStartPosition.Manual;
-                        foxilo.TopMost = true;
+                        
+                        fOxiloForm.dataArrayRef = refData;
+                        fOxiloForm.dataArrayOld = mesData;
                         foxilo.Show();
                     }
                 }

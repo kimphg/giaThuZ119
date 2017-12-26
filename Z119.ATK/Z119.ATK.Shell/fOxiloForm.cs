@@ -20,6 +20,7 @@ namespace Z119.ATK.Shell
         string deviceName;
         string dataLabel1 = "Data";
         string dataLabel2 = "Reference data";
+        private string dataLabel3 ="Old data";
         
         public fOxiloForm()
         {
@@ -31,20 +32,15 @@ namespace Z119.ATK.Shell
             SharpVisaCLI.Program.List((inst) => { listBoxDevices.Items.Add(inst); });
             listBoxDevices.SetSelected(0,true);
             StartConnection();
-            //chart1.Series["dataReference"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            this.LocationChanged+=fOxiloForm_LocationChanged;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = Z119.ATK.Common.Const.proConf.fOsciloLocation;
+            this.TopMost = true;
+        }
 
-            //Random r = new Random();
-            //for (int i = 0; i < 100; i++)
-            //{
-            //    dataArrayOld[i] = r.Next(0, 1000);
-            //}
-
-            //chart1.Series["Series2"].Points.Clear();
-            //for (int i = 0; i < dataArrayOld.Length - 1; i++)
-            //{
-            //    chart1.Series["Series2"].Points.AddY(dataArrayOld[i]);
-            //}
-            
+        private void fOxiloForm_LocationChanged(object sender, EventArgs e)
+        {
+            Z119.ATK.Common.Const.proConf.fOsciloLocation = this.Location;
         }
 
         public static void setReference(int[] data)
@@ -92,6 +88,8 @@ namespace Z119.ATK.Shell
             for (int i = 0; i < dataArray.Length; i++)
             {
                 chart1.Series[dataLabel1].Points.AddY(dataArray[i]);
+                chart1.Series[dataLabel2].Points.AddY(dataArrayRef[i]);
+                chart1.Series[dataLabel3].Points.AddY(dataArrayRef[i]);
             }
         }
 

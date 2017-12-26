@@ -448,6 +448,11 @@ namespace Z119.ATK.Shell
 
         #endregion End Menu item Control ============================================
 
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            projMan.SaveProjectConfig();
+        }
+
 
     }
 }

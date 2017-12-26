@@ -4,13 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Drawing;
 namespace Z119.ATK.Common
 {
     public class ProjectConfiguration
     {
         public ProjectConfiguration()
-        { }
+        {
+            fOsciloLocation = new Point(0, 0);
+            fSchemeLocation = new Point(0, 0);
+        }
 
+        public  Point  fOsciloLocation{ get; set; }
+        public Point fSchemeLocation { get; set; }
     }
     public class Const
     {
@@ -111,6 +117,8 @@ namespace Z119.ATK.Common
         // Binding data from Tai to Check
         public static string VON_RA = "0";
         public static string AMPE_RA = "0";
+        public static string FILE_CONFIG = "config.xml";
+        public static string FILE_POINT_DATA = "point_data.xml";
 
     }
 }
