@@ -85,11 +85,13 @@ namespace Z119.ATK.Shell
         private void UpdateChart()
         {
             chart1.Series[dataLabel1].Points.Clear();
+            chart1.Series[dataLabel2].Points.Clear();
+            chart1.Series[dataLabel3].Points.Clear();
             for (int i = 0; i < dataArray.Length; i++)
             {
                 chart1.Series[dataLabel1].Points.AddY(dataArray[i]);
                 chart1.Series[dataLabel2].Points.AddY(dataArrayRef[i]);
-                chart1.Series[dataLabel3].Points.AddY(dataArrayRef[i]);
+                chart1.Series[dataLabel3].Points.AddY(dataArrayOld[i]);
             }
         }
 
