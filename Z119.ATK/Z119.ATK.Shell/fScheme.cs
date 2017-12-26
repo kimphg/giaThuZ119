@@ -10,26 +10,7 @@ using System.Windows.Forms;
 
 namespace Z119.ATK.Shell
 {
-    public class schemePoint
-    {
-        public Point Position;
-        bool selected;
-        public int[] refData = new int[600];
-        public int[] mesData = new int[600];
-        public bool Selected
-        {
-            get { return selected; }
-            set { selected = value; }
-        }
-        public schemePoint(Point pos)
-        {
-            Position = pos;
-        }
-        public schemePoint()
-        {
-            
-        }
-    }
+    
     public partial class fScheme : Form
     {
         Bitmap image1;
@@ -52,9 +33,9 @@ namespace Z119.ATK.Shell
             
             cmNoselect = new ContextMenu();
             cmNoselect.MenuItems.Add("Đặt điểm đo", new EventHandler(fScheme_NewPoint));
-            cmNoselect.MenuItems.Add("Lưu sơ đồ đo", new EventHandler(fScheme_SavePointList));
+            cmNoselect.MenuItems.Add("Lưu tất cả các điểm đo", new EventHandler(fScheme_SavePointList));
             cmSelect = new ContextMenu();
-            cmSelect.MenuItems.Add("Lưu giá trị điểm đo", new EventHandler(fScheme_SavePointRefData));
+            cmSelect.MenuItems.Add("Lấy giá trị điểm đo", new EventHandler(fScheme_SavePointRefData));
             cmSelect.MenuItems.Add("Đặt giá trị tham chiếu", new EventHandler(fScheme_SavePointData));
             cmSelect.MenuItems.Add("Xóa điểm đo", new EventHandler(fScheme_DelPointData));
             
@@ -245,6 +226,26 @@ namespace Z119.ATK.Shell
             {
                 MessageBox.Show("Không tìm thấy sơ đồ.");
             }
+
+        }
+    }
+    public class schemePoint
+    {
+        public Point Position;
+        bool selected;
+        public int[] refData = new int[600];
+        public int[] mesData = new int[600];
+        public bool Selected
+        {
+            get { return selected; }
+            set { selected = value; }
+        }
+        public schemePoint(Point pos)
+        {
+            Position = pos;
+        }
+        public schemePoint()
+        {
 
         }
     }
