@@ -6,6 +6,12 @@ using System.Threading.Tasks;
 
 namespace Z119.ATK.Common
 {
+    public class ProjectConfiguration
+    {
+        public ProjectConfiguration()
+        { }
+
+    }
     public class Const
     {
         // path Main
@@ -13,7 +19,7 @@ namespace Z119.ATK.Common
         public static string PATH_PROJECT = @"C:\ATK\Projects";
         public static string PATH_CURRENT = @"C:\ATK\";
        // public static string FOLDER_ROOT = "DuAn";
-
+        public static ProjectConfiguration proConf = new ProjectConfiguration();
         public static string PROJECT_NAME = @"C:\ATK\Config";
 
         public static string FILE_NAME_PATH = "ProjectPath.txt";

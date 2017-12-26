@@ -243,9 +243,9 @@ namespace Z119.ATK.Shell
                 selected = value;
                 if (selected)
                 {
-                    Form fc = Application.OpenForms["Oscilloscope"];
+                    Form fc = Application.OpenForms["fOxiloForm"];
 
-                    if (fc == null)
+                    if (fc==null)
                     {
                         fOxiloForm foxilo = new fOxiloForm();
                         foxilo.StartPosition = FormStartPosition.Manual;
