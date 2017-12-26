@@ -47,7 +47,7 @@ namespace Z119.ATK.Shell
             {
                 if (p.Selected)
                 {
-                    p.refData = fOxiloForm.getData();
+                    p.setRefData();
                     SavePointList();
                     break;
                 }
@@ -91,7 +91,7 @@ namespace Z119.ATK.Shell
             {
                 if (p.Selected)
                 {
-                    p.mesData = fOxiloForm.getData();
+                    p.setMesData();
                     SavePointList();
                     break;
                 }
@@ -239,8 +239,34 @@ namespace Z119.ATK.Shell
     {
         public Point Position;
         bool selected;
-        public int[] refData = new int[600];
-        public int[] mesData = new int[600];
+        private int[] refData = new int[600];
+        private int[] mesData = new int[600];
+
+        public int[] MesData
+        {
+            get { return mesData; }
+            set { 
+                mesData = value;
+                DisplayDataToOscillo();
+                
+            }
+        }
+
+        private void DisplayDataToOscillo()
+        {
+            Array.Copy(refData, fOxiloForm.dataArrayRef, 600);
+            Array.Copy(mesData, fOxiloForm.dataArrayOld, 600);
+        }
+        public void setMesData()
+        {
+            Array.Copy( fOxiloForm.dataArrayOld,mesData, 600);
+            DisplayDataToOscillo();
+        }
+        public void setRefData()
+        {
+            Array.Copy(fOxiloForm.dataArrayRef, refData, 600);
+            DisplayDataToOscillo();
+        }
         public bool Selected
         {
             get { return selected; }
@@ -254,9 +280,7 @@ namespace Z119.ATK.Shell
                     if (fc==null)
                     {
                         fOxiloForm foxilo = new fOxiloForm();
-                        
-                        fOxiloForm.dataArrayRef = refData;
-                        fOxiloForm.dataArrayOld = mesData;
+                        DisplayDataToOscillo();
                         foxilo.Show();
                     }
                 }
