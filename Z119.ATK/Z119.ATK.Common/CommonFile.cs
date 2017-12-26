@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -42,6 +43,7 @@ namespace Z119.ATK.Common
                 flp.Controls.Add(new Label() { Text = "Danh sách các dự án:" });
                 profileList = new ListBox();
                 profileList.DataSource = dirEntries;
+                profileList.Size = new Size(200,200);
                 flp.Controls.Add(profileList);
                 //ok button
                 Button button1 = new Button();
@@ -151,7 +153,7 @@ namespace Z119.ATK.Common
             DialogResult result = inputBox.ShowDialog();
             string projectDir = Const.PATH_PROJECT+ "\\"+textBox.Text;
             Directory.CreateDirectory(projectDir);
-            dirEntries = Directory.GetFileSystemEntries(Const.PATH_PROJECT, "*", SearchOption.AllDirectories);
+            dirEntries = Directory.GetFileSystemEntries(Const.PATH_PROJECT, "*", SearchOption.TopDirectoryOnly);
             profileList.DataSource = dirEntries;
         }
 

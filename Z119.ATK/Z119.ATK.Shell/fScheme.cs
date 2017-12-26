@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,7 +40,18 @@ namespace Z119.ATK.Shell
             cmSelect.MenuItems.Add("Lấy giá trị điểm đo", new EventHandler(fScheme_SavePointData ));
             cmSelect.MenuItems.Add("Đặt giá trị tham chiếu", new EventHandler(fScheme_SavePointRefData));
             cmSelect.MenuItems.Add("Xóa điểm đo", new EventHandler(fScheme_DelPointData));
-            
+            //
+            this.LocationChanged += fScheme_LocationChanged;
+            this.ResizeEnd += fScheme_LocationChanged;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = Z119.ATK.Common.Const.proConf.fSchemeLocation;
+            this.Size = Z119.ATK.Common.Const.proConf.fSchemeSize;
+        }
+
+        private void fScheme_LocationChanged(object sender, EventArgs e)
+        {
+            Z119.ATK.Common.Const.proConf.fSchemeLocation = this.Location;
+            Z119.ATK.Common.Const.proConf.fSchemeSize = this.Size;
         }
 
         private void fScheme_SavePointRefData(object sender, EventArgs e)
@@ -226,14 +239,54 @@ namespace Z119.ATK.Shell
         {
             try
             {
-                image1 = (Bitmap)Image.FromFile(Z119.ATK.Common.Const.PATH_CURRENT + "\\" + "scheme.png", true);
+                Bitmap image;
+                string imgName = Z119.ATK.Common.Const.PATH_CURRENT + "\\" + "scheme.png";
+                if(System.IO.File.Exists(imgName))
+                {
+                    image = (Bitmap)Image.FromFile(Z119.ATK.Common.Const.PATH_CURRENT + "\\" + "scheme.png", true);
+                }
+                else
+                {
+                    Bitmap bmp = new Bitmap(1920, 1080);
+                    using (Graphics graph = Graphics.FromImage(bmp))
+                    {
+                        Rectangle ImageSize = new Rectangle(0, 0, 1920, 1080);
+                        graph.FillRectangle(Brushes.White, ImageSize);
+                    }
+                    bmp.Save(Z119.ATK.Common.Const.PATH_CURRENT + "\\" + "scheme.png");
+                    image = (Bitmap)Image.FromFile(Z119.ATK.Common.Const.PATH_CURRENT + "\\" + "scheme.png", true);
+                }
+                this.image1 = new Bitmap(image);
+                
             }
             catch (System.IO.FileNotFoundException)
             {
-                MessageBox.Show("Không tìm thấy sơ đồ.");
+                MessageBox.Show("Không tìm thấy sơ đồ");
+                
             }
 
         }
+        public void LoadScheme(string path)
+        {
+            Bitmap image = (Bitmap)Image.FromFile(path, true);
+            this.image1 = new Bitmap(image);
+            File.Copy(path, Z119.ATK.Common.Const.PATH_CURRENT + "\\" + "scheme.png",true);
+            //image1.Save(Z119.ATK.Common.Const.PATH_CURRENT + "\\" + "scheme.png", ImageFormat.Png);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog theDialog = new OpenFileDialog();
+            theDialog.Title = "Open image File";
+            theDialog.Filter = "PNG files|*.png";
+            theDialog.InitialDirectory = Z119.ATK.Common.Const.PATH_CURRENT;
+            if (theDialog.ShowDialog() == DialogResult.OK)
+            {
+                LoadScheme(theDialog.FileName);
+            }
+        }
+
+            
     }
     public class schemePoint
     {
@@ -259,12 +312,12 @@ namespace Z119.ATK.Shell
         }
         public void setMesData()
         {
-            Array.Copy( fOxiloForm.dataArrayOld,mesData, 600);
+            Array.Copy( fOxiloForm.dataArray,mesData, 600);
             DisplayDataToOscillo();
         }
         public void setRefData()
         {
-            Array.Copy(fOxiloForm.dataArrayRef, refData, 600);
+            Array.Copy(fOxiloForm.dataArray, refData, 600);
             DisplayDataToOscillo();
         }
         public bool Selected
@@ -277,12 +330,13 @@ namespace Z119.ATK.Shell
                 {
                     Form fc = Application.OpenForms["fOxiloForm"];
 
-                    if (fc==null)
+                    if (fc == null)
                     {
                         fOxiloForm foxilo = new fOxiloForm();
-                        DisplayDataToOscillo();
+                        
                         foxilo.Show();
                     }
+                    DisplayDataToOscillo();
                 }
             }
         }
