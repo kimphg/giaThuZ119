@@ -238,7 +238,22 @@ namespace Z119.ATK.Shell
         public bool Selected
         {
             get { return selected; }
-            set { selected = value; }
+            set 
+            { 
+                selected = value;
+                if (selected)
+                {
+                    Form fc = Application.OpenForms["Oscilloscope"];
+
+                    if (fc == null)
+                    {
+                        fOxiloForm foxilo = new fOxiloForm();
+                        foxilo.StartPosition = FormStartPosition.Manual;
+                        foxilo.TopMost = true;
+                        foxilo.Show();
+                    }
+                }
+            }
         }
         public schemePoint(Point pos)
         {
