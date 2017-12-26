@@ -14,8 +14,9 @@ namespace Z119.ATK.Shell
     public partial class fOxiloForm : Form
     {
         private Thread oscilloThread;
-        private int[] dataArray = new int[600];
-        private int[] dataArrayOld = new int[600];
+        public static int[] dataArray = new int[600];
+        public static int[] dataArrayOld = new int[600];
+        public static int[] dataArrayRef = new int[600];
         string deviceName;
         string dataLabel1 = "Data";
         string dataLabel2 = "Reference data";
@@ -44,7 +45,14 @@ namespace Z119.ATK.Shell
             //}
             
         }
-
+        public static void setReference(int[] data)
+        {
+            dataArrayRef = data;
+        }
+        public static int[] getData()
+        {
+           return dataArray;
+        }
         
         private void getOscilloData()
         {

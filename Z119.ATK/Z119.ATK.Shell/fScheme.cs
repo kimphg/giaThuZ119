@@ -14,6 +14,8 @@ namespace Z119.ATK.Shell
     {
         public Point Position;
         bool selected;
+        public int[] refData = new int[600];
+        public int[] mesData = new int[600];
         public bool Selected
         {
             get { return selected; }
@@ -52,9 +54,23 @@ namespace Z119.ATK.Shell
             cmNoselect.MenuItems.Add("Đặt điểm đo", new EventHandler(fScheme_NewPoint));
             cmNoselect.MenuItems.Add("Lưu sơ đồ đo", new EventHandler(fScheme_SavePointList));
             cmSelect = new ContextMenu();
-            cmSelect.MenuItems.Add("Lưu điểm đo", new EventHandler(fScheme_SavePointData));
+            cmSelect.MenuItems.Add("Lưu giá trị điểm đo", new EventHandler(fScheme_SavePointRefData));
+            cmSelect.MenuItems.Add("Đặt giá trị tham chiếu", new EventHandler(fScheme_SavePointData));
             cmSelect.MenuItems.Add("Xóa điểm đo", new EventHandler(fScheme_DelPointData));
             
+        }
+
+        private void fScheme_SavePointRefData(object sender, EventArgs e)
+        {
+            foreach (schemePoint p in schemePointList)
+            {
+                if (p.Selected)
+                {
+                    p.refData = fOxiloForm.getData();
+                    break;
+                }
+
+            }
         }
 
         private void LoadschemePoints()
@@ -85,7 +101,16 @@ namespace Z119.ATK.Shell
 
         private void fScheme_SavePointData(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            foreach (schemePoint p in schemePointList)
+            {
+                if (p.Selected)
+                {
+                    p.mesData = fOxiloForm.getData();
+                    break;
+                }
+
+            }
+        
         }
 
         private void fScheme_NewPoint(object sender, EventArgs e)
