@@ -120,9 +120,9 @@ namespace Z119.ATK.Common
             //System.Drawing.Size size = new System.Drawing.Size(200, 70);
             Form inputBox = new Form();
             FlowLayoutPanel flp = new FlowLayoutPanel();
-            inputBox.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            //inputBox.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             //inputBox.ClientSize = size;
-            inputBox.Text = "Đặt tên dự án mới";
+            inputBox.Text = "Nhập tên dự án mới";
 
             System.Windows.Forms.TextBox textBox = new TextBox();
             //textBox.Size = new System.Drawing.Size(size.Width - 10, 23);
@@ -150,11 +150,14 @@ namespace Z119.ATK.Common
             inputBox.AcceptButton = okButton;
             inputBox.CancelButton = cancelButton;
 
-            DialogResult result = inputBox.ShowDialog();
-            string projectDir = Const.PATH_PROJECT+ "\\"+textBox.Text;
-            Directory.CreateDirectory(projectDir);
-            dirEntries = Directory.GetFileSystemEntries(Const.PATH_PROJECT, "*", SearchOption.TopDirectoryOnly);
-            profileList.DataSource = dirEntries;
+            if(inputBox.ShowDialog()==DialogResult.OK)
+            {
+                string projectDir = Const.PATH_PROJECT + "\\" + textBox.Text;
+                Directory.CreateDirectory(projectDir);
+                dirEntries = Directory.GetFileSystemEntries(Const.PATH_PROJECT, "*", SearchOption.TopDirectoryOnly);
+                profileList.DataSource = dirEntries;
+            }
+            
         }
 
         private  void button1_Click(object sender, EventArgs e)
