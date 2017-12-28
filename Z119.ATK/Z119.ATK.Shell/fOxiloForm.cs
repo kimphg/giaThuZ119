@@ -8,15 +8,18 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Z119.ATK.Shell
 {
     public partial class fOxiloForm : Form
     {
+        private const int xRes = 600;
+        private const int yRes = 256;
         private Thread oscilloThread;
-        public static int[] dataArray = new int[600];
-        public static int[] dataArrayOld = new int[600];
-        public static int[] dataArrayRef = new int[600];
+        public static int[] dataArray = new int[xRes];
+        public static int[] dataArrayOld = new int[xRes];
+        public static int[] dataArrayRef = new int[xRes];
         string deviceName;
         string dataLabel1 = "Data";
         string dataLabel2 = "Reference data";
@@ -26,10 +29,18 @@ namespace Z119.ATK.Shell
         {
             
             InitializeComponent();
-            chart1.ChartAreas[0].AxisY.Maximum = 125;
-            chart1.ChartAreas[0].AxisY.Minimum = -125;
+            chart1.ChartAreas[0].AxisY.Maximum = 127;
+            chart1.ChartAreas[0].AxisY.Minimum = -127;
+            //grid
+            Grid xGrid = new Grid();
+            xGrid.Interval=(xRes/12);
+            chart1.ChartAreas[0].AxisX.MajorGrid = xGrid;
+            Grid yGrid = new Grid();
+            yGrid.Interval = (yRes / 8);
+            chart1.ChartAreas[0].AxisY.MajorGrid = yGrid;
+            //
             listBoxDevices.Items.Clear();
-            SharpVisaCLI.Program.List((inst) => { listBoxDevices.Items.Add(inst); });
+            SharpVisaCLI.Program.List((inst) => { if (inst.Contains("USB"))listBoxDevices.Items.Add(inst); });
             listBoxDevices.SetSelected(0,true);
             StartConnection();
             this.LocationChanged+=fOxiloForm_LocationChanged;
@@ -56,14 +67,36 @@ namespace Z119.ATK.Shell
         {
             
             var req = ":waveform:data?";
-            
+            int frameCounter = 0;
             while (true)
             {
                 SharpVisaCLI.Program.Send(deviceName, req, (res) =>
                 {
                     DrawData(res);
                 });
+                frameCounter++;
+                if (frameCounter >= 10)
+                {
+                    getOscilloScaleX();
+                    this.Invoke((MethodInvoker)delegate { UpdateData(); });
+                }
+
             }
+        }
+
+        private void UpdateData()
+        {
+            getOscilloScaleX();
+
+        }
+        private void getOscilloScaleX()
+        {
+
+            SharpVisaCLI.Program.Send(deviceName, ":timebase:scale?", (res) =>
+            {
+                label_timeScale.Text = res;
+            });
+            
         }
 
         private void DrawData(string res)

@@ -38,8 +38,14 @@
             this.listBoxDevices = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label_timeScale = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // chart1
@@ -49,6 +55,9 @@
             chartArea1.BorderColor = System.Drawing.Color.White;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Silver;
+            legend1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            legend1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(15, 11);
@@ -121,6 +130,84 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(219, 118);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Controls.Add(this.comboBox1);
+            this.flowLayoutPanel2.Controls.Add(this.label_timeScale);
+            this.flowLayoutPanel2.Controls.Add(this.comboBox2);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(326, 297);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(285, 118);
+            this.flowLayoutPanel2.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Điều khiển";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "5 s",
+            "2 s",
+            "1 s",
+            "500 ms",
+            "200 ms",
+            "100 ms",
+            "50 ms",
+            "20 ms",
+            "10 ms",
+            "5 ms",
+            "2 ms",
+            "1 ms",
+            "500 us",
+            "200 us"});
+            this.comboBox1.Location = new System.Drawing.Point(61, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(74, 21);
+            this.comboBox1.TabIndex = 6;
+            // 
+            // label_timeScale
+            // 
+            this.label_timeScale.AutoSize = true;
+            this.label_timeScale.Location = new System.Drawing.Point(141, 0);
+            this.label_timeScale.MinimumSize = new System.Drawing.Size(100, 20);
+            this.label_timeScale.Name = "label_timeScale";
+            this.label_timeScale.Size = new System.Drawing.Size(100, 20);
+            this.label_timeScale.TabIndex = 7;
+            this.label_timeScale.Text = "--";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "5 s",
+            "2 s",
+            "1 s",
+            "500 ms",
+            "200 ms",
+            "100 ms",
+            "50 ms",
+            "20 ms",
+            "10 ms",
+            "5 ms",
+            "2 ms",
+            "1 ms",
+            "500 us",
+            "200 us"});
+            this.comboBox2.Location = new System.Drawing.Point(3, 30);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(74, 21);
+            this.comboBox2.TabIndex = 6;
+            // 
             // fOxiloForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,12 +215,15 @@
             this.ClientSize = new System.Drawing.Size(616, 427);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.flowLayoutPanel2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fOxiloForm";
             this.Text = "Oscilloscope";
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -145,5 +235,10 @@
         private System.Windows.Forms.ListBox listBoxDevices;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label_timeScale;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
