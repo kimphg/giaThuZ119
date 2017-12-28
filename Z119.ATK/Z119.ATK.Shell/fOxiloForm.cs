@@ -24,7 +24,7 @@ namespace Z119.ATK.Shell
         string dataLabel1 = "Data";
         string dataLabel2 = "Reference data";
         private string dataLabel3 ="Old data";
-        
+        int currentChanel = 1;
         public fOxiloForm()
         {
             
@@ -77,7 +77,7 @@ namespace Z119.ATK.Shell
                 frameCounter++;
                 if (frameCounter >= 10)
                 {
-                    getOscilloScaleX();
+                    
                     this.Invoke((MethodInvoker)delegate { UpdateData(); });
                 }
 
@@ -87,7 +87,7 @@ namespace Z119.ATK.Shell
         private void UpdateData()
         {
             getOscilloScaleX();
-
+            getOscilloScaleY();
         }
         private void getOscilloScaleX()
         {
@@ -97,6 +97,15 @@ namespace Z119.ATK.Shell
                 label_timeScale.Text = res;
             });
             
+        }
+        private void getOscilloScaleY()
+        {
+
+            SharpVisaCLI.Program.Send(deviceName, ":CHAN"+currentChanel.ToString()+":SCAL?", (res) =>
+            {
+                label_yScale.Text = res;
+            });
+
         }
 
         private void DrawData(string res)
@@ -156,6 +165,34 @@ namespace Z119.ATK.Shell
         private void chart1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox_xscale_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string str = comboBox_xscale.SelectedItem.ToString();
+            double val = Double.Parse(str.Split(' ')[0]);
+            string unit = str.Split(' ')[1];
+            if (unit == "ms") val /= 1000.0;
+            else if (unit == "us") val /= 1000000.0;
+            string req = ":TIM"  + ":SCAL: " + val.ToString("e");
+            SharpVisaCLI.Program.Send(deviceName, req, null);
+            
+        }
+
+        private void comboBox_yscale_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string str = comboBox_xscale.SelectedItem.ToString();
+            double val = Double.Parse(str.Split(' ')[0]);
+            string unit = str.Split(' ')[1];
+            if (unit == "mV") val /= 1000.0;
+            string chanel = currentChanel.ToString();
+            string req = ":CHAN" + chanel + ":SCAL: " + val.ToString("e");
+            SharpVisaCLI.Program.Send(deviceName, req, null);
         }
     }
 }
