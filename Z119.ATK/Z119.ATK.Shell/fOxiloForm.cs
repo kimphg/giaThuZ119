@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -25,6 +26,7 @@ namespace Z119.ATK.Shell
         string dataLabel2 = "Reference data";
         private string dataLabel3 ="Old data";
         int currentChanel = 1;
+        volatile bool continueRead = false;
         public fOxiloForm()
         {
             
@@ -47,13 +49,17 @@ namespace Z119.ATK.Shell
             this.StartPosition = FormStartPosition.Manual;
             this.Location = Z119.ATK.Common.Const.proConf.fOsciloLocation;
             this.TopMost = true;
+            this.FormClosing += fOxiloForm_Onclosing;
         }
 
         private void fOxiloForm_LocationChanged(object sender, EventArgs e)
         {
             Z119.ATK.Common.Const.proConf.fOsciloLocation = this.Location;
         }
-
+        private void  fOxiloForm_Onclosing(object sender, EventArgs e)
+        {
+            continueRead = false;
+        }
         public static void setReference(int[] data)
         {
             dataArrayRef = data;
@@ -68,7 +74,8 @@ namespace Z119.ATK.Shell
             
             var req = ":waveform:data?";
             int frameCounter = 0;
-            while (true)
+            continueRead = true;
+            while (continueRead)
             {
                 SharpVisaCLI.Program.Send(deviceName, req, (res) =>
                 {
@@ -79,6 +86,7 @@ namespace Z119.ATK.Shell
                 {
                     
                     this.Invoke((MethodInvoker)delegate { UpdateData(); });
+                    frameCounter = 0;
                 }
 
             }
@@ -174,25 +182,38 @@ namespace Z119.ATK.Shell
 
         private void comboBox_xscale_SelectedIndexChanged(object sender, EventArgs e)
         {
+            NumberFormatInfo nfi = new NumberFormatInfo();
+            nfi.NumberDecimalSeparator = ".";
+            if (comboBox_xscale.SelectedItem == null) return;
             string str = comboBox_xscale.SelectedItem.ToString();
+            if (str == null) return;
             double val = Double.Parse(str.Split(' ')[0]);
             string unit = str.Split(' ')[1];
             if (unit == "ms") val /= 1000.0;
             else if (unit == "us") val /= 1000000.0;
-            string req = ":TIM"  + ":SCAL: " + val.ToString("e");
+            string req = ":TIM"  + ":SCAL " + val.ToString(nfi);
             SharpVisaCLI.Program.Send(deviceName, req, null);
             
         }
 
         private void comboBox_yscale_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string str = comboBox_xscale.SelectedItem.ToString();
+            NumberFormatInfo nfi = new NumberFormatInfo();
+            nfi.NumberDecimalSeparator = ".";
+            if (comboBox_yscale.SelectedItem == null) return;
+            string str = comboBox_yscale.SelectedItem.ToString();
+            if (str == null) return;
             double val = Double.Parse(str.Split(' ')[0]);
             string unit = str.Split(' ')[1];
             if (unit == "mV") val /= 1000.0;
             string chanel = currentChanel.ToString();
-            string req = ":CHAN" + chanel + ":SCAL: " + val.ToString("e");
+            string req = ":CHAN" + chanel + ":SCAL " + val.ToString(nfi);
             SharpVisaCLI.Program.Send(deviceName, req, null);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SharpVisaCLI.Program.Send(deviceName, textBox1.Text, null);
         }
     }
 }
