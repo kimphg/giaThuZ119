@@ -31,8 +31,12 @@ namespace Z119.ATK.Shell
         {
             
             InitializeComponent();
+            // set value range 
             chart1.ChartAreas[0].AxisY.Maximum = 127;
             chart1.ChartAreas[0].AxisY.Minimum = -127;
+            //hide number labels
+            chart1.ChartAreas[0].AxisX.LabelStyle.Enabled = false;
+            chart1.ChartAreas[0].AxisY.LabelStyle.Enabled = false;
             //grid
             Grid xGrid = new Grid();
             xGrid.Interval=(xRes/12);
@@ -102,7 +106,7 @@ namespace Z119.ATK.Shell
 
             SharpVisaCLI.Program.Send(deviceName, ":timebase:scale?", (res) =>
             {
-                label_timeScale.Text = res;
+                label_timeScale.Text = res.Substring(0, res.Length - 1);
             });
             
         }
@@ -111,7 +115,7 @@ namespace Z119.ATK.Shell
 
             SharpVisaCLI.Program.Send(deviceName, ":CHAN"+currentChanel.ToString()+":SCAL?", (res) =>
             {
-                label_yScale.Text = res;
+                label_yScale.Text = res.Substring(0, res.Length - 1);
             });
 
         }
@@ -179,9 +183,29 @@ namespace Z119.ATK.Shell
         {
 
         }
-
+        public void setScaleX(string str)
+        {
+            
+            string req = ":TIM" + ":SCAL " + str;
+            SharpVisaCLI.Program.Send(deviceName, req, null);
+        }
+        public string getScaleX()
+        {
+            return label_timeScale.Text;
+        }
+        public string getScaleY()
+        {
+            return label_yScale.Text;
+        }
+        public void setScaleY(string str)
+        {
+            
+            string req = ":TIM" + ":SCAL " + str;
+            SharpVisaCLI.Program.Send(deviceName, req, null);
+        }
         private void comboBox_xscale_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             NumberFormatInfo nfi = new NumberFormatInfo();
             nfi.NumberDecimalSeparator = ".";
             if (comboBox_xscale.SelectedItem == null) return;
@@ -191,8 +215,9 @@ namespace Z119.ATK.Shell
             string unit = str.Split(' ')[1];
             if (unit == "ms") val /= 1000.0;
             else if (unit == "us") val /= 1000000.0;
-            string req = ":TIM"  + ":SCAL " + val.ToString(nfi);
+            string req = ":TIM" + ":SCAL " + val.ToString(nfi);
             SharpVisaCLI.Program.Send(deviceName, req, null);
+            
             
         }
 
@@ -211,9 +236,6 @@ namespace Z119.ATK.Shell
             SharpVisaCLI.Program.Send(deviceName, req, null);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            SharpVisaCLI.Program.Send(deviceName, textBox1.Text, null);
-        }
+        
     }
 }
