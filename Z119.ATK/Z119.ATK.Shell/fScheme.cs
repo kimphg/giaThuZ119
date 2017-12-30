@@ -148,7 +148,7 @@ namespace Z119.ATK.Shell
         {
             _mousePressed = true;
             pOld = this.PointToClient(Cursor.Position);
-            if (CheckSelection(pOld))
+            if ((e.Button == System.Windows.Forms.MouseButtons.Left)& CheckSelection(pOld))
             {
                 pictureBox1.ContextMenu = cmSelect;
             }
@@ -291,40 +291,50 @@ namespace Z119.ATK.Shell
     public class schemePoint
     {
         public Point Position;
-        bool selected;
-        private int[] refData = new int[600];
-        private int[] mesData = new int[600];
-
-        public int[] MesData
-        {
-            get { return mesData; }
-            set { 
-                mesData = value;
-                DisplayDataToOscillo();
-                
-            }
-        }
+        public bool selected;
+        public int[] refData = new int[600];
+        public int[] mesData = new int[600];
+        public int scaleX = 1;
+        public int scaleY = 1;
 
         private void DisplayDataToOscillo()
         {
             Array.Copy(refData, fOxiloForm.dataArrayRef, 600);
             Array.Copy(mesData, fOxiloForm.dataArrayOld, 600);
+            
+            
+        }
+
+        private void setParamToOscillo()
+        {
+            fOxiloForm.setScaleX(scaleX);
+            fOxiloForm.setScaleY(scaleY);
         }
         public void setMesData()
         {
             Array.Copy( fOxiloForm.dataArray,mesData, 600);
+            getParamFronOscillo();
+            
             DisplayDataToOscillo();
+        }
+
+        private void getParamFronOscillo()
+        {
+            scaleX = fOxiloForm.getScaleX();
+            scaleY = fOxiloForm.getScaleY();
         }
         public void setRefData()
         {
             Array.Copy(fOxiloForm.dataArray, refData, 600);
+            getParamFronOscillo();
             DisplayDataToOscillo();
         }
         public bool Selected
         {
             get { return selected; }
             set 
-            { 
+            {
+                if (selected == value) return;
                 selected = value;
                 if (selected)
                 {
@@ -337,6 +347,7 @@ namespace Z119.ATK.Shell
                         foxilo.Show();
                     }
                     DisplayDataToOscillo();
+                    setParamToOscillo();
                 }
             }
         }

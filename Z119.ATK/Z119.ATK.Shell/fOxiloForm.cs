@@ -21,12 +21,15 @@ namespace Z119.ATK.Shell
         public static int[] dataArray = new int[xRes];
         public static int[] dataArrayOld = new int[xRes];
         public static int[] dataArrayRef = new int[xRes];
-        string deviceName;
+        static string deviceName;
         string dataLabel1 = "Data";
         string dataLabel2 = "Reference data";
         private string dataLabel3 ="Old data";
-        int currentChanel = 1;
+        static int currentChanel = 1;
         volatile bool continueRead = false;
+        private static int strXScale;
+        private static int strYScale;
+        private static volatile  bool paraChanged =  false;
         public fOxiloForm()
         {
             
@@ -54,6 +57,7 @@ namespace Z119.ATK.Shell
             this.Location = Z119.ATK.Common.Const.proConf.fOsciloLocation;
             this.TopMost = true;
             this.FormClosing += fOxiloForm_Onclosing;
+            setProbe(50);
         }
 
         private void fOxiloForm_LocationChanged(object sender, EventArgs e)
@@ -98,6 +102,12 @@ namespace Z119.ATK.Shell
 
         private void UpdateData()
         {
+            if (paraChanged)
+            {
+                comboBox_xscale.SelectedIndex = strXScale;
+                comboBox_yscale.SelectedIndex = strYScale;
+                paraChanged = false;
+            }
             getOscilloScaleX();
             getOscilloScaleY();
         }
@@ -106,7 +116,8 @@ namespace Z119.ATK.Shell
 
             SharpVisaCLI.Program.Send(deviceName, ":timebase:scale?", (res) =>
             {
-                label_timeScale.Text = res.Substring(0, res.Length - 1);
+                label_XScale.Text = res.Substring(0, res.Length - 1);
+                //strXScale = label_XScale.Text;
             });
             
         }
@@ -116,6 +127,7 @@ namespace Z119.ATK.Shell
             SharpVisaCLI.Program.Send(deviceName, ":CHAN"+currentChanel.ToString()+":SCAL?", (res) =>
             {
                 label_yScale.Text = res.Substring(0, res.Length - 1);
+                //strYScale = label_yScale.Text;
             });
 
         }
@@ -151,7 +163,7 @@ namespace Z119.ATK.Shell
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            deviceName = (string)listBoxDevices.SelectedItem;
+            
             StartConnection();
         }
 
@@ -183,24 +195,40 @@ namespace Z119.ATK.Shell
         {
 
         }
-        public void setScaleX(string str)
+        public static void setScaleX(int scale)
         {
-            
+            strXScale = scale;
+            paraChanged = true;
+        }
+        public static void setScaleY(int scale)
+        {
+            strYScale = scale;
+            paraChanged = true;
+        }
+        public static void setScaleX(string str)
+        {
             string req = ":TIM" + ":SCAL " + str;
             SharpVisaCLI.Program.Send(deviceName, req, null);
         }
-        public string getScaleX()
+        public static int getScaleX()
         {
-            return label_timeScale.Text;
+            return strXScale;
         }
-        public string getScaleY()
+        public static int getScaleY()
         {
-            return label_yScale.Text;
+            return strYScale;
         }
-        public void setScaleY(string str)
+        public static void setScaleY(string str)
         {
-            
-            string req = ":TIM" + ":SCAL " + str;
+            string chanel = currentChanel.ToString();
+            string req = ":CHAN" + chanel + ":SCAL " + str;
+            SharpVisaCLI.Program.Send(deviceName, req, null);
+        }
+        static void setProbe(int mult)
+        {
+           // :CHAN2:PROB 10 
+            string chanel = currentChanel.ToString();
+            string req = ":CHAN" + chanel + ":PROB " + mult.ToString();
             SharpVisaCLI.Program.Send(deviceName, req, null);
         }
         private void comboBox_xscale_SelectedIndexChanged(object sender, EventArgs e)
@@ -210,13 +238,14 @@ namespace Z119.ATK.Shell
             nfi.NumberDecimalSeparator = ".";
             if (comboBox_xscale.SelectedItem == null) return;
             string str = comboBox_xscale.SelectedItem.ToString();
+            strXScale = comboBox_xscale.SelectedIndex;
             if (str == null) return;
             double val = Double.Parse(str.Split(' ')[0]);
             string unit = str.Split(' ')[1];
             if (unit == "ms") val /= 1000.0;
             else if (unit == "us") val /= 1000000.0;
-            string req = ":TIM" + ":SCAL " + val.ToString(nfi);
-            SharpVisaCLI.Program.Send(deviceName, req, null);
+            setScaleX(val.ToString(nfi));
+            
             
             
         }
@@ -227,13 +256,13 @@ namespace Z119.ATK.Shell
             nfi.NumberDecimalSeparator = ".";
             if (comboBox_yscale.SelectedItem == null) return;
             string str = comboBox_yscale.SelectedItem.ToString();
+            strYScale = comboBox_yscale.SelectedIndex;
             if (str == null) return;
             double val = Double.Parse(str.Split(' ')[0]);
             string unit = str.Split(' ')[1];
             if (unit == "mV") val /= 1000.0;
-            string chanel = currentChanel.ToString();
-            string req = ":CHAN" + chanel + ":SCAL " + val.ToString(nfi);
-            SharpVisaCLI.Program.Send(deviceName, req, null);
+            setScaleY(val.ToString(nfi));
+            
         }
 
         
