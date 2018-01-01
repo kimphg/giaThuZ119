@@ -148,7 +148,7 @@ namespace Z119.ATK.Shell
         {
             _mousePressed = true;
             pOld = this.PointToClient(Cursor.Position);
-            if ((e.Button == System.Windows.Forms.MouseButtons.Left)& CheckSelection(pOld))
+            if ((e.Button == System.Windows.Forms.MouseButtons.Right)& CheckSelection(pOld))
             {
                 pictureBox1.ContextMenu = cmSelect;
             }

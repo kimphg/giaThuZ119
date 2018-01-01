@@ -10,6 +10,10 @@ namespace Z119.ATK.Common
     public class ProjectConfiguration
     {
         public Size fSchemeSize;
+        public string loadCtrl;
+        public string switchCtrl;
+        public string powerCtrl;
+        public string oscilloCtrl;
         public ProjectConfiguration()
         {
             fOsciloLocation = new Point(0, 0);
@@ -17,8 +21,8 @@ namespace Z119.ATK.Common
             fSchemeSize = new Size(800,600);
         }
 
-        public  Point  fOsciloLocation{ get; set; }
-        public Point fSchemeLocation { get; set; }
+        public Point fOsciloLocation;
+        public Point fSchemeLocation;
     }
     public class Const
     {

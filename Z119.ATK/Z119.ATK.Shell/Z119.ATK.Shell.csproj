@@ -77,6 +77,12 @@
     <Compile Include="fCheckForm.Designer.cs">
       <DependentUpon>fCheckForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormConnectionManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConnectionManager.Designer.cs">
+      <DependentUpon>FormConnectionManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="fPower1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fHelpForm.resx">
       <DependentUpon>fHelpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConnectionManager.resx">
+      <DependentUpon>FormConnectionManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fOxiloForm.resx">
       <DependentUpon>fOxiloForm.cs</DependentUpon>

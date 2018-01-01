@@ -170,7 +170,7 @@ namespace Z119.ATK.Shell
             //(sender as Project.fOpen).Close();
             
             EnableMenu();
-
+            
             tsmenuItemSystem.Enabled = false;
 
             if (frmPower != null)
@@ -184,7 +184,7 @@ namespace Z119.ATK.Shell
             
             //MessageBox.Show("Đã chọn dự án");
 
-            frmPower = new fPower1();
+            frmPower = new fPower1(Z119.ATK.Common.Const.proConf.powerCtrl);
             frmSwitch = Z119.ATK.Common.ProjectManager.OpenFile("fswitch") as fSwitchForm;//new fSwitchForm();
             if (frmSwitch == null) frmSwitch = new fSwitchForm();
             frmTai = new fLoadForm();
@@ -451,6 +451,13 @@ namespace Z119.ATK.Shell
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             projMan.SaveProjectConfig();
+        }
+
+        private void connectionManageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormConnectionManager connectionMan = new FormConnectionManager();
+            connectionMan.Show();
+            
         }
 
 

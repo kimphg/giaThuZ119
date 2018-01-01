@@ -20,13 +20,13 @@ namespace Z119.ATK.Shell
 	{
         SwitchManager _switchManager;
         SwitchBindingModel Model;
-
+        string portName;
         bool isConnection = false;
 
-		public fSwitchForm()
+		public fSwitchForm(string comportName)
 		{
 			InitializeComponent();
-
+            this.portName = comportName;
             _switchManager = new SwitchManager();
             _switchManager.mode = Mode.None;
             _switchManager.IsOn = false;

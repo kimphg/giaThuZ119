@@ -33,7 +33,7 @@ namespace Z119.ATK.Shell
             remove { _runRequiredFromServer -= value; }
         }
 
-        public fPower1()
+        public fPower1(string portname)
         {
             InitializeComponent();
 
