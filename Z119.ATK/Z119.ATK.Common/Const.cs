@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+//using Z119.ATK.Shell.Project;
 using System.Drawing;
 namespace Z119.ATK.Common
 {
@@ -14,6 +14,7 @@ namespace Z119.ATK.Common
         public string switchCtrl;
         public string powerCtrl;
         public string oscilloCtrl;
+        //public fMainWindow 
         public ProjectConfiguration()
         {
             fOsciloLocation = new Point(0, 0);
@@ -31,7 +32,7 @@ namespace Z119.ATK.Common
         public static string PATH_PROJECT = @"C:\ATK\Projects";
         public static string PATH_CURRENT = @"C:\ATK\";
        // public static string FOLDER_ROOT = "DuAn";
-        public static ProjectConfiguration proConf = new ProjectConfiguration();
+        public static ProjectConfiguration proConf = new ProjectConfiguration(); 
         public static string PROJECT_NAME = @"C:\ATK\Config";
 
         public static string FILE_NAME_PATH = "ProjectPath.txt";

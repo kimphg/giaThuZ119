@@ -30,6 +30,8 @@ namespace Z119.ATK.Shell
         private static int strXScale;
         private static int strYScale;
         private static volatile  bool paraChanged =  false;
+        private bool manualMode = false;
+
         public fOxiloForm()
         {
             
@@ -58,6 +60,9 @@ namespace Z119.ATK.Shell
             this.TopMost = true;
             this.FormClosing += fOxiloForm_Onclosing;
             setProbe(50);
+            SetOffset(0, 1);
+            SetOffset(0, 2);
+            UnlockControl();
         }
 
         private void fOxiloForm_LocationChanged(object sender, EventArgs e)
@@ -66,7 +71,7 @@ namespace Z119.ATK.Shell
         }
         private void  fOxiloForm_Onclosing(object sender, EventArgs e)
         {
-            continueRead = false;
+            StopConnection();
         }
         public static void setReference(int[] data)
         {
@@ -83,26 +88,62 @@ namespace Z119.ATK.Shell
             var req = ":waveform:data?";
             int frameCounter = 0;
             continueRead = true;
-            while (continueRead)
+            while(continueRead)
             {
-                SharpVisaCLI.Program.Send(deviceName, req, (res) =>
+                if(manualMode)
                 {
-                    DrawData(res);
-                });
-                frameCounter++;
-                if (frameCounter >= 10)
-                {
-                    
-                    this.Invoke((MethodInvoker)delegate { UpdateData(); });
-                    frameCounter = 0;
+                    SharpVisaCLI.Program.Send(deviceName, req, (res) =>
+                    {
+                        UpdateParamFromOscillo();
+                        UnlockControl();
+                        this.Invoke((MethodInvoker)delegate { Blink(2); });
+                        Thread.Sleep(50);
+                        DrawData(res);
+                        this.Invoke((MethodInvoker)delegate { Blink(3); });
+                        Thread.Sleep(2000);
+                    });
                 }
+                else
+                {
+                    Blink(1);
+                    SharpVisaCLI.Program.Send(deviceName, req, (res) =>
+                    {
+                        DrawData(res);
+                    });
+                    frameCounter++;
+                    if (frameCounter >= 10)
+                    {
 
+                        //this.Invoke((MethodInvoker)delegate { UpdateDataFromOscillo(); });
+                        frameCounter = 0;
+                    }
+                }
+                
+
+            }
+            UnlockControl();
+        }
+
+        private void Blink(int p)
+        {
+            if (p==3)
+            {
+                chart1.BackColor = Color.Orange;
+            }
+            else if (p == 2)
+            {
+                chart1.BackColor = Color.Green;
+
+            }
+            else 
+            {
+                chart1.BackColor = Color.Transparent;
             }
         }
 
-        private void UpdateData()
+        private void UpdateParamFromOscillo()
         {
-            if (paraChanged)
+            if (paraChanged) todohere
             {
                 comboBox_xscale.SelectedIndex = strXScale;
                 comboBox_yscale.SelectedIndex = strYScale;
@@ -277,18 +318,44 @@ namespace Z119.ATK.Shell
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
-            StopConnection();
+            manualMode = true;
+            //StopConnection();
+        }
+
+        private void LockControl()
+        {
+            string req = ":KEY:LOCK DISABLE";
+            SharpVisaCLI.Program.Send(deviceName, req, null);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StartConnection();
+            manualMode = false;
+            //UnlockControl();
+            //StartConnection();
+        }
+        private void SetOffset(double value,int chanel)
+        {
+            string val = value.ToString();
+            string req = ":CHAN" + chanel.ToString() + ":OFFS " + val;
+            SharpVisaCLI.Program.Send(deviceName, req, null);
+             
+        }
+        private void UnlockControl()
+        {
+            string req = ":KEY:LOCK DISABLE";
+            SharpVisaCLI.Program.Send(deviceName, req, null);
         }
 
         private void StopConnection()
         {
             continueRead = false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string req = textBox1.Text;
+            SharpVisaCLI.Program.Send(deviceName, req, null);
         }
 
         
