@@ -65,14 +65,14 @@ namespace Z119.ATK.Shell
 
             if (!string.IsNullOrEmpty(cmbAssemblyDiagram.Text))
                 cmbAssemblyDiagram_SelectionChangeCommitted(null, null);
-            if (!string.IsNullOrEmpty(cmbPrincipleDiagram.Text))
-                cmbPrincipleDiagram_SelectionChangeCommitted(null, null);
+            //if (!string.IsNullOrEmpty(cmbPrincipleDiagram.Text))
+            //    cmbPrincipleDiagram_SelectionChangeCommitted(null, null);
 
 
             splitContainer1.SplitterDistance = 400;
 
             // Mouse scroll for picture
-            panel16.MouseWheel += Panel16_MouseWheel;
+           // panel16.MouseWheel += Panel16_MouseWheel;
             panel17.MouseWheel += Panel17_MouseWheel;
 
         }
@@ -105,8 +105,7 @@ namespace Z119.ATK.Shell
         // Mouse scroll for picture PrincipleDiagram
         private void Panel16_MouseWheel(object sender, MouseEventArgs e)
         {
-            if (picPrincipleDiagram.Image == null)
-                return;
+            
 
             if (e.Delta > 0)
                 zoomPrincipleDiagram += 10;
@@ -124,7 +123,7 @@ namespace Z119.ATK.Shell
                 return;
             }
 
-            picPrincipleDiagram.Image = Zoom(imgOriginalPrincipleDiagram, new Size(zoomPrincipleDiagram, zoomPrincipleDiagram));
+            //picPrincipleDiagram.Image = Zoom(imgOriginalPrincipleDiagram, new Size(zoomPrincipleDiagram, zoomPrincipleDiagram));
         }
         
 
@@ -165,9 +164,6 @@ namespace Z119.ATK.Shell
             }
             catch (Exception ex) { }
 
-            cmbPrincipleDiagram.DataSource = lstFolder;
-            cmbPrincipleDiagram.DisplayMember = "Item1";
-            cmbPrincipleDiagram.ValueMember = "Item2";
         }
 
         private void ConvertModelToControl(CheckBindingModel model)
@@ -175,17 +171,7 @@ namespace Z119.ATK.Shell
             txbAmpeDD.Text = model.Ampe;
             txbVonDD1.Text = model.Von;
             txbVonDD2.Text = model.VonDenta;
-            if (!string.IsNullOrEmpty(model.PrincipleDiagram))
-                try
-                {
-                    cmbPrincipleDiagram.Text = model.PrincipleDiagram;
-                    picPrincipleDiagram.Image = Image.FromFile(cmbPrincipleDiagram.SelectedValue.ToString());
-                }
-                catch (Exception)
-                {
-                    
-                }
-                
+            
             if (!string.IsNullOrEmpty(model.AssemblyDiagram))
                 try
                 {
@@ -211,10 +197,7 @@ namespace Z119.ATK.Shell
             else
                 model.AssemblyDiagram = "";
 
-            if (!string.IsNullOrEmpty(cmbPrincipleDiagram.Text))
-                model.PrincipleDiagram = cmbPrincipleDiagram.Text;
-            else
-                model.PrincipleDiagram = "";
+            
 
             if (!string.IsNullOrEmpty(ricGuideDocument.Text))
                 model.GuideDocument = ricGuideDocument.Text;
@@ -289,8 +272,8 @@ namespace Z119.ATK.Shell
 
         private void cmbPrincipleDiagram_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            picPrincipleDiagram.Image = Image.FromFile(cmbPrincipleDiagram.SelectedValue.ToString());
-            imgOriginalPrincipleDiagram = picPrincipleDiagram.Image;
+            //picPrincipleDiagram.Image = Image.FromFile(cmbPrincipleDiagram.SelectedValue.ToString());
+            //imgOriginalPrincipleDiagram = picPrincipleDiagram.Image;
         }
 
         private void cmbAssemblyDiagram_SelectionChangeCommitted(object sender, EventArgs e)
@@ -384,27 +367,17 @@ namespace Z119.ATK.Shell
 
         private void splitContainer2_SplitterMoved(object sender, SplitterEventArgs e)
         {
-            if ((sender as SplitContainer).SplitterDistance > (sender as SplitContainer).Width / 2)
-            {
-                btnCloseOpenExpand1.Text = "<<";
-                btnCloseOpenExpand2.Text = "<<";
-            }
-            else if ((sender as SplitContainer).SplitterDistance == (sender as SplitContainer).Width / 2)
-            {
-                btnCloseOpenExpand1.Text = "<<";
-                btnCloseOpenExpand2.Text = ">>";
-            }
-            else
-            {
-                btnCloseOpenExpand1.Text = ">>";
-                btnCloseOpenExpand2.Text = ">>";
-            }
-                
+           
         }
 
         private void fCheckForm_Resize(object sender, EventArgs e)
         {
             splitContainer1.SplitterDistance = 400;
+        }
+
+        private void splitContainer2_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

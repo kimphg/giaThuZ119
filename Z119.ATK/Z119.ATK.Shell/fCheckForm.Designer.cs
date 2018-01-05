@@ -30,20 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.btnCloseOpenExpand1 = new System.Windows.Forms.Button();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.cmbPrincipleDiagram = new System.Windows.Forms.ComboBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.btnCloseOpenExpand2 = new System.Windows.Forms.Button();
-            this.panel17 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cmbAssemblyDiagram = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -81,18 +67,16 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel18 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.picPrincipleDiagram = new Z119.ATK.Shell.MyControls.MyImage();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbAssemblyDiagram = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.panel17 = new System.Windows.Forms.Panel();
             this.picAssemblyDiagram = new Z119.ATK.Shell.MyControls.MyImage();
+            this.btnCloseOpenExpand2 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.panel14.SuspendLayout();
-            this.panel17.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -106,8 +90,13 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picPrincipleDiagram)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            this.panel14.SuspendLayout();
+            this.panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAssemblyDiagram)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -121,193 +110,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(934, 782);
             this.panel3.TabIndex = 1;
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.splitContainer2);
-            this.panel1.Location = new System.Drawing.Point(11, 119);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(915, 653);
-            this.panel1.TabIndex = 3;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(2);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer2.Panel1.Controls.Add(this.panel13);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.panel14);
-            this.splitContainer2.Size = new System.Drawing.Size(913, 651);
-            this.splitContainer2.SplitterDistance = 409;
-            this.splitContainer2.SplitterWidth = 11;
-            this.splitContainer2.TabIndex = 0;
-            this.splitContainer2.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer2_SplitterMoved);
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.SystemColors.Control;
-            this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel13.Controls.Add(this.btnCloseOpenExpand1);
-            this.panel13.Controls.Add(this.panel16);
-            this.panel13.Controls.Add(this.label10);
-            this.panel13.Controls.Add(this.cmbPrincipleDiagram);
-            this.panel13.Controls.Add(this.label8);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel13.Location = new System.Drawing.Point(0, 0);
-            this.panel13.Margin = new System.Windows.Forms.Padding(2);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(409, 651);
-            this.panel13.TabIndex = 1;
-            // 
-            // btnCloseOpenExpand1
-            // 
-            this.btnCloseOpenExpand1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCloseOpenExpand1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseOpenExpand1.Location = new System.Drawing.Point(206, 2);
-            this.btnCloseOpenExpand1.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCloseOpenExpand1.Name = "btnCloseOpenExpand1";
-            this.btnCloseOpenExpand1.Size = new System.Drawing.Size(76, 26);
-            this.btnCloseOpenExpand1.TabIndex = 12;
-            this.btnCloseOpenExpand1.Text = "<<";
-            this.btnCloseOpenExpand1.UseVisualStyleBackColor = false;
-            this.btnCloseOpenExpand1.Click += new System.EventHandler(this.btnCloseOpenExpand1_Click);
-            // 
-            // panel16
-            // 
-            this.panel16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel16.Controls.Add(this.picPrincipleDiagram);
-            this.panel16.Location = new System.Drawing.Point(13, 72);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(378, 567);
-            this.panel16.TabIndex = 11;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label10.Location = new System.Drawing.Point(15, 43);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(85, 20);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Chọn hình:";
-            // 
-            // cmbPrincipleDiagram
-            // 
-            this.cmbPrincipleDiagram.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPrincipleDiagram.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbPrincipleDiagram.FormattingEnabled = true;
-            this.cmbPrincipleDiagram.Location = new System.Drawing.Point(104, 37);
-            this.cmbPrincipleDiagram.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbPrincipleDiagram.Name = "cmbPrincipleDiagram";
-            this.cmbPrincipleDiagram.Size = new System.Drawing.Size(180, 28);
-            this.cmbPrincipleDiagram.TabIndex = 10;
-            this.cmbPrincipleDiagram.SelectionChangeCommitted += new System.EventHandler(this.cmbPrincipleDiagram_SelectionChangeCommitted);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Blue;
-            this.label8.Location = new System.Drawing.Point(9, 8);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(175, 25);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Sơ đồ nguyên lý:";
-            // 
-            // panel14
-            // 
-            this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel14.Controls.Add(this.btnCloseOpenExpand2);
-            this.panel14.Controls.Add(this.panel17);
-            this.panel14.Controls.Add(this.label11);
-            this.panel14.Controls.Add(this.cmbAssemblyDiagram);
-            this.panel14.Controls.Add(this.label9);
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel14.Location = new System.Drawing.Point(0, 0);
-            this.panel14.Margin = new System.Windows.Forms.Padding(2);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(493, 651);
-            this.panel14.TabIndex = 2;
-            // 
-            // btnCloseOpenExpand2
-            // 
-            this.btnCloseOpenExpand2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCloseOpenExpand2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseOpenExpand2.Location = new System.Drawing.Point(209, 2);
-            this.btnCloseOpenExpand2.Margin = new System.Windows.Forms.Padding(2);
-            this.btnCloseOpenExpand2.Name = "btnCloseOpenExpand2";
-            this.btnCloseOpenExpand2.Size = new System.Drawing.Size(76, 26);
-            this.btnCloseOpenExpand2.TabIndex = 14;
-            this.btnCloseOpenExpand2.Text = ">>";
-            this.btnCloseOpenExpand2.UseVisualStyleBackColor = false;
-            this.btnCloseOpenExpand2.Click += new System.EventHandler(this.btnCloseOpenExpand2_Click);
-            // 
-            // panel17
-            // 
-            this.panel17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel17.Controls.Add(this.picAssemblyDiagram);
-            this.panel17.Location = new System.Drawing.Point(10, 72);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(463, 562);
-            this.panel17.TabIndex = 13;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label11.Location = new System.Drawing.Point(19, 43);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(85, 20);
-            this.label11.TabIndex = 11;
-            this.label11.Text = "Chọn hình:";
-            // 
-            // cmbAssemblyDiagram
-            // 
-            this.cmbAssemblyDiagram.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAssemblyDiagram.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbAssemblyDiagram.FormattingEnabled = true;
-            this.cmbAssemblyDiagram.Location = new System.Drawing.Point(107, 37);
-            this.cmbAssemblyDiagram.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbAssemblyDiagram.Name = "cmbAssemblyDiagram";
-            this.cmbAssemblyDiagram.Size = new System.Drawing.Size(180, 28);
-            this.cmbAssemblyDiagram.TabIndex = 12;
-            this.cmbAssemblyDiagram.SelectionChangeCommitted += new System.EventHandler(this.cmbAssemblyDiagram_SelectionChangeCommitted);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Blue;
-            this.label9.Location = new System.Drawing.Point(6, 8);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(148, 25);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Sơ đồ lắp ráp:";
             // 
             // panel5
             // 
@@ -573,13 +375,11 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.ricGuideDocument);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(296, 782);
             this.panel2.TabIndex = 0;
@@ -717,14 +517,89 @@
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
             // 
-            // picPrincipleDiagram
+            // splitContainer2
             // 
-            this.picPrincipleDiagram.Location = new System.Drawing.Point(4, 3);
-            this.picPrincipleDiagram.Name = "picPrincipleDiagram";
-            this.picPrincipleDiagram.Size = new System.Drawing.Size(372, 562);
-            this.picPrincipleDiagram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.picPrincipleDiagram.TabIndex = 0;
-            this.picPrincipleDiagram.TabStop = false;
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(2);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer2.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer2_Panel1_Paint);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.panel14);
+            this.splitContainer2.Size = new System.Drawing.Size(913, 651);
+            this.splitContainer2.SplitterDistance = 25;
+            this.splitContainer2.SplitterWidth = 11;
+            this.splitContainer2.TabIndex = 0;
+            this.splitContainer2.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer2_SplitterMoved);
+            // 
+            // panel14
+            // 
+            this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel14.Controls.Add(this.btnCloseOpenExpand2);
+            this.panel14.Controls.Add(this.panel17);
+            this.panel14.Controls.Add(this.label11);
+            this.panel14.Controls.Add(this.cmbAssemblyDiagram);
+            this.panel14.Controls.Add(this.label9);
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel14.Location = new System.Drawing.Point(0, 0);
+            this.panel14.Margin = new System.Windows.Forms.Padding(2);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(877, 651);
+            this.panel14.TabIndex = 2;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Blue;
+            this.label9.Location = new System.Drawing.Point(6, 8);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(148, 25);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Sơ đồ lắp ráp:";
+            // 
+            // cmbAssemblyDiagram
+            // 
+            this.cmbAssemblyDiagram.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAssemblyDiagram.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbAssemblyDiagram.FormattingEnabled = true;
+            this.cmbAssemblyDiagram.Location = new System.Drawing.Point(107, 37);
+            this.cmbAssemblyDiagram.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbAssemblyDiagram.Name = "cmbAssemblyDiagram";
+            this.cmbAssemblyDiagram.Size = new System.Drawing.Size(180, 28);
+            this.cmbAssemblyDiagram.TabIndex = 12;
+            this.cmbAssemblyDiagram.SelectionChangeCommitted += new System.EventHandler(this.cmbAssemblyDiagram_SelectionChangeCommitted);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label11.Location = new System.Drawing.Point(19, 43);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(85, 20);
+            this.label11.TabIndex = 11;
+            this.label11.Text = "Chọn hình:";
+            // 
+            // panel17
+            // 
+            this.panel17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel17.Controls.Add(this.picAssemblyDiagram);
+            this.panel17.Location = new System.Drawing.Point(10, 72);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(847, 562);
+            this.panel17.TabIndex = 13;
             // 
             // picAssemblyDiagram
             // 
@@ -734,6 +609,32 @@
             this.picAssemblyDiagram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.picAssemblyDiagram.TabIndex = 0;
             this.picAssemblyDiagram.TabStop = false;
+            // 
+            // btnCloseOpenExpand2
+            // 
+            this.btnCloseOpenExpand2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCloseOpenExpand2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseOpenExpand2.Location = new System.Drawing.Point(209, 2);
+            this.btnCloseOpenExpand2.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCloseOpenExpand2.Name = "btnCloseOpenExpand2";
+            this.btnCloseOpenExpand2.Size = new System.Drawing.Size(76, 26);
+            this.btnCloseOpenExpand2.TabIndex = 14;
+            this.btnCloseOpenExpand2.Text = ">>";
+            this.btnCloseOpenExpand2.UseVisualStyleBackColor = false;
+            this.btnCloseOpenExpand2.Click += new System.EventHandler(this.btnCloseOpenExpand2_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.splitContainer2);
+            this.panel1.Location = new System.Drawing.Point(11, 119);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(915, 653);
+            this.panel1.TabIndex = 3;
             // 
             // fCheckForm
             // 
@@ -747,19 +648,6 @@
             this.Text = "KIỂM TRA";
             this.Resize += new System.EventHandler(this.fCheckForm_Resize);
             this.panel3.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
-            this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
-            this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
-            this.panel17.ResumeLayout(false);
-            this.panel17.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -777,8 +665,15 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picPrincipleDiagram)).EndInit();
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            this.panel14.ResumeLayout(false);
+            this.panel14.PerformLayout();
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAssemblyDiagram)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -807,21 +702,11 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txbAmpeRa;
         private System.Windows.Forms.TextBox txbVonRa;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel15;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cmbAssemblyDiagram;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cmbPrincipleDiagram;
-        private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Panel panel17;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripMenuItem mởToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lưuToolStripMenuItem;
@@ -832,12 +717,15 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button btnSplist;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.Button btnSplist;
-        private System.Windows.Forms.Button btnCloseOpenExpand1;
+        private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button btnCloseOpenExpand2;
-        private MyControls.MyImage picPrincipleDiagram;
+        private System.Windows.Forms.Panel panel17;
         private MyControls.MyImage picAssemblyDiagram;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cmbAssemblyDiagram;
+        private System.Windows.Forms.Label label9;
     }
 }

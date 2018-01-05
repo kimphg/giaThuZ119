@@ -23,10 +23,10 @@ namespace Z119.ATK.Shell
         string portName;
         bool isConnection = false;
 
-		public fSwitchForm(string comportName)
+		public fSwitchForm()
 		{
 			InitializeComponent();
-            this.portName = comportName;
+            this.portName = Z119.ATK.Common.Const.proConf.switchCtrl;
             _switchManager = new SwitchManager();
             _switchManager.mode = Mode.None;
             _switchManager.IsOn = false;
@@ -116,14 +116,14 @@ namespace Z119.ATK.Shell
             {
                 if (!serialPort1.IsOpen)
                 {
-                    serialPort1.PortName = "COM1";
+                    serialPort1.PortName = Z119.ATK.Common.Const.proConf.switchCtrl;
                     serialPort1.Open();
                     _switchManager.IsOn = true;
                 }
             }
             catch
             {
-                MessageBox.Show("Không thể mở cổng " + serialPort1.PortName, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Không thể mở cổng " + serialPort1.PortName, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 btnOnOff.Enabled = false;
                 _switchManager.IsOn = false;
             }

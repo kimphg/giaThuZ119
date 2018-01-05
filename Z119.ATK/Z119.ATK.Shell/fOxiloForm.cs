@@ -48,9 +48,9 @@ namespace Z119.ATK.Shell
             yGrid.Interval = (yRes / 8);
             chart1.ChartAreas[0].AxisY.MajorGrid = yGrid;
             //
-            listBoxDevices.Items.Clear();
-            SharpVisaCLI.Program.List((inst) => { if (inst.Contains("USB"))listBoxDevices.Items.Add(inst); });
-            listBoxDevices.SetSelected(0,true);
+            //listBoxDevices.Items.Clear();
+            //SharpVisaCLI.Program.List((inst) => { if (inst.Contains("USB"))listBoxDevices.Items.Add(inst); });
+            //listBoxDevices.SetSelected(0,true);
             StartConnection();
             this.LocationChanged+=fOxiloForm_LocationChanged;
             this.StartPosition = FormStartPosition.Manual;
@@ -110,6 +110,16 @@ namespace Z119.ATK.Shell
             }
             getOscilloScaleX();
             getOscilloScaleY();
+            getoscilloParam();
+        }
+
+        private void getoscilloParam()
+        {
+            SharpVisaCLI.Program.Send(deviceName, "*IDN?", (res) =>
+            {
+                label2.Text = res.Substring(0, res.Length - 1);
+                //strXScale = label_XScale.Text;
+            });
         }
         private void getOscilloScaleX()
         {
@@ -169,8 +179,8 @@ namespace Z119.ATK.Shell
 
         private void StartConnection()
         {
-            
-            deviceName = (string)listBoxDevices.SelectedItem;
+
+            deviceName = Common.Const.proConf.oscilloCtrl;
             oscilloThread = new Thread(new ThreadStart(getOscilloData));
             oscilloThread.IsBackground = true;
             oscilloThread.Start();
@@ -263,6 +273,22 @@ namespace Z119.ATK.Shell
             if (unit == "mV") val /= 1000.0;
             setScaleY(val.ToString(nfi));
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            StopConnection();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            StartConnection();
+        }
+
+        private void StopConnection()
+        {
+            continueRead = false;
         }
 
         

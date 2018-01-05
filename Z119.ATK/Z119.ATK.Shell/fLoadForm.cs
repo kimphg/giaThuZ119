@@ -45,12 +45,12 @@ namespace Z119.ATK.Shell
         {
             try
             {
-                serialPort1.PortName = "COM3";
+                serialPort1.PortName = Z119.ATK.Common.Const.proConf.loadCtrl;
                 serialPort1.Open();
             }
             catch
             {
-                MessageBox.Show("Không thể mở cổng " + serialPort1.PortName, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Không thể mở cổng " + serialPort1.PortName, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 btnOnOff.Enabled = false;
             }
 

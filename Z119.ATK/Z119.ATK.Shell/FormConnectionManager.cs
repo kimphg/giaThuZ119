@@ -24,6 +24,7 @@ namespace Z119.ATK.Shell
             comboBox_LoadControl.DataSource = listBox1.Items;
             comboBox_switchControl.DataSource = listBox1.Items;
             //comboBox_powerControl.DataSource = listBox1.Items;
+            SharpVisaCLI.Program.List((inst) => { if (inst.Contains("USB"))listBox2.Items.Add(inst); });
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -31,6 +32,16 @@ namespace Z119.ATK.Shell
             Z119.ATK.Common.Const.proConf.loadCtrl   = comboBox_LoadControl.SelectedItem.ToString();
             //Z119.ATK.Common.Const.proConf.powerCtrl  = comboBox_powerControl.SelectedItem.ToString();
             Z119.ATK.Common.Const.proConf.switchCtrl = comboBox_switchControl.SelectedItem.ToString();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Common.Const.proConf.oscilloCtrl =  listBox2.SelectedItem.ToString();
         }
     }
 }

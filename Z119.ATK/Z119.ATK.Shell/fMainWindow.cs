@@ -37,11 +37,30 @@ namespace Z119.ATK.Shell
             
             projMan.SelectedProject += frm_SelectedProject;
             projMan.LoadProject();
+            this.FormClosing += fMainWindow_FormClosing;
             //fOxiloForm formtest = new fOxiloForm();
             //formtest.MdiParent = this;
 
             //formtest.Show();
             // End Menu project
+        }
+
+        void fMainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn lưu phiên làm việc hiện tại vào dự án?", "Thoát chương trình",
+            MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                projMan.SaveProjectConfig();
+            }
+            else if (result == DialogResult.No)
+            {
+                
+            }
+            else if (result == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
         }
 
         // *************************************************************************************
@@ -184,7 +203,7 @@ namespace Z119.ATK.Shell
             
             //MessageBox.Show("Đã chọn dự án");
 
-            frmPower = new fPower1(Z119.ATK.Common.Const.proConf.powerCtrl);
+            frmPower = new fPower1();
             frmSwitch = Z119.ATK.Common.ProjectManager.OpenFile("fswitch") as fSwitchForm;//new fSwitchForm();
             if (frmSwitch == null) frmSwitch = new fSwitchForm();
             frmTai = new fLoadForm();
