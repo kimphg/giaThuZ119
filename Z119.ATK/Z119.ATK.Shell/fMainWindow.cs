@@ -235,7 +235,7 @@ namespace Z119.ATK.Shell
 
             frmTai.WindowState = FormWindowState.Normal;
             frmTai.StartPosition = FormStartPosition.Manual;
-            frmTai.Show();
+            //frmTai.Show();
             frmTai.Location = new Point(1247, 0);
 
             fcheck.WindowState = FormWindowState.Normal;
@@ -246,13 +246,7 @@ namespace Z119.ATK.Shell
             fcheck.StartAll += fcheck_StartAll;
             fcheck.StopAll += fcheck_StopAll;
             // newcode start
-            fScheme fSodo = new fScheme();
-            fSodo.WindowState = FormWindowState.Normal;
-            fSodo.StartPosition = FormStartPosition.Manual;
-            fSodo.MdiParent = this;
-            fSodo.Show();
-            fSodo.Location = new Point(100, 100);
-            fSodo.LoadScheme();
+            
         }
 
         private void Fcheck_FormClosing(object sender, FormClosingEventArgs e)

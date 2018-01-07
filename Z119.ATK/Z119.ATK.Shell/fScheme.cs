@@ -44,8 +44,9 @@ namespace Z119.ATK.Shell
             this.LocationChanged += fScheme_LocationChanged;
             this.ResizeEnd += fScheme_LocationChanged;
             this.StartPosition = FormStartPosition.Manual;
-            this.Location = Z119.ATK.Common.Const.proConf.fSchemeLocation;
-            this.Size = Z119.ATK.Common.Const.proConf.fSchemeSize;
+            //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            //this.Location = //Z119.ATK.Common.Const.proConf.fSchemeLocation;
+            //this.Size = //Z119.ATK.Common.Const.proConf.fSchemeSize;
         }
 
         private void fScheme_LocationChanged(object sender, EventArgs e)
@@ -268,10 +269,17 @@ namespace Z119.ATK.Shell
         }
         public void LoadScheme(string path)
         {
-            Bitmap image = (Bitmap)Image.FromFile(path, true);
-            this.image1 = new Bitmap(image);
-            File.Copy(path, Z119.ATK.Common.Const.PATH_CURRENT + "\\" + "scheme.png",true);
-            //image1.Save(Z119.ATK.Common.Const.PATH_CURRENT + "\\" + "scheme.png", ImageFormat.Png);
+            try
+            {
+                Bitmap image = (Bitmap)Image.FromFile(path, true);
+                this.image1 = new Bitmap(image);
+                File.Copy(path, Z119.ATK.Common.Const.PATH_CURRENT + "\\" + "scheme.png", true);
+                //image1.Save(Z119.ATK.Common.Const.PATH_CURRENT + "\\" + "scheme.png", ImageFormat.Png);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -294,15 +302,14 @@ namespace Z119.ATK.Shell
         public bool selected;
         public int[] refData = new int[600];
         public int[] mesData = new int[600];
-        public int scaleX = 1;
-        public int scaleY = 1;
+        public string scaleX = "";
+        public string scaleY = "";
 
         private void DisplayDataToOscillo()
         {
             Array.Copy(refData, fOxiloForm.dataArrayRef, 600);
             Array.Copy(mesData, fOxiloForm.dataArrayOld, 600);
-            
-            
+
         }
 
         private void setParamToOscillo()

@@ -27,8 +27,8 @@ namespace Z119.ATK.Shell
         private string dataLabel3 ="Old data";
         static int currentChanel = 1;
         volatile bool continueRead = false;
-        private static int strXScale;
-        private static int strYScale;
+        private static string strXScale;
+        private static string strYScale;
         private static volatile  bool paraChanged =  false;
         private bool manualMode = false;
 
@@ -90,6 +90,7 @@ namespace Z119.ATK.Shell
             continueRead = true;
             while(continueRead)
             {
+
                 if(manualMode)
                 {
                     SharpVisaCLI.Program.Send(deviceName, req, (res) =>
@@ -97,24 +98,34 @@ namespace Z119.ATK.Shell
                         UpdateParamFromOscillo();
                         UnlockControl();
                         this.Invoke((MethodInvoker)delegate { Blink(2); });
-                        Thread.Sleep(50);
                         DrawData(res);
+                        Thread.Sleep(500);
                         this.Invoke((MethodInvoker)delegate { Blink(3); });
-                        Thread.Sleep(2000);
+                        Thread.Sleep(500);
                     });
                 }
                 else
                 {
-                    Blink(1);
+                    //this.Invoke((MethodInvoker)delegate { Blink(1); });
                     SharpVisaCLI.Program.Send(deviceName, req, (res) =>
                     {
                         DrawData(res);
                     });
                     frameCounter++;
+                    if (paraChanged)
+                    {
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            comboBox_xscale.Text = strXScale;
+                            comboBox_yscale.Text = strYScale;
+                        });
+                        paraChanged = false;
+                        UpdateXscale();
+                        UpdateYscale();
+                    }
                     if (frameCounter >= 10)
                     {
-
-                        //this.Invoke((MethodInvoker)delegate { UpdateDataFromOscillo(); });
+                        this.Invoke((MethodInvoker)delegate { UpdateParamFromOscillo(); });
                         frameCounter = 0;
                     }
                 }
@@ -124,42 +135,55 @@ namespace Z119.ATK.Shell
             UnlockControl();
         }
 
+        private void setOscilloParam()
+        {
+            
+        }
+
         private void Blink(int p)
         {
             if (p==3)
             {
-                chart1.BackColor = Color.Orange;
+                button2.BackColor = Color.Orange;
             }
             else if (p == 2)
             {
-                chart1.BackColor = Color.Green;
+                button2.BackColor = Color.Yellow;
 
             }
             else 
             {
-                chart1.BackColor = Color.Transparent;
+                button2.BackColor = Color.Transparent;
             }
         }
 
         private void UpdateParamFromOscillo()
         {
-            if (paraChanged) todohere
-            {
-                comboBox_xscale.SelectedIndex = strXScale;
-                comboBox_yscale.SelectedIndex = strYScale;
-                paraChanged = false;
-            }
+            
             getOscilloScaleX();
             getOscilloScaleY();
-            getoscilloParam();
+            getoscilloIDN();
+            if (!manualMode)
+            {
+                try
+                {
+                    strXScale = comboBox_xscale.Text;
+                    strYScale = comboBox_yscale.Text;
+                }
+                catch (Exception e)
+                {
+                    return;
+                }
+            }
+            
         }
 
-        private void getoscilloParam()
+        private void getoscilloIDN()
         {
             SharpVisaCLI.Program.Send(deviceName, "*IDN?", (res) =>
             {
                 label2.Text = res.Substring(0, res.Length - 1);
-                //strXScale = label_XScale.Text;
+                //strXScale = comboBox_xscale.Text;
             });
         }
         private void getOscilloScaleX()
@@ -167,8 +191,15 @@ namespace Z119.ATK.Shell
 
             SharpVisaCLI.Program.Send(deviceName, ":timebase:scale?", (res) =>
             {
-                label_XScale.Text = res.Substring(0, res.Length - 1);
-                //strXScale = label_XScale.Text;
+                string input = res.Substring(0, res.Length - 1);
+                double dbScaleX = Double.Parse(input, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
+                string unitX = "s";
+                if (dbScaleX < 1.0) { dbScaleX *= 1000.0; unitX = "ms"; }
+                if (dbScaleX < 1.0) { dbScaleX *= 1000.0; unitX = "us"; }
+                this.Invoke((MethodInvoker)delegate
+                {
+                    comboBox_xscale.Text = dbScaleX.ToString() + " " + unitX;
+                });
             });
             
         }
@@ -177,8 +208,14 @@ namespace Z119.ATK.Shell
 
             SharpVisaCLI.Program.Send(deviceName, ":CHAN"+currentChanel.ToString()+":SCAL?", (res) =>
             {
-                label_yScale.Text = res.Substring(0, res.Length - 1);
-                //strYScale = label_yScale.Text;
+                string input = res.Substring(0, res.Length - 1);
+                double dbScaleY = Double.Parse(input, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
+                string unitY = "V";
+                if (dbScaleY < 1.0) { dbScaleY *= 1000.0; unitY = "mV"; }
+                if (dbScaleY < 1.0) { dbScaleY *= 1000.0; unitY = "uV"; }
+                this.Invoke((MethodInvoker)delegate {
+                    comboBox_yscale.Text = dbScaleY.ToString() + " " + unitY;
+                }); 
             });
 
         }
@@ -246,30 +283,30 @@ namespace Z119.ATK.Shell
         {
 
         }
-        public static void setScaleX(int scale)
+        public static void setScaleX(string scale)
         {
             strXScale = scale;
             paraChanged = true;
         }
-        public static void setScaleY(int scale)
+        public static void setScaleY(string scale)
         {
             strYScale = scale;
             paraChanged = true;
         }
-        public static void setScaleX(string str)
+        public static void sendScaleX(string str)
         {
             string req = ":TIM" + ":SCAL " + str;
             SharpVisaCLI.Program.Send(deviceName, req, null);
         }
-        public static int getScaleX()
+        public static string getScaleX()
         {
             return strXScale;
         }
-        public static int getScaleY()
+        public static string getScaleY()
         {
             return strYScale;
         }
-        public static void setScaleY(string str)
+        public static void sendScaleY(string str)
         {
             string chanel = currentChanel.ToString();
             string req = ":CHAN" + chanel + ":SCAL " + str;
@@ -284,36 +321,35 @@ namespace Z119.ATK.Shell
         }
         private void comboBox_xscale_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            NumberFormatInfo nfi = new NumberFormatInfo();
-            nfi.NumberDecimalSeparator = ".";
-            if (comboBox_xscale.SelectedItem == null) return;
-            string str = comboBox_xscale.SelectedItem.ToString();
-            strXScale = comboBox_xscale.SelectedIndex;
-            if (str == null) return;
-            double val = Double.Parse(str.Split(' ')[0]);
-            string unit = str.Split(' ')[1];
-            if (unit == "ms") val /= 1000.0;
-            else if (unit == "us") val /= 1000000.0;
-            setScaleX(val.ToString(nfi));
-            
-            
-            
+            strXScale = comboBox_xscale.Text;
+            UpdateXscale(); ;
         }
 
-        private void comboBox_yscale_SelectedIndexChanged(object sender, EventArgs e)
+        private void UpdateXscale()
         {
             NumberFormatInfo nfi = new NumberFormatInfo();
             nfi.NumberDecimalSeparator = ".";
-            if (comboBox_yscale.SelectedItem == null) return;
-            string str = comboBox_yscale.SelectedItem.ToString();
-            strYScale = comboBox_yscale.SelectedIndex;
-            if (str == null) return;
-            double val = Double.Parse(str.Split(' ')[0]);
-            string unit = str.Split(' ')[1];
+            if (strXScale.Split(' ').Count() < 2) strXScale = "100 us";
+            double val = Double.Parse(strXScale.Split(' ')[0]);
+            string unit = strXScale.Split(' ')[1];
+            if (unit == "ms") val /= 1000.0;
+            else if (unit == "us") val /= 1000000.0;
+            sendScaleX(val.ToString(nfi));
+        }
+        private void UpdateYscale()
+        {
+            NumberFormatInfo nfi = new NumberFormatInfo();
+            nfi.NumberDecimalSeparator = ".";
+            if (strYScale.Split(' ').Count() < 2) strYScale = "1 V";
+            double val = Double.Parse(strYScale.Split(' ')[0]);
+            string unit = strYScale.Split(' ')[1];
             if (unit == "mV") val /= 1000.0;
-            setScaleY(val.ToString(nfi));
-            
+            sendScaleY(val.ToString(nfi));
+        }
+        private void comboBox_yscale_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            strYScale = comboBox_yscale.Text;
+            UpdateYscale();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -331,6 +367,8 @@ namespace Z119.ATK.Shell
         private void button1_Click(object sender, EventArgs e)
         {
             manualMode = false;
+            Blink(1);
+            UpdateParamFromOscillo();
             //UnlockControl();
             //StartConnection();
         }

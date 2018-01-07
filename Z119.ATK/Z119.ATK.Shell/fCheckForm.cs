@@ -55,7 +55,6 @@ namespace Z119.ATK.Shell
         public fCheckForm()
         {
             InitializeComponent();
-
             _checkManager = new CheckManager();
 
             splitContainer2.SplitterDistance = splitContainer2.Width / 2;
@@ -74,7 +73,17 @@ namespace Z119.ATK.Shell
             // Mouse scroll for picture
            // panel16.MouseWheel += Panel16_MouseWheel;
             panel17.MouseWheel += Panel17_MouseWheel;
-
+            //new code
+            fScheme fSodo = new fScheme();
+            //fSodo.WindowState = FormWindowState.Normal;
+            fSodo.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            fSodo.StartPosition = FormStartPosition.Manual;
+            fSodo.TopLevel = false;
+            fSodo.Location = new Point(0, 0);
+            fSodo.LoadScheme();
+            this.panel13.Controls.Add(fSodo);
+            fSodo.Size = this.panel13.Size;
+            fSodo.Show();
         }
 
         // Mouse scroll for picture AssemblyDiagram
