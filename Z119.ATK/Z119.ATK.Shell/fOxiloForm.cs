@@ -84,7 +84,6 @@ namespace Z119.ATK.Shell
         
         private void getOscilloData()
         {
-            
             var req = ":waveform:data?";
             int frameCounter = 0;
             continueRead = true;

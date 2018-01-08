@@ -16,8 +16,8 @@ namespace Z119.ATK.Common
 {
     public class ProjectManager
     {
-         Dictionary<string, Dictionary<string, string>> allProfiles;
-         Dictionary<string, string> profilesData;
+         //Dictionary<string, Dictionary<string, string>> allProfiles;
+         //Dictionary<string, string> profilesData;
          ListBox profileList;
          string[] dirEntries;
          private event EventHandler _selectedProject;
@@ -34,6 +34,7 @@ namespace Z119.ATK.Common
         }
         public void LoadProject()
         {
+            if (!Directory.Exists(Const.PATH_PROJECT)) Directory.CreateDirectory(Const.PATH_PROJECT);
             dirEntries = Directory.GetFileSystemEntries(Const.PATH_PROJECT, "*", SearchOption.TopDirectoryOnly);
             using (Form form = new Form())
             {

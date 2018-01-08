@@ -268,6 +268,12 @@ namespace Z119.ATK.Shell
 
         private void lưuToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SaveData();
+            
+        }
+
+        private void SaveData()
+        {
             LoadBindingModel model = new LoadBindingModel();
             ConvertDataFromControlToModel(model);
             _loadmanager.SaveIntoFile(model);
@@ -281,9 +287,8 @@ namespace Z119.ATK.Shell
 
         private void mởToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadBindingModel model = _loadmanager.OpenFile();
-            if (model != null)
-                ConvertDataFromModelToControls(model);
+            LoadData();
+            
         }
 
         public void ConvertDataFromModelToControls(LoadBindingModel model)
@@ -322,6 +327,13 @@ namespace Z119.ATK.Shell
                 this.Height = 560;
                 (sender as ToolStripMenuItem).Text = "Thu nhỏ";
             }
+        }
+
+        internal void LoadData()
+        {
+            LoadBindingModel model = _loadmanager.OpenFile();
+            if (model != null)
+                ConvertDataFromModelToControls(model);
         }
     }
 }

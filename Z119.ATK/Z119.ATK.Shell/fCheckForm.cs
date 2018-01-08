@@ -274,12 +274,15 @@ namespace Z119.ATK.Shell
 
         private void mởToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CheckBindingModel model = _checkManager.OpenFile();
-            if (model != null)
-                ConvertModelToControl(model);
+            LoadData();
         }
 
         private void lưuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveData();
+        }
+
+        private void SaveData()
         {
             CheckBindingModel model = new CheckBindingModel();
             ConvertControlsToModel(model);
@@ -394,6 +397,13 @@ namespace Z119.ATK.Shell
         private void splitContainer2_Panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        internal void LoadData()
+        {
+            CheckBindingModel model = _checkManager.OpenFile();
+            if (model != null)
+                ConvertModelToControl(model);
         }
     }
 }

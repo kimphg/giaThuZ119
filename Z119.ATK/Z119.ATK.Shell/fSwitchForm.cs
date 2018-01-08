@@ -957,23 +957,23 @@ namespace Z119.ATK.Shell
 
         private void mởTậpTinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveData();
+            LoadData();
         }
-        public void LoadData()
+        public void SaveData()
         {
             SwitchBindingModel model = new SwitchBindingModel();
             InputDataFromDataGridView(model);
             _switchManager.SaveIntoFile(model);
         }
-        public void SaveData()
+        public void LoadData()
         {
             SwitchBindingModel model = _switchManager.OpenFile();
             if (model != null)
-                InputDataIntoDGVFromModel(model);
+                InputDataIntoDGVFromModel(model);????
         }
         private void lưuTậpTinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadData();
+            SaveData();
         }
 
         public bool isRunServer = false;

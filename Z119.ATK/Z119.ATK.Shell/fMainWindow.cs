@@ -211,7 +211,9 @@ namespace Z119.ATK.Shell
             fcheck.FormClosing += Fcheck_FormClosing;
 
             frmPower.LoadData();
-            frmSwitch.LoadData();todo here
+            frmSwitch.LoadData();//todo here
+            frmTai.LoadData();
+            fcheck.LoadData();
 
             tsmenuItemControlPower.Enabled = false;
             tsmenuItemControlSwitch.Enabled = false;
