@@ -149,6 +149,7 @@
             // 
             // panel13
             // 
+            this.panel13.AutoSize = true;
             this.panel13.BackColor = System.Drawing.SystemColors.Control;
             this.panel13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel13.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -665,6 +666,7 @@
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);

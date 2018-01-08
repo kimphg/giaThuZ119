@@ -40,7 +40,7 @@ namespace Z119.ATK.Common
                 form.Text = "Chọn dự án";
                 FlowLayoutPanel flp = new FlowLayoutPanel();
                 // profile list
-                flp.Controls.Add(new Label() { Text = "Danh sách các dự án:" });
+                flp.Controls.Add(new Label() { Text = "Danh sách dự án:" });
                 profileList = new ListBox();
                 profileList.DataSource = dirEntries;
                 profileList.Size = new Size(200,200);
@@ -75,11 +75,8 @@ namespace Z119.ATK.Common
             {
                 Const.proConf = LoadObject<ProjectConfiguration>(Z119.ATK.Common.Const.FILE_CONFIG);
             }
-            
-
-
             // Tạo 3 Folder trong path current
-            string fdNguon = Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_NGUON;
+            /*string fdNguon = Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_NGUON;
             string fdChuyenMach = Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_CHUYENMACH;
             string fdHienThi = Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_HIENTHI;
 
@@ -106,7 +103,7 @@ namespace Z119.ATK.Common
                 Directory.CreateDirectory(fSoDoNguyenLy);
             if (!Directory.Exists(fSoDoLapRap))
                 Directory.CreateDirectory(fSoDoLapRap);
-
+            */
             // Chọn xong prọect và tạo các folder xong
             // Tạo xong rồi thì phải roai một cái event lên để thông báo cho fmain
             if (_selectedProject != null)
@@ -192,6 +189,7 @@ namespace Z119.ATK.Common
             catch (Exception ex)
             {
                 //Log exception here
+                MessageBox.Show(ex.ToString());
             }
         }
 
@@ -230,9 +228,9 @@ namespace Z119.ATK.Common
             }
             catch (Exception ex)
             {
-                //Log exception here
+                return (T)Activator.CreateInstance(typeof(T));
             }
-
+            
             return objectOut;
         }
         //new code ends here-----------------------------------------------------------------------------
@@ -298,6 +296,8 @@ namespace Z119.ATK.Common
                 Directory.CreateDirectory(Const.PATH_ROOT + @"\" + Const.IMAGES_LIBLARY_NAME);
             }
         }
+
+
         
     }
 }

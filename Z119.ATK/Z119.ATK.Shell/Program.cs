@@ -13,6 +13,7 @@ namespace Z119.ATK.Shell
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+        
         static void Main()                          
         {
             Application.EnableVisualStyles();
@@ -29,7 +30,15 @@ namespace Z119.ATK.Shell
 
             fLoginForm loginForm = new fLoginForm();
              if (loginForm.ShowDialog() == DialogResult.OK)
-                Application.Run(new fMainWindow());
+             {
+                 //Z119.ATK.Common.Const.projMan.LoadProject();
+
+                 //projMan.SelectedProject += frm_SelectedProject;
+                 Z119.ATK.Common.Const.projMan.LoadProject();
+                 Application.Run(Z119.ATK.Common.ProjectManager.LoadObject<fMainWindow>(Z119.ATK.Common.Const.FILE_MAINWINDOW));
+                 
+             }
+                
             else
                 Application.Exit();
 

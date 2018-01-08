@@ -37,15 +37,15 @@ namespace Z119.ATK.Common
 
         public static string FILE_NAME_PATH = "ProjectPath.txt";
         public static string IMAGES_LIBLARY_NAME = "HinhAnhLinhKien";
-
+        public static Common.ProjectManager projMan = new ProjectManager();
         // *********************************************************************************************//
         // *********************************************************************************************//
 
         // Foder Name
-        public static string FD_NGUON = "Nguon";
-        public static string FD_CHUYENMACH = "ChuyenMach";
-        public static string FD_HIENTHI = "KiemTra";
-        public static string FD_Tai = "Tai";
+        public static string FD_NGUON = "Nguon.xml";
+        public static string FD_CHUYENMACH = "ChuyenMach.xml";
+        public static string FD_HIENTHI = "KiemTra.xml";
+        public static string FD_Tai = "Tai.xml";
 
         // *********************************************************************************************//
         // *********************************************************************************************//
@@ -126,6 +126,7 @@ namespace Z119.ATK.Common
         public static string AMPE_RA = "0";
         public static string FILE_CONFIG = "config.xml";
         public static string FILE_POINT_DATA = "point_data.xml";
+        public static string FILE_MAINWINDOW = "fMainWindow.xml";
 
     }
 }

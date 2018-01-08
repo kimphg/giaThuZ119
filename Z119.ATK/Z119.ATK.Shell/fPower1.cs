@@ -2326,7 +2326,7 @@ namespace Z119.ATK.Shell
 
         #region SaveFile ========================================
 
-        public void SaveIntoFile()
+        public void SaveData()
         {
             PowerBindingModel model = new PowerBindingModel();
             LoadDataIntoModelFromControls(model);
@@ -2368,7 +2368,7 @@ namespace Z119.ATK.Shell
 
         private void tsmuItemSaveFile_Click(object sender, EventArgs e)
         {
-            SaveIntoFile();
+            SaveData();
         }
 
         public void LoadDataIntoControlsFromModel(PowerBindingModel model)
@@ -2503,7 +2503,7 @@ namespace Z119.ATK.Shell
 
         }
 
-        public void OpenFile()
+        public void LoadData()
         {
             PowerBindingModel model = _powerManager.OpenFile();
             if (model != null)
@@ -2512,7 +2512,7 @@ namespace Z119.ATK.Shell
 
         private void tsmuItemOpenFile_Click(object sender, EventArgs e)
         {
-            OpenFile();
+            LoadData();
         }
         #endregion End SaveFile
 

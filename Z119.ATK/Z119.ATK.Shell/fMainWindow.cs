@@ -15,12 +15,10 @@ namespace Z119.ATK.Shell
     {
 
         #region Properties
-        List<Project.fOpen> lstForm = new List<Project.fOpen>();
-        Project.fOpen _project1;
-        //System.Collections.Hashtable projects;
-        //System.Collections.Hashtable configs;
+        //List<Project.fOpen> lstForm = new List<Project.fOpen>();
+        //Project.fOpen _project1;
         #endregion
-        Common.ProjectManager projMan;
+        
         public 
             fMainWindow()
         {
@@ -33,10 +31,7 @@ namespace Z119.ATK.Shell
             // Menu project
             DisableMenu();
             Initialize();
-            projMan = new Common.ProjectManager();
-            
-            projMan.SelectedProject += frm_SelectedProject;
-            projMan.LoadProject();
+            frm_SelectedProject(null,null);
             this.FormClosing += fMainWindow_FormClosing;
             //fOxiloForm formtest = new fOxiloForm();
             //formtest.MdiParent = this;
@@ -51,7 +46,8 @@ namespace Z119.ATK.Shell
             MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                projMan.SaveProjectConfig();
+                Z119.ATK.Common.Const.projMan.SaveProjectConfig();
+                //Z119.ATK.Common.ProjectManager.SaveObject(this, Z119.ATK.Common.Const.FILE_MAINWINDOW);
             }
             else if (result == DialogResult.No)
             {
@@ -85,11 +81,11 @@ namespace Z119.ATK.Shell
 
         // Hàm khởi tạo đầu tiên
         void Initialize()
-        {
+        {/*
             _project1 = new Project.fOpen();
             _project1.Tag = "Open";
             _project1.SelectedProject += frm_SelectedProject;
-            lstForm.Add(_project1);
+            lstForm.Add(_project1);*/
         }
         
         public void ShowForm(Form frm, string name)
@@ -119,7 +115,7 @@ namespace Z119.ATK.Shell
             if (IsExitsForm("Open"))
                 ClearFormChildrent();
 
-
+            /*
             // Dùng để Khi tạo xong thì load lại vào form mở project
             lstForm[0].Close();
             lstForm.Clear();
@@ -127,7 +123,7 @@ namespace Z119.ATK.Shell
             Project.fOpen _project2 = new Project.fOpen();
             lstForm.Add(_project2);
             _project2.SelectedProject += frm_SelectedProject;
-            ShowForm(lstForm[0], "Open");
+            ShowForm(lstForm[0], "Open");*/
         }
 
         public void ClearForm()
@@ -191,7 +187,7 @@ namespace Z119.ATK.Shell
             EnableMenu();
             
             tsmenuItemSystem.Enabled = false;
-
+            /*
             if (frmPower != null)
                 frmPower.Close();
             if (frmSwitch != null)
@@ -200,19 +196,22 @@ namespace Z119.ATK.Shell
                 frmTai.Close();
             if (fcheck != null)
                 fcheck.Close();
-            
+            */
             //MessageBox.Show("Đã chọn dự án");
 
-            frmPower = new fPower1();
-            frmSwitch = Z119.ATK.Common.ProjectManager.OpenFile("fswitch") as fSwitchForm;//new fSwitchForm();
-            if (frmSwitch == null) frmSwitch = new fSwitchForm();
-            frmTai = new fLoadForm();
-            fcheck = new fCheckForm();
+            if (frmPower==null) frmPower = new fPower1();//Z119.ATK.Common.ProjectManager.LoadObject<fPower1>("fPower1"); 
+            if (frmSwitch == null) frmSwitch = new fSwitchForm();//frmSwitch = Z119.ATK.Common.ProjectManager.LoadObject<fSwitchForm>("fSwitchForm");//new fSwitchForm();
+            //if (frmSwitch == null) frmSwitch = new fSwitchForm();
+            if (frmTai == null) frmTai = new fLoadForm(); //frmTai = Z119.ATK.Common.ProjectManager.LoadObject<fLoadForm>("fLoadForm");
+            if (fcheck == null) fcheck = new fCheckForm(); //fcheck = Z119.ATK.Common.ProjectManager.LoadObject<fCheckForm>("fCheckForm");
 
             frmPower.FormClosing += FrmPower_FormClosing;
             frmSwitch.FormClosing += FrmSwitch_FormClosing;
             frmTai.FormClosing += FrmTai_FormClosing;
             fcheck.FormClosing += Fcheck_FormClosing;
+
+            frmPower.LoadData();
+            frmSwitch.LoadData();todo here
 
             tsmenuItemControlPower.Enabled = false;
             tsmenuItemControlSwitch.Enabled = false;
@@ -295,7 +294,7 @@ namespace Z119.ATK.Shell
             if (IsExitsForm("Open"))
                 ClearFormChildrent();
 
-
+            /*
             // Dùng để Khi tạo xong thì load lại vào form mở project
             lstForm[0].Close();
             lstForm.Clear();
@@ -303,7 +302,7 @@ namespace Z119.ATK.Shell
             Project.fOpen _project2 = new Project.fOpen();
             lstForm.Add(_project2);
             _project2.SelectedProject += frm_SelectedProject;
-            ShowForm(lstForm[0], "Open");
+            ShowForm(lstForm[0], "Open");*/
         }
 
         #endregion
@@ -463,7 +462,9 @@ namespace Z119.ATK.Shell
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            projMan.SaveProjectConfig();
+            Z119.ATK.Common.Const.projMan.SaveProjectConfig();
+            //Z119.ATK.Common.ProjectManager.SaveObject(this, Z119.ATK.Common.Const.FILE_MAINWINDOW);
+
         }
 
         private void connectionManageToolStripMenuItem_Click(object sender, EventArgs e)

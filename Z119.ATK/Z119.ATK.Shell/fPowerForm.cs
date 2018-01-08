@@ -467,14 +467,14 @@ namespace Z119.ATK.Shell
             
         }
 
-        public void SaveIntoFile()
+        public void SaveData()
         {
             Z119.ATK.Model.BindingModel.PowerBindingModel model = new Model.BindingModel.PowerBindingModel();
             LoadDataIntoModelFromControls(model);
             _powerManager.SaveIntoFile(model);
         }
 
-        public void OpenFile()
+        public void LoadData()
         {
             Z119.ATK.Model.BindingModel.PowerBindingModel model = new Model.BindingModel.PowerBindingModel();
             model = _powerManager.OpenFile();
@@ -485,12 +485,12 @@ namespace Z119.ATK.Shell
 
         private void tsMenuFileOpen_Click(object sender, EventArgs e)
         {
-            OpenFile();
+            LoadData();
         }
 
         private void tsMenuFileSave_Click(object sender, EventArgs e)
         {
-            SaveIntoFile();
+            SaveData();
         }
 
         #endregion

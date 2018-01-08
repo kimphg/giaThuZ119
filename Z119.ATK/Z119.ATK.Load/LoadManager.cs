@@ -19,12 +19,12 @@ namespace Z119.ATK.Load
 
         public void SaveIntoFile(LoadBindingModel model)
         {
-            Z119.ATK.Common.ProjectManager.SaveIntoFile(model, Const.FD_Tai);
+            Z119.ATK.Common.ProjectManager.SaveObject(model, Const.FD_Tai);
         }
 
         public LoadBindingModel OpenFile()
         {
-            return Z119.ATK.Common.ProjectManager.OpenFile(Const.FD_Tai) as LoadBindingModel;
+            return Z119.ATK.Common.ProjectManager.LoadObject<LoadBindingModel>(Const.FD_Tai);
         }
     }
 }

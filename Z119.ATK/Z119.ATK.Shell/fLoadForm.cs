@@ -116,55 +116,63 @@ namespace Z119.ATK.Shell
 
         bool IsOn = false;
         public async void OnOffPower()
+        
         {
-            if (IsOn)
+            try
             {
-                #region GUI OFF
-                lblReceiveVon.ForeColor = Color.Gray;
-                label4.ForeColor = Color.Gray;
-                lblReceiveWoat.ForeColor = Color.Gray;
-                label6.ForeColor = Color.Gray;
-                lblReceiveAmpe.ForeColor = Color.Gray;
-                label5.ForeColor = Color.Gray;
-                #endregion End GUI OFF
+                if (IsOn)
+                {
+                    #region GUI OFF
+                    lblReceiveVon.ForeColor = Color.Gray;
+                    label4.ForeColor = Color.Gray;
+                    lblReceiveWoat.ForeColor = Color.Gray;
+                    label6.ForeColor = Color.Gray;
+                    lblReceiveAmpe.ForeColor = Color.Gray;
+                    label5.ForeColor = Color.Gray;
+                    #endregion End GUI OFF
 
-                lblReceiveVon.Text = "00.00";
-                lblReceiveAmpe.Text = "00.00";
-                lblReceiveWoat.Text = "00.00";
+                    lblReceiveVon.Text = "00.00";
+                    lblReceiveAmpe.Text = "00.00";
+                    lblReceiveWoat.Text = "00.00";
 
-                Z119.ATK.Common.Const.VON_RA = "00.00";
-                Z119.ATK.Common.Const.AMPE_RA = "00.00";
+                    Z119.ATK.Common.Const.VON_RA = "00.00";
+                    Z119.ATK.Common.Const.AMPE_RA = "00.00";
 
-                IsOn = false;
+                    IsOn = false;
 
-                btnOnOff.BackgroundImage = Image.FromFile(Z119.ATK.Common.Const.ICON_POWER_OFF);
-                btnOnOff.BackgroundImageLayout = ImageLayout.Stretch;
+                    btnOnOff.BackgroundImage = Image.FromFile(Z119.ATK.Common.Const.ICON_POWER_OFF);
+                    btnOnOff.BackgroundImageLayout = ImageLayout.Stretch;
 
-                serialPort1.WriteLine(Z119.ATK.Common.Const.OFFTAI);
-                timer1.Enabled = false;
-                
+                    serialPort1.WriteLine(Z119.ATK.Common.Const.OFFTAI);
+                    timer1.Enabled = false;
+
+                }
+                else
+                {
+                    #region GUI ON
+                    lblReceiveVon.ForeColor = Color.Yellow;
+                    label4.ForeColor = Color.Yellow;
+                    lblReceiveWoat.ForeColor = Color.Yellow;
+                    label6.ForeColor = Color.Yellow;
+                    lblReceiveAmpe.ForeColor = Color.Yellow;
+                    label5.ForeColor = Color.Yellow;
+                    #endregion End GUI ON
+
+                    btnOnOff.BackgroundImage = Image.FromFile(Z119.ATK.Common.Const.ICON_POWER_ON);
+                    btnOnOff.BackgroundImageLayout = ImageLayout.Stretch;
+                    IsOn = true;
+
+                    serialPort1.WriteLine(Z119.ATK.Common.Const.MODE_CC);
+                    serialPort1.WriteLine(Z119.ATK.Common.Const.CURR_VA + " " + (txbAValue.Text == "" ? "0" : txbAValue.Text));
+                    serialPort1.WriteLine(Z119.ATK.Common.Const.CURR_VB + " " + (txbBValue.Text == "" ? "0" : txbBValue.Text));
+                    serialPort1.WriteLine(Z119.ATK.Common.Const.ONTAI);
+
+                    timer1.Enabled = true;
+                }
             }
-            else
+            catch (Exception e)
             {
-                #region GUI ON
-                lblReceiveVon.ForeColor = Color.Yellow;
-                label4.ForeColor = Color.Yellow;
-                lblReceiveWoat.ForeColor = Color.Yellow;
-                label6.ForeColor = Color.Yellow;
-                lblReceiveAmpe.ForeColor = Color.Yellow;
-                label5.ForeColor = Color.Yellow;
-                #endregion End GUI ON
-
-                btnOnOff.BackgroundImage = Image.FromFile(Z119.ATK.Common.Const.ICON_POWER_ON);
-                btnOnOff.BackgroundImageLayout = ImageLayout.Stretch;
-                IsOn = true;
-
-                serialPort1.WriteLine(Z119.ATK.Common.Const.MODE_CC);
-                serialPort1.WriteLine(Z119.ATK.Common.Const.CURR_VA + " " + (txbAValue.Text == "" ? "0" : txbAValue.Text));
-                serialPort1.WriteLine(Z119.ATK.Common.Const.CURR_VB + " " + (txbBValue.Text == "" ? "0" : txbBValue.Text));
-                serialPort1.WriteLine(Z119.ATK.Common.Const.ONTAI);
-
-                timer1.Enabled = true;
+                MessageBox.Show(e.ToString());
             }
         }
 

@@ -28,7 +28,7 @@ namespace Z119.ATK.Shell
             InitializeComponent();
             InitGui();
             LoadschemePoints();
-            this.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseWheel);
+            this.pictureBox1.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseWheel);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(fScheme_MouseDown);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(fScheme_MouseUp);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(fScheme_MouseMove);
@@ -131,7 +131,7 @@ namespace Z119.ATK.Shell
         {
             if (_mousePressed)
             {
-                pNew = this.PointToClient(Cursor.Position);
+                pNew = this.panel1.PointToClient(Cursor.Position);
                 imgdx += pNew.X - pOld.X;
                 imgdy += pNew.Y - pOld.Y;
                 pOld = pNew;
@@ -148,7 +148,8 @@ namespace Z119.ATK.Shell
         private void fScheme_MouseDown(object sender, MouseEventArgs e)
         {
             _mousePressed = true;
-            pOld = this.PointToClient(Cursor.Position);
+            pictureBox1.Focus();
+            pOld = this.panel1.PointToClient(Cursor.Position);
             if ((e.Button == System.Windows.Forms.MouseButtons.Right)& CheckSelection(pOld))
             {
                 pictureBox1.ContextMenu = cmSelect;
@@ -197,7 +198,7 @@ namespace Z119.ATK.Shell
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.event_Paint);
 
             // Add the PictureBox control to the Form.
-            this.Controls.Add(pictureBox1);
+            this.panel1.Controls.Add(pictureBox1);
         }
 
         private void event_Paint(object sender, System.Windows.Forms.PaintEventArgs e)

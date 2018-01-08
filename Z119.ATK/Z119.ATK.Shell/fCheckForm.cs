@@ -46,6 +46,7 @@ namespace Z119.ATK.Shell
         }
 
         private event EventHandler _stopAll;
+        private fScheme fSodo;
         public event EventHandler StopAll
         {
             add { _stopAll += value; }
@@ -74,7 +75,7 @@ namespace Z119.ATK.Shell
            // panel16.MouseWheel += Panel16_MouseWheel;
             panel17.MouseWheel += Panel17_MouseWheel;
             //new code
-            fScheme fSodo = new fScheme();
+            fSodo = new fScheme();
             //fSodo.WindowState = FormWindowState.Normal;
             fSodo.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             fSodo.StartPosition = FormStartPosition.Manual;
@@ -83,7 +84,13 @@ namespace Z119.ATK.Shell
             fSodo.LoadScheme();
             this.panel13.Controls.Add(fSodo);
             fSodo.Size = this.panel13.Size;
+            this.panel13.SizeChanged += panel13_SizeChanged;
             fSodo.Show();
+        }
+
+        void panel13_SizeChanged(object sender, EventArgs e)
+        {
+            fSodo.Size = this.panel13.Size;
         }
 
         // Mouse scroll for picture AssemblyDiagram
