@@ -27,7 +27,9 @@ namespace Z119.ATK.Switch
 
         public SwitchBindingModel OpenFile()
         {
-            return Z119.ATK.Common.ProjectManager.LoadObject<SwitchBindingModel>(Const.FD_CHUYENMACH);
+            SwitchBindingModel res =  Z119.ATK.Common.ProjectManager.LoadObject<SwitchBindingModel>(Const.FD_CHUYENMACH);
+            if (res == null) res = new SwitchBindingModel();
+            return res;
         }
     }
 

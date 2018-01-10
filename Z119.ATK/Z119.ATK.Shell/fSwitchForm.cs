@@ -645,6 +645,8 @@ namespace Z119.ATK.Shell
 
         public void InputDataIntoDGVFromModel(SwitchBindingModel model)
         {
+            if (model.ListChan == null) return;
+            if (model.ListFrame == null) return;
             int row = model.ListChan.Count;
             for (int i = 0; i < row; i++)
             { 

@@ -17,7 +17,10 @@ namespace Z119.ATK.Check
 
         public CheckBindingModel OpenFile()
         {
-            return Z119.ATK.Common.ProjectManager.LoadObject<CheckBindingModel>(Const.FD_HIENTHI);
+            
+                CheckBindingModel res = Z119.ATK.Common.ProjectManager.LoadObject<CheckBindingModel>(Const.FD_HIENTHI);
+                if (res == null) res = new CheckBindingModel();
+                    return res;
         }
     }
 }
