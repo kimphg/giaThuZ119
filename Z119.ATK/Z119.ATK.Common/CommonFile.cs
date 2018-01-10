@@ -12,8 +12,96 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+
 namespace Z119.ATK.Common
 {
+    public class schemePoint
+    {
+        public Point Position;
+        public bool selected;
+        public int[] refData = new int[600];
+        public int[] mesData = new int[600];
+        public int[] oscDataRef = new int[600];
+        public int[] oscDataMes = new int[600];
+        public int[] oscDataRealtime = new int[600];
+        private string scaleX = "";
+
+        public string ScaleX
+        {
+            get { return scaleX; }
+            set { scaleX = value; }
+        }
+        private string scaleY = "";
+
+        public string ScaleY
+        {
+            get { return scaleY; }
+            set { scaleY = value; }
+        }
+
+        public void DisplayDataToOscillo(int[] dataArrayRef=null, int[] dataArrayOld=null, int[] dataArrayReal=null)
+        {
+            if (dataArrayRef != null) oscDataRef = dataArrayRef;
+            if (dataArrayOld != null) oscDataMes = dataArrayOld;
+            if (dataArrayReal != null) oscDataRealtime = dataArrayReal;
+            Array.Copy(refData, oscDataRef, 600);
+            Array.Copy(mesData, oscDataMes, 600);
+
+        }
+
+
+        public void setMesData(int[] oscDataRealtime)
+        {
+            Array.Copy(oscDataRealtime, mesData, 600);
+            //getParamFronOscillo();
+
+            //DisplayDataToOscillo();
+        }
+
+        private void getParamFronOscillo(string sX,string sY)
+        {
+            scaleX = sX;
+            scaleY = sY;
+        }
+        public void setRefData(int[] oscDataRealtime)
+        {
+            Array.Copy(oscDataRealtime, refData, 600);
+            
+            //DisplayDataToOscillo();
+        }
+        public bool Selected
+        {
+            get { return selected; }
+            set
+            {
+                selected = value;
+                /*
+                if (selected == value) return;
+                selected = value;
+                if (selected)
+                {
+                    Form fc = Application.OpenForms["fOxiloForm"];
+
+                    if (fc == null)
+                    {
+                        fOxiloForm foxilo = new fOxiloForm();
+
+                        foxilo.Show();
+                    }
+                    DisplayDataToOscillo();
+                    setParamToOscillo();
+                }*/
+            }
+        }
+        public schemePoint(Point pos)
+        {
+            Position = pos;
+        }
+        public schemePoint()
+        {
+
+        }
+    }
     public class ProjectManager
     {
          //Dictionary<string, Dictionary<string, string>> allProfiles;

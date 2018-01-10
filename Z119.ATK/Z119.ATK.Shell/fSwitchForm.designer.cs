@@ -52,10 +52,10 @@
             this.thưMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mởTậpTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lưuTậpTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thuNhỏToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMain.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -119,9 +119,9 @@
             this.groupBox1.Controls.Add(this.btnNone);
             this.groupBox1.Controls.Add(this.btnURA);
             this.groupBox1.Controls.Add(this.btnU4);
+            this.groupBox1.Controls.Add(this.btnU2);
             this.groupBox1.Controls.Add(this.btnDAT);
             this.groupBox1.Controls.Add(this.btnU1);
-            this.groupBox1.Controls.Add(this.btnU2);
             this.groupBox1.Controls.Add(this.btnU3);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Blue;
@@ -148,11 +148,11 @@
             // 
             this.btnURA.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnURA.ForeColor = System.Drawing.Color.Red;
-            this.btnURA.Location = new System.Drawing.Point(6, 208);
+            this.btnURA.Location = new System.Drawing.Point(6, 101);
             this.btnURA.Name = "btnURA";
             this.btnURA.Size = new System.Drawing.Size(86, 30);
             this.btnURA.TabIndex = 20;
-            this.btnURA.Text = "U ra";
+            this.btnURA.Text = "-U2";
             this.btnURA.UseVisualStyleBackColor = true;
             this.btnURA.Click += new System.EventHandler(this.btnU1Am_Click);
             // 
@@ -160,7 +160,7 @@
             // 
             this.btnU4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnU4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btnU4.Location = new System.Drawing.Point(6, 135);
+            this.btnU4.Location = new System.Drawing.Point(6, 173);
             this.btnU4.Name = "btnU4";
             this.btnU4.Size = new System.Drawing.Size(86, 30);
             this.btnU4.TabIndex = 19;
@@ -172,7 +172,7 @@
             // 
             this.btnDAT.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDAT.ForeColor = System.Drawing.Color.Olive;
-            this.btnDAT.Location = new System.Drawing.Point(6, 171);
+            this.btnDAT.Location = new System.Drawing.Point(6, 209);
             this.btnDAT.Name = "btnDAT";
             this.btnDAT.Size = new System.Drawing.Size(86, 30);
             this.btnDAT.TabIndex = 18;
@@ -195,12 +195,12 @@
             // btnU2
             // 
             this.btnU2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnU2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnU2.Location = new System.Drawing.Point(6, 62);
+            this.btnU2.ForeColor = System.Drawing.Color.Red;
+            this.btnU2.Location = new System.Drawing.Point(6, 65);
             this.btnU2.Name = "btnU2";
             this.btnU2.Size = new System.Drawing.Size(86, 30);
             this.btnU2.TabIndex = 16;
-            this.btnU2.Text = "U2";
+            this.btnU2.Text = "+U2";
             this.btnU2.UseVisualStyleBackColor = true;
             this.btnU2.Click += new System.EventHandler(this.btnU1Am_Click);
             // 
@@ -208,7 +208,7 @@
             // 
             this.btnU3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnU3.ForeColor = System.Drawing.Color.Blue;
-            this.btnU3.Location = new System.Drawing.Point(6, 98);
+            this.btnU3.Location = new System.Drawing.Point(6, 137);
             this.btnU3.Name = "btnU3";
             this.btnU3.Size = new System.Drawing.Size(86, 30);
             this.btnU3.TabIndex = 15;
@@ -320,6 +320,13 @@
             this.lưuTậpTinToolStripMenuItem.Text = "Lưu tập tin";
             this.lưuTậpTinToolStripMenuItem.Click += new System.EventHandler(this.lưuTậpTinToolStripMenuItem_Click);
             // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
             // thuNhỏToolStripMenuItem
             // 
             this.thuNhỏToolStripMenuItem.Name = "thuNhỏToolStripMenuItem";
@@ -345,13 +352,6 @@
             this.imageList1.Images.SetKeyName(11, "value5.png");
             this.imageList1.Images.SetKeyName(12, "value6.png");
             this.imageList1.Images.SetKeyName(13, "value0.png");
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
-            this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // fSwitchForm
             // 

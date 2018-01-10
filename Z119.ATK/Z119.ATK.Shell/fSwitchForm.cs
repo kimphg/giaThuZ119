@@ -39,7 +39,7 @@ namespace Z119.ATK.Shell
 
             btnOnOff.BackgroundImage = Image.FromFile(Z119.ATK.Common.Const.ICON_POWER_OFF);
             btnOnOff.BackgroundImageLayout = ImageLayout.Stretch;
-
+            this.LoadData();
             ConnectCOMPort();
         }
 
@@ -834,7 +834,7 @@ namespace Z119.ATK.Shell
                 //btn.BackColor = Color.FromArgb(189, 228, 101);
                 this.Cursor = CreateCursor((Bitmap)imageList1.Images[1], new Size(70, 70));
             }
-            else if (btn.Text.Equals("U1"))
+            else if (btn.Text.Equals("+U1"))
             {
                 _switchManager.mode = Mode.U1;
                 //btn.BackColor = Color.FromArgb(189, 228, 101);
@@ -852,7 +852,7 @@ namespace Z119.ATK.Shell
                 //btn.BackColor = Color.FromArgb(189, 228, 101);
                 this.Cursor = CreateCursor((Bitmap)imageList1.Images[3], new Size(70, 70));
             }
-            else if (btn.Text.Equals("U ra"))
+            else if (btn.Text.Equals("-U1"))
             {
                 _switchManager.mode = Mode.URA;
                 //btn.BackColor = Color.FromArgb(189, 228, 101);
@@ -969,7 +969,7 @@ namespace Z119.ATK.Shell
         {
             SwitchBindingModel model = _switchManager.OpenFile();
             if (model != null)
-                InputDataIntoDGVFromModel(model);????
+                InputDataIntoDGVFromModel(model);//????
         }
         private void lưuTậpTinToolStripMenuItem_Click(object sender, EventArgs e)
         {

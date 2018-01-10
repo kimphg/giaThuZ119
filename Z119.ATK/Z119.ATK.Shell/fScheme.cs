@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Z119.ATK.Common;
 
 namespace Z119.ATK.Shell
 {
@@ -23,23 +24,34 @@ namespace Z119.ATK.Shell
         Point pOld,pNew;
         List<schemePoint> schemePointList = new List<schemePoint>();
         ContextMenu cmNoselect, cmSelect;
-        public fScheme()
+        string filename;
+        public fScheme(int type)
         {
             InitializeComponent();
             InitGui();
-            LoadschemePoints();
+
+            if (type == 0)
+            {
+                this.label9.Text = "Sơ đồ nguyên lý";
+                filename = "sodoNL.png";
+                LoadschemePoints();
+                cmNoselect = new ContextMenu();
+                cmNoselect.MenuItems.Add("Đặt điểm đo", new EventHandler(fScheme_NewPoint));
+                cmNoselect.MenuItems.Add("Lưu tất cả các điểm đo", new EventHandler(SavePointList));
+                cmSelect = new ContextMenu();
+                cmSelect.MenuItems.Add("Lấy giá trị điểm đo", new EventHandler(fScheme_SavePointData));
+                cmSelect.MenuItems.Add("Đặt giá trị tham chiếu", new EventHandler(fScheme_SavePointRefData));
+                cmSelect.MenuItems.Add("Xóa điểm đo", new EventHandler(fScheme_DelPointData));
+            }
+            else if(type == 1)
+            {
+                filename = "sodoLR.png";
+                this.label9.Text = "Sơ đồ lắp ráp";
+            }
             this.pictureBox1.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseWheel);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(fScheme_MouseDown);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(fScheme_MouseUp);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(fScheme_MouseMove);
-            
-            cmNoselect = new ContextMenu();
-            cmNoselect.MenuItems.Add("Đặt điểm đo", new EventHandler(fScheme_NewPoint));
-            cmNoselect.MenuItems.Add("Lưu tất cả các điểm đo", new EventHandler(SavePointList));
-            cmSelect = new ContextMenu();
-            cmSelect.MenuItems.Add("Lấy giá trị điểm đo", new EventHandler(fScheme_SavePointData ));
-            cmSelect.MenuItems.Add("Đặt giá trị tham chiếu", new EventHandler(fScheme_SavePointRefData));
-            cmSelect.MenuItems.Add("Xóa điểm đo", new EventHandler(fScheme_DelPointData));
             //
             this.LocationChanged += fScheme_LocationChanged;
             this.ResizeEnd += fScheme_LocationChanged;
@@ -61,7 +73,10 @@ namespace Z119.ATK.Shell
             {
                 if (p.Selected)
                 {
-                    p.setRefData();
+                    p.setRefData(fOxiloForm.dataArray);
+                    p.ScaleX = fOxiloForm.getScaleX();
+                    p.ScaleY = fOxiloForm.getScaleY();
+                    p.DisplayDataToOscillo(fOxiloForm.dataArrayRef, fOxiloForm.dataArrayOld, fOxiloForm.dataArray);
                     SavePointList();
                     break;
                 }
@@ -105,7 +120,10 @@ namespace Z119.ATK.Shell
             {
                 if (p.Selected)
                 {
-                    p.setMesData();
+                    p.setMesData(fOxiloForm.dataArray);
+                    p.ScaleX = fOxiloForm.getScaleX();
+                    p.ScaleY = fOxiloForm.getScaleY();
+                    p.DisplayDataToOscillo(fOxiloForm.dataArrayRef, fOxiloForm.dataArrayOld, fOxiloForm.dataArray);
                     SavePointList();
                     break;
                 }
@@ -158,7 +176,7 @@ namespace Z119.ATK.Shell
             pictureBox1.ContextMenu = cmNoselect;
             this.Refresh();
         }
-
+        fOxiloForm foxilo;
         private bool CheckSelection(Point checkPoint)
         {
             bool foundSeleted = false;
@@ -170,7 +188,21 @@ namespace Z119.ATK.Shell
                     & (Math.Abs(center.Y - checkPoint.Y) < 4)
                     &(!foundSeleted))
                 {
-                    p.Selected = true;
+                    if (!p.selected)
+                    {
+                        p.Selected = true;
+                        Form fc = Application.OpenForms["fOxiloForm"];
+
+                        if (fc == null)
+                        {
+                            foxilo = new fOxiloForm();
+
+                            foxilo.Show();
+                        }
+                        p.DisplayDataToOscillo(fOxiloForm.dataArrayRef, fOxiloForm.dataArrayOld, fOxiloForm.dataArray);
+                        fOxiloForm.setScaleX(p.ScaleX);
+                        fOxiloForm.setScaleY(p.ScaleY);
+                    }
                     foundSeleted = true;
                     
                 }
@@ -196,7 +228,7 @@ namespace Z119.ATK.Shell
             pictureBox1.BackColor = Color.White;
             // Connect the Paint event of the PictureBox to the event handler method.
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.event_Paint);
-
+            
             // Add the PictureBox control to the Form.
             this.panel1.Controls.Add(pictureBox1);
         }
@@ -242,10 +274,10 @@ namespace Z119.ATK.Shell
             try
             {
                 Bitmap image;
-                string imgName = Z119.ATK.Common.Const.PATH_CURRENT + "\\" + "scheme.png";
+                string imgName = Z119.ATK.Common.Const.PATH_CURRENT + "\\" + filename;
                 if(System.IO.File.Exists(imgName))
                 {
-                    image = (Bitmap)Image.FromFile(Z119.ATK.Common.Const.PATH_CURRENT + "\\" + "scheme.png", true);
+                    image = (Bitmap)Image.FromFile(Z119.ATK.Common.Const.PATH_CURRENT + "\\" + filename, true);
                 }
                 else
                 {
@@ -255,8 +287,8 @@ namespace Z119.ATK.Shell
                         Rectangle ImageSize = new Rectangle(0, 0, 1920, 1080);
                         graph.FillRectangle(Brushes.White, ImageSize);
                     }
-                    bmp.Save(Z119.ATK.Common.Const.PATH_CURRENT + "\\" + "scheme.png");
-                    image = (Bitmap)Image.FromFile(Z119.ATK.Common.Const.PATH_CURRENT + "\\" + "scheme.png", true);
+                    bmp.Save(Z119.ATK.Common.Const.PATH_CURRENT + "\\" + filename);
+                    image = (Bitmap)Image.FromFile(Z119.ATK.Common.Const.PATH_CURRENT + "\\" + filename, true);
                 }
                 this.image1 = new Bitmap(image);
                 
@@ -274,7 +306,7 @@ namespace Z119.ATK.Shell
             {
                 Bitmap image = (Bitmap)Image.FromFile(path, true);
                 this.image1 = new Bitmap(image);
-                File.Copy(path, Z119.ATK.Common.Const.PATH_CURRENT + "\\" + "scheme.png", true);
+                File.Copy(path, Z119.ATK.Common.Const.PATH_CURRENT + "\\" + filename, true);
                 //image1.Save(Z119.ATK.Common.Const.PATH_CURRENT + "\\" + "scheme.png", ImageFormat.Png);
             }
             catch (Exception e)
@@ -295,77 +327,12 @@ namespace Z119.ATK.Shell
             }
         }
 
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
             
     }
-    public class schemePoint
-    {
-        public Point Position;
-        public bool selected;
-        public int[] refData = new int[600];
-        public int[] mesData = new int[600];
-        public string scaleX = "";
-        public string scaleY = "";
-
-        private void DisplayDataToOscillo()
-        {
-            Array.Copy(refData, fOxiloForm.dataArrayRef, 600);
-            Array.Copy(mesData, fOxiloForm.dataArrayOld, 600);
-
-        }
-
-        private void setParamToOscillo()
-        {
-            fOxiloForm.setScaleX(scaleX);
-            fOxiloForm.setScaleY(scaleY);
-        }
-        public void setMesData()
-        {
-            Array.Copy( fOxiloForm.dataArray,mesData, 600);
-            getParamFronOscillo();
-            
-            DisplayDataToOscillo();
-        }
-
-        private void getParamFronOscillo()
-        {
-            scaleX = fOxiloForm.getScaleX();
-            scaleY = fOxiloForm.getScaleY();
-        }
-        public void setRefData()
-        {
-            Array.Copy(fOxiloForm.dataArray, refData, 600);
-            getParamFronOscillo();
-            DisplayDataToOscillo();
-        }
-        public bool Selected
-        {
-            get { return selected; }
-            set 
-            {
-                if (selected == value) return;
-                selected = value;
-                if (selected)
-                {
-                    Form fc = Application.OpenForms["fOxiloForm"];
-
-                    if (fc == null)
-                    {
-                        fOxiloForm foxilo = new fOxiloForm();
-                        
-                        foxilo.Show();
-                    }
-                    DisplayDataToOscillo();
-                    setParamToOscillo();
-                }
-            }
-        }
-        public schemePoint(Point pos)
-        {
-            Position = pos;
-        }
-        public schemePoint()
-        {
-
-        }
-    }
+    
 }

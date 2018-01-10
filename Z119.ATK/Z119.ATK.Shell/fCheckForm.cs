@@ -46,7 +46,7 @@ namespace Z119.ATK.Shell
         }
 
         private event EventHandler _stopAll;
-        private fScheme fSodo;
+        private fScheme fSodoNL,fSodoLR;
         public event EventHandler StopAll
         {
             add { _stopAll += value; }
@@ -63,8 +63,8 @@ namespace Z119.ATK.Shell
             LoadPrincipleDiagram(Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_HIENTHI + @"\HinhAnh\SoDoNguyenLy");
             LoadAssemblyDiagram(Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_HIENTHI + @"\HinhAnh\SoDoLapRap");
 
-            if (!string.IsNullOrEmpty(cmbAssemblyDiagram.Text))
-                cmbAssemblyDiagram_SelectionChangeCommitted(null, null);
+            //if (!string.IsNullOrEmpty(cmbAssemblyDiagram.Text))
+             //   cmbAssemblyDiagram_SelectionChangeCommitted(null, null);
             //if (!string.IsNullOrEmpty(cmbPrincipleDiagram.Text))
             //    cmbPrincipleDiagram_SelectionChangeCommitted(null, null);
 
@@ -73,74 +73,46 @@ namespace Z119.ATK.Shell
 
             // Mouse scroll for picture
            // panel16.MouseWheel += Panel16_MouseWheel;
-            panel17.MouseWheel += Panel17_MouseWheel;
+            //panel17.MouseWheel += Panel17_MouseWheel;
             //new code
-            fSodo = new fScheme();
+            fSodoNL = new fScheme(0);
             //fSodo.WindowState = FormWindowState.Normal;
-            fSodo.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            fSodo.StartPosition = FormStartPosition.Manual;
-            fSodo.TopLevel = false;
-            fSodo.Location = new Point(0, 0);
-            fSodo.LoadScheme();
-            this.panel13.Controls.Add(fSodo);
-            fSodo.Size = this.panel13.Size;
+            fSodoNL.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            fSodoNL.StartPosition = FormStartPosition.Manual;
+            fSodoNL.TopLevel = false;
+            fSodoNL.Location = new Point(0, 0);
+            fSodoNL.LoadScheme();
+            this.panel13.Controls.Add(fSodoNL);
+            fSodoNL.Size = this.panel13.Size;
             this.panel13.SizeChanged += panel13_SizeChanged;
-            fSodo.Show();
+            fSodoNL.Show();
+            //
+            fSodoLR = new fScheme(1);
+            //fSodo.WindowState = FormWindowState.Normal;
+            fSodoLR.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            fSodoLR.StartPosition = FormStartPosition.Manual;
+            fSodoLR.TopLevel = false;
+            fSodoLR.Location = new Point(0, 0);
+            fSodoLR.LoadScheme();
+            this.panel14.Controls.Add(fSodoLR);
+            fSodoLR.Size = this.panel13.Size;
+            this.panel14.SizeChanged += panel14_SizeChanged;
+            fSodoLR.Show();
+        }
+
+        private void panel14_SizeChanged(object sender, EventArgs e)
+        {
+            fSodoLR.Size = this.panel14.Size;
         }
 
         void panel13_SizeChanged(object sender, EventArgs e)
         {
-            fSodo.Size = this.panel13.Size;
+            fSodoNL.Size = this.panel13.Size;
         }
 
-        // Mouse scroll for picture AssemblyDiagram
-        private void Panel17_MouseWheel(object sender, MouseEventArgs e)
-        {
-            if (picAssemblyDiagram.Image == null)
-                return;
-
-            if (e.Delta > 0)
-                zoomAssemblyDiagram += 10;
-            else
-                zoomAssemblyDiagram -= 10;
-
-            if (zoomAssemblyDiagram <= -90)
-            {
-                zoomAssemblyDiagram = -90;
-                return;
-            }
-            else if (zoomAssemblyDiagram > 200)
-            {
-                zoomAssemblyDiagram = 200;
-                return;
-            }
-
-            picAssemblyDiagram.Image = Zoom(imgOriginalAssemblyDiagram, new Size(zoomAssemblyDiagram, zoomAssemblyDiagram));
-        }
 
         // Mouse scroll for picture PrincipleDiagram
-        private void Panel16_MouseWheel(object sender, MouseEventArgs e)
-        {
-            
-
-            if (e.Delta > 0)
-                zoomPrincipleDiagram += 10;
-            else
-                zoomPrincipleDiagram -= 10;
-
-            if (zoomPrincipleDiagram <= -90)
-            {
-                zoomPrincipleDiagram = -90;
-                return;
-            }
-            else if (zoomPrincipleDiagram > 200)
-            {
-                zoomPrincipleDiagram = 200;
-                return;
-            }
-
-            //picPrincipleDiagram.Image = Zoom(imgOriginalPrincipleDiagram, new Size(zoomPrincipleDiagram, zoomPrincipleDiagram));
-        }
+       
         
 
 
@@ -160,9 +132,9 @@ namespace Z119.ATK.Shell
             }
             catch (Exception ex) { }
 
-            cmbAssemblyDiagram.DataSource = lstFolder;
-            cmbAssemblyDiagram.DisplayMember = "Item1";
-            cmbAssemblyDiagram.ValueMember = "Item2";
+            //cmbAssemblyDiagram.DataSource = lstFolder;
+            //cmbAssemblyDiagram.DisplayMember = "Item1";
+            //cmbAssemblyDiagram.ValueMember = "Item2";
         }
 
         public void LoadPrincipleDiagram(string path)
@@ -191,8 +163,8 @@ namespace Z119.ATK.Shell
             if (!string.IsNullOrEmpty(model.AssemblyDiagram))
                 try
                 {
-                    cmbAssemblyDiagram.Text = model.AssemblyDiagram;
-                    picAssemblyDiagram.Image = Image.FromFile(cmbAssemblyDiagram.SelectedValue.ToString());
+                    //cmbAssemblyDiagram.Text = model.AssemblyDiagram;
+                    //picAssemblyDiagram.Image = Image.FromFile(cmbAssemblyDiagram.SelectedValue.ToString());
                 }
                 catch (Exception)
                 {
@@ -208,10 +180,10 @@ namespace Z119.ATK.Shell
             model.Von = txbVonDD1.Text;
             model.VonDenta = txbVonDD2.Text;
             model.Ampe = txbAmpeDD.Text;
-            if (!string.IsNullOrEmpty(cmbAssemblyDiagram.Text))
-                model.AssemblyDiagram = cmbAssemblyDiagram.Text;
-            else
-                model.AssemblyDiagram = "";
+            //if (!string.IsNullOrEmpty(cmbAssemblyDiagram.Text))
+            //    model.AssemblyDiagram = cmbAssemblyDiagram.Text;
+            //else
+            //    model.AssemblyDiagram = "";
 
             
 
@@ -295,11 +267,7 @@ namespace Z119.ATK.Shell
             //imgOriginalPrincipleDiagram = picPrincipleDiagram.Image;
         }
 
-        private void cmbAssemblyDiagram_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            picAssemblyDiagram.Image = Image.FromFile(cmbAssemblyDiagram.SelectedValue.ToString());
-            imgOriginalAssemblyDiagram = picAssemblyDiagram.Image;
-        }
+        
 
         #endregion End Events ************************
 
@@ -330,58 +298,14 @@ namespace Z119.ATK.Shell
 
         
 
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-            splitContainer2.SplitterDistance = splitContainer2.Width / 2;
-            if ((sender as SplitContainer).SplitterDistance > 200)
-            {
-                btnSplist.Text = "<<";
-            }
-            else
-                btnSplist.Text = ">>";
-        }
 
-        private void btnSplist_Click(object sender, EventArgs e)
-        {
-            if ((sender as Button).Text == "<<")
-            {
-                splitContainer1.SplitterDistance = 100;
-                (sender as Button).Text = ">>";
-            }
-            else
-            {
-                splitContainer1.SplitterDistance = 400;
-                (sender as Button).Text = "<<";
-            }
-        }
 
-        private void btnCloseOpenExpand1_Click(object sender, EventArgs e)
-        {
-            if ((sender as Button).Text == "<<")
-            {
-                splitContainer2.SplitterDistance = 300;
-                (sender as Button).Text = ">>";
-            }
-            else
-            {
-                splitContainer2.SplitterDistance = splitContainer2.Width / 2;
-                (sender as Button).Text = "<<";
-            }
-            //splitContainer2.SplitterDistance = splitContainer2.Width / 2;
-        }
+        
 
         private void btnCloseOpenExpand2_Click(object sender, EventArgs e)
         {
-            if ((sender as Button).Text == ">>")
-            {
-                splitContainer2.SplitterDistance = splitContainer2.SplitterDistance = splitContainer2.Width - 300;
-                (sender as Button).Text = "<<";
-            }
-            else
-            {
-                splitContainer2.SplitterDistance = splitContainer2.Width / 2;
-                (sender as Button).Text = ">>";
-            }
+            if (splitContainer2.SplitterDistance > 200) splitContainer2.SplitterDistance -= 100;
+            if (splitContainer2.SplitterDistance < 200) splitContainer2.SplitterDistance = 200;
         }
 
         private void splitContainer2_SplitterMoved(object sender, SplitterEventArgs e)
@@ -404,6 +328,12 @@ namespace Z119.ATK.Shell
             CheckBindingModel model = _checkManager.OpenFile();
             if (model != null)
                 ConvertModelToControl(model);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (splitContainer2.SplitterDistance < splitContainer2.Width - 200) splitContainer2.SplitterDistance += 100;
+            if (splitContainer2.SplitterDistance > splitContainer2.Width - 200) splitContainer2.SplitterDistance = splitContainer2.Width - 200;
         }
     }
 }
