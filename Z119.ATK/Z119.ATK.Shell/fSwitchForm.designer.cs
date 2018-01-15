@@ -38,9 +38,9 @@
             this.btnNone = new System.Windows.Forms.Button();
             this.btnURA = new System.Windows.Forms.Button();
             this.btnU4 = new System.Windows.Forms.Button();
+            this.btnU2 = new System.Windows.Forms.Button();
             this.btnDAT = new System.Windows.Forms.Button();
             this.btnU1 = new System.Windows.Forms.Button();
-            this.btnU2 = new System.Windows.Forms.Button();
             this.btnU3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -153,6 +153,7 @@
             this.btnURA.Size = new System.Drawing.Size(86, 30);
             this.btnURA.TabIndex = 20;
             this.btnURA.Text = "-U2";
+            this.btnURA.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnURA.UseVisualStyleBackColor = true;
             this.btnURA.Click += new System.EventHandler(this.btnU1Am_Click);
             // 
@@ -167,6 +168,18 @@
             this.btnU4.Text = "U4";
             this.btnU4.UseVisualStyleBackColor = true;
             this.btnU4.Click += new System.EventHandler(this.btnU1Am_Click);
+            // 
+            // btnU2
+            // 
+            this.btnU2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnU2.ForeColor = System.Drawing.Color.Red;
+            this.btnU2.Location = new System.Drawing.Point(6, 64);
+            this.btnU2.Name = "btnU2";
+            this.btnU2.Size = new System.Drawing.Size(86, 30);
+            this.btnU2.TabIndex = 16;
+            this.btnU2.Text = "+U2";
+            this.btnU2.UseVisualStyleBackColor = true;
+            this.btnU2.Click += new System.EventHandler(this.btnU1Am_Click);
             // 
             // btnDAT
             // 
@@ -191,18 +204,6 @@
             this.btnU1.Text = "U1";
             this.btnU1.UseVisualStyleBackColor = true;
             this.btnU1.Click += new System.EventHandler(this.btnU1Am_Click);
-            // 
-            // btnU2
-            // 
-            this.btnU2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnU2.ForeColor = System.Drawing.Color.Red;
-            this.btnU2.Location = new System.Drawing.Point(6, 65);
-            this.btnU2.Name = "btnU2";
-            this.btnU2.Size = new System.Drawing.Size(86, 30);
-            this.btnU2.TabIndex = 16;
-            this.btnU2.Text = "+U2";
-            this.btnU2.UseVisualStyleBackColor = true;
-            this.btnU2.Click += new System.EventHandler(this.btnU1Am_Click);
             // 
             // btnU3
             // 

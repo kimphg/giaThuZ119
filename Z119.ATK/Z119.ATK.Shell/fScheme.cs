@@ -22,19 +22,18 @@ namespace Z119.ATK.Shell
         private int imgdx=0, imgdy=0;
         bool _mousePressed=false;
         Point pOld,pNew;
-        List<schemePoint> schemePointList = new List<schemePoint>();
+        
         ContextMenu cmNoselect, cmSelect;
         string filename;
         public fScheme(int type)
         {
             InitializeComponent();
             InitGui();
-
-            if (type == 0)
+            mType = type;
+            if (type == 1)
             {
                 this.label9.Text = "Sơ đồ nguyên lý";
                 filename = "sodoNL.png";
-                LoadschemePoints();
                 cmNoselect = new ContextMenu();
                 cmNoselect.MenuItems.Add("Đặt điểm đo", new EventHandler(fScheme_NewPoint));
                 cmNoselect.MenuItems.Add("Lưu tất cả các điểm đo", new EventHandler(SavePointList));
@@ -42,16 +41,29 @@ namespace Z119.ATK.Shell
                 cmSelect.MenuItems.Add("Lấy giá trị điểm đo", new EventHandler(fScheme_SavePointData));
                 cmSelect.MenuItems.Add("Đặt giá trị tham chiếu", new EventHandler(fScheme_SavePointRefData));
                 cmSelect.MenuItems.Add("Xóa điểm đo", new EventHandler(fScheme_DelPointData));
+                cmSelect.MenuItems.Add("Đặt vị trí trên sơ đồ lắp ráp", new EventHandler(fScheme_SetLRPoint));
             }
-            else if(type == 1)
+            else if(type == 2)
             {
                 filename = "sodoLR.png";
                 this.label9.Text = "Sơ đồ lắp ráp";
+                cmNoselect = new ContextMenu();
+                //cmNoselect.MenuItems.Add("Đặt điểm đo", new EventHandler(fScheme_NewPoint));
+                cmNoselect.MenuItems.Add("Lưu tất cả các điểm đo", new EventHandler(SavePointList));
+                cmSelect = new ContextMenu();
+                cmSelect.MenuItems.Add("Lấy giá trị điểm đo", new EventHandler(fScheme_SavePointData));
+                cmSelect.MenuItems.Add("Đặt giá trị tham chiếu", new EventHandler(fScheme_SavePointRefData));
+                cmSelect.MenuItems.Add("Xóa điểm đo", new EventHandler(fScheme_DelPointData));
+                
             }
+            LoadschemePoints();
+            
+
             this.pictureBox1.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.pictureBox_MouseWheel);
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(fScheme_MouseDown);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(fScheme_MouseUp);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(fScheme_MouseMove);
+            this.pictureBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(pictureBox1_MouseClick);
             //
             this.LocationChanged += fScheme_LocationChanged;
             this.ResizeEnd += fScheme_LocationChanged;
@@ -59,6 +71,17 @@ namespace Z119.ATK.Shell
             //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             //this.Location = //Z119.ATK.Common.Const.proConf.fSchemeLocation;
             //this.Size = //Z119.ATK.Common.Const.proConf.fSchemeSize;
+        }
+
+        void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            pOld = this.panel1.PointToClient(Cursor.Position);
+            CheckSelection(pOld);
+        }
+
+        private void fScheme_SetLRPoint(object sender, EventArgs e)
+        {
+            Z119.ATK.Common.Const.IsWaitForLRLocation = true;
         }
 
         private void fScheme_LocationChanged(object sender, EventArgs e)
@@ -69,7 +92,7 @@ namespace Z119.ATK.Shell
 
         private void fScheme_SavePointRefData(object sender, EventArgs e)
         {
-            foreach (schemePoint p in schemePointList)
+            foreach (schemePoint p in Z119.ATK.Common.Const.schemePointList)
             {
                 if (p.Selected)
                 {
@@ -86,8 +109,8 @@ namespace Z119.ATK.Shell
 
         private void LoadschemePoints()
         {
-            schemePointList = Z119.ATK.Common.ProjectManager.LoadObject<List<schemePoint>>(Z119.ATK.Common.Const.FILE_POINT_DATA);
-            if (schemePointList == null) schemePointList = new List<schemePoint>();
+            Z119.ATK.Common.Const.schemePointList = Z119.ATK.Common.ProjectManager.LoadObject<List<schemePoint>>(Z119.ATK.Common.Const.FILE_POINT_DATA);
+            if (Z119.ATK.Common.Const.schemePointList == null) Z119.ATK.Common.Const.schemePointList = new List<schemePoint>();
         }
 
         private void SavePointList(object sender, EventArgs e)
@@ -96,16 +119,16 @@ namespace Z119.ATK.Shell
         }
         private void SavePointList()
         {
-            Z119.ATK.Common.ProjectManager.SaveObject<List<schemePoint>>(schemePointList, Z119.ATK.Common.Const.FILE_POINT_DATA);
+            Z119.ATK.Common.ProjectManager.SaveObject<List<schemePoint>>(Z119.ATK.Common.Const.schemePointList, Z119.ATK.Common.Const.FILE_POINT_DATA);
         }
 
         private void fScheme_DelPointData(object sender, EventArgs e)
         {
-            foreach (schemePoint p in schemePointList)
+            foreach (schemePoint p in Z119.ATK.Common.Const.schemePointList)
             {
                 if (p.Selected)
                 {
-                    schemePointList.Remove(p);
+                    Z119.ATK.Common.Const.schemePointList.Remove(p);
                     this.Refresh();
                     break;
                 }
@@ -116,7 +139,7 @@ namespace Z119.ATK.Shell
 
         private void fScheme_SavePointData(object sender, EventArgs e)
         {
-            foreach (schemePoint p in schemePointList)
+            foreach (schemePoint p in Z119.ATK.Common.Const.schemePointList)
             {
                 if (p.Selected)
                 {
@@ -134,10 +157,19 @@ namespace Z119.ATK.Shell
 
         private void fScheme_NewPoint(object sender, EventArgs e)
         {
-            var formPosition = pOld;
-            schemePoint schemePos = new schemePoint(toSchemePos(formPosition));//
-            schemePointList.Add(schemePos);
-            this.Refresh();
+            FormTextInput form = new FormTextInput();
+            form.Text = "Nhập tên điểm đo";
+            form.ComboListFalse.Hide();
+            form.Label2.Hide();
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                var formPosition = pOld;
+                schemePoint schemePos = new schemePoint(toSchemePos(formPosition), form.getText());//
+
+                Z119.ATK.Common.Const.schemePointList.Add(schemePos);
+                this.Refresh();
+            }
+            form.Dispose();
         }
 
         private Point toSchemePos(Point formPosition)
@@ -165,24 +197,47 @@ namespace Z119.ATK.Shell
 
         private void fScheme_MouseDown(object sender, MouseEventArgs e)
         {
+            pOld = this.panel1.PointToClient(Cursor.Position);
+            
+            if (mType == 2)
+            {
+                if (Z119.ATK.Common.Const.IsWaitForLRLocation) 
+                {
+                    Z119.ATK.Common.Const.IsWaitForLRLocation = false;
+                    foreach (schemePoint p in Z119.ATK.Common.Const.schemePointList)
+                    {
+                        if (p.Selected)
+                        {
+                            p.setPosLR(toSchemePos(pOld));//
+                        }
+
+                    }
+                }
+            }
+            pictureBox1.ContextMenu = cmNoselect;
+            if ((e.Button == System.Windows.Forms.MouseButtons.Right) )
+            {
+                if (CheckSelection(pOld)) pictureBox1.ContextMenu = cmSelect;
+            }
+            
+                
             _mousePressed = true;
             pictureBox1.Focus();
-            pOld = this.panel1.PointToClient(Cursor.Position);
-            if ((e.Button == System.Windows.Forms.MouseButtons.Right)& CheckSelection(pOld))
-            {
-                pictureBox1.ContextMenu = cmSelect;
-            }
-            else 
-            pictureBox1.ContextMenu = cmNoselect;
+            
             this.Refresh();
         }
         fOxiloForm foxilo;
+        public bool isPointChanged;
+        
+        private int mType;
         private bool CheckSelection(Point checkPoint)
         {
             bool foundSeleted = false;
-            foreach (schemePoint p in schemePointList)
+            foreach (schemePoint p in Z119.ATK.Common.Const.schemePointList)
             {
-                Point center = toFormPos(p.Position);
+                Point center;
+                if(mType==1) center = toFormPos(p.PositionNL);
+                else center = toFormPos(p.PositionLR);
                 
                 if ((Math.Abs(center.X - checkPoint.X) < 4)
                     & (Math.Abs(center.Y - checkPoint.Y) < 4)
@@ -191,6 +246,7 @@ namespace Z119.ATK.Shell
                     if (!p.selected)
                     {
                         p.Selected = true;
+                        isPointChanged = true;
                         Form fc = Application.OpenForms["fOxiloForm"];
 
                         if (fc == null)
@@ -238,19 +294,24 @@ namespace Z119.ATK.Shell
             // Create a local version of the graphics object for the PictureBox.
             Graphics g = e.Graphics;
             g.DrawImage(image1, new Rectangle(imgdx, imgdy, Convert.ToInt32(image1.Width * zoomscale), Convert.ToInt32(image1.Height * zoomscale)));
-            foreach (schemePoint p in schemePointList)
+            foreach (schemePoint p in Z119.ATK.Common.Const.schemePointList)
             {
+                Point center;
+                if(mType==1) center = toFormPos(p.PositionNL);
+                else center = toFormPos(p.PositionLR);
                 if (p.Selected)
                 {
-                    Point center = toFormPos(p.Position);
                     center.Offset(-5, -5);
                     g.DrawRectangle(new Pen(Color.Red, 4), new Rectangle(center, new Size(7, 7)));
+                    center.Offset(5, 5);
+                    g.DrawString(p.mName, new System.Drawing.Font("Times New Roman", 11), new System.Drawing.SolidBrush(Color.Red), center);
                 }
                 else
                 {
-                    Point center = toFormPos(p.Position);
                     center.Offset(-3, -3);
                     g.DrawRectangle(new Pen(Color.Red, 2), new Rectangle(center, new Size(5, 5)));
+                    center.Offset(3, 3);
+                    g.DrawString(p.mName, new System.Drawing.Font("Times New Roman", 14), new System.Drawing.SolidBrush(Color.Red), center);
 
                 }
                 
@@ -330,6 +391,11 @@ namespace Z119.ATK.Shell
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            Refresh(); 
         }
 
             

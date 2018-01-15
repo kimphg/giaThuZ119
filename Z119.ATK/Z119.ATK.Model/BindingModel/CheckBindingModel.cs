@@ -16,6 +16,6 @@ namespace Z119.ATK.Model.BindingModel
         public string PrincipleDiagram { get; set; }
         public string AssemblyDiagram { get; set; }
 
-        public string GuideDocument { get; set; }
+        //public model GuideDocument { get; set; }
     }
 }

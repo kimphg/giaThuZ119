@@ -83,6 +83,12 @@
     <Compile Include="FormConnectionManager.Designer.cs">
       <DependentUpon>FormConnectionManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormTextInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTextInput.Designer.cs">
+      <DependentUpon>FormTextInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="fPower1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormConnectionManager.resx">
       <DependentUpon>FormConnectionManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTextInput.resx">
+      <DependentUpon>FormTextInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fOxiloForm.resx">
       <DependentUpon>fOxiloForm.cs</DependentUpon>

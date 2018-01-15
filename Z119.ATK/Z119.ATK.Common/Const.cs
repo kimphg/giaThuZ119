@@ -27,6 +27,7 @@ namespace Z119.ATK.Common
     }
     public class Const
     {
+        public static List<schemePoint> schemePointList = new List<schemePoint>();
         // path Main
         public static string PATH_ROOT =  @"C:\ATK\Config";
         public static string PATH_PROJECT = @"C:\ATK\Projects";
@@ -34,7 +35,7 @@ namespace Z119.ATK.Common
        // public static string FOLDER_ROOT = "DuAn";
         public static ProjectConfiguration proConf = new ProjectConfiguration(); 
         public static string PROJECT_NAME = @"C:\ATK\Config";
-
+        public static bool isAdmin = false;
         public static string FILE_NAME_PATH = "ProjectPath.txt";
         public static string IMAGES_LIBLARY_NAME = "HinhAnhLinhKien";
         public static Common.ProjectManager projMan = new ProjectManager();
@@ -127,6 +128,7 @@ namespace Z119.ATK.Common
         public static string FILE_CONFIG = "config.xml";
         public static string FILE_POINT_DATA = "point_data.xml";
         public static string FILE_MAINWINDOW = "fMainWindow.xml";
+        public static bool IsWaitForLRLocation = false;
 
     }
 }

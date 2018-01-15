@@ -15,9 +15,47 @@ using System.Xml.Serialization;
 
 namespace Z119.ATK.Common
 {
+    public class StepItem
+    {
+       
+        string mNextTrue, mNextFalse;
+        bool isDone = false;
+        public string mName { get; set; }
+        public string mType { get; set; }
+        public StepItem()
+        {
+            mType = "";
+        }
+        public void Init(string name, StepItem nextTrue)
+        {
+            if(nextTrue!=null)mNextTrue = nextTrue.mName;
+            mName = name;
+            mType = "DK";
+        }
+        public void Init(string name, StepItem nextTrue, StepItem nextFalse)
+        {
+            mName = name;
+            mType = "TT";
+            if (nextTrue != null) mNextTrue = nextTrue.mName;
+            if (mNextFalse != null) mNextFalse = nextFalse.mName;
+        }
+        public string Next(bool result = true)
+        {
+
+            if (result) return mNextTrue; else return mNextFalse;
+            
+        }
+
+
+
+        
+    }
     public class schemePoint
     {
-        public Point Position;
+        
+        public string mName;
+        public Point PositionNL;
+        public Point PositionLR;
         public bool selected;
         public int[] refData = new int[600];
         public int[] mesData = new int[600];
@@ -25,7 +63,10 @@ namespace Z119.ATK.Common
         public int[] oscDataMes = new int[600];
         public int[] oscDataRealtime = new int[600];
         private string scaleX = "";
-
+        public double mAmpErr = 0, mAmpErrMax = 0;
+        public double mAmpSt = 0, mAmpMes = 0;
+        public double mVolErr = 0, mVolErrMax = 0;
+        public double mVolSt = 0, mVolMes = 0;
         public string ScaleX
         {
             get { return scaleX; }
@@ -93,13 +134,20 @@ namespace Z119.ATK.Common
                 }*/
             }
         }
-        public schemePoint(Point pos)
+        public schemePoint(Point pos,string name)
         {
-            Position = pos;
+            PositionNL = pos;
+            this.mName = name;
+            
         }
         public schemePoint()
         {
 
+        }
+
+        public void setPosLR(Point point)
+        {
+            this.PositionLR = point;
         }
     }
     public class ProjectManager
@@ -389,4 +437,5 @@ namespace Z119.ATK.Common
 
         
     }
+
 }

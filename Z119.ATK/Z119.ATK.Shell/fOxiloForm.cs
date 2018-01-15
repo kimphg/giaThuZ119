@@ -124,8 +124,16 @@ namespace Z119.ATK.Shell
                     }
                     if (frameCounter >= 10)
                     {
-                        this.Invoke((MethodInvoker)delegate { UpdateParamFromOscillo(); });
-                        frameCounter = 0;
+                        try
+                        {
+                            this.Invoke((MethodInvoker)delegate { UpdateParamFromOscillo(); });
+                            frameCounter = 0;
+                        }
+                        catch (Exception e)
+                        {
+                            return;
+                        }
+
                     }
                 }
                 

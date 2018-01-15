@@ -36,11 +36,11 @@ namespace Z119.ATK.Switch
     public enum Mode
     {
         U1, // +U2
-        U2, // +U1
+        U2co, // +U1
         U3, // -U1
         U4, // BH
         DAT, // GND
-        URA, // Ura
+        U2tr, // Ura
         None
     }
 }

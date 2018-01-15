@@ -63,6 +63,7 @@ namespace Z119.ATK.Shell
                 MessageBox.Show("Mật khẩu không đúng, hãy thử lại.");
                 return;
             }
+            if (Employees.EmployeeName == "Supervisor") Z119.ATK.Common.Const.isAdmin = true;
             this.DialogResult = DialogResult.OK;
 
             Common.ProjectManager.ReadFolderPath();

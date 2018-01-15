@@ -830,13 +830,19 @@ namespace Z119.ATK.Shell
                 //btn.BackColor = Color.FromArgb(189, 228, 101);
                 this.Cursor = CreateCursor((Bitmap)imageList1.Images[2], new Size(70, 70));
             }
-            else if (btn.Text.Equals("U2"))
+            else if (btn.Text.Equals("+U2"))
             {
-                _switchManager.mode = Mode.U2;
+                _switchManager.mode = Mode.U2co;
                 //btn.BackColor = Color.FromArgb(189, 228, 101);
                 this.Cursor = CreateCursor((Bitmap)imageList1.Images[1], new Size(70, 70));
             }
-            else if (btn.Text.Equals("+U1"))
+            else if (btn.Text.Equals("-U2"))
+            {
+                _switchManager.mode = Mode.U2tr;
+                //btn.BackColor = Color.FromArgb(189, 228, 101);
+                this.Cursor = CreateCursor((Bitmap)imageList1.Images[5], new Size(70, 70));
+            }
+            else if (btn.Text.Equals("U1"))
             {
                 _switchManager.mode = Mode.U1;
                 //btn.BackColor = Color.FromArgb(189, 228, 101);
@@ -854,12 +860,7 @@ namespace Z119.ATK.Shell
                 //btn.BackColor = Color.FromArgb(189, 228, 101);
                 this.Cursor = CreateCursor((Bitmap)imageList1.Images[3], new Size(70, 70));
             }
-            else if (btn.Text.Equals("-U1"))
-            {
-                _switchManager.mode = Mode.URA;
-                //btn.BackColor = Color.FromArgb(189, 228, 101);
-                this.Cursor = CreateCursor((Bitmap)imageList1.Images[5], new Size(70, 70));
-            }
+          
             else if (btn.Text.Equals("Bỏ chọn"))
             {
                 _switchManager.mode = Mode.None;
@@ -892,11 +893,11 @@ namespace Z119.ATK.Shell
                         dgvSwitch.Rows[row].Cells[1].Style.BackColor = Color.FromArgb(64, 0, 64);
                         dgvSwitch.Rows[row].Cells[0].Style.ForeColor = Color.FromArgb(64,0,64);
                         break;
-                    case Mode.U2:
+                    case Mode.U2co:
                         dgvSwitch.Rows[row].Cells[1].Value = imageList1.Images["value1.png"];
-                        dgvSwitch.Rows[row].Cells[1].Tag = "U2";
-                        dgvSwitch.Rows[row].Cells[1].Style.BackColor = Color.FromArgb(0, 192, 0);
-                        dgvSwitch.Rows[row].Cells[0].Style.ForeColor = Color.FromArgb(0, 192, 0);
+                        dgvSwitch.Rows[row].Cells[1].Tag = "+U2";
+                        dgvSwitch.Rows[row].Cells[1].Style.BackColor = Color.Red;
+                        dgvSwitch.Rows[row].Cells[0].Style.ForeColor = Color.Red;
                         break;
                     case Mode.U3:
                         dgvSwitch.Rows[row].Cells[1].Value = imageList1.Images["value2.png"];
@@ -916,9 +917,9 @@ namespace Z119.ATK.Shell
                         dgvSwitch.Rows[row].Cells[1].Style.BackColor = Color.Olive;
                         dgvSwitch.Rows[row].Cells[0].Style.ForeColor = Color.Olive;
                         break;
-                    case Mode.URA:
+                    case Mode.U2tr:
                         dgvSwitch.Rows[row].Cells[1].Value = imageList1.Images["value5.png"];
-                        dgvSwitch.Rows[row].Cells[1].Tag = "U ra";
+                        dgvSwitch.Rows[row].Cells[1].Tag = "-U2";
                         dgvSwitch.Rows[row].Cells[1].Style.BackColor = Color.Red;
                         dgvSwitch.Rows[row].Cells[0].Style.ForeColor = Color.Red;
                         break;
