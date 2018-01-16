@@ -50,6 +50,7 @@ namespace Z119.ATK.Shell
                 cmNoselect = new ContextMenu();
                 //cmNoselect.MenuItems.Add("Đặt điểm đo", new EventHandler(fScheme_NewPoint));
                 cmNoselect.MenuItems.Add("Lưu tất cả các điểm đo", new EventHandler(SavePointList));
+                cmNoselect.MenuItems.Add("Thêm linh kiện mới", new EventHandler(fScheme_NewElement));
                 cmSelect = new ContextMenu();
                 cmSelect.MenuItems.Add("Lấy giá trị điểm đo", new EventHandler(fScheme_SavePointData));
                 cmSelect.MenuItems.Add("Đặt giá trị tham chiếu", new EventHandler(fScheme_SavePointRefData));
@@ -63,7 +64,8 @@ namespace Z119.ATK.Shell
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(fScheme_MouseDown);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(fScheme_MouseUp);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(fScheme_MouseMove);
-            this.pictureBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(pictureBox1_MouseClick);
+            this.pictureBox1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(pictureBox1_MouseDoubleClick);
+            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(pictureBox1_MouseClick);
             //
             this.LocationChanged += fScheme_LocationChanged;
             this.ResizeEnd += fScheme_LocationChanged;
@@ -73,10 +75,34 @@ namespace Z119.ATK.Shell
             //this.Size = //Z119.ATK.Common.Const.proConf.fSchemeSize;
         }
 
-        void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (isAddingElement)
+            {
+                pointElementBR = this.panel1.PointToClient(Cursor.Position);
+                schemeElement newelement = new schemeElement(toSchemePos(pointElementTL), toSchemePos(pointElementBR));
+                
+                Const.schemeElementList.Add(newelement);
+                isAddingElement = false;
+            }
+        }
+
+        private void fScheme_NewElement(object sender, EventArgs e)
+        {
+            isAddingElement = true;
+            pointElementTL = pOld;
+        }
+
+        void pictureBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             pOld = this.panel1.PointToClient(Cursor.Position);
-            CheckSelection(pOld);
+            if(!CheckPointSelection(pOld))
+                CheckElementSelection(pOld);
+        }
+
+        private bool CheckElementSelection(Point pOld)
+        {
+            return true;
         }
 
         private void fScheme_SetLRPoint(object sender, EventArgs e)
@@ -109,8 +135,10 @@ namespace Z119.ATK.Shell
 
         private void LoadschemePoints()
         {
-            Z119.ATK.Common.Const.schemePointList = Z119.ATK.Common.ProjectManager.LoadObject<List<schemePoint>>(Z119.ATK.Common.Const.FILE_POINT_DATA);
+            Const.schemePointList = Z119.ATK.Common.ProjectManager.LoadObject<List<schemePoint>>(Z119.ATK.Common.Const.FILE_POINT_DATA);
             if (Z119.ATK.Common.Const.schemePointList == null) Z119.ATK.Common.Const.schemePointList = new List<schemePoint>();
+            Const.schemeElementList = Z119.ATK.Common.ProjectManager.LoadObject<List<schemeElement>>(Z119.ATK.Common.Const.FILE_ELE_DATA);
+            if (Z119.ATK.Common.Const.schemeElementList == null) Z119.ATK.Common.Const.schemeElementList = new List<schemeElement>();
         }
 
         private void SavePointList(object sender, EventArgs e)
@@ -120,6 +148,7 @@ namespace Z119.ATK.Shell
         private void SavePointList()
         {
             Z119.ATK.Common.ProjectManager.SaveObject<List<schemePoint>>(Z119.ATK.Common.Const.schemePointList, Z119.ATK.Common.Const.FILE_POINT_DATA);
+            Z119.ATK.Common.ProjectManager.SaveObject<List<schemeElement>>(Z119.ATK.Common.Const.schemeElementList, Z119.ATK.Common.Const.FILE_ELE_DATA);
         }
 
         private void fScheme_DelPointData(object sender, EventArgs e)
@@ -179,6 +208,11 @@ namespace Z119.ATK.Shell
 
         private void fScheme_MouseMove(object sender, MouseEventArgs e)
         {
+            if (isAddingElement)
+            {
+                pointElementBR = this.panel1.PointToClient(Cursor.Position);
+                return;
+            }
             if (_mousePressed)
             {
                 pNew = this.panel1.PointToClient(Cursor.Position);
@@ -198,7 +232,10 @@ namespace Z119.ATK.Shell
         private void fScheme_MouseDown(object sender, MouseEventArgs e)
         {
             pOld = this.panel1.PointToClient(Cursor.Position);
-            
+            if (isAddingElement)
+            {
+                return;
+            }
             if (mType == 2)
             {
                 if (Z119.ATK.Common.Const.IsWaitForLRLocation) 
@@ -217,7 +254,7 @@ namespace Z119.ATK.Shell
             pictureBox1.ContextMenu = cmNoselect;
             if ((e.Button == System.Windows.Forms.MouseButtons.Right) )
             {
-                if (CheckSelection(pOld)) pictureBox1.ContextMenu = cmSelect;
+                if (CheckPointSelection(pOld)) pictureBox1.ContextMenu = cmSelect;
             }
             
                 
@@ -230,7 +267,10 @@ namespace Z119.ATK.Shell
         public bool isPointChanged;
         
         private int mType;
-        private bool CheckSelection(Point checkPoint)
+        private bool isAddingElement;
+        private Point pointElementBR;
+        private Point pointElementTL;
+        private bool CheckPointSelection(Point checkPoint)
         {
             bool foundSeleted = false;
             foreach (schemePoint p in Z119.ATK.Common.Const.schemePointList)
@@ -239,8 +279,8 @@ namespace Z119.ATK.Shell
                 if(mType==1) center = toFormPos(p.PositionNL);
                 else center = toFormPos(p.PositionLR);
                 
-                if ((Math.Abs(center.X - checkPoint.X) < 4)
-                    & (Math.Abs(center.Y - checkPoint.Y) < 4)
+                if ((Math.Abs(center.X - checkPoint.X) < 5)
+                    & (Math.Abs(center.Y - checkPoint.Y) < 5)
                     &(!foundSeleted))
                 {
                     if (!p.selected)
@@ -316,13 +356,10 @@ namespace Z119.ATK.Shell
                 }
                 
             }
-            /*
-            // Draw a string on the PictureBox.
-            g.DrawString("This is a diagonal line drawn on the control",
-                new Font("Arial", 10), System.Drawing.Brushes.Blue, new Point(30, 30));
-            // Draw a line in the PictureBox.
-            g.DrawLine(System.Drawing.Pens.Red, pictureBox1.Left, pictureBox1.Top,
-                pictureBox1.Right, pictureBox1.Bottom);*/
+            if(isAddingElement)
+            {
+                g.DrawRectangle(new Pen(Color.Black, 2), new Rectangle(pointElementTL.X,pointElementTL.Y, pointElementBR.X - pointElementTL.X, pointElementBR.Y - pointElementTL.Y));
+            }
         }
 
         private Point toFormPos(Point p)

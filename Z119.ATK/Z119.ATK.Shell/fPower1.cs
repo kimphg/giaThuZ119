@@ -18,7 +18,7 @@ namespace Z119.ATK.Shell
         public StringBuilder strResult2 = new StringBuilder(); // Use as Buffer for Power Address 1
 
         public int PowerSelected = 0; // Use for Power address 2
-        public int Rang = 0; // Use for power address 1
+        public int Range = 0; // Use for power address 1
         public Z119.ATK.Power.ManagementPower _powerManager { get; set; }
 
         bool RunningTask1 = false;
@@ -2587,6 +2587,11 @@ namespace Z119.ATK.Shell
                 this.Width = 930;
                 (sender as ToolStripMenuItem).Text = "Thu nhỏ";
             }
+        }
+
+        private void lblStatusRangPower4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

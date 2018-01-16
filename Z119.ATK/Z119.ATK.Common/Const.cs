@@ -28,6 +28,7 @@ namespace Z119.ATK.Common
     public class Const
     {
         public static List<schemePoint> schemePointList = new List<schemePoint>();
+        public static List<schemeElement> schemeElementList = new List<schemeElement>();
         // path Main
         public static string PATH_ROOT =  @"C:\ATK\Config";
         public static string PATH_PROJECT = @"C:\ATK\Projects";
@@ -129,6 +130,7 @@ namespace Z119.ATK.Common
         public static string FILE_POINT_DATA = "point_data.xml";
         public static string FILE_MAINWINDOW = "fMainWindow.xml";
         public static bool IsWaitForLRLocation = false;
+        public static string FILE_ELE_DATA = "element_data.xml";
 
     }
 }

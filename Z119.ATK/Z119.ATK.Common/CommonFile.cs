@@ -50,6 +50,20 @@ namespace Z119.ATK.Common
 
         
     }
+    public class schemeElement
+    {
+
+        public string mName;
+        public Point PositionTL;
+        public Point PositionBR;
+        public bool selected;
+        public schemeElement(Point tl, Point br)
+        {
+            PositionTL = tl;
+            PositionBR = br;
+        }
+
+    }
     public class schemePoint
     {
         
