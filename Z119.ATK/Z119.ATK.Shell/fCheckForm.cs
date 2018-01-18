@@ -369,7 +369,34 @@ namespace Z119.ATK.Shell
                 }
             }
         }
-        //StepItem newstep = new StepItem();
+        private string getInputString(string strtitle)
+        {
+            Form textDialog = new Form();
+            textDialog.Text = strtitle;
+            TextBox textbox = new TextBox();
+            textDialog.Controls.Add(textbox);
+            textbox.Location = new System.Drawing.Point(50, 30);
+            Button button1 = new Button();
+            button1.Text = "OK";
+            textDialog.Controls.Add(button1);
+            textDialog.AcceptButton = button1;
+            button1.DialogResult = System.Windows.Forms.DialogResult.OK;
+            button1.Location = new System.Drawing.Point(50, 60);
+            string text = "";
+            // Show testDialog as a modal dialog and determine if DialogResult = OK.
+            if (textDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                // Read the contents of testDialog's TextBox.
+                text = textbox.Text;
+            }
+            else
+            {
+                //this.txtResult.Text = "Cancelled";
+            }
+            textDialog.Dispose();
+
+            return text;
+        }!!!
         private void button3_Click(object sender, EventArgs e)
         {
             FormTextInput form = new FormTextInput();
