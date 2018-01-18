@@ -23,7 +23,7 @@ namespace Z119.ATK.Shell
         bool _mousePressed=false;
         Point pOld,pNew;
         
-        ContextMenu cmNoselect, cmSelect;
+        ContextMenu cmNoselect, cmSelectPoint,cmSelectEle;
         string filename;
         public fScheme(int type)
         {
@@ -37,11 +37,12 @@ namespace Z119.ATK.Shell
                 cmNoselect = new ContextMenu();
                 cmNoselect.MenuItems.Add("Đặt điểm đo", new EventHandler(fScheme_NewPoint));
                 cmNoselect.MenuItems.Add("Lưu tất cả các điểm đo", new EventHandler(SavePointList));
-                cmSelect = new ContextMenu();
-                cmSelect.MenuItems.Add("Lấy giá trị điểm đo", new EventHandler(fScheme_SavePointData));
-                cmSelect.MenuItems.Add("Đặt giá trị tham chiếu", new EventHandler(fScheme_SavePointRefData));
-                cmSelect.MenuItems.Add("Xóa điểm đo", new EventHandler(fScheme_DelPointData));
-                cmSelect.MenuItems.Add("Đặt vị trí trên sơ đồ lắp ráp", new EventHandler(fScheme_SetLRPoint));
+                cmSelectPoint = new ContextMenu();
+                cmSelectPoint.MenuItems.Add("Lấy giá trị điểm đo", new EventHandler(fScheme_SavePointData));
+                cmSelectPoint.MenuItems.Add("Đặt giá trị tham chiếu", new EventHandler(fScheme_SavePointRefData));
+                cmSelectPoint.MenuItems.Add("Xóa điểm đo", new EventHandler(fScheme_DelPointData));
+                cmSelectPoint.MenuItems.Add("Đặt vị trí trên sơ đồ lắp ráp", new EventHandler(fScheme_SetLRPoint));
+                
             }
             else if(type == 2)
             {
@@ -51,10 +52,13 @@ namespace Z119.ATK.Shell
                 //cmNoselect.MenuItems.Add("Đặt điểm đo", new EventHandler(fScheme_NewPoint));
                 cmNoselect.MenuItems.Add("Lưu tất cả các điểm đo", new EventHandler(SavePointList));
                 cmNoselect.MenuItems.Add("Thêm linh kiện mới", new EventHandler(fScheme_NewElement));
-                cmSelect = new ContextMenu();
-                cmSelect.MenuItems.Add("Lấy giá trị điểm đo", new EventHandler(fScheme_SavePointData));
-                cmSelect.MenuItems.Add("Đặt giá trị tham chiếu", new EventHandler(fScheme_SavePointRefData));
-                cmSelect.MenuItems.Add("Xóa điểm đo", new EventHandler(fScheme_DelPointData));
+                cmSelectPoint = new ContextMenu();
+                cmSelectPoint.MenuItems.Add("Lấy giá trị điểm đo", new EventHandler(fScheme_SavePointData));
+                cmSelectPoint.MenuItems.Add("Đặt giá trị tham chiếu", new EventHandler(fScheme_SavePointRefData));
+                cmSelectPoint.MenuItems.Add("Xóa điểm đo", new EventHandler(fScheme_DelPointData));
+                cmSelectEle = new ContextMenu();
+                cmSelectEle.MenuItems.Add("Xóa linh kiện", new EventHandler(fScheme_DelElement));
+                cmSelectEle.MenuItems.Add("Đặt tên", new EventHandler(fScheme_SetEleName));
                 
             }
             LoadschemePoints();
@@ -73,6 +77,30 @@ namespace Z119.ATK.Shell
             //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             //this.Location = //Z119.ATK.Common.Const.proConf.fSchemeLocation;
             //this.Size = //Z119.ATK.Common.Const.proConf.fSchemeSize;
+        }
+
+        private void fScheme_SetEleName(object sender, EventArgs e)
+        {
+            
+            foreach (schemeElement ele in Const.schemeElementList)
+            {
+                if (ele.selected)
+                {
+                    ele.mName = this.getInputString("Nhập tên linh kiện");
+                    return;
+                }
+            } 
+        }
+
+        private void fScheme_DelElement(object sender, EventArgs e)
+        {
+            foreach (schemeElement ele in Const.schemeElementList)
+            {
+                if (ele.selected)
+                {
+                    Const.schemeElementList.Remove(ele);
+                }
+            } 
         }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
@@ -100,9 +128,32 @@ namespace Z119.ATK.Shell
                 CheckElementSelection(pOld);
         }
 
-        private bool CheckElementSelection(Point pOld)
+        private bool CheckElementSelection(Point pSelect)
         {
-            return true;
+            if (mType != 2) return false;
+            bool foundSeleted = false;
+            foreach (schemeElement ele in Const.schemeElementList)
+            {
+                Point br, tl;
+                tl = toFormPos(ele.PositionTL);
+                br = toFormPos(ele.PositionBR);
+                if (pSelect.X > tl.X
+                    && pSelect.X < br.X
+                    && pSelect.Y > tl.Y
+                    && pSelect.Y < br.Y
+                    && (!foundSeleted)
+                )
+                {
+                    if (!ele.selected)
+                    {
+                        ele.selected = true;
+
+                    }
+                    foundSeleted = true;
+                }
+                else ele.selected = false;
+            }
+            return foundSeleted;
         }
 
         private void fScheme_SetLRPoint(object sender, EventArgs e)
@@ -186,19 +237,41 @@ namespace Z119.ATK.Shell
 
         private void fScheme_NewPoint(object sender, EventArgs e)
         {
-            FormTextInput form = new FormTextInput();
-            form.Text = "Nhập tên điểm đo";
-            form.ComboListFalse.Hide();
-            form.Label2.Hide();
-            if (form.ShowDialog(this) == DialogResult.OK)
-            {
-                var formPosition = pOld;
-                schemePoint schemePos = new schemePoint(toSchemePos(formPosition), form.getText());//
+            
+            var formPosition = pOld;
+            schemePoint schemePos = new schemePoint(toSchemePos(formPosition), getInputString("Nhập tên điểm đo"));//
+            Z119.ATK.Common.Const.schemePointList.Add(schemePos);
 
-                Z119.ATK.Common.Const.schemePointList.Add(schemePos);
-                this.Refresh();
+            this.Refresh();
+        }
+
+        private string getInputString(string strtitle)
+        {
+            Form textDialog = new Form();
+            textDialog.Text = strtitle;
+            TextBox textbox = new TextBox();
+            textDialog.Controls.Add(textbox);
+            textbox.Location = new System.Drawing.Point(50, 30);
+            Button button1 = new Button();
+            button1.Text = "OK";
+            textDialog.Controls.Add(button1);
+            textDialog.AcceptButton = button1;
+            button1.DialogResult = System.Windows.Forms.DialogResult.OK;
+            button1.Location = new System.Drawing.Point(50, 60);
+            string text = "";
+            // Show testDialog as a modal dialog and determine if DialogResult = OK.
+            if (textDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                // Read the contents of testDialog's TextBox.
+                text = textbox.Text;
             }
-            form.Dispose();
+            else
+            {
+                //this.txtResult.Text = "Cancelled";
+            }
+            textDialog.Dispose();
+
+            return text;
         }
 
         private Point toSchemePos(Point formPosition)
@@ -211,6 +284,7 @@ namespace Z119.ATK.Shell
             if (isAddingElement)
             {
                 pointElementBR = this.panel1.PointToClient(Cursor.Position);
+                this.Refresh();
                 return;
             }
             if (_mousePressed)
@@ -236,7 +310,7 @@ namespace Z119.ATK.Shell
             {
                 return;
             }
-            if (mType == 2)
+            if (mType == 2)//adding element
             {
                 if (Z119.ATK.Common.Const.IsWaitForLRLocation) 
                 {
@@ -254,7 +328,8 @@ namespace Z119.ATK.Shell
             pictureBox1.ContextMenu = cmNoselect;
             if ((e.Button == System.Windows.Forms.MouseButtons.Right) )
             {
-                if (CheckPointSelection(pOld)) pictureBox1.ContextMenu = cmSelect;
+                if (CheckPointSelection(pOld)) pictureBox1.ContextMenu = cmSelectPoint;
+                else if (CheckElementSelection(pOld)) pictureBox1.ContextMenu = cmSelectEle;
             }
             
                 
@@ -334,27 +409,56 @@ namespace Z119.ATK.Shell
             // Create a local version of the graphics object for the PictureBox.
             Graphics g = e.Graphics;
             g.DrawImage(image1, new Rectangle(imgdx, imgdy, Convert.ToInt32(image1.Width * zoomscale), Convert.ToInt32(image1.Height * zoomscale)));
+           
+            if (mType == 2)// draw elements
+            {
+                foreach (schemeElement ele in Const.schemeElementList)
+                {
+                    Point br, tl;
+                    tl = toFormPos(ele.PositionTL);
+                    br = toFormPos(ele.PositionBR);
+                    if (ele.selected)
+                    {
+                        g.DrawRectangle(new Pen(Color.Cyan, 4), new Rectangle(tl.X, tl.Y, br.X - tl.X, br.Y - tl.Y));
+                        g.FillRectangle(new SolidBrush(Color.FromArgb(200, 120, 180, 210)), new Rectangle(tl.X, tl.Y, br.X - tl.X, br.Y - tl.Y));
+                        tl.Offset(0,-15);
+                        
+                        Size size = e.Graphics.MeasureString(ele.mName, new System.Drawing.Font("Times New Roman", 10)).ToSize();
+                        g.FillRectangle(new SolidBrush(Color.Cyan), new Rectangle(tl,size));
+                        g.DrawString(ele.mName, new System.Drawing.Font("Times New Roman", 10), new System.Drawing.SolidBrush(Color.Black), tl);
+                    }
+                    else
+                    {
+                        g.DrawRectangle(new Pen(Color.Cyan, 2), new Rectangle(tl.X, tl.Y, br.X - tl.X, br.Y - tl.Y));
+                        g.FillRectangle(new SolidBrush(Color.FromArgb(150, 150, 150, 150)), new Rectangle(tl.X, tl.Y, br.X - tl.X, br.Y - tl.Y));
+                        tl.Offset(0, -15);
+                        Size size = e.Graphics.MeasureString(ele.mName, new System.Drawing.Font("Times New Roman", 10)).ToSize();
+                        g.FillRectangle(new SolidBrush(Color.Cyan), new Rectangle(tl, size));
+                        g.DrawString(ele.mName, new System.Drawing.Font("Times New Roman", 10), new System.Drawing.SolidBrush(Color.Black), tl);
+                    }
+                    
+                }
+            }
+            // draw points
             foreach (schemePoint p in Z119.ATK.Common.Const.schemePointList)
             {
                 Point center;
-                if(mType==1) center = toFormPos(p.PositionNL);
+                if (mType == 1) center = toFormPos(p.PositionNL);
                 else center = toFormPos(p.PositionLR);
                 if (p.Selected)
                 {
                     center.Offset(-5, -5);
                     g.DrawRectangle(new Pen(Color.Red, 4), new Rectangle(center, new Size(7, 7)));
                     center.Offset(5, 5);
-                    g.DrawString(p.mName, new System.Drawing.Font("Times New Roman", 11), new System.Drawing.SolidBrush(Color.Red), center);
+                    g.DrawString(p.mName, new System.Drawing.Font("Times New Roman", 10), new System.Drawing.SolidBrush(Color.Red), center);
                 }
                 else
                 {
                     center.Offset(-3, -3);
                     g.DrawRectangle(new Pen(Color.Red, 2), new Rectangle(center, new Size(5, 5)));
                     center.Offset(3, 3);
-                    g.DrawString(p.mName, new System.Drawing.Font("Times New Roman", 14), new System.Drawing.SolidBrush(Color.Red), center);
-
+                    g.DrawString(p.mName, new System.Drawing.Font("Times New Roman", 10), new System.Drawing.SolidBrush(Color.Red), center);
                 }
-                
             }
             if(isAddingElement)
             {
@@ -432,6 +536,10 @@ namespace Z119.ATK.Shell
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if(mType==2)foreach (schemePoint p in Common.Const.schemePointList)
+            {
+                if (p.selected) CheckElementSelection(toFormPos(p.PositionLR));
+            }
             Refresh(); 
         }
 

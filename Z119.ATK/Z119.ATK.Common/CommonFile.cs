@@ -46,9 +46,6 @@ namespace Z119.ATK.Common
             
         }
 
-
-
-        
     }
     public class schemeElement
     {
@@ -62,7 +59,9 @@ namespace Z119.ATK.Common
             PositionTL = tl;
             PositionBR = br;
         }
-
+        public schemeElement()
+        {
+        }
     }
     public class schemePoint
     {
