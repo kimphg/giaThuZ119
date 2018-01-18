@@ -39,10 +39,10 @@ namespace Z119.ATK.Shell
 
         internal void UpdateComboBoxes(BindingList<Common.StepItem> stepList)
         {
-            comboListFalse.DataSource = new BindingSource(stepList, "MName");
-            //comboListFalse.DisplayMember = "MName";
-            //comboListFalse.ValueMember = "MType";
-            //comboListFalse.BindingContext = this.BindingContext;
+            comboListFalse.DataSource = stepList;
+            comboListFalse.DisplayMember = "MName";
+            comboListFalse.ValueMember = "MType";
+            comboListFalse.BindingContext = this.BindingContext;
 
             comboBoxListTrue.DataSource = stepList;
             comboBoxListTrue.DisplayMember = "MName";
