@@ -38,9 +38,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\NationalInstruments.Common.Native.dll</HintPath>
     </Reference>
-    <Reference Include="NationalInstruments.VisaNS, Version=13.0.45.167, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\NationalInstruments.VisaNS.dll</HintPath>
+    <Reference Include="NationalInstruments.VisaNS">
+      <HintPath>..\SharpVisaCLI\bin\Debug\NationalInstruments.VisaNS.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -57,6 +56,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SharpVisaCLI\SharpVisaCLI.csproj">
+      <Project>{43c68bf0-3b35-4fc4-80f8-6500b8ae59b7}</Project>
+      <Name>SharpVisaCLI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Z119.ATK.Common\Z119.ATK.Common.csproj">
       <Project>{eb0b458f-afc0-4226-b131-330538c12c54}</Project>
       <Name>Z119.ATK.Common</Name>

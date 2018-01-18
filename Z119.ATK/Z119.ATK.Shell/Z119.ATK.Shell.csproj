@@ -50,7 +50,7 @@
     </Reference>
     <Reference Include="NationalInstruments.VisaNS, Version=13.0.45.167, Culture=neutral, PublicKeyToken=4febd62461bf11a4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Z119.ATK.Power\bin\Debug\NationalInstruments.VisaNS.dll</HintPath>
+      <HintPath>..\..\RigolTest\RigolTest\NationalInstruments.VisaNS.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
