@@ -238,7 +238,8 @@ namespace Z119.ATK.Shell
             //CheckBindingModel model = new CheckBindingModel();
             //ConvertControlsToModel(model);
             //_checkManager.SaveIntoFile(model);
-            Z119.ATK.Common.ProjectManager.SaveObject(Const.stepList,"quiTrinh.xml");
+            List<StepItem> list = Const.stepList.Values.ToList();
+            Z119.ATK.Common.ProjectManager.SaveObject(list, "quiTrinh.xml");
         }
 
         private void cmbPrincipleDiagram_SelectionChangeCommitted(object sender, EventArgs e)
@@ -305,7 +306,13 @@ namespace Z119.ATK.Shell
 
         internal void LoadData()
         {
-            Const.stepList = Z119.ATK.Common.ProjectManager.LoadObject<Dictionary<string,StepItem>>("quiTrinh.xml");
+            List<StepItem> list = Z119.ATK.Common.ProjectManager.LoadObject<List<StepItem>>("quiTrinh.xml");
+            Const.stepList = new Dictionary<string,StepItem>();
+            foreach(StepItem si in list)
+            {
+                Const.stepList.Add(si.mName,si);
+            }
+            
             UpdateList();
         }
 
@@ -455,14 +462,31 @@ namespace Z119.ATK.Shell
             listBox1.DisplayMember = "Key";
             listBox1.BindingContext = this.BindingContext;
             listBox1.Refresh();
+            comboBoxStepFail.DataSource = Const.stepList.Keys.ToList();
+            comboBoxStepNext.DataSource = Const.stepList.Keys.ToList();
+            comboBoxStepPoint.DataSource = Const.schemePointList;
+            comboBoxStepPoint.DisplayMember = "MName";
+            //comboBoxStepPoint.ValueMember = "mName";
             //this.Invalidate();
         }
-
+        void selectSchemePoint(string str)
+        {
+            foreach (schemePoint sp in Const.schemePointList)
+            {
+                if (sp.MName == str) sp.selected = true;
+                else sp.selected = false;
+            }
+ 
+        }
         private void button6_Click(object sender, EventArgs e)
         {
-            StepItem curItem = (listBox1.SelectedItem as StepItem);
-            if (curItem.Next(true)!=null)
-            listBox1.SelectedItem = FindItem(curItem.Next(true));
+            int index = listBox1.FindString(comboBoxStepNext.Text);
+            if (index != -1)
+                listBox1.SetSelected(index, true);
+            else
+            {
+                return;
+            }
         }
 
         private StepItem FindItem(string p)
@@ -491,12 +515,55 @@ namespace Z119.ATK.Shell
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string key = listBox1.SelectedItem.ToString();
+            string key = listBox1.GetItemText(listBox1.SelectedItem);
             if (Const.stepList.ContainsKey(key))
             {
                 StepItem value = Const.stepList[key];
-
+                this.textBoxStepName.Text = key;
+                this.textBoxStepMota.Text = value.mDescription;
+                this.comboBoxStepPoint.Text = value.mPoint;
+                this.comboBoxStepNext.Text = value.mNextTrue;
+                this.comboBoxStepFail.Text = value.mNextFalse;
+                selectSchemePoint(value.mPoint);
             }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            SaveStep();
+        }
+
+        private void SaveStep()
+        {
+            string key = listBox1.GetItemText(listBox1.SelectedItem);
+            if (Const.stepList.ContainsKey(key))
+            {
+                StepItem value = Const.stepList[key];
+                value.mDescription = textBoxStepMota.Text;
+                value.mPoint = this.comboBoxStepPoint.Text;
+                value.mNextTrue = comboBoxStepNext.Text;
+                value.mNextFalse = comboBoxStepFail.Text;
+            }
+        }
+
+        private void comboBoxStepNext_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SaveStep();
+        }
+
+        private void comboBoxStepFail_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SaveStep();
+        }
+
+        private void textBoxStepMota_TextChanged(object sender, EventArgs e)
+        {
+            SaveStep();
+        }
+
+        private void comboBoxStepPoint_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SaveStep();
         }
 
         

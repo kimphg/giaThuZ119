@@ -76,6 +76,18 @@
             this.panel18 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxStepPoint = new System.Windows.Forms.ComboBox();
+            this.textBoxStepName = new System.Windows.Forms.TextBox();
+            this.textBoxStepMota = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.comboBoxStepNext = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.comboBoxStepFail = new System.Windows.Forms.ComboBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -97,6 +109,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -484,13 +497,15 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.listBox1, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel1, 0, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.93333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.06667F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 261F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(353, 780);
             this.tableLayoutPanel2.TabIndex = 6;
             // 
@@ -509,7 +524,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(347, 120);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(347, 76);
             this.tableLayoutPanel3.TabIndex = 7;
             // 
             // button3
@@ -517,7 +532,7 @@
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button3.Location = new System.Drawing.Point(3, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(153, 54);
+            this.button3.Size = new System.Drawing.Size(153, 32);
             this.button3.TabIndex = 1;
             this.button3.Text = "Thêm thao tác";
             this.button3.UseVisualStyleBackColor = true;
@@ -526,9 +541,9 @@
             // button6
             // 
             this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.Location = new System.Drawing.Point(162, 63);
+            this.button6.Location = new System.Drawing.Point(162, 41);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(182, 54);
+            this.button6.Size = new System.Drawing.Size(182, 32);
             this.button6.TabIndex = 4;
             this.button6.Text = "Tiếp tục";
             this.button6.UseVisualStyleBackColor = true;
@@ -539,7 +554,7 @@
             this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button4.Location = new System.Drawing.Point(162, 3);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(182, 54);
+            this.button4.Size = new System.Drawing.Size(182, 32);
             this.button4.TabIndex = 2;
             this.button4.Text = "Thêm điều kiện";
             this.button4.UseVisualStyleBackColor = true;
@@ -548,9 +563,9 @@
             // button5
             // 
             this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.Location = new System.Drawing.Point(3, 63);
+            this.button5.Location = new System.Drawing.Point(3, 41);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(153, 54);
+            this.button5.Size = new System.Drawing.Size(153, 32);
             this.button5.TabIndex = 3;
             this.button5.Text = "Xóa";
             this.button5.UseVisualStyleBackColor = true;
@@ -572,9 +587,9 @@
             // 
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(3, 159);
+            this.listBox1.Location = new System.Drawing.Point(3, 115);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(347, 618);
+            this.listBox1.Size = new System.Drawing.Size(347, 400);
             this.listBox1.TabIndex = 8;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -661,6 +676,133 @@
             this.splitContainer1.SplitterWidth = 11;
             this.splitContainer1.TabIndex = 0;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flowLayoutPanel1.Controls.Add(this.label5);
+            this.flowLayoutPanel1.Controls.Add(this.textBoxStepName);
+            this.flowLayoutPanel1.Controls.Add(this.label6);
+            this.flowLayoutPanel1.Controls.Add(this.comboBoxStepPoint);
+            this.flowLayoutPanel1.Controls.Add(this.label9);
+            this.flowLayoutPanel1.Controls.Add(this.textBoxStepMota);
+            this.flowLayoutPanel1.Controls.Add(this.label10);
+            this.flowLayoutPanel1.Controls.Add(this.comboBoxStepNext);
+            this.flowLayoutPanel1.Controls.Add(this.label11);
+            this.flowLayoutPanel1.Controls.Add(this.comboBoxStepFail);
+            this.flowLayoutPanel1.Controls.Add(this.button7);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(10, 525);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(333, 248);
+            this.flowLayoutPanel1.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Tên bước:";
+            // 
+            // comboBoxStepPoint
+            // 
+            this.comboBoxStepPoint.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxStepPoint.FormattingEnabled = true;
+            this.comboBoxStepPoint.Location = new System.Drawing.Point(59, 42);
+            this.comboBoxStepPoint.Name = "comboBoxStepPoint";
+            this.comboBoxStepPoint.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxStepPoint.TabIndex = 1;
+            this.comboBoxStepPoint.SelectedIndexChanged += new System.EventHandler(this.comboBoxStepPoint_SelectedIndexChanged);
+            // 
+            // textBoxStepName
+            // 
+            this.textBoxStepName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxStepName.Location = new System.Drawing.Point(3, 16);
+            this.textBoxStepName.Name = "textBoxStepName";
+            this.textBoxStepName.Size = new System.Drawing.Size(286, 20);
+            this.textBoxStepName.TabIndex = 2;
+            // 
+            // textBoxStepMota
+            // 
+            this.textBoxStepMota.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBoxStepMota.Location = new System.Drawing.Point(3, 69);
+            this.textBoxStepMota.Multiline = true;
+            this.textBoxStepMota.Name = "textBoxStepMota";
+            this.textBoxStepMota.Size = new System.Drawing.Size(321, 69);
+            this.textBoxStepMota.TabIndex = 3;
+            this.textBoxStepMota.TextChanged += new System.EventHandler(this.textBoxStepMota_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(3, 46);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Điểm đo:";
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(186, 46);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Mô tả:";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 148);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(79, 13);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Bước tiếp theo:";
+            // 
+            // comboBoxStepNext
+            // 
+            this.comboBoxStepNext.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxStepNext.FormattingEnabled = true;
+            this.comboBoxStepNext.Location = new System.Drawing.Point(88, 144);
+            this.comboBoxStepNext.Name = "comboBoxStepNext";
+            this.comboBoxStepNext.Size = new System.Drawing.Size(202, 21);
+            this.comboBoxStepNext.TabIndex = 7;
+            this.comboBoxStepNext.SelectedIndexChanged += new System.EventHandler(this.comboBoxStepNext_SelectedIndexChanged);
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(3, 175);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(142, 13);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "Nếu không đạt chuyển đến:";
+            // 
+            // comboBoxStepFail
+            // 
+            this.comboBoxStepFail.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBoxStepFail.FormattingEnabled = true;
+            this.comboBoxStepFail.Location = new System.Drawing.Point(151, 171);
+            this.comboBoxStepFail.Name = "comboBoxStepFail";
+            this.comboBoxStepFail.Size = new System.Drawing.Size(173, 21);
+            this.comboBoxStepFail.TabIndex = 9;
+            this.comboBoxStepFail.SelectedIndexChanged += new System.EventHandler(this.comboBoxStepFail_SelectedIndexChanged);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(3, 198);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(111, 34);
+            this.button7.TabIndex = 10;
+            this.button7.Text = "Lưu";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // fCheckForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -697,6 +839,8 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -750,5 +894,17 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxStepName;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox comboBoxStepPoint;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBoxStepMota;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox comboBoxStepNext;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboBoxStepFail;
+        private System.Windows.Forms.Button button7;
     }
 }

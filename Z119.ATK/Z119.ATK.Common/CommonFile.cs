@@ -18,7 +18,7 @@ namespace Z119.ATK.Common
     public class StepItem
     {
        
-        string mNextTrue, mNextFalse;
+        public string mNextTrue, mNextFalse,mPoint;
         bool isDone = false;
         public bool selected;
         public string mDescription="";
@@ -67,8 +67,14 @@ namespace Z119.ATK.Common
     }
     public class schemePoint
     {
-        
-        public string mName;
+
+        private string mName;
+
+        public string MName
+        {
+            get { return mName; }
+            set { mName = value; }
+        }
         public Point PositionNL;
         public Point PositionLR;
         public bool selected;

@@ -450,14 +450,14 @@ namespace Z119.ATK.Shell
                     center.Offset(-5, -5);
                     g.DrawRectangle(new Pen(Color.Red, 4), new Rectangle(center, new Size(7, 7)));
                     center.Offset(5, 5);
-                    g.DrawString(p.mName, new System.Drawing.Font("Times New Roman", 10), new System.Drawing.SolidBrush(Color.Red), center);
+                    g.DrawString(p.MName, new System.Drawing.Font("Times New Roman", 10), new System.Drawing.SolidBrush(Color.Red), center);
                 }
                 else
                 {
                     center.Offset(-3, -3);
                     g.DrawRectangle(new Pen(Color.Red, 2), new Rectangle(center, new Size(5, 5)));
                     center.Offset(3, 3);
-                    g.DrawString(p.mName, new System.Drawing.Font("Times New Roman", 10), new System.Drawing.SolidBrush(Color.Red), center);
+                    g.DrawString(p.MName, new System.Drawing.Font("Times New Roman", 10), new System.Drawing.SolidBrush(Color.Red), center);
                 }
             }
             if(isAddingElement)
