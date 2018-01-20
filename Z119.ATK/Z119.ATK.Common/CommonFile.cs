@@ -20,6 +20,8 @@ namespace Z119.ATK.Common
        
         string mNextTrue, mNextFalse;
         bool isDone = false;
+        public bool selected;
+        public string mDescription="";
         public string mName { get; set; }
         public string mType { get; set; }
         public StepItem()

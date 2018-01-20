@@ -29,6 +29,7 @@ namespace Z119.ATK.Common
     {
         public static List<schemePoint> schemePointList = new List<schemePoint>();
         public static List<schemeElement> schemeElementList = new List<schemeElement>();
+        public static Dictionary<String, StepItem> stepList = new Dictionary<String, StepItem>();
         // path Main
         public static string PATH_ROOT =  @"C:\ATK\Config";
         public static string PATH_PROJECT = @"C:\ATK\Projects";

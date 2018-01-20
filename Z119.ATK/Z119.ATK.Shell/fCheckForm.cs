@@ -36,7 +36,7 @@ namespace Z119.ATK.Shell
             add { _stopAll += value; }
             remove { _stopAll -= value; }
         }
-        private BindingList<StepItem> stepList = new BindingList<StepItem>();
+        
         public fCheckForm()
         {
             InitializeComponent();
@@ -88,7 +88,19 @@ namespace Z119.ATK.Shell
             fSodoLR.Size = this.panel13.Size;
             this.panel14.SizeChanged += panel14_SizeChanged;
             fSodoLR.Show();
+            //
+            listBox1.MouseDoubleClick += listBox1_MouseDoubleClick;
             
+        }
+
+        void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            /*foreach (KeyValuePair<string,StepItem> se in Const.stepList)
+            {
+                se.selected = false;
+            }
+            (listBox1.SelectedItem as StepItem).selected = true;
+            EditStep();*/
         }
 
         private void panel14_SizeChanged(object sender, EventArgs e)
@@ -226,7 +238,7 @@ namespace Z119.ATK.Shell
             //CheckBindingModel model = new CheckBindingModel();
             //ConvertControlsToModel(model);
             //_checkManager.SaveIntoFile(model);
-            Z119.ATK.Common.ProjectManager.SaveObject(this.stepList,"quiTrinh.xml");
+            Z119.ATK.Common.ProjectManager.SaveObject(Const.stepList,"quiTrinh.xml");
         }
 
         private void cmbPrincipleDiagram_SelectionChangeCommitted(object sender, EventArgs e)
@@ -293,7 +305,7 @@ namespace Z119.ATK.Shell
 
         internal void LoadData()
         {
-            this.stepList = Z119.ATK.Common.ProjectManager.LoadObject<BindingList<StepItem>>("quiTrinh.xml");
+            Const.stepList = Z119.ATK.Common.ProjectManager.LoadObject<Dictionary<string,StepItem>>("quiTrinh.xml");
             UpdateList();
         }
 
@@ -396,35 +408,23 @@ namespace Z119.ATK.Shell
             textDialog.Dispose();
 
             return text;
-        }!!!
+        }//!!!
         private void button3_Click(object sender, EventArgs e)
         {
-            FormTextInput form = new FormTextInput();
-            form.Text = "Nhập mô tả thao tác";
-            form.ComboListFalse.Hide();
-            form.Label2.Hide();
-            if (form.ShowDialog(this) == DialogResult.OK)
-            {
-                AddStep(form.getText(), 2);
-            }
-            else
-            {
-
-            }
-            form.Dispose();
-            this.SaveData();
+            AddStep(getInputString("Nhập tên thao tác:"), 2);
+            //UpdateList();
         }
 
         private void AddStep(string p, int type, StepItem nextTrue = null, StepItem nextFalse = null)
         {
             if (p == null)
             {
-                MessageBox.Show("Mô tả không hợp lệ");
+                MessageBox.Show("Tên không hợp lệ");
                 return;
             }
             if (FindItem(p) != null)
             {
-                MessageBox.Show("Bước có mô tả như vậy đã tồn tại");
+                MessageBox.Show("Tên như vậy đã tồn tại");
                 return;
             }
             if(type==2)//thao tac
@@ -432,14 +432,14 @@ namespace Z119.ATK.Shell
                 
                 StepItem newstep = new StepItem();
                 newstep.Init(p,  nextTrue);
-                stepList.Add(newstep);
+                Const.stepList.Add(p,newstep);
                 UpdateList();
             }
             else if (type == 3)//dieu kien
             {
                 StepItem newstep = new StepItem();
                 newstep.Init(p, nextTrue, nextFalse);
-                stepList.Add(newstep);
+                Const.stepList.Add(p,newstep);
                 UpdateList();
             }
             
@@ -447,10 +447,15 @@ namespace Z119.ATK.Shell
 
         private void UpdateList()
         {
-            listBox1.DataSource = stepList;
-            listBox1.DisplayMember = "MName";
-            listBox1.ValueMember = "MType";
+            var bindingSource1 = new BindingSource();
+
+            // Bind BindingSource1 to the list of states.
+            bindingSource1.DataSource = Const.stepList;
+            listBox1.DataSource = bindingSource1;
+            listBox1.DisplayMember = "Key";
             listBox1.BindingContext = this.BindingContext;
+            listBox1.Refresh();
+            //this.Invalidate();
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -462,46 +467,39 @@ namespace Z119.ATK.Shell
 
         private StepItem FindItem(string p)
         {
-            
-                foreach (StepItem item in stepList)
-                {
-                    if (item.mName == p) return item;
-                }
+            if (Const.stepList.ContainsKey(p))
+            {
+                return Const.stepList[p];
+            }
+
+            else
                 return null;
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            stepList.Remove(listBox1.SelectedItem as StepItem);
+            //Const.stepList.Remove(listBox1.SelectedItem as StepItem);
             UpdateList();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            
-            //
-            FormTextInput form = new FormTextInput();
-            form.Text = "Nhập mô tả thao tác";
+            AddStep(getInputString("Nhập tên điều kiện:"),3);
 
-            
-            //form.comboBox1.BindingContext = form.BindingContext;
-            form.UpdateComboBoxes(stepList);
-            
-            
-
-            if (form.ShowDialog(this) == DialogResult.OK)
-            {
-                AddStep(form.getText(), 3, form.ComboBoxListTrue.SelectedItem as StepItem, form.ComboListFalse.SelectedItem as StepItem);
-
-            }
-            else
-            {
-
-            }
-            form.Dispose();
             this.SaveData();
 
         }
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string key = listBox1.SelectedItem.ToString();
+            if (Const.stepList.ContainsKey(key))
+            {
+                StepItem value = Const.stepList[key];
+
+            }
+        }
+
+        
     }
     
 }
