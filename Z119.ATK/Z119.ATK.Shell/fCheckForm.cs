@@ -349,63 +349,71 @@ namespace Z119.ATK.Shell
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (txbAmpeRa.Text.IndexOf('.') > 0) txbAmpeRa.Text = txbAmpeRa.Text.Replace('.', ',');
-            if (txbVonRa.Text.IndexOf('.') > 0) txbVonRa.Text = txbVonRa.Text.Replace('.', ',');
-            if (txbAmpeSt.Text.IndexOf('.') > 0) txbAmpeSt.Text = txbAmpeSt.Text.Replace('.', ',');
-            if (txbVolSt.Text.IndexOf('.') > 0) txbVolSt.Text = txbVolSt.Text.Replace('.', ',');
-            if (txbVonErrMax.Text.IndexOf('.') > 0) txbVonErrMax.Text = txbVonErrMax.Text.Replace('.', ',');
-            if (txAmpErrMax.Text.IndexOf('.') > 0) txAmpErrMax.Text = txAmpErrMax.Text.Replace('.', ',');
-            if (txAmpErr.Text.IndexOf('.') > 0) txAmpErr.Text = txAmpErr.Text.Replace('.', ',');
-            if (txVolErr.Text.IndexOf('.') > 0) txVolErr.Text = txVolErr.Text.Replace('.', ',');
-            double ampMes = 0;
-            double ampSt = 0;
-            double ampErrMax = Double.Parse(txAmpErrMax.Text);
-            double ampErr = Double.Parse(txAmpErr.Text);
-            double volMes = 0;
-            double volErr = Double.Parse(txVolErr.Text);
-            double volSt = 0;
-            double volErrMax = 0;
+            try
+            {
+                if (txbAmpeRa.Text.IndexOf('.') > 0) txbAmpeRa.Text = txbAmpeRa.Text.Replace('.', ',');
+                if (txbVonRa.Text.IndexOf('.') > 0) txbVonRa.Text = txbVonRa.Text.Replace('.', ',');
+                if (txbAmpeSt.Text.IndexOf('.') > 0) txbAmpeSt.Text = txbAmpeSt.Text.Replace('.', ',');
+                if (txbVolSt.Text.IndexOf('.') > 0) txbVolSt.Text = txbVolSt.Text.Replace('.', ',');
+                if (txbVonErrMax.Text.IndexOf('.') > 0) txbVonErrMax.Text = txbVonErrMax.Text.Replace('.', ',');
+                if (txAmpErrMax.Text.IndexOf('.') > 0) txAmpErrMax.Text = txAmpErrMax.Text.Replace('.', ',');
+                if (txAmpErr.Text.IndexOf('.') > 0) txAmpErr.Text = txAmpErr.Text.Replace('.', ',');
+                if (txVolErr.Text.IndexOf('.') > 0) txVolErr.Text = txVolErr.Text.Replace('.', ',');
+                double ampMes = 0;
+                double ampSt = 0;
+                double ampErrMax = Double.Parse(txAmpErrMax.Text);
+                double ampErr = 0;// Double.Parse(txAmpErr.Text);
+                double volMes = 0;
+                double volErr = 0;// Double.Parse(txVolErr.Text);
+                double volSt = 0;
+                double volErrMax = 0;
 
-            ampMes = Double.Parse(txbAmpeRa.Text);
-            volMes = Double.Parse(txbVonRa.Text);
-            ampSt = Double.Parse(txbAmpeSt.Text);
-            volSt = Double.Parse(txbVolSt.Text);
-            volErrMax = Double.Parse(txbVonErrMax.Text);
+                ampMes = Double.Parse(txbAmpeRa.Text);
+                volMes = Double.Parse(txbVonRa.Text);
+                ampSt = Double.Parse(txbAmpeSt.Text);
+                volSt = Double.Parse(txbVolSt.Text);
+                volErrMax = Double.Parse(txbVonErrMax.Text);
 
-            txAmpErr.Text = (ampMes - ampSt).ToString();
-            txVolErr.Text = (volMes - volSt).ToString();
-            if (volMes > (volSt + volErrMax) || volMes < (volSt - volErrMax))
-            {
-                label_kl_voltage.BackColor = Color.Red; label_kl_voltage.Text = "Không đạt";
-            }
-            else
-            {
-                label_kl_voltage.BackColor = Color.Green; label_kl_voltage.Text = "Đạt";
-            }
-
-            if (ampMes > ampSt+ampErrMax)
-            {
-                label_kl_amp.BackColor = Color.Red; label_kl_amp.Text = "Không đạt";
-            }
-            else
-            {
-                label_kl_amp.BackColor = Color.Green; label_kl_amp.Text = "Đạt";
-            }
-            //
-            foreach (schemePoint p in Z119.ATK.Common.Const.schemePointList)
-            {
-                if (p.Selected )
+                txAmpErr.Text = (ampMes - ampSt).ToString();
+                txVolErr.Text = (volMes - volSt).ToString();
+                if (volMes > (volSt + volErrMax) || volMes < (volSt - volErrMax))
                 {
-                     p.mAmpSt = Double.Parse(txbAmpeSt.Text);
-                     p.mAmpErrMax = Double.Parse(txAmpErrMax.Text);
-                     p.mAmpMes = Double.Parse(txbAmpeRa.Text);
-                     p.mAmpErr = Double.Parse(txAmpErr.Text);
-                     p.mVolSt = Double.Parse(txbVolSt.Text);
-                     p.mAmpErrMax = Double.Parse(txbVonErrMax.Text );
-                     p.mVolMes = Double.Parse(txbVonRa.Text);
-                     p.mVolErr = Double.Parse(txVolErr.Text );
-                    this.fSodoNL.isPointChanged = false;
+                    label_kl_voltage.BackColor = Color.Red; label_kl_voltage.Text = "Không đạt";
                 }
+                else
+                {
+                    label_kl_voltage.BackColor = Color.Green; label_kl_voltage.Text = "Đạt";
+                }
+
+                if (ampMes > ampSt + ampErrMax)
+                {
+                    label_kl_amp.BackColor = Color.Red; label_kl_amp.Text = "Không đạt";
+                }
+                else
+                {
+                    label_kl_amp.BackColor = Color.Green; label_kl_amp.Text = "Đạt";
+                }
+                //
+                foreach (schemePoint p in Z119.ATK.Common.Const.schemePointList)
+                {
+                    if (p.Selected)
+                    {
+                        p.mAmpSt = Double.Parse(txbAmpeSt.Text);
+                        p.mAmpErrMax = Double.Parse(txAmpErrMax.Text);
+                        p.mAmpMes = Double.Parse(txbAmpeRa.Text);
+                        p.mAmpErr = Double.Parse(txAmpErr.Text);
+                        p.mVolSt = Double.Parse(txbVolSt.Text);
+                        p.mAmpErrMax = Double.Parse(txbVonErrMax.Text);
+                        p.mVolMes = Double.Parse(txbVonRa.Text);
+                        p.mVolErr = Double.Parse(txVolErr.Text);
+                        this.fSodoNL.isPointChanged = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return;
             }
         }
         private string getInputString(string strtitle)
@@ -500,12 +508,25 @@ namespace Z119.ATK.Shell
         }
         private void button6_Click(object sender, EventArgs e)
         {
-            int index = listBox1.FindString(comboBoxStepNext.Text);
-            if (index >-1)
-                listBox1.SetSelected(index, true);
+            if (label_kl_voltage.Text == "Đạt")
+            {
+                int index = listBox1.FindString(comboBoxStepNext.Text);
+                if (index > -1)
+                    listBox1.SetSelected(index, true);
+                else
+                {
+                    return;
+                }
+            }
             else
             {
-                return;
+                int index = listBox1.FindString(comboBoxStepFail.Text);
+                if (index > -1)
+                    listBox1.SetSelected(index, true);
+                else
+                {
+                    return;
+                }
             }
         }
 
@@ -570,22 +591,22 @@ namespace Z119.ATK.Shell
 
         private void comboBoxStepNext_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SaveStep();
+            //SaveStep();
         }
 
         private void comboBoxStepFail_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SaveStep();
+            //SaveStep();
         }
 
         private void textBoxStepMota_TextChanged(object sender, EventArgs e)
         {
-            SaveStep();
+            //SaveStep();
         }
 
         private void comboBoxStepPoint_SelectedIndexChanged(object sender, EventArgs e)
         {
-            SaveStep();
+            //SaveStep();
         }
 
         

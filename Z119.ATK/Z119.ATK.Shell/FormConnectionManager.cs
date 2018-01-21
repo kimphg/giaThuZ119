@@ -19,19 +19,19 @@ namespace Z119.ATK.Shell
             foreach (string s in SerialPort.GetPortNames())
             {
                 listBox1.Items.Add(s);
+                comboBox_LoadControl.Items.Add(s);
+                comboBox_switchControl.Items.Add(s);
                 
             }
-            comboBox_LoadControl.DataSource = listBox1.Items;
-            comboBox_switchControl.DataSource = listBox1.Items;
             //comboBox_powerControl.DataSource = listBox1.Items;
             SharpVisaCLI.Program.List((inst) => { if (inst.Contains("USB"))listBox2.Items.Add(inst); });
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Z119.ATK.Common.Const.proConf.loadCtrl   = comboBox_LoadControl.SelectedItem.ToString();
+            Z119.ATK.Common.Const.proConf.loadCtrl   = comboBox_LoadControl.Text;
             //Z119.ATK.Common.Const.proConf.powerCtrl  = comboBox_powerControl.SelectedItem.ToString();
-            Z119.ATK.Common.Const.proConf.switchCtrl = comboBox_switchControl.SelectedItem.ToString();
+            Z119.ATK.Common.Const.proConf.switchCtrl = comboBox_switchControl.Text;
         }
 
         private void label2_Click(object sender, EventArgs e)

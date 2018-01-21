@@ -57,9 +57,10 @@ namespace Z119.ATK.Shell
             this.LocationChanged+=fOxiloForm_LocationChanged;
             this.StartPosition = FormStartPosition.Manual;
             this.Location = Z119.ATK.Common.Const.proConf.fOsciloLocation;
-            this.TopMost = true;
+            this.TopMost = false;
+
             this.FormClosing += fOxiloForm_Onclosing;
-            setProbe(50);
+            setProbe(1);
             SetOffset(0, 1);
             SetOffset(0, 2);
             UnlockControl();
@@ -98,9 +99,9 @@ namespace Z119.ATK.Shell
                         UnlockControl();
                         this.Invoke((MethodInvoker)delegate { Blink(2); });
                         DrawData(res);
-                        Thread.Sleep(500);
+                        Thread.Sleep(3000);
                         this.Invoke((MethodInvoker)delegate { Blink(3); });
-                        Thread.Sleep(500);
+                        Thread.Sleep(3000);
                     });
                 }
                 else
@@ -400,7 +401,14 @@ namespace Z119.ATK.Shell
         private void button3_Click(object sender, EventArgs e)
         {
             string req = textBox1.Text;
-            SharpVisaCLI.Program.Send(deviceName, req, null);
+            SharpVisaCLI.Program.Send(deviceName, req, (res) =>
+            {
+                this.Invoke((MethodInvoker)delegate
+                {
+                    textBox2.Text = res;
+                });
+                
+            });
         }
 
         

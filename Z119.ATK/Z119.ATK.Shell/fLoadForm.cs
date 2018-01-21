@@ -118,9 +118,10 @@ namespace Z119.ATK.Shell
         public async void OnOffPower()
         
         {
+            if (!serialPort1.IsOpen) return;
             try
             {
-                if (IsOn)
+                if (IsOn )
                 {
                     #region GUI OFF
                     lblReceiveVon.ForeColor = Color.Gray;
@@ -147,7 +148,7 @@ namespace Z119.ATK.Shell
                     timer1.Enabled = false;
 
                 }
-                else
+                else 
                 {
                     #region GUI ON
                     lblReceiveVon.ForeColor = Color.Yellow;

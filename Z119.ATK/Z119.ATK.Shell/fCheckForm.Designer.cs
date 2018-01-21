@@ -88,6 +88,7 @@
             this.panel18 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.button8 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -265,6 +266,7 @@
             this.tableLayoutPanel1.Controls.Add(this.txVolErr, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.txAmpErr, 4, 2);
             this.tableLayoutPanel1.Controls.Add(this.button2, 6, 2);
+            this.tableLayoutPanel1.Controls.Add(this.button8, 6, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -280,41 +282,42 @@
             this.txbVonErrMax.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbVonErrMax.Enabled = false;
             this.txbVonErrMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbVonErrMax.Location = new System.Drawing.Point(244, 42);
+            this.txbVonErrMax.Location = new System.Drawing.Point(270, 42);
             this.txbVonErrMax.Margin = new System.Windows.Forms.Padding(2);
             this.txbVonErrMax.Name = "txbVonErrMax";
             this.txbVonErrMax.Size = new System.Drawing.Size(107, 24);
             this.txbVonErrMax.TabIndex = 3;
-            this.txbVonErrMax.Text = "--";
+            this.txbVonErrMax.Text = "0";
             // 
             // txbAmpeSt
             // 
             this.txbAmpeSt.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbAmpeSt.Enabled = false;
             this.txbAmpeSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbAmpeSt.Location = new System.Drawing.Point(107, 80);
+            this.txbAmpeSt.Location = new System.Drawing.Point(133, 80);
             this.txbAmpeSt.Margin = new System.Windows.Forms.Padding(2);
             this.txbAmpeSt.Name = "txbAmpeSt";
             this.txbAmpeSt.Size = new System.Drawing.Size(91, 24);
             this.txbAmpeSt.TabIndex = 4;
-            this.txbAmpeSt.Text = "--";
+            this.txbAmpeSt.Text = "0";
             // 
             // txbAmpeRa
             // 
             this.txbAmpeRa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbAmpeRa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbAmpeRa.Location = new System.Drawing.Point(386, 80);
+            this.txbAmpeRa.Location = new System.Drawing.Point(412, 80);
             this.txbAmpeRa.Margin = new System.Windows.Forms.Padding(2);
             this.txbAmpeRa.Name = "txbAmpeRa";
             this.txbAmpeRa.Size = new System.Drawing.Size(107, 24);
             this.txbAmpeRa.TabIndex = 8;
+            this.txbAmpeRa.Text = "0";
             // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(230, 8);
+            this.label8.Location = new System.Drawing.Point(256, 8);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(135, 20);
@@ -325,18 +328,19 @@
             // 
             this.txbVonRa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbVonRa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbVonRa.Location = new System.Drawing.Point(386, 42);
+            this.txbVonRa.Location = new System.Drawing.Point(412, 42);
             this.txbVonRa.Margin = new System.Windows.Forms.Padding(2);
             this.txbVonRa.Name = "txbVonRa";
             this.txbVonRa.Size = new System.Drawing.Size(107, 24);
             this.txbVonRa.TabIndex = 7;
+            this.txbVonRa.Text = "0";
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(403, 8);
+            this.label3.Location = new System.Drawing.Point(429, 8);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 20);
@@ -349,31 +353,31 @@
             this.txbVolSt.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txbVolSt.Enabled = false;
             this.txbVolSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbVolSt.Location = new System.Drawing.Point(107, 42);
+            this.txbVolSt.Location = new System.Drawing.Point(133, 42);
             this.txbVolSt.Margin = new System.Windows.Forms.Padding(2);
             this.txbVolSt.Name = "txbVolSt";
             this.txbVolSt.Size = new System.Drawing.Size(91, 24);
             this.txbVolSt.TabIndex = 2;
-            this.txbVolSt.Text = "--";
+            this.txbVolSt.Text = "0";
             // 
             // txAmpErrMax
             // 
             this.txAmpErrMax.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txAmpErrMax.Enabled = false;
             this.txAmpErrMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txAmpErrMax.Location = new System.Drawing.Point(244, 80);
+            this.txAmpErrMax.Location = new System.Drawing.Point(270, 80);
             this.txAmpErrMax.Margin = new System.Windows.Forms.Padding(2);
             this.txAmpErrMax.Name = "txAmpErrMax";
             this.txAmpErrMax.Size = new System.Drawing.Size(107, 24);
             this.txAmpErrMax.TabIndex = 3;
-            this.txAmpErrMax.Text = "--";
+            this.txAmpErrMax.Text = "0";
             // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(103, 8);
+            this.label2.Location = new System.Drawing.Point(129, 8);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 20);
@@ -386,7 +390,7 @@
             this.label_kl_voltage.AutoSize = true;
             this.label_kl_voltage.BackColor = System.Drawing.Color.YellowGreen;
             this.label_kl_voltage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_kl_voltage.Location = new System.Drawing.Point(698, 44);
+            this.label_kl_voltage.Location = new System.Drawing.Point(724, 44);
             this.label_kl_voltage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_kl_voltage.Name = "label_kl_voltage";
             this.label_kl_voltage.Size = new System.Drawing.Size(35, 20);
@@ -398,7 +402,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(682, 8);
+            this.label7.Location = new System.Drawing.Point(708, 8);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 20);
@@ -411,7 +415,7 @@
             this.label_kl_amp.AutoSize = true;
             this.label_kl_amp.BackColor = System.Drawing.Color.IndianRed;
             this.label_kl_amp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_kl_amp.Location = new System.Drawing.Point(675, 82);
+            this.label_kl_amp.Location = new System.Drawing.Point(701, 82);
             this.label_kl_amp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_kl_amp.Name = "label_kl_amp";
             this.label_kl_amp.Size = new System.Drawing.Size(82, 20);
@@ -422,22 +426,22 @@
             // 
             this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(3, 45);
+            this.checkBox1.Location = new System.Drawing.Point(15, 45);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(76, 17);
+            this.checkBox1.Size = new System.Drawing.Size(78, 17);
             this.checkBox1.TabIndex = 11;
-            this.checkBox1.Text = "Điện áp(V)";
+            this.checkBox1.Text = "Giá trị(V/A)";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // checkBox2
             // 
             this.checkBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(8, 83);
+            this.checkBox2.Location = new System.Drawing.Point(3, 83);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(65, 17);
+            this.checkBox2.Size = new System.Drawing.Size(102, 17);
             this.checkBox2.TabIndex = 11;
-            this.checkBox2.Text = "Dòng(A)";
+            this.checkBox2.Text = "Độ gợn(mV/mA)";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -445,7 +449,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(527, 8);
+            this.label4.Location = new System.Drawing.Point(553, 8);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 20);
@@ -456,7 +460,7 @@
             // 
             this.txVolErr.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txVolErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txVolErr.Location = new System.Drawing.Point(534, 42);
+            this.txVolErr.Location = new System.Drawing.Point(560, 42);
             this.txVolErr.Margin = new System.Windows.Forms.Padding(2);
             this.txVolErr.Name = "txVolErr";
             this.txVolErr.ReadOnly = true;
@@ -467,7 +471,7 @@
             // 
             this.txAmpErr.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txAmpErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txAmpErr.Location = new System.Drawing.Point(534, 80);
+            this.txAmpErr.Location = new System.Drawing.Point(560, 80);
             this.txAmpErr.Margin = new System.Windows.Forms.Padding(2);
             this.txAmpErr.Name = "txAmpErr";
             this.txAmpErr.ReadOnly = true;
@@ -477,7 +481,7 @@
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Location = new System.Drawing.Point(778, 75);
+            this.button2.Location = new System.Drawing.Point(793, 75);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(99, 34);
             this.button2.TabIndex = 3;
@@ -821,6 +825,16 @@
             this.splitContainer1.SplitterWidth = 11;
             this.splitContainer1.TabIndex = 0;
             // 
+            // button8
+            // 
+            this.button8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button8.Location = new System.Drawing.Point(793, 39);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(99, 30);
+            this.button8.TabIndex = 12;
+            this.button8.Text = "Đo tự động";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
             // fCheckForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -924,5 +938,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBoxStepFail;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
     }
 }

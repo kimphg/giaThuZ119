@@ -30,8 +30,7 @@ namespace Z119.ATK.Shell
 
             // Menu project
             DisableMenu();
-            Initialize();
-            frm_SelectedProject(null,null);
+            Init(null,null);
             this.FormClosing += fMainWindow_FormClosing;
             //fOxiloForm formtest = new fOxiloForm();
             //formtest.MdiParent = this;
@@ -182,14 +181,14 @@ namespace Z119.ATK.Shell
         fCheckForm fcheck;
 
         // Sau khi chon project thi bao len laf da chon
-        void frm_SelectedProject(object sender, EventArgs e)
+        void Init(object sender, EventArgs e)
         {
             //(sender as Project.fOpen).Close();
             
             EnableMenu();
             
             tsmenuItemSystem.Enabled = false;
-            /*
+            
             if (frmPower != null)
                 frmPower.Close();
             if (frmSwitch != null)
@@ -198,14 +197,14 @@ namespace Z119.ATK.Shell
                 frmTai.Close();
             if (fcheck != null)
                 fcheck.Close();
-            */
+            
             //MessageBox.Show("Đã chọn dự án");
 
-            if (frmPower==null) frmPower = new fPower1();//Z119.ATK.Common.ProjectManager.LoadObject<fPower1>("fPower1"); 
-            if (frmSwitch == null) frmSwitch = new fSwitchForm();//frmSwitch = Z119.ATK.Common.ProjectManager.LoadObject<fSwitchForm>("fSwitchForm");//new fSwitchForm();
-            //if (frmSwitch == null) frmSwitch = new fSwitchForm();
-            if (frmTai == null) frmTai = new fLoadForm(); //frmTai = Z119.ATK.Common.ProjectManager.LoadObject<fLoadForm>("fLoadForm");
-            if (fcheck == null) fcheck = new fCheckForm(); //fcheck = Z119.ATK.Common.ProjectManager.LoadObject<fCheckForm>("fCheckForm");
+             frmPower = new fPower1();//Z119.ATK.Common.ProjectManager.LoadObject<fPower1>("fPower1"); 
+            frmSwitch = new fSwitchForm();//frmSwitch = Z119.ATK.Common.ProjectManager.LoadObject<fSwitchForm>("fSwitchForm");//new fSwitchForm();
+             //frmSwitch = new fSwitchForm();
+             frmTai = new fLoadForm(); //frmTai = Z119.ATK.Common.ProjectManager.LoadObject<fLoadForm>("fLoadForm");
+             fcheck = new fCheckForm(); //fcheck = Z119.ATK.Common.ProjectManager.LoadObject<fCheckForm>("fCheckForm");
 
             frmPower.FormClosing += FrmPower_FormClosing;
             frmSwitch.FormClosing += FrmSwitch_FormClosing;
@@ -318,12 +317,16 @@ namespace Z119.ATK.Shell
         #region MenuItem Project ===========================================
         private void tsmenuItemProjectOpen_Click(object sender, EventArgs e)
         {
-            if (IsExitsForm("Open"))
+            
+            Z119.ATK.Common.Const.projMan.LoadProject();
+            Init(null,null);
+            //Application.Run(Z119.ATK.Common.ProjectManager.LoadObject<fMainWindow>(Z119.ATK.Common.Const.FILE_MAINWINDOW));
+            /*if (IsExitsForm("Open"))
                 return;
             Project.fOpen frm = new Project.fOpen();
             frm.SelectedProject += frm_SelectedProject;
             frm.Tag = "Open";
-            ShowForm(frm, "Open");
+            ShowForm(frm, "Open");*/
         }
         //#endregion
 

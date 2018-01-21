@@ -316,6 +316,7 @@ namespace Z119.ATK.Shell
                         else if (result.Equals(""))
                         {
                             port4 = 0x00;
+                            port32 = 0x00;
                         }
                         break;
                     case 4: // Chân 5
