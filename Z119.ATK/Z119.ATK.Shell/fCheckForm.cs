@@ -49,6 +49,26 @@ namespace Z119.ATK.Shell
                 this.txbVonErrMax.Enabled = true;
                 this.txbAmpeSt.Enabled = true;
                 this.txAmpErrMax.Enabled = true;
+                comboBoxStepFail.Enabled = true;
+                comboBoxStepNext.Enabled = true;
+                comboBoxStepPoint.Enabled = true;
+                button3.Enabled = true;
+                button4.Enabled = true;
+                button5.Enabled = true;
+            }
+            else
+            {
+                txbVolSt.Enabled = false;
+                this.txbVonErrMax.Enabled = false;
+                this.txbAmpeSt.Enabled = false;
+                this.txAmpErrMax.Enabled = false;
+                comboBoxStepFail.Enabled = false;
+                comboBoxStepNext.Enabled = false;
+                comboBoxStepPoint.Enabled = false;
+                button3.Enabled = false;
+                button4.Enabled = false;
+                button5.Enabled = false;
+ 
             }
             LoadPrincipleDiagram(Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_HIENTHI + @"\HinhAnh\SoDoNguyenLy");
             LoadAssemblyDiagram(Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_HIENTHI + @"\HinhAnh\SoDoLapRap");
@@ -233,7 +253,7 @@ namespace Z119.ATK.Shell
             SaveData();
         }
 
-        private void SaveData()
+        public void SaveData()
         {
             //CheckBindingModel model = new CheckBindingModel();
             //ConvertControlsToModel(model);
@@ -481,7 +501,7 @@ namespace Z119.ATK.Shell
         private void button6_Click(object sender, EventArgs e)
         {
             int index = listBox1.FindString(comboBoxStepNext.Text);
-            if (index != -1)
+            if (index >-1)
                 listBox1.SetSelected(index, true);
             else
             {
@@ -503,6 +523,7 @@ namespace Z119.ATK.Shell
         private void button5_Click(object sender, EventArgs e)
         {
             //Const.stepList.Remove(listBox1.SelectedItem as StepItem);
+            Const.stepList.Remove(this.textBoxStepName.Text);
             UpdateList();
         }
 
@@ -526,6 +547,7 @@ namespace Z119.ATK.Shell
                 this.comboBoxStepFail.Text = value.mNextFalse;
                 selectSchemePoint(value.mPoint);
             }
+            //UpdateList();
         }
 
         private void button7_Click(object sender, EventArgs e)

@@ -47,6 +47,8 @@ namespace Z119.ATK.Shell
             if (result == DialogResult.Yes)
             {
                 Z119.ATK.Common.Const.projMan.SaveProjectConfig();
+                fcheck.SaveData();
+                fScheme.SavePointList();
                 //Z119.ATK.Common.ProjectManager.SaveObject(this, Z119.ATK.Common.Const.FILE_MAINWINDOW);
             }
             else if (result == DialogResult.No)

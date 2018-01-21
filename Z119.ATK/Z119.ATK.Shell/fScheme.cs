@@ -196,7 +196,7 @@ namespace Z119.ATK.Shell
         {
             SavePointList();
         }
-        private void SavePointList()
+        public static void SavePointList()
         {
             Z119.ATK.Common.ProjectManager.SaveObject<List<schemePoint>>(Z119.ATK.Common.Const.schemePointList, Z119.ATK.Common.Const.FILE_POINT_DATA);
             Z119.ATK.Common.ProjectManager.SaveObject<List<schemeElement>>(Z119.ATK.Common.Const.schemeElementList, Z119.ATK.Common.Const.FILE_ELE_DATA);
