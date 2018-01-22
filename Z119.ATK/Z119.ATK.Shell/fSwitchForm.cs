@@ -28,7 +28,7 @@ namespace Z119.ATK.Shell
 			InitializeComponent();
             this.portName = Z119.ATK.Common.Const.proConf.switchCtrl;
             _switchManager = new SwitchManager();
-            _switchManager.mode = Mode.None;
+            _switchManager.mode = Mode.Null;
             _switchManager.IsOn = false;
 
             Model = new SwitchBindingModel();
@@ -190,7 +190,7 @@ namespace Z119.ATK.Shell
                         {
                             port1 = 0x01;
                         }
-                        else if (result.Equals("U2"))
+                        else if (result.Equals("+U2"))
                         {
                             port1 = 0x02;
                         }
@@ -206,7 +206,7 @@ namespace Z119.ATK.Shell
                         {
                             port1 = 0x10;
                         }
-                        else if (result.Equals("U ra"))
+                        else if (result.Equals("-U2"))
                         {
                             port1 = 0x20;
                         }
@@ -220,7 +220,7 @@ namespace Z119.ATK.Shell
                         {
                             port21 = 0x04;
                         }
-                        else if (result.Equals("U2"))
+                        else if (result.Equals("+U2"))
                         {
                             port21 = 0x08;
                         }
@@ -236,7 +236,7 @@ namespace Z119.ATK.Shell
                         {
                             port21 = 0x40;
                         }
-                        else if (result.Equals("U ra"))
+                        else if (result.Equals("-U2"))
                         {
                             port21 = 0x80;
                         }
@@ -251,7 +251,7 @@ namespace Z119.ATK.Shell
                             port22 = 0x00;
                             port31 = 0x10;
                         }
-                        else if (result.Equals("U2"))
+                        else if (result.Equals("+U2"))
                         {
                             port22 = 0x00;
                             port31 = 0x20;
@@ -271,7 +271,7 @@ namespace Z119.ATK.Shell
                             port22 = 0x01;
                             port31 = 0x00;
                         }
-                        else if (result.Equals("U ra"))
+                        else if (result.Equals("-U2"))
                         {
                             port22 = 0x02;
                             port31 = 0x00;
@@ -288,7 +288,7 @@ namespace Z119.ATK.Shell
                             port32 = 0x00;
                             port4 = 0x40;
                         }
-                        else if (result.Equals("U2"))
+                        else if (result.Equals("+U2"))
                         {
                             port32 = 0x00;
                             port4 = 0x80;
@@ -308,7 +308,7 @@ namespace Z119.ATK.Shell
                             port32 = 0x04;
                             port4 = 0x00;
                         }
-                        else if (result.Equals("U ra"))
+                        else if (result.Equals("-U2"))
                         {
                             port32 = 0x08;
                             port4 = 0x00;
@@ -324,7 +324,7 @@ namespace Z119.ATK.Shell
                         {
                             port5 = 0x01;
                         }
-                        else if (result.Equals("U2"))
+                        else if (result.Equals("+U2"))
                         {
                             port5 = 0x02;
                         }
@@ -340,7 +340,7 @@ namespace Z119.ATK.Shell
                         {
                             port5 = 0x10;
                         }
-                        else if (result.Equals("U ra"))
+                        else if (result.Equals("-U2"))
                         {
                             port5 = 0x20;
                         }
@@ -393,7 +393,7 @@ namespace Z119.ATK.Shell
                             {
                                 port5 = 0x01;
                             }
-                            else if (result.Equals("U2"))
+                            else if (result.Equals("+U2"))
                             {
                                 port5 = 0x02;
                             }
@@ -409,7 +409,7 @@ namespace Z119.ATK.Shell
                             {
                                 port5 = 0x10;
                             }
-                            else if (result.Equals("U ra"))
+                            else if (result.Equals("-U2"))
                             {
                                 port5 = 0x20;
                             }
@@ -423,7 +423,7 @@ namespace Z119.ATK.Shell
                             {
                                 port21 = 0x04;
                             }
-                            else if (result.Equals("U2"))
+                            else if (result.Equals("+U2"))
                             {
                                 port21 = 0x08;
                             }
@@ -439,7 +439,7 @@ namespace Z119.ATK.Shell
                             {
                                 port21 = 0x40;
                             }
-                            else if (result.Equals("U ra"))
+                            else if (result.Equals("-U2"))
                             {
                                 port21 = 0x80;
                             }
@@ -454,7 +454,7 @@ namespace Z119.ATK.Shell
                                 port22 = 0x00;
                                 port31 = 0x10;
                             }
-                            else if (result.Equals("U2"))
+                            else if (result.Equals("+U2"))
                             {
                                 port22 = 0x00;
                                 port31 = 0x20;
@@ -474,7 +474,7 @@ namespace Z119.ATK.Shell
                                 port22 = 0x01;
                                 port31 = 0x00;
                             }
-                            else if (result.Equals("U ra"))
+                            else if (result.Equals("-U2"))
                             {
                                 port22 = 0x02;
                                 port31 = 0x00;
@@ -491,7 +491,7 @@ namespace Z119.ATK.Shell
                                 port32 = 0x00;
                                 port4 = 0x40;
                             }
-                            else if (result.Equals("U2"))
+                            else if (result.Equals("+U2"))
                             {
                                 port32 = 0x00;
                                 port4 = 0x80;
@@ -511,13 +511,14 @@ namespace Z119.ATK.Shell
                                 port32 = 0x04;
                                 port4 = 0x00;
                             }
-                            else if (result.Equals("U ra"))
+                            else if (result.Equals("-U2"))
                             {
                                 port32 = 0x08;
                                 port4 = 0x00;
                             }
                             else if (result.Equals(""))
                             {
+                                port32 = 0x00;
                                 port4 = 0x00;
                             }
                             break;
@@ -526,7 +527,7 @@ namespace Z119.ATK.Shell
                             {
                                 port5 = 0x01;
                             }
-                            else if (result.Equals("U2"))
+                            else if (result.Equals("+U2"))
                             {
                                 port5 = 0x02;
                             }
@@ -542,7 +543,7 @@ namespace Z119.ATK.Shell
                             {
                                 port5 = 0x10;
                             }
-                            else if (result.Equals("U ra"))
+                            else if (result.Equals("-U2"))
                             {
                                 port5 = 0x20;
                             }
@@ -815,64 +816,170 @@ namespace Z119.ATK.Shell
 
         #region Events *************************
 
+        int[] count = {0, 0, 0, 0, 0, 0, 0 };
+        enum valueCount {U1, U2Co, U2Tr, U3, U4, Dat, BoChon };
         private void btnU1Am_Click(object sender, EventArgs e)
         {
             foreach (var item in groupBox1.Controls)
             {
                 Button button = item as Button;
-                //button.BackColor = Color.LightGray;
             }
 
             Button btn = sender as Button;
-            //btn.BackColor = Color.GreenYellow;
             if (btn.Text.Equals("U3"))
             {
-                _switchManager.mode = Mode.U3;
-                //btn.BackColor = Color.FromArgb(189, 228, 101);
-                this.Cursor = CreateCursor((Bitmap)imageList1.Images[2], new Size(70, 70));
+                count[(int)valueCount.U1] = 0;
+                count[(int)valueCount.U2Co] = 0;
+                count[(int)valueCount.U2Tr] = 0;
+                count[(int)valueCount.U3]++;
+                count[(int)valueCount.U4] = 0;
+                count[(int)valueCount.Dat] = 0;
+                count[(int)valueCount.BoChon] = 0;
+
+                if (count[(int)valueCount.U3] % 2 == 0)
+                {
+                    this.Cursor = Cursors.Default;
+                    _switchManager.mode = Mode.Null;
+                }
+                else
+                {
+                    _switchManager.mode = Mode.U3;
+                    this.Cursor = CreateCursor((Bitmap)imageList1.Images[2], new Size(70, 70));
+                }
+                
             }
             else if (btn.Text.Equals("+U2"))
             {
-                _switchManager.mode = Mode.U2co;
-                //btn.BackColor = Color.FromArgb(189, 228, 101);
-                this.Cursor = CreateCursor((Bitmap)imageList1.Images[1], new Size(70, 70));
+                count[(int)valueCount.U1] = 0;
+                count[(int)valueCount.U2Co]++;
+                count[(int)valueCount.U2Tr] = 0;
+                count[(int)valueCount.U3] = 0;
+                count[(int)valueCount.U4] = 0;
+                count[(int)valueCount.Dat] = 0;
+                count[(int)valueCount.BoChon] = 0;
+
+                if (count[(int)valueCount.U2Co] % 2 == 0)
+                {
+                    this.Cursor = Cursors.Default;
+                    _switchManager.mode = Mode.Null;
+                }
+                else
+                {
+                    _switchManager.mode = Mode.U2co;
+                    this.Cursor = CreateCursor((Bitmap)imageList1.Images[1], new Size(70, 70));
+                }
+                
             }
             else if (btn.Text.Equals("-U2"))
             {
-                _switchManager.mode = Mode.U2tr;
-                //btn.BackColor = Color.FromArgb(189, 228, 101);
-                this.Cursor = CreateCursor((Bitmap)imageList1.Images[5], new Size(70, 70));
+                count[(int)valueCount.U1] = 0;
+                count[(int)valueCount.U2Co] = 0;
+                count[(int)valueCount.U2Tr]++;
+                count[(int)valueCount.U3] = 0;
+                count[(int)valueCount.U4] = 0;
+                count[(int)valueCount.Dat] = 0;
+                count[(int)valueCount.BoChon] = 0;
+
+                if (count[(int)valueCount.U2Tr] % 2 == 0)
+                {
+                    this.Cursor = Cursors.Default;
+                    _switchManager.mode = Mode.Null;
+                }
+                else
+                {
+                    _switchManager.mode = Mode.U2tr;
+                    this.Cursor = CreateCursor((Bitmap)imageList1.Images[5], new Size(70, 70));
+                }
             }
             else if (btn.Text.Equals("U1"))
             {
-                _switchManager.mode = Mode.U1;
-                //btn.BackColor = Color.FromArgb(189, 228, 101);
-                this.Cursor = CreateCursor((Bitmap)imageList1.Images[0], new Size(70, 70));
+                count[(int)valueCount.U1]++;
+                count[(int)valueCount.U2Co] = 0;
+                count[(int)valueCount.U2Tr] = 0;
+                count[(int)valueCount.U3] = 0;
+                count[(int)valueCount.U4] = 0;
+                count[(int)valueCount.Dat] = 0;
+                count[(int)valueCount.BoChon] = 0;
+
+                if (count[(int)valueCount.U1] % 2 == 0)
+                {
+                    this.Cursor = Cursors.Default;
+                    _switchManager.mode = Mode.Null;
+                }
+                else
+                {
+                    _switchManager.mode = Mode.U1;
+                    this.Cursor = CreateCursor((Bitmap)imageList1.Images[0], new Size(70, 70));
+                }
             }
             else if (btn.Text.Equals("Đất"))
             {
-                _switchManager.mode = Mode.DAT;
-                //btn.BackColor = Color.FromArgb(189, 228, 101);
-                this.Cursor = CreateCursor((Bitmap)imageList1.Images[4], new Size(70, 70));
+                count[(int)valueCount.U1] = 0;
+                count[(int)valueCount.U2Co] = 0;
+                count[(int)valueCount.U2Tr] = 0;
+                count[(int)valueCount.U3] = 0;
+                count[(int)valueCount.U4] = 0;
+                count[(int)valueCount.Dat]++;
+                count[(int)valueCount.BoChon] = 0;
+
+                if (count[(int)valueCount.Dat] % 2 == 0)
+                {
+                    this.Cursor = Cursors.Default;
+                    _switchManager.mode = Mode.Null;
+                }
+                else
+                {
+                    _switchManager.mode = Mode.DAT;
+                    this.Cursor = CreateCursor((Bitmap)imageList1.Images[4], new Size(70, 70));
+                }
             }
             else if (btn.Text.Equals("U4"))
             {
-                _switchManager.mode = Mode.U4;
-                //btn.BackColor = Color.FromArgb(189, 228, 101);
-                this.Cursor = CreateCursor((Bitmap)imageList1.Images[3], new Size(70, 70));
+                count[(int)valueCount.U1] = 0;
+                count[(int)valueCount.U2Co] = 0;
+                count[(int)valueCount.U2Tr] = 0;
+                count[(int)valueCount.U3] = 0;
+                count[(int)valueCount.U4]++;
+                count[(int)valueCount.Dat] = 0;
+                count[(int)valueCount.BoChon] = 0;
+
+                if (count[(int)valueCount.U4] % 2 == 0)
+                {
+                    this.Cursor = Cursors.Default;
+                    _switchManager.mode = Mode.Null;
+                }
+                else
+                {
+                    _switchManager.mode = Mode.U4;
+                    this.Cursor = CreateCursor((Bitmap)imageList1.Images[3], new Size(70, 70));
+                }
             }
           
             else if (btn.Text.Equals("Bỏ chọn"))
             {
-                _switchManager.mode = Mode.None;
-                //btn.BackColor = Color.FromArgb(189, 228, 101);
-                this.Cursor = CreateCursor((Bitmap)imageList1.Images[6], new Size(70, 70));
+                count[(int)valueCount.U1] = 0;
+                count[(int)valueCount.U2Co] = 0;
+                count[(int)valueCount.U2Tr] = 0;
+                count[(int)valueCount.U3] = 0;
+                count[(int)valueCount.U4] = 0;
+                count[(int)valueCount.Dat] = 0;
+                count[(int)valueCount.BoChon]++;
+
+                if (count[(int)valueCount.BoChon] % 2 == 0)
+                {
+                    this.Cursor = Cursors.Default;
+                    _switchManager.mode = Mode.Null;
+                }
+                else
+                {
+                    _switchManager.mode = Mode.None;
+                    this.Cursor = CreateCursor((Bitmap)imageList1.Images[6], new Size(70, 70));
+                }
             }
         }
 
         private void dgvSwitch_Click_1(object sender, EventArgs e)
         {
-            
             int row;
             try
             {
@@ -1024,6 +1131,112 @@ namespace Z119.ATK.Shell
             SwitchBindingModel model = new SwitchBindingModel();
             InputDataFromDataGridView(model);
             _switchManager.SaveIntoFile(model);
+        }
+
+        private void panel4_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Default;
+        }
+
+        private void panel4_MouseLeave(object sender, EventArgs e)
+        {
+            if (_switchManager.mode == Mode.U1)
+            {
+                this.Cursor = CreateCursor((Bitmap)imageList1.Images[0], new Size(70, 70));
+            }
+            else if (_switchManager.mode == Mode.U2co)
+            {
+                this.Cursor = CreateCursor((Bitmap)imageList1.Images[1], new Size(70, 70));
+            }
+            else if (_switchManager.mode == Mode.U2tr)
+            {
+                this.Cursor = CreateCursor((Bitmap)imageList1.Images[5], new Size(70, 70));
+            }
+            else if (_switchManager.mode == Mode.U3)
+            {
+                this.Cursor = CreateCursor((Bitmap)imageList1.Images[2], new Size(70, 70));
+            }
+            else if (_switchManager.mode == Mode.U4)
+            {
+                this.Cursor = CreateCursor((Bitmap)imageList1.Images[3], new Size(70, 70));
+            }
+            else if (_switchManager.mode == Mode.DAT)
+            {
+                this.Cursor = CreateCursor((Bitmap)imageList1.Images[4], new Size(70, 70));
+            }
+            else if (_switchManager.mode == Mode.None)
+            {
+                this.Cursor = CreateCursor((Bitmap)imageList1.Images[6], new Size(70, 70));
+            }
+        }
+
+        bool dgvClicked = false;
+        private void dgvSwitch_MouseDown(object sender, MouseEventArgs e)
+        {
+            dgvClicked = true;
+        }
+
+        private void dgvSwitch_MouseUp(object sender, MouseEventArgs e)
+        {
+            dgvClicked = false;
+        }
+
+        private void dgvSwitch_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (dgvClicked)
+            {
+                int row = e.RowIndex;
+
+                if (row >= 0)
+                    switch (_switchManager.mode)
+                    {
+                        case Mode.None:
+                            dgvSwitch.Rows[row].Cells[1].Value = imageList1.Images["value6.png"];
+                            dgvSwitch.Rows[row].Cells[1].Tag = "";
+                            dgvSwitch.Rows[row].Cells[1].Style.BackColor = Color.White;
+                            dgvSwitch.Rows[row].Cells[0].Style.ForeColor = Color.Black;
+
+                            break;
+                        case Mode.U1:
+                            dgvSwitch.Rows[row].Cells[1].Value = imageList1.Images["value0.png"];
+                            dgvSwitch.Rows[row].Cells[1].Tag = "U1";
+                            dgvSwitch.Rows[row].Cells[1].Style.BackColor = Color.FromArgb(64, 0, 64);
+                            dgvSwitch.Rows[row].Cells[0].Style.ForeColor = Color.FromArgb(64, 0, 64);
+                            break;
+                        case Mode.U2co:
+                            dgvSwitch.Rows[row].Cells[1].Value = imageList1.Images["value1.png"];
+                            dgvSwitch.Rows[row].Cells[1].Tag = "+U2";
+                            dgvSwitch.Rows[row].Cells[1].Style.BackColor = Color.Red;
+                            dgvSwitch.Rows[row].Cells[0].Style.ForeColor = Color.Red;
+                            break;
+                        case Mode.U3:
+                            dgvSwitch.Rows[row].Cells[1].Value = imageList1.Images["value2.png"];
+                            dgvSwitch.Rows[row].Cells[1].Tag = "U3";
+                            dgvSwitch.Rows[row].Cells[1].Style.BackColor = Color.Blue;
+                            dgvSwitch.Rows[row].Cells[0].Style.ForeColor = Color.Blue;
+                            break;
+                        case Mode.U4:
+                            dgvSwitch.Rows[row].Cells[1].Value = imageList1.Images["value3.png"];
+                            dgvSwitch.Rows[row].Cells[1].Tag = "U4";
+                            dgvSwitch.Rows[row].Cells[1].Style.BackColor = Color.FromArgb(192, 0, 192);
+                            dgvSwitch.Rows[row].Cells[0].Style.ForeColor = Color.FromArgb(192, 0, 192);
+                            break;
+                        case Mode.DAT:
+                            dgvSwitch.Rows[row].Cells[1].Value = imageList1.Images["value4.png"];
+                            dgvSwitch.Rows[row].Cells[1].Tag = "Đất";
+                            dgvSwitch.Rows[row].Cells[1].Style.BackColor = Color.Olive;
+                            dgvSwitch.Rows[row].Cells[0].Style.ForeColor = Color.Olive;
+                            break;
+                        case Mode.U2tr:
+                            dgvSwitch.Rows[row].Cells[1].Value = imageList1.Images["value5.png"];
+                            dgvSwitch.Rows[row].Cells[1].Tag = "-U2";
+                            dgvSwitch.Rows[row].Cells[1].Style.BackColor = Color.Red;
+                            dgvSwitch.Rows[row].Cells[0].Style.ForeColor = Color.Red;
+                            break;
+                        default:
+                            return;
+                    }
+            }
         }
     }
 }

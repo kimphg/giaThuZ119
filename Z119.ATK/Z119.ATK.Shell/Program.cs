@@ -28,17 +28,19 @@ namespace Z119.ATK.Shell
             // Make this for boosting RestSharp performance.
             System.Net.ServicePointManager.UseNagleAlgorithm = false;
 
-            fLoginForm loginForm = new fLoginForm();
-             if (loginForm.ShowDialog() == DialogResult.OK)
-             {
-                 //Z119.ATK.Common.Const.projMan.LoadProject();
+            //Application.Run(new fSwitchForm());
 
-                 //projMan.SelectedProject += frm_SelectedProject;
-                 Z119.ATK.Common.Const.projMan.LoadProject();
-                 Application.Run(Z119.ATK.Common.ProjectManager.LoadObject<fMainWindow>(Z119.ATK.Common.Const.FILE_MAINWINDOW));
-                 
-             }
-                
+            fLoginForm loginForm = new fLoginForm();
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            {
+                //Z119.ATK.Common.Const.projMan.LoadProject();
+
+                //projMan.SelectedProject += frm_SelectedProject;
+                Z119.ATK.Common.Const.projMan.LoadProject();
+                Application.Run(Z119.ATK.Common.ProjectManager.LoadObject<fMainWindow>(Z119.ATK.Common.Const.FILE_MAINWINDOW));
+
+            }
+
             else
                 Application.Exit();
 

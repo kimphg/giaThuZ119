@@ -41,6 +41,7 @@ namespace Z119.ATK.Switch
         U4, // BH
         DAT, // GND
         U2tr, // Ura
-        None
+        None, // Bỏ những cái đã chọn
+        Null // Không chọn gì
     }
 }

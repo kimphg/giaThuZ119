@@ -112,7 +112,10 @@
             this.dgvSwitch.Name = "dgvSwitch";
             this.dgvSwitch.Size = new System.Drawing.Size(178, 560);
             this.dgvSwitch.TabIndex = 0;
+            this.dgvSwitch.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSwitch_CellMouseMove);
             this.dgvSwitch.Click += new System.EventHandler(this.dgvSwitch_Click_1);
+            this.dgvSwitch.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgvSwitch_MouseDown);
+            this.dgvSwitch.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dgvSwitch_MouseUp);
             // 
             // groupBox1
             // 
@@ -242,6 +245,8 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(296, 98);
             this.panel4.TabIndex = 0;
+            this.panel4.MouseLeave += new System.EventHandler(this.panel4_MouseLeave);
+            this.panel4.MouseHover += new System.EventHandler(this.panel4_MouseHover);
             // 
             // btnOnOff
             // 
@@ -346,13 +351,13 @@
             this.imageList1.Images.SetKeyName(4, "4.png");
             this.imageList1.Images.SetKeyName(5, "5.png");
             this.imageList1.Images.SetKeyName(6, "6.png");
-            this.imageList1.Images.SetKeyName(7, "value1.png");
-            this.imageList1.Images.SetKeyName(8, "value2.png");
-            this.imageList1.Images.SetKeyName(9, "value3.png");
-            this.imageList1.Images.SetKeyName(10, "value4.png");
-            this.imageList1.Images.SetKeyName(11, "value5.png");
-            this.imageList1.Images.SetKeyName(12, "value6.png");
-            this.imageList1.Images.SetKeyName(13, "value0.png");
+            this.imageList1.Images.SetKeyName(7, "value2.png");
+            this.imageList1.Images.SetKeyName(8, "value3.png");
+            this.imageList1.Images.SetKeyName(9, "value4.png");
+            this.imageList1.Images.SetKeyName(10, "value6.png");
+            this.imageList1.Images.SetKeyName(11, "value0.png");
+            this.imageList1.Images.SetKeyName(12, "value1.png");
+            this.imageList1.Images.SetKeyName(13, "value5.png");
             // 
             // fSwitchForm
             // 
