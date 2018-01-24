@@ -66,6 +66,36 @@
             this.btnDecimal = new System.Windows.Forms.Button();
             this.btnNumber0 = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.myPanel1 = new Z119.ATK.Shell.MyControls.MyPanel();
+            this.lblStatusRangPower4 = new System.Windows.Forms.Label();
+            this.lblStatusLimitAmpePower4 = new System.Windows.Forms.Label();
+            this.lblStatusLimitVonPower4 = new System.Windows.Forms.Label();
+            this.pnlResultPowerAddress1 = new Z119.ATK.Shell.MyControls.MyPanel();
+            this.txtResultPowerAddress1 = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblLimitMinMaxPower4 = new System.Windows.Forms.Label();
+            this.lblRegion1Power4 = new System.Windows.Forms.Panel();
+            this.myPanel4 = new Z119.ATK.Shell.MyControls.MyPanel();
+            this.lblDescriptionAmpeLimitPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionVonLimitPower4 = new System.Windows.Forms.Label();
+            this.lblAmpeLimitPower4 = new System.Windows.Forms.Label();
+            this.lblVonLimitPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionAmpeSetPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionVonSetPower4 = new System.Windows.Forms.Label();
+            this.lblAmpeSetPower4 = new System.Windows.Forms.Label();
+            this.lblVonSetPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionLimitPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionSetPower4 = new System.Windows.Forms.Label();
+            this.lblStatusPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionAmpeMaxPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionVonMaxPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionNameOfPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionWoatPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionAmpePower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionVonPower4 = new System.Windows.Forms.Label();
+            this.lblVonReceivePower4 = new System.Windows.Forms.Label();
+            this.lblWoatReceivePower4 = new System.Windows.Forms.Label();
+            this.lblAmpeReceivePower4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnResetLimitPowerAll = new System.Windows.Forms.Button();
             this.btnAmpeLimitPower3 = new System.Windows.Forms.Button();
@@ -98,37 +128,6 @@
             this.btnButtonDecimal = new System.Windows.Forms.Button();
             this.btnButtonNumber0 = new System.Windows.Forms.Button();
             this.btnButtonDelete = new System.Windows.Forms.Button();
-            this.btnOnOffPowerAll = new System.Windows.Forms.Button();
-            this.myPanel1 = new Z119.ATK.Shell.MyControls.MyPanel();
-            this.lblStatusRangPower4 = new System.Windows.Forms.Label();
-            this.lblStatusLimitAmpePower4 = new System.Windows.Forms.Label();
-            this.lblStatusLimitVonPower4 = new System.Windows.Forms.Label();
-            this.pnlResultPowerAddress1 = new Z119.ATK.Shell.MyControls.MyPanel();
-            this.txtResultPowerAddress1 = new System.Windows.Forms.TextBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lblLimitMinMaxPower4 = new System.Windows.Forms.Label();
-            this.lblRegion1Power4 = new System.Windows.Forms.Panel();
-            this.myPanel4 = new Z119.ATK.Shell.MyControls.MyPanel();
-            this.lblDescriptionAmpeLimitPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionVonLimitPower4 = new System.Windows.Forms.Label();
-            this.lblAmpeLimitPower4 = new System.Windows.Forms.Label();
-            this.lblVonLimitPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionAmpeSetPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionVonSetPower4 = new System.Windows.Forms.Label();
-            this.lblAmpeSetPower4 = new System.Windows.Forms.Label();
-            this.lblVonSetPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionLimitPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionSetPower4 = new System.Windows.Forms.Label();
-            this.lblStatusPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionAmpeMaxPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionVonMaxPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionNameOfPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionWoatPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionAmpePower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionVonPower4 = new System.Windows.Forms.Label();
-            this.lblVonReceivePower4 = new System.Windows.Forms.Label();
-            this.lblWoatReceivePower4 = new System.Windows.Forms.Label();
-            this.lblAmpeReceivePower4 = new System.Windows.Forms.Label();
             this.myPanel3 = new Z119.ATK.Shell.MyControls.MyPanel();
             this.lblStatusLimitAmpePower3 = new System.Windows.Forms.Label();
             this.lblStatusLimitVonPower3 = new System.Windows.Forms.Label();
@@ -212,13 +211,14 @@
             this.lblAmpeReceivePower2 = new System.Windows.Forms.Label();
             this.lblWoatReceivePower1 = new System.Windows.Forms.Label();
             this.lblAmpeReceivePower1 = new System.Windows.Forms.Label();
+            this.btnOnOffPowerAll = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel15.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.myPanel1.SuspendLayout();
             this.pnlResultPowerAddress1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.myPanel3.SuspendLayout();
             this.pnlResultPowerAddress2.SuspendLayout();
             this.SuspendLayout();
@@ -285,7 +285,7 @@
             // btnOnOffPower1
             // 
             this.btnOnOffPower1.Location = new System.Drawing.Point(14, 204);
-            this.btnOnOffPower1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOnOffPower1.Margin = new System.Windows.Forms.Padding(2);
             this.btnOnOffPower1.Name = "btnOnOffPower1";
             this.btnOnOffPower1.Size = new System.Drawing.Size(47, 59);
             this.btnOnOffPower1.TabIndex = 10;
@@ -297,7 +297,7 @@
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 29);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(926, 632);
             this.panel1.TabIndex = 11;
@@ -318,7 +318,7 @@
             this.panel3.Controls.Add(this.myPanel3);
             this.panel3.Controls.Add(this.btnOnOffPowerAll);
             this.panel3.Location = new System.Drawing.Point(9, 11);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(900, 630);
             this.panel3.TabIndex = 13;
@@ -410,7 +410,7 @@
             this.panel15.Controls.Add(this.btnNumber0);
             this.panel15.Controls.Add(this.btnDelete);
             this.panel15.Location = new System.Drawing.Point(578, 29);
-            this.panel15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel15.Margin = new System.Windows.Forms.Padding(2);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(260, 257);
             this.panel15.TabIndex = 94;
@@ -420,7 +420,7 @@
             this.btnRang2Power4.BackColor = System.Drawing.Color.White;
             this.btnRang2Power4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRang2Power4.Location = new System.Drawing.Point(168, 98);
-            this.btnRang2Power4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRang2Power4.Margin = new System.Windows.Forms.Padding(2);
             this.btnRang2Power4.Name = "btnRang2Power4";
             this.btnRang2Power4.Size = new System.Drawing.Size(85, 35);
             this.btnRang2Power4.TabIndex = 35;
@@ -433,7 +433,7 @@
             this.btnRang1Power4.BackColor = System.Drawing.Color.White;
             this.btnRang1Power4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRang1Power4.Location = new System.Drawing.Point(168, 55);
-            this.btnRang1Power4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRang1Power4.Margin = new System.Windows.Forms.Padding(2);
             this.btnRang1Power4.Name = "btnRang1Power4";
             this.btnRang1Power4.Size = new System.Drawing.Size(85, 35);
             this.btnRang1Power4.TabIndex = 34;
@@ -446,7 +446,7 @@
             this.btnResetLimitPower4.BackColor = System.Drawing.Color.White;
             this.btnResetLimitPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResetLimitPower4.Location = new System.Drawing.Point(169, 16);
-            this.btnResetLimitPower4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnResetLimitPower4.Margin = new System.Windows.Forms.Padding(2);
             this.btnResetLimitPower4.Name = "btnResetLimitPower4";
             this.btnResetLimitPower4.Size = new System.Drawing.Size(85, 35);
             this.btnResetLimitPower4.TabIndex = 33;
@@ -458,7 +458,7 @@
             // 
             this.btnAmpeLimitPower4.BackColor = System.Drawing.Color.White;
             this.btnAmpeLimitPower4.Location = new System.Drawing.Point(168, 159);
-            this.btnAmpeLimitPower4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAmpeLimitPower4.Margin = new System.Windows.Forms.Padding(2);
             this.btnAmpeLimitPower4.Name = "btnAmpeLimitPower4";
             this.btnAmpeLimitPower4.Size = new System.Drawing.Size(85, 23);
             this.btnAmpeLimitPower4.TabIndex = 14;
@@ -470,7 +470,7 @@
             // 
             this.btnVonLimitPower4.BackColor = System.Drawing.Color.White;
             this.btnVonLimitPower4.Location = new System.Drawing.Point(168, 136);
-            this.btnVonLimitPower4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnVonLimitPower4.Margin = new System.Windows.Forms.Padding(2);
             this.btnVonLimitPower4.Name = "btnVonLimitPower4";
             this.btnVonLimitPower4.Size = new System.Drawing.Size(85, 23);
             this.btnVonLimitPower4.TabIndex = 13;
@@ -483,7 +483,7 @@
             this.btnSetVon.BackColor = System.Drawing.Color.White;
             this.btnSetVon.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSetVon.Location = new System.Drawing.Point(130, 16);
-            this.btnSetVon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSetVon.Margin = new System.Windows.Forms.Padding(2);
             this.btnSetVon.Name = "btnSetVon";
             this.btnSetVon.Size = new System.Drawing.Size(35, 35);
             this.btnSetVon.TabIndex = 26;
@@ -496,7 +496,7 @@
             this.btnNumber9.BackColor = System.Drawing.Color.White;
             this.btnNumber9.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNumber9.Location = new System.Drawing.Point(91, 16);
-            this.btnNumber9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNumber9.Margin = new System.Windows.Forms.Padding(2);
             this.btnNumber9.Name = "btnNumber9";
             this.btnNumber9.Size = new System.Drawing.Size(35, 35);
             this.btnNumber9.TabIndex = 25;
@@ -507,7 +507,7 @@
             // btnOnOffPower4
             // 
             this.btnOnOffPower4.Location = new System.Drawing.Point(13, 183);
-            this.btnOnOffPower4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnOnOffPower4.Margin = new System.Windows.Forms.Padding(2);
             this.btnOnOffPower4.Name = "btnOnOffPower4";
             this.btnOnOffPower4.Size = new System.Drawing.Size(47, 59);
             this.btnOnOffPower4.TabIndex = 10;
@@ -519,7 +519,7 @@
             this.btnNumber8.BackColor = System.Drawing.Color.White;
             this.btnNumber8.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNumber8.Location = new System.Drawing.Point(52, 16);
-            this.btnNumber8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNumber8.Margin = new System.Windows.Forms.Padding(2);
             this.btnNumber8.Name = "btnNumber8";
             this.btnNumber8.Size = new System.Drawing.Size(35, 35);
             this.btnNumber8.TabIndex = 24;
@@ -532,7 +532,7 @@
             this.btnNumber7.BackColor = System.Drawing.Color.White;
             this.btnNumber7.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNumber7.Location = new System.Drawing.Point(13, 16);
-            this.btnNumber7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNumber7.Margin = new System.Windows.Forms.Padding(2);
             this.btnNumber7.Name = "btnNumber7";
             this.btnNumber7.Size = new System.Drawing.Size(35, 35);
             this.btnNumber7.TabIndex = 23;
@@ -545,7 +545,7 @@
             this.btnSetAmpe.BackColor = System.Drawing.Color.White;
             this.btnSetAmpe.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSetAmpe.Location = new System.Drawing.Point(130, 57);
-            this.btnSetAmpe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSetAmpe.Margin = new System.Windows.Forms.Padding(2);
             this.btnSetAmpe.Name = "btnSetAmpe";
             this.btnSetAmpe.Size = new System.Drawing.Size(35, 35);
             this.btnSetAmpe.TabIndex = 22;
@@ -558,7 +558,7 @@
             this.btnNumber6.BackColor = System.Drawing.Color.White;
             this.btnNumber6.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNumber6.Location = new System.Drawing.Point(91, 57);
-            this.btnNumber6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNumber6.Margin = new System.Windows.Forms.Padding(2);
             this.btnNumber6.Name = "btnNumber6";
             this.btnNumber6.Size = new System.Drawing.Size(35, 35);
             this.btnNumber6.TabIndex = 21;
@@ -571,7 +571,7 @@
             this.btnNumber5.BackColor = System.Drawing.Color.White;
             this.btnNumber5.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNumber5.Location = new System.Drawing.Point(52, 57);
-            this.btnNumber5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNumber5.Margin = new System.Windows.Forms.Padding(2);
             this.btnNumber5.Name = "btnNumber5";
             this.btnNumber5.Size = new System.Drawing.Size(35, 35);
             this.btnNumber5.TabIndex = 20;
@@ -584,7 +584,7 @@
             this.btnNumber4.BackColor = System.Drawing.Color.White;
             this.btnNumber4.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNumber4.Location = new System.Drawing.Point(13, 57);
-            this.btnNumber4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNumber4.Margin = new System.Windows.Forms.Padding(2);
             this.btnNumber4.Name = "btnNumber4";
             this.btnNumber4.Size = new System.Drawing.Size(35, 35);
             this.btnNumber4.TabIndex = 19;
@@ -597,7 +597,7 @@
             this.btnLimitVon.BackColor = System.Drawing.Color.White;
             this.btnLimitVon.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimitVon.Location = new System.Drawing.Point(130, 100);
-            this.btnLimitVon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLimitVon.Margin = new System.Windows.Forms.Padding(2);
             this.btnLimitVon.Name = "btnLimitVon";
             this.btnLimitVon.Size = new System.Drawing.Size(35, 35);
             this.btnLimitVon.TabIndex = 18;
@@ -611,7 +611,7 @@
             this.btnNumber3.BackColor = System.Drawing.Color.White;
             this.btnNumber3.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNumber3.Location = new System.Drawing.Point(91, 100);
-            this.btnNumber3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNumber3.Margin = new System.Windows.Forms.Padding(2);
             this.btnNumber3.Name = "btnNumber3";
             this.btnNumber3.Size = new System.Drawing.Size(35, 35);
             this.btnNumber3.TabIndex = 17;
@@ -624,7 +624,7 @@
             this.btnNumber2.BackColor = System.Drawing.Color.White;
             this.btnNumber2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNumber2.Location = new System.Drawing.Point(52, 100);
-            this.btnNumber2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNumber2.Margin = new System.Windows.Forms.Padding(2);
             this.btnNumber2.Name = "btnNumber2";
             this.btnNumber2.Size = new System.Drawing.Size(35, 35);
             this.btnNumber2.TabIndex = 16;
@@ -637,7 +637,7 @@
             this.btnNumber1.BackColor = System.Drawing.Color.White;
             this.btnNumber1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNumber1.Location = new System.Drawing.Point(13, 100);
-            this.btnNumber1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNumber1.Margin = new System.Windows.Forms.Padding(2);
             this.btnNumber1.Name = "btnNumber1";
             this.btnNumber1.Size = new System.Drawing.Size(35, 35);
             this.btnNumber1.TabIndex = 15;
@@ -650,7 +650,7 @@
             this.btnLimitAmpe.BackColor = System.Drawing.Color.White;
             this.btnLimitAmpe.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimitAmpe.Location = new System.Drawing.Point(129, 141);
-            this.btnLimitAmpe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLimitAmpe.Margin = new System.Windows.Forms.Padding(2);
             this.btnLimitAmpe.Name = "btnLimitAmpe";
             this.btnLimitAmpe.Size = new System.Drawing.Size(35, 35);
             this.btnLimitAmpe.TabIndex = 14;
@@ -664,7 +664,7 @@
             this.btnDecimal.BackColor = System.Drawing.Color.White;
             this.btnDecimal.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDecimal.Location = new System.Drawing.Point(90, 141);
-            this.btnDecimal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDecimal.Margin = new System.Windows.Forms.Padding(2);
             this.btnDecimal.Name = "btnDecimal";
             this.btnDecimal.Size = new System.Drawing.Size(35, 35);
             this.btnDecimal.TabIndex = 13;
@@ -677,7 +677,7 @@
             this.btnNumber0.BackColor = System.Drawing.Color.White;
             this.btnNumber0.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNumber0.Location = new System.Drawing.Point(51, 141);
-            this.btnNumber0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNumber0.Margin = new System.Windows.Forms.Padding(2);
             this.btnNumber0.Name = "btnNumber0";
             this.btnNumber0.Size = new System.Drawing.Size(35, 35);
             this.btnNumber0.TabIndex = 12;
@@ -690,453 +690,13 @@
             this.btnDelete.BackColor = System.Drawing.Color.White;
             this.btnDelete.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Location = new System.Drawing.Point(12, 141);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(35, 35);
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "C";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.BtnNumber_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.btnResetLimitPowerAll);
-            this.panel2.Controls.Add(this.btnAmpeLimitPower3);
-            this.panel2.Controls.Add(this.btnVonLimitPower3);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.btnSelectedPower3);
-            this.panel2.Controls.Add(this.btnAmpeLimitPower2);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.btnVonLimitPower2);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.btnAmpeLimitPower1);
-            this.panel2.Controls.Add(this.btnSelectedPower2);
-            this.panel2.Controls.Add(this.btnVonLimitPower1);
-            this.panel2.Controls.Add(this.btnOnOffPower3);
-            this.panel2.Controls.Add(this.btnOnOffPower2);
-            this.panel2.Controls.Add(this.btnButtonSetVon);
-            this.panel2.Controls.Add(this.btnButtonNumber9);
-            this.panel2.Controls.Add(this.btnOnOffPower1);
-            this.panel2.Controls.Add(this.btnSelectedPower1);
-            this.panel2.Controls.Add(this.btnButtonNumber8);
-            this.panel2.Controls.Add(this.btnButtonNumber7);
-            this.panel2.Controls.Add(this.btnButtonSetAmpe);
-            this.panel2.Controls.Add(this.btnButtonNumber6);
-            this.panel2.Controls.Add(this.btnButtonNumber5);
-            this.panel2.Controls.Add(this.btnButtonNumber4);
-            this.panel2.Controls.Add(this.btnButtonLimitVon);
-            this.panel2.Controls.Add(this.btnButtonNumber3);
-            this.panel2.Controls.Add(this.btnButtonNumber2);
-            this.panel2.Controls.Add(this.btnButtonNumber1);
-            this.panel2.Controls.Add(this.btnButtonLimitAmpe);
-            this.panel2.Controls.Add(this.btnButtonDecimal);
-            this.panel2.Controls.Add(this.btnButtonNumber0);
-            this.panel2.Controls.Add(this.btnButtonDelete);
-            this.panel2.Location = new System.Drawing.Point(578, 323);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(320, 291);
-            this.panel2.TabIndex = 12;
-            // 
-            // btnResetLimitPowerAll
-            // 
-            this.btnResetLimitPowerAll.BackColor = System.Drawing.Color.White;
-            this.btnResetLimitPowerAll.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnResetLimitPowerAll.Location = new System.Drawing.Point(172, 3);
-            this.btnResetLimitPowerAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnResetLimitPowerAll.Name = "btnResetLimitPowerAll";
-            this.btnResetLimitPowerAll.Size = new System.Drawing.Size(82, 35);
-            this.btnResetLimitPowerAll.TabIndex = 33;
-            this.btnResetLimitPowerAll.Text = "Đặt lại";
-            this.btnResetLimitPowerAll.UseVisualStyleBackColor = false;
-            this.btnResetLimitPowerAll.Click += new System.EventHandler(this.btnResetLimitPowerAll_Click);
-            // 
-            // btnAmpeLimitPower3
-            // 
-            this.btnAmpeLimitPower3.BackColor = System.Drawing.Color.White;
-            this.btnAmpeLimitPower3.Location = new System.Drawing.Point(224, 161);
-            this.btnAmpeLimitPower3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnAmpeLimitPower3.Name = "btnAmpeLimitPower3";
-            this.btnAmpeLimitPower3.Size = new System.Drawing.Size(85, 23);
-            this.btnAmpeLimitPower3.TabIndex = 18;
-            this.btnAmpeLimitPower3.Text = "Giới hạn A";
-            this.btnAmpeLimitPower3.UseVisualStyleBackColor = false;
-            this.btnAmpeLimitPower3.Click += new System.EventHandler(this.ButtonOnOffLimit_Click);
-            // 
-            // btnVonLimitPower3
-            // 
-            this.btnVonLimitPower3.BackColor = System.Drawing.Color.White;
-            this.btnVonLimitPower3.Location = new System.Drawing.Point(224, 138);
-            this.btnVonLimitPower3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnVonLimitPower3.Name = "btnVonLimitPower3";
-            this.btnVonLimitPower3.Size = new System.Drawing.Size(85, 23);
-            this.btnVonLimitPower3.TabIndex = 17;
-            this.btnVonLimitPower3.Text = "Giới  hạn V";
-            this.btnVonLimitPower3.UseVisualStyleBackColor = false;
-            this.btnVonLimitPower3.Click += new System.EventHandler(this.ButtonOnOffLimit_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(128, 170);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 26);
-            this.label3.TabIndex = 32;
-            this.label3.Text = "3";
-            // 
-            // btnSelectedPower3
-            // 
-            this.btnSelectedPower3.BackColor = System.Drawing.Color.White;
-            this.btnSelectedPower3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelectedPower3.Location = new System.Drawing.Point(172, 140);
-            this.btnSelectedPower3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnSelectedPower3.Name = "btnSelectedPower3";
-            this.btnSelectedPower3.Size = new System.Drawing.Size(50, 43);
-            this.btnSelectedPower3.TabIndex = 30;
-            this.btnSelectedPower3.Text = "CH3";
-            this.btnSelectedPower3.UseVisualStyleBackColor = false;
-            this.btnSelectedPower3.Click += new System.EventHandler(this.btnSelectedPower_Click);
-            // 
-            // btnAmpeLimitPower2
-            // 
-            this.btnAmpeLimitPower2.BackColor = System.Drawing.Color.White;
-            this.btnAmpeLimitPower2.Location = new System.Drawing.Point(224, 113);
-            this.btnAmpeLimitPower2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnAmpeLimitPower2.Name = "btnAmpeLimitPower2";
-            this.btnAmpeLimitPower2.Size = new System.Drawing.Size(85, 23);
-            this.btnAmpeLimitPower2.TabIndex = 16;
-            this.btnAmpeLimitPower2.Text = "Giới hạn A";
-            this.btnAmpeLimitPower2.UseVisualStyleBackColor = false;
-            this.btnAmpeLimitPower2.Click += new System.EventHandler(this.ButtonOnOffLimit_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(76, 170);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 26);
-            this.label2.TabIndex = 32;
-            this.label2.Text = "2";
-            // 
-            // btnVonLimitPower2
-            // 
-            this.btnVonLimitPower2.BackColor = System.Drawing.Color.White;
-            this.btnVonLimitPower2.Location = new System.Drawing.Point(224, 90);
-            this.btnVonLimitPower2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnVonLimitPower2.Name = "btnVonLimitPower2";
-            this.btnVonLimitPower2.Size = new System.Drawing.Size(85, 23);
-            this.btnVonLimitPower2.TabIndex = 15;
-            this.btnVonLimitPower2.Text = "Giới hạn V";
-            this.btnVonLimitPower2.UseVisualStyleBackColor = false;
-            this.btnVonLimitPower2.Click += new System.EventHandler(this.ButtonOnOffLimit_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 170);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 26);
-            this.label1.TabIndex = 32;
-            this.label1.Text = "1";
-            // 
-            // btnAmpeLimitPower1
-            // 
-            this.btnAmpeLimitPower1.BackColor = System.Drawing.Color.White;
-            this.btnAmpeLimitPower1.Location = new System.Drawing.Point(224, 63);
-            this.btnAmpeLimitPower1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnAmpeLimitPower1.Name = "btnAmpeLimitPower1";
-            this.btnAmpeLimitPower1.Size = new System.Drawing.Size(85, 23);
-            this.btnAmpeLimitPower1.TabIndex = 14;
-            this.btnAmpeLimitPower1.Text = "Giới hạn A";
-            this.btnAmpeLimitPower1.UseVisualStyleBackColor = false;
-            this.btnAmpeLimitPower1.Click += new System.EventHandler(this.ButtonOnOffLimit_Click);
-            // 
-            // btnSelectedPower2
-            // 
-            this.btnSelectedPower2.BackColor = System.Drawing.Color.White;
-            this.btnSelectedPower2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelectedPower2.Location = new System.Drawing.Point(172, 91);
-            this.btnSelectedPower2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnSelectedPower2.Name = "btnSelectedPower2";
-            this.btnSelectedPower2.Size = new System.Drawing.Size(50, 43);
-            this.btnSelectedPower2.TabIndex = 29;
-            this.btnSelectedPower2.Text = "CH2";
-            this.btnSelectedPower2.UseVisualStyleBackColor = false;
-            this.btnSelectedPower2.Click += new System.EventHandler(this.btnSelectedPower_Click);
-            // 
-            // btnVonLimitPower1
-            // 
-            this.btnVonLimitPower1.BackColor = System.Drawing.Color.White;
-            this.btnVonLimitPower1.Location = new System.Drawing.Point(224, 42);
-            this.btnVonLimitPower1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnVonLimitPower1.Name = "btnVonLimitPower1";
-            this.btnVonLimitPower1.Size = new System.Drawing.Size(85, 23);
-            this.btnVonLimitPower1.TabIndex = 13;
-            this.btnVonLimitPower1.Text = "Giới hạn V";
-            this.btnVonLimitPower1.UseVisualStyleBackColor = false;
-            this.btnVonLimitPower1.Click += new System.EventHandler(this.ButtonOnOffLimit_Click);
-            // 
-            // btnOnOffPower3
-            // 
-            this.btnOnOffPower3.Location = new System.Drawing.Point(117, 204);
-            this.btnOnOffPower3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnOnOffPower3.Name = "btnOnOffPower3";
-            this.btnOnOffPower3.Size = new System.Drawing.Size(47, 59);
-            this.btnOnOffPower3.TabIndex = 15;
-            this.btnOnOffPower3.UseVisualStyleBackColor = true;
-            this.btnOnOffPower3.Click += new System.EventHandler(this.ButtonOnOffPower_Click);
-            // 
-            // btnOnOffPower2
-            // 
-            this.btnOnOffPower2.Location = new System.Drawing.Point(65, 204);
-            this.btnOnOffPower2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnOnOffPower2.Name = "btnOnOffPower2";
-            this.btnOnOffPower2.Size = new System.Drawing.Size(47, 59);
-            this.btnOnOffPower2.TabIndex = 14;
-            this.btnOnOffPower2.UseVisualStyleBackColor = true;
-            this.btnOnOffPower2.Click += new System.EventHandler(this.ButtonOnOffPower_Click);
-            // 
-            // btnButtonSetVon
-            // 
-            this.btnButtonSetVon.BackColor = System.Drawing.Color.White;
-            this.btnButtonSetVon.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnButtonSetVon.Location = new System.Drawing.Point(132, 3);
-            this.btnButtonSetVon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnButtonSetVon.Name = "btnButtonSetVon";
-            this.btnButtonSetVon.Size = new System.Drawing.Size(35, 35);
-            this.btnButtonSetVon.TabIndex = 26;
-            this.btnButtonSetVon.Text = "V";
-            this.btnButtonSetVon.UseVisualStyleBackColor = false;
-            this.btnButtonSetVon.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btnButtonNumber9
-            // 
-            this.btnButtonNumber9.BackColor = System.Drawing.Color.White;
-            this.btnButtonNumber9.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnButtonNumber9.Location = new System.Drawing.Point(91, 3);
-            this.btnButtonNumber9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnButtonNumber9.Name = "btnButtonNumber9";
-            this.btnButtonNumber9.Size = new System.Drawing.Size(35, 35);
-            this.btnButtonNumber9.TabIndex = 25;
-            this.btnButtonNumber9.Text = "9";
-            this.btnButtonNumber9.UseVisualStyleBackColor = false;
-            this.btnButtonNumber9.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btnSelectedPower1
-            // 
-            this.btnSelectedPower1.BackColor = System.Drawing.Color.White;
-            this.btnSelectedPower1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSelectedPower1.Location = new System.Drawing.Point(172, 42);
-            this.btnSelectedPower1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnSelectedPower1.Name = "btnSelectedPower1";
-            this.btnSelectedPower1.Size = new System.Drawing.Size(50, 43);
-            this.btnSelectedPower1.TabIndex = 28;
-            this.btnSelectedPower1.Text = "CH1";
-            this.btnSelectedPower1.UseVisualStyleBackColor = false;
-            this.btnSelectedPower1.Click += new System.EventHandler(this.btnSelectedPower_Click);
-            // 
-            // btnButtonNumber8
-            // 
-            this.btnButtonNumber8.BackColor = System.Drawing.Color.White;
-            this.btnButtonNumber8.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnButtonNumber8.Location = new System.Drawing.Point(52, 3);
-            this.btnButtonNumber8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnButtonNumber8.Name = "btnButtonNumber8";
-            this.btnButtonNumber8.Size = new System.Drawing.Size(35, 35);
-            this.btnButtonNumber8.TabIndex = 24;
-            this.btnButtonNumber8.Text = "8";
-            this.btnButtonNumber8.UseVisualStyleBackColor = false;
-            this.btnButtonNumber8.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btnButtonNumber7
-            // 
-            this.btnButtonNumber7.BackColor = System.Drawing.Color.White;
-            this.btnButtonNumber7.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnButtonNumber7.Location = new System.Drawing.Point(13, 3);
-            this.btnButtonNumber7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnButtonNumber7.Name = "btnButtonNumber7";
-            this.btnButtonNumber7.Size = new System.Drawing.Size(35, 35);
-            this.btnButtonNumber7.TabIndex = 23;
-            this.btnButtonNumber7.Text = "7";
-            this.btnButtonNumber7.UseVisualStyleBackColor = false;
-            this.btnButtonNumber7.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btnButtonSetAmpe
-            // 
-            this.btnButtonSetAmpe.BackColor = System.Drawing.Color.White;
-            this.btnButtonSetAmpe.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnButtonSetAmpe.Location = new System.Drawing.Point(131, 42);
-            this.btnButtonSetAmpe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnButtonSetAmpe.Name = "btnButtonSetAmpe";
-            this.btnButtonSetAmpe.Size = new System.Drawing.Size(35, 35);
-            this.btnButtonSetAmpe.TabIndex = 22;
-            this.btnButtonSetAmpe.Text = "A";
-            this.btnButtonSetAmpe.UseVisualStyleBackColor = false;
-            this.btnButtonSetAmpe.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btnButtonNumber6
-            // 
-            this.btnButtonNumber6.BackColor = System.Drawing.Color.White;
-            this.btnButtonNumber6.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnButtonNumber6.Location = new System.Drawing.Point(90, 42);
-            this.btnButtonNumber6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnButtonNumber6.Name = "btnButtonNumber6";
-            this.btnButtonNumber6.Size = new System.Drawing.Size(35, 35);
-            this.btnButtonNumber6.TabIndex = 21;
-            this.btnButtonNumber6.Text = "6";
-            this.btnButtonNumber6.UseVisualStyleBackColor = false;
-            this.btnButtonNumber6.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btnButtonNumber5
-            // 
-            this.btnButtonNumber5.BackColor = System.Drawing.Color.White;
-            this.btnButtonNumber5.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnButtonNumber5.Location = new System.Drawing.Point(51, 42);
-            this.btnButtonNumber5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnButtonNumber5.Name = "btnButtonNumber5";
-            this.btnButtonNumber5.Size = new System.Drawing.Size(35, 35);
-            this.btnButtonNumber5.TabIndex = 20;
-            this.btnButtonNumber5.Text = "5";
-            this.btnButtonNumber5.UseVisualStyleBackColor = false;
-            this.btnButtonNumber5.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btnButtonNumber4
-            // 
-            this.btnButtonNumber4.BackColor = System.Drawing.Color.White;
-            this.btnButtonNumber4.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnButtonNumber4.Location = new System.Drawing.Point(12, 42);
-            this.btnButtonNumber4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnButtonNumber4.Name = "btnButtonNumber4";
-            this.btnButtonNumber4.Size = new System.Drawing.Size(35, 35);
-            this.btnButtonNumber4.TabIndex = 19;
-            this.btnButtonNumber4.Text = "4";
-            this.btnButtonNumber4.UseVisualStyleBackColor = false;
-            this.btnButtonNumber4.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btnButtonLimitVon
-            // 
-            this.btnButtonLimitVon.BackColor = System.Drawing.Color.White;
-            this.btnButtonLimitVon.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnButtonLimitVon.Location = new System.Drawing.Point(131, 81);
-            this.btnButtonLimitVon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnButtonLimitVon.Name = "btnButtonLimitVon";
-            this.btnButtonLimitVon.Size = new System.Drawing.Size(35, 35);
-            this.btnButtonLimitVon.TabIndex = 18;
-            this.btnButtonLimitVon.Text = "V.";
-            this.btnButtonLimitVon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnButtonLimitVon.UseVisualStyleBackColor = false;
-            this.btnButtonLimitVon.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btnButtonNumber3
-            // 
-            this.btnButtonNumber3.BackColor = System.Drawing.Color.White;
-            this.btnButtonNumber3.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnButtonNumber3.Location = new System.Drawing.Point(90, 81);
-            this.btnButtonNumber3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnButtonNumber3.Name = "btnButtonNumber3";
-            this.btnButtonNumber3.Size = new System.Drawing.Size(35, 35);
-            this.btnButtonNumber3.TabIndex = 17;
-            this.btnButtonNumber3.Text = "3";
-            this.btnButtonNumber3.UseVisualStyleBackColor = false;
-            this.btnButtonNumber3.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btnButtonNumber2
-            // 
-            this.btnButtonNumber2.BackColor = System.Drawing.Color.White;
-            this.btnButtonNumber2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnButtonNumber2.Location = new System.Drawing.Point(51, 81);
-            this.btnButtonNumber2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnButtonNumber2.Name = "btnButtonNumber2";
-            this.btnButtonNumber2.Size = new System.Drawing.Size(35, 35);
-            this.btnButtonNumber2.TabIndex = 16;
-            this.btnButtonNumber2.Text = "2";
-            this.btnButtonNumber2.UseVisualStyleBackColor = false;
-            this.btnButtonNumber2.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btnButtonNumber1
-            // 
-            this.btnButtonNumber1.BackColor = System.Drawing.Color.White;
-            this.btnButtonNumber1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnButtonNumber1.Location = new System.Drawing.Point(12, 81);
-            this.btnButtonNumber1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnButtonNumber1.Name = "btnButtonNumber1";
-            this.btnButtonNumber1.Size = new System.Drawing.Size(35, 35);
-            this.btnButtonNumber1.TabIndex = 15;
-            this.btnButtonNumber1.Text = "1";
-            this.btnButtonNumber1.UseVisualStyleBackColor = false;
-            this.btnButtonNumber1.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btnButtonLimitAmpe
-            // 
-            this.btnButtonLimitAmpe.BackColor = System.Drawing.Color.White;
-            this.btnButtonLimitAmpe.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnButtonLimitAmpe.Location = new System.Drawing.Point(131, 124);
-            this.btnButtonLimitAmpe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnButtonLimitAmpe.Name = "btnButtonLimitAmpe";
-            this.btnButtonLimitAmpe.Size = new System.Drawing.Size(35, 35);
-            this.btnButtonLimitAmpe.TabIndex = 14;
-            this.btnButtonLimitAmpe.Text = "A.";
-            this.btnButtonLimitAmpe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnButtonLimitAmpe.UseVisualStyleBackColor = false;
-            this.btnButtonLimitAmpe.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btnButtonDecimal
-            // 
-            this.btnButtonDecimal.BackColor = System.Drawing.Color.White;
-            this.btnButtonDecimal.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnButtonDecimal.Location = new System.Drawing.Point(90, 124);
-            this.btnButtonDecimal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnButtonDecimal.Name = "btnButtonDecimal";
-            this.btnButtonDecimal.Size = new System.Drawing.Size(35, 35);
-            this.btnButtonDecimal.TabIndex = 13;
-            this.btnButtonDecimal.Text = ".";
-            this.btnButtonDecimal.UseVisualStyleBackColor = false;
-            this.btnButtonDecimal.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btnButtonNumber0
-            // 
-            this.btnButtonNumber0.BackColor = System.Drawing.Color.White;
-            this.btnButtonNumber0.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnButtonNumber0.Location = new System.Drawing.Point(51, 124);
-            this.btnButtonNumber0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnButtonNumber0.Name = "btnButtonNumber0";
-            this.btnButtonNumber0.Size = new System.Drawing.Size(35, 35);
-            this.btnButtonNumber0.TabIndex = 12;
-            this.btnButtonNumber0.Text = "0";
-            this.btnButtonNumber0.UseVisualStyleBackColor = false;
-            this.btnButtonNumber0.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btnButtonDelete
-            // 
-            this.btnButtonDelete.BackColor = System.Drawing.Color.White;
-            this.btnButtonDelete.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnButtonDelete.Location = new System.Drawing.Point(12, 124);
-            this.btnButtonDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnButtonDelete.Name = "btnButtonDelete";
-            this.btnButtonDelete.Size = new System.Drawing.Size(35, 35);
-            this.btnButtonDelete.TabIndex = 11;
-            this.btnButtonDelete.Text = "C";
-            this.btnButtonDelete.UseVisualStyleBackColor = false;
-            this.btnButtonDelete.Click += new System.EventHandler(this.Button_Click);
-            // 
-            // btnOnOffPowerAll
-            // 
-            this.btnOnOffPowerAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnOnOffPowerAll.Location = new System.Drawing.Point(843, 56);
-            this.btnOnOffPowerAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnOnOffPowerAll.Name = "btnOnOffPowerAll";
-            this.btnOnOffPowerAll.Size = new System.Drawing.Size(47, 59);
-            this.btnOnOffPowerAll.TabIndex = 31;
-            this.btnOnOffPowerAll.UseVisualStyleBackColor = true;
-            this.btnOnOffPowerAll.Click += new System.EventHandler(this.ButtonOnOffPower_Click);
             // 
             // myPanel1
             // 
@@ -1513,6 +1073,435 @@
             this.lblAmpeReceivePower4.Size = new System.Drawing.Size(144, 67);
             this.lblAmpeReceivePower4.TabIndex = 3;
             this.lblAmpeReceivePower4.Text = "00.00";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnResetLimitPowerAll);
+            this.panel2.Controls.Add(this.btnAmpeLimitPower3);
+            this.panel2.Controls.Add(this.btnVonLimitPower3);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.btnSelectedPower3);
+            this.panel2.Controls.Add(this.btnAmpeLimitPower2);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.btnVonLimitPower2);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.btnAmpeLimitPower1);
+            this.panel2.Controls.Add(this.btnSelectedPower2);
+            this.panel2.Controls.Add(this.btnVonLimitPower1);
+            this.panel2.Controls.Add(this.btnOnOffPower3);
+            this.panel2.Controls.Add(this.btnOnOffPower2);
+            this.panel2.Controls.Add(this.btnButtonSetVon);
+            this.panel2.Controls.Add(this.btnButtonNumber9);
+            this.panel2.Controls.Add(this.btnOnOffPower1);
+            this.panel2.Controls.Add(this.btnSelectedPower1);
+            this.panel2.Controls.Add(this.btnButtonNumber8);
+            this.panel2.Controls.Add(this.btnButtonNumber7);
+            this.panel2.Controls.Add(this.btnButtonSetAmpe);
+            this.panel2.Controls.Add(this.btnButtonNumber6);
+            this.panel2.Controls.Add(this.btnButtonNumber5);
+            this.panel2.Controls.Add(this.btnButtonNumber4);
+            this.panel2.Controls.Add(this.btnButtonLimitVon);
+            this.panel2.Controls.Add(this.btnButtonNumber3);
+            this.panel2.Controls.Add(this.btnButtonNumber2);
+            this.panel2.Controls.Add(this.btnButtonNumber1);
+            this.panel2.Controls.Add(this.btnButtonLimitAmpe);
+            this.panel2.Controls.Add(this.btnButtonDecimal);
+            this.panel2.Controls.Add(this.btnButtonNumber0);
+            this.panel2.Controls.Add(this.btnButtonDelete);
+            this.panel2.Location = new System.Drawing.Point(578, 323);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(320, 291);
+            this.panel2.TabIndex = 12;
+            // 
+            // btnResetLimitPowerAll
+            // 
+            this.btnResetLimitPowerAll.BackColor = System.Drawing.Color.White;
+            this.btnResetLimitPowerAll.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetLimitPowerAll.Location = new System.Drawing.Point(172, 3);
+            this.btnResetLimitPowerAll.Margin = new System.Windows.Forms.Padding(2);
+            this.btnResetLimitPowerAll.Name = "btnResetLimitPowerAll";
+            this.btnResetLimitPowerAll.Size = new System.Drawing.Size(82, 35);
+            this.btnResetLimitPowerAll.TabIndex = 33;
+            this.btnResetLimitPowerAll.Text = "Đặt lại";
+            this.btnResetLimitPowerAll.UseVisualStyleBackColor = false;
+            this.btnResetLimitPowerAll.Click += new System.EventHandler(this.btnResetLimitPowerAll_Click);
+            // 
+            // btnAmpeLimitPower3
+            // 
+            this.btnAmpeLimitPower3.BackColor = System.Drawing.Color.White;
+            this.btnAmpeLimitPower3.Location = new System.Drawing.Point(224, 161);
+            this.btnAmpeLimitPower3.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAmpeLimitPower3.Name = "btnAmpeLimitPower3";
+            this.btnAmpeLimitPower3.Size = new System.Drawing.Size(85, 23);
+            this.btnAmpeLimitPower3.TabIndex = 18;
+            this.btnAmpeLimitPower3.Text = "Giới hạn A";
+            this.btnAmpeLimitPower3.UseVisualStyleBackColor = false;
+            this.btnAmpeLimitPower3.Click += new System.EventHandler(this.ButtonOnOffLimit_Click);
+            // 
+            // btnVonLimitPower3
+            // 
+            this.btnVonLimitPower3.BackColor = System.Drawing.Color.White;
+            this.btnVonLimitPower3.Location = new System.Drawing.Point(224, 138);
+            this.btnVonLimitPower3.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVonLimitPower3.Name = "btnVonLimitPower3";
+            this.btnVonLimitPower3.Size = new System.Drawing.Size(85, 23);
+            this.btnVonLimitPower3.TabIndex = 17;
+            this.btnVonLimitPower3.Text = "Giới  hạn V";
+            this.btnVonLimitPower3.UseVisualStyleBackColor = false;
+            this.btnVonLimitPower3.Click += new System.EventHandler(this.ButtonOnOffLimit_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(128, 170);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(24, 26);
+            this.label3.TabIndex = 32;
+            this.label3.Text = "3";
+            // 
+            // btnSelectedPower3
+            // 
+            this.btnSelectedPower3.BackColor = System.Drawing.Color.White;
+            this.btnSelectedPower3.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelectedPower3.Location = new System.Drawing.Point(172, 140);
+            this.btnSelectedPower3.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSelectedPower3.Name = "btnSelectedPower3";
+            this.btnSelectedPower3.Size = new System.Drawing.Size(50, 43);
+            this.btnSelectedPower3.TabIndex = 30;
+            this.btnSelectedPower3.Text = "CH3";
+            this.btnSelectedPower3.UseVisualStyleBackColor = false;
+            this.btnSelectedPower3.Click += new System.EventHandler(this.btnSelectedPower_Click);
+            // 
+            // btnAmpeLimitPower2
+            // 
+            this.btnAmpeLimitPower2.BackColor = System.Drawing.Color.White;
+            this.btnAmpeLimitPower2.Location = new System.Drawing.Point(224, 113);
+            this.btnAmpeLimitPower2.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAmpeLimitPower2.Name = "btnAmpeLimitPower2";
+            this.btnAmpeLimitPower2.Size = new System.Drawing.Size(85, 23);
+            this.btnAmpeLimitPower2.TabIndex = 16;
+            this.btnAmpeLimitPower2.Text = "Giới hạn A";
+            this.btnAmpeLimitPower2.UseVisualStyleBackColor = false;
+            this.btnAmpeLimitPower2.Click += new System.EventHandler(this.ButtonOnOffLimit_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(76, 170);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 26);
+            this.label2.TabIndex = 32;
+            this.label2.Text = "2";
+            // 
+            // btnVonLimitPower2
+            // 
+            this.btnVonLimitPower2.BackColor = System.Drawing.Color.White;
+            this.btnVonLimitPower2.Location = new System.Drawing.Point(224, 90);
+            this.btnVonLimitPower2.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVonLimitPower2.Name = "btnVonLimitPower2";
+            this.btnVonLimitPower2.Size = new System.Drawing.Size(85, 23);
+            this.btnVonLimitPower2.TabIndex = 15;
+            this.btnVonLimitPower2.Text = "Giới hạn V";
+            this.btnVonLimitPower2.UseVisualStyleBackColor = false;
+            this.btnVonLimitPower2.Click += new System.EventHandler(this.ButtonOnOffLimit_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(24, 170);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(24, 26);
+            this.label1.TabIndex = 32;
+            this.label1.Text = "1";
+            // 
+            // btnAmpeLimitPower1
+            // 
+            this.btnAmpeLimitPower1.BackColor = System.Drawing.Color.White;
+            this.btnAmpeLimitPower1.Location = new System.Drawing.Point(224, 63);
+            this.btnAmpeLimitPower1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAmpeLimitPower1.Name = "btnAmpeLimitPower1";
+            this.btnAmpeLimitPower1.Size = new System.Drawing.Size(85, 23);
+            this.btnAmpeLimitPower1.TabIndex = 14;
+            this.btnAmpeLimitPower1.Text = "Giới hạn A";
+            this.btnAmpeLimitPower1.UseVisualStyleBackColor = false;
+            this.btnAmpeLimitPower1.Click += new System.EventHandler(this.ButtonOnOffLimit_Click);
+            // 
+            // btnSelectedPower2
+            // 
+            this.btnSelectedPower2.BackColor = System.Drawing.Color.White;
+            this.btnSelectedPower2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelectedPower2.Location = new System.Drawing.Point(172, 91);
+            this.btnSelectedPower2.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSelectedPower2.Name = "btnSelectedPower2";
+            this.btnSelectedPower2.Size = new System.Drawing.Size(50, 43);
+            this.btnSelectedPower2.TabIndex = 29;
+            this.btnSelectedPower2.Text = "CH2";
+            this.btnSelectedPower2.UseVisualStyleBackColor = false;
+            this.btnSelectedPower2.Click += new System.EventHandler(this.btnSelectedPower_Click);
+            // 
+            // btnVonLimitPower1
+            // 
+            this.btnVonLimitPower1.BackColor = System.Drawing.Color.White;
+            this.btnVonLimitPower1.Location = new System.Drawing.Point(224, 42);
+            this.btnVonLimitPower1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVonLimitPower1.Name = "btnVonLimitPower1";
+            this.btnVonLimitPower1.Size = new System.Drawing.Size(85, 23);
+            this.btnVonLimitPower1.TabIndex = 13;
+            this.btnVonLimitPower1.Text = "Giới hạn V";
+            this.btnVonLimitPower1.UseVisualStyleBackColor = false;
+            this.btnVonLimitPower1.Click += new System.EventHandler(this.ButtonOnOffLimit_Click);
+            // 
+            // btnOnOffPower3
+            // 
+            this.btnOnOffPower3.Location = new System.Drawing.Point(117, 204);
+            this.btnOnOffPower3.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOnOffPower3.Name = "btnOnOffPower3";
+            this.btnOnOffPower3.Size = new System.Drawing.Size(47, 59);
+            this.btnOnOffPower3.TabIndex = 15;
+            this.btnOnOffPower3.UseVisualStyleBackColor = true;
+            this.btnOnOffPower3.Click += new System.EventHandler(this.ButtonOnOffPower_Click);
+            // 
+            // btnOnOffPower2
+            // 
+            this.btnOnOffPower2.Location = new System.Drawing.Point(65, 204);
+            this.btnOnOffPower2.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOnOffPower2.Name = "btnOnOffPower2";
+            this.btnOnOffPower2.Size = new System.Drawing.Size(47, 59);
+            this.btnOnOffPower2.TabIndex = 14;
+            this.btnOnOffPower2.UseVisualStyleBackColor = true;
+            this.btnOnOffPower2.Click += new System.EventHandler(this.ButtonOnOffPower_Click);
+            // 
+            // btnButtonSetVon
+            // 
+            this.btnButtonSetVon.BackColor = System.Drawing.Color.White;
+            this.btnButtonSetVon.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnButtonSetVon.Location = new System.Drawing.Point(132, 3);
+            this.btnButtonSetVon.Margin = new System.Windows.Forms.Padding(2);
+            this.btnButtonSetVon.Name = "btnButtonSetVon";
+            this.btnButtonSetVon.Size = new System.Drawing.Size(35, 35);
+            this.btnButtonSetVon.TabIndex = 26;
+            this.btnButtonSetVon.Text = "V";
+            this.btnButtonSetVon.UseVisualStyleBackColor = false;
+            this.btnButtonSetVon.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // btnButtonNumber9
+            // 
+            this.btnButtonNumber9.BackColor = System.Drawing.Color.White;
+            this.btnButtonNumber9.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnButtonNumber9.Location = new System.Drawing.Point(91, 3);
+            this.btnButtonNumber9.Margin = new System.Windows.Forms.Padding(2);
+            this.btnButtonNumber9.Name = "btnButtonNumber9";
+            this.btnButtonNumber9.Size = new System.Drawing.Size(35, 35);
+            this.btnButtonNumber9.TabIndex = 25;
+            this.btnButtonNumber9.Text = "9";
+            this.btnButtonNumber9.UseVisualStyleBackColor = false;
+            this.btnButtonNumber9.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // btnSelectedPower1
+            // 
+            this.btnSelectedPower1.BackColor = System.Drawing.Color.White;
+            this.btnSelectedPower1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelectedPower1.Location = new System.Drawing.Point(172, 42);
+            this.btnSelectedPower1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSelectedPower1.Name = "btnSelectedPower1";
+            this.btnSelectedPower1.Size = new System.Drawing.Size(50, 43);
+            this.btnSelectedPower1.TabIndex = 28;
+            this.btnSelectedPower1.Text = "CH1";
+            this.btnSelectedPower1.UseVisualStyleBackColor = false;
+            this.btnSelectedPower1.Click += new System.EventHandler(this.btnSelectedPower_Click);
+            // 
+            // btnButtonNumber8
+            // 
+            this.btnButtonNumber8.BackColor = System.Drawing.Color.White;
+            this.btnButtonNumber8.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnButtonNumber8.Location = new System.Drawing.Point(52, 3);
+            this.btnButtonNumber8.Margin = new System.Windows.Forms.Padding(2);
+            this.btnButtonNumber8.Name = "btnButtonNumber8";
+            this.btnButtonNumber8.Size = new System.Drawing.Size(35, 35);
+            this.btnButtonNumber8.TabIndex = 24;
+            this.btnButtonNumber8.Text = "8";
+            this.btnButtonNumber8.UseVisualStyleBackColor = false;
+            this.btnButtonNumber8.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // btnButtonNumber7
+            // 
+            this.btnButtonNumber7.BackColor = System.Drawing.Color.White;
+            this.btnButtonNumber7.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnButtonNumber7.Location = new System.Drawing.Point(13, 3);
+            this.btnButtonNumber7.Margin = new System.Windows.Forms.Padding(2);
+            this.btnButtonNumber7.Name = "btnButtonNumber7";
+            this.btnButtonNumber7.Size = new System.Drawing.Size(35, 35);
+            this.btnButtonNumber7.TabIndex = 23;
+            this.btnButtonNumber7.Text = "7";
+            this.btnButtonNumber7.UseVisualStyleBackColor = false;
+            this.btnButtonNumber7.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // btnButtonSetAmpe
+            // 
+            this.btnButtonSetAmpe.BackColor = System.Drawing.Color.White;
+            this.btnButtonSetAmpe.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnButtonSetAmpe.Location = new System.Drawing.Point(131, 42);
+            this.btnButtonSetAmpe.Margin = new System.Windows.Forms.Padding(2);
+            this.btnButtonSetAmpe.Name = "btnButtonSetAmpe";
+            this.btnButtonSetAmpe.Size = new System.Drawing.Size(35, 35);
+            this.btnButtonSetAmpe.TabIndex = 22;
+            this.btnButtonSetAmpe.Text = "A";
+            this.btnButtonSetAmpe.UseVisualStyleBackColor = false;
+            this.btnButtonSetAmpe.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // btnButtonNumber6
+            // 
+            this.btnButtonNumber6.BackColor = System.Drawing.Color.White;
+            this.btnButtonNumber6.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnButtonNumber6.Location = new System.Drawing.Point(90, 42);
+            this.btnButtonNumber6.Margin = new System.Windows.Forms.Padding(2);
+            this.btnButtonNumber6.Name = "btnButtonNumber6";
+            this.btnButtonNumber6.Size = new System.Drawing.Size(35, 35);
+            this.btnButtonNumber6.TabIndex = 21;
+            this.btnButtonNumber6.Text = "6";
+            this.btnButtonNumber6.UseVisualStyleBackColor = false;
+            this.btnButtonNumber6.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // btnButtonNumber5
+            // 
+            this.btnButtonNumber5.BackColor = System.Drawing.Color.White;
+            this.btnButtonNumber5.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnButtonNumber5.Location = new System.Drawing.Point(51, 42);
+            this.btnButtonNumber5.Margin = new System.Windows.Forms.Padding(2);
+            this.btnButtonNumber5.Name = "btnButtonNumber5";
+            this.btnButtonNumber5.Size = new System.Drawing.Size(35, 35);
+            this.btnButtonNumber5.TabIndex = 20;
+            this.btnButtonNumber5.Text = "5";
+            this.btnButtonNumber5.UseVisualStyleBackColor = false;
+            this.btnButtonNumber5.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // btnButtonNumber4
+            // 
+            this.btnButtonNumber4.BackColor = System.Drawing.Color.White;
+            this.btnButtonNumber4.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnButtonNumber4.Location = new System.Drawing.Point(12, 42);
+            this.btnButtonNumber4.Margin = new System.Windows.Forms.Padding(2);
+            this.btnButtonNumber4.Name = "btnButtonNumber4";
+            this.btnButtonNumber4.Size = new System.Drawing.Size(35, 35);
+            this.btnButtonNumber4.TabIndex = 19;
+            this.btnButtonNumber4.Text = "4";
+            this.btnButtonNumber4.UseVisualStyleBackColor = false;
+            this.btnButtonNumber4.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // btnButtonLimitVon
+            // 
+            this.btnButtonLimitVon.BackColor = System.Drawing.Color.White;
+            this.btnButtonLimitVon.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnButtonLimitVon.Location = new System.Drawing.Point(131, 81);
+            this.btnButtonLimitVon.Margin = new System.Windows.Forms.Padding(2);
+            this.btnButtonLimitVon.Name = "btnButtonLimitVon";
+            this.btnButtonLimitVon.Size = new System.Drawing.Size(35, 35);
+            this.btnButtonLimitVon.TabIndex = 18;
+            this.btnButtonLimitVon.Text = "V.";
+            this.btnButtonLimitVon.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnButtonLimitVon.UseVisualStyleBackColor = false;
+            this.btnButtonLimitVon.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // btnButtonNumber3
+            // 
+            this.btnButtonNumber3.BackColor = System.Drawing.Color.White;
+            this.btnButtonNumber3.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnButtonNumber3.Location = new System.Drawing.Point(90, 81);
+            this.btnButtonNumber3.Margin = new System.Windows.Forms.Padding(2);
+            this.btnButtonNumber3.Name = "btnButtonNumber3";
+            this.btnButtonNumber3.Size = new System.Drawing.Size(35, 35);
+            this.btnButtonNumber3.TabIndex = 17;
+            this.btnButtonNumber3.Text = "3";
+            this.btnButtonNumber3.UseVisualStyleBackColor = false;
+            this.btnButtonNumber3.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // btnButtonNumber2
+            // 
+            this.btnButtonNumber2.BackColor = System.Drawing.Color.White;
+            this.btnButtonNumber2.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnButtonNumber2.Location = new System.Drawing.Point(51, 81);
+            this.btnButtonNumber2.Margin = new System.Windows.Forms.Padding(2);
+            this.btnButtonNumber2.Name = "btnButtonNumber2";
+            this.btnButtonNumber2.Size = new System.Drawing.Size(35, 35);
+            this.btnButtonNumber2.TabIndex = 16;
+            this.btnButtonNumber2.Text = "2";
+            this.btnButtonNumber2.UseVisualStyleBackColor = false;
+            this.btnButtonNumber2.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // btnButtonNumber1
+            // 
+            this.btnButtonNumber1.BackColor = System.Drawing.Color.White;
+            this.btnButtonNumber1.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnButtonNumber1.Location = new System.Drawing.Point(12, 81);
+            this.btnButtonNumber1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnButtonNumber1.Name = "btnButtonNumber1";
+            this.btnButtonNumber1.Size = new System.Drawing.Size(35, 35);
+            this.btnButtonNumber1.TabIndex = 15;
+            this.btnButtonNumber1.Text = "1";
+            this.btnButtonNumber1.UseVisualStyleBackColor = false;
+            this.btnButtonNumber1.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // btnButtonLimitAmpe
+            // 
+            this.btnButtonLimitAmpe.BackColor = System.Drawing.Color.White;
+            this.btnButtonLimitAmpe.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnButtonLimitAmpe.Location = new System.Drawing.Point(131, 124);
+            this.btnButtonLimitAmpe.Margin = new System.Windows.Forms.Padding(2);
+            this.btnButtonLimitAmpe.Name = "btnButtonLimitAmpe";
+            this.btnButtonLimitAmpe.Size = new System.Drawing.Size(35, 35);
+            this.btnButtonLimitAmpe.TabIndex = 14;
+            this.btnButtonLimitAmpe.Text = "A.";
+            this.btnButtonLimitAmpe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnButtonLimitAmpe.UseVisualStyleBackColor = false;
+            this.btnButtonLimitAmpe.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // btnButtonDecimal
+            // 
+            this.btnButtonDecimal.BackColor = System.Drawing.Color.White;
+            this.btnButtonDecimal.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnButtonDecimal.Location = new System.Drawing.Point(90, 124);
+            this.btnButtonDecimal.Margin = new System.Windows.Forms.Padding(2);
+            this.btnButtonDecimal.Name = "btnButtonDecimal";
+            this.btnButtonDecimal.Size = new System.Drawing.Size(35, 35);
+            this.btnButtonDecimal.TabIndex = 13;
+            this.btnButtonDecimal.Text = ".";
+            this.btnButtonDecimal.UseVisualStyleBackColor = false;
+            this.btnButtonDecimal.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // btnButtonNumber0
+            // 
+            this.btnButtonNumber0.BackColor = System.Drawing.Color.White;
+            this.btnButtonNumber0.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnButtonNumber0.Location = new System.Drawing.Point(51, 124);
+            this.btnButtonNumber0.Margin = new System.Windows.Forms.Padding(2);
+            this.btnButtonNumber0.Name = "btnButtonNumber0";
+            this.btnButtonNumber0.Size = new System.Drawing.Size(35, 35);
+            this.btnButtonNumber0.TabIndex = 12;
+            this.btnButtonNumber0.Text = "0";
+            this.btnButtonNumber0.UseVisualStyleBackColor = false;
+            this.btnButtonNumber0.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // btnButtonDelete
+            // 
+            this.btnButtonDelete.BackColor = System.Drawing.Color.White;
+            this.btnButtonDelete.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnButtonDelete.Location = new System.Drawing.Point(12, 124);
+            this.btnButtonDelete.Margin = new System.Windows.Forms.Padding(2);
+            this.btnButtonDelete.Name = "btnButtonDelete";
+            this.btnButtonDelete.Size = new System.Drawing.Size(35, 35);
+            this.btnButtonDelete.TabIndex = 11;
+            this.btnButtonDelete.Text = "C";
+            this.btnButtonDelete.UseVisualStyleBackColor = false;
+            this.btnButtonDelete.Click += new System.EventHandler(this.Button_Click);
             // 
             // myPanel3
             // 
@@ -2550,6 +2539,17 @@
             this.lblAmpeReceivePower1.TabIndex = 3;
             this.lblAmpeReceivePower1.Text = "00.00";
             // 
+            // btnOnOffPowerAll
+            // 
+            this.btnOnOffPowerAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOnOffPowerAll.Location = new System.Drawing.Point(843, 56);
+            this.btnOnOffPowerAll.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOnOffPowerAll.Name = "btnOnOffPowerAll";
+            this.btnOnOffPowerAll.Size = new System.Drawing.Size(47, 59);
+            this.btnOnOffPowerAll.TabIndex = 31;
+            this.btnOnOffPowerAll.UseVisualStyleBackColor = true;
+            this.btnOnOffPowerAll.Click += new System.EventHandler(this.ButtonOnOffPower_Click);
+            // 
             // fPower1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2558,7 +2558,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fPower1";
             this.Text = "ĐK NGUỒN";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fPower1_FormClosing);
@@ -2568,12 +2568,12 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel15.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.myPanel1.ResumeLayout(false);
             this.myPanel1.PerformLayout();
             this.pnlResultPowerAddress1.ResumeLayout(false);
             this.pnlResultPowerAddress1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.myPanel3.ResumeLayout(false);
             this.myPanel3.PerformLayout();
             this.pnlResultPowerAddress2.ResumeLayout(false);

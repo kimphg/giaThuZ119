@@ -50,7 +50,7 @@ namespace Z119.ATK.Shell
             }
             catch
             {
-                //MessageBox.Show("Không thể mở cổng " + serialPort1.PortName, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Không thể mở cổng điều khiển tải " + serialPort1.PortName, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 btnOnOff.Enabled = false;
             }
 
@@ -206,37 +206,44 @@ namespace Z119.ATK.Shell
         {
             n++;
             str_Receiver = input;
-
-            if (n == 1)
+            textBox2.Text = input;
+            try
             {
-                string text = "000" + Double.Parse(input.Replace('.', ',')) + "000";
-                if (text.IndexOf(',') < 0)
-                    text = text.Remove(text.Length - 3, 3) + ",000"; ;
-                if (text.IndexOf(',') > 0)
-                    lblReceiveVon.Text = text.Substring(text.IndexOf(',') - 2, 5).Replace(',', '.');
+                if (n == 1)
+                {
+                    string text = "000" + Double.Parse(input.Replace('.', ',')) + "000";
+                    if (text.IndexOf(',') < 0)
+                        text = text.Remove(text.Length - 3, 3) + ",000"; ;
+                    if (text.IndexOf(',') > 0)
+                        lblReceiveVon.Text = text.Substring(text.IndexOf(',') - 2, 5).Replace(',', '.');
 
-                Z119.ATK.Common.Const.VON_RA = lblReceiveVon.Text;
+                    Z119.ATK.Common.Const.VON_RA = lblReceiveVon.Text;
+                }
+
+                else if (n == 2)
+                {
+                    string text = "000" + Double.Parse(input.Replace('.', ',')) + "000";
+                    if (text.IndexOf(',') < 0)
+                        text = text.Remove(text.Length - 3, 3) + ",000"; ;
+                    if (text.IndexOf(',') > 0)
+                        lblReceiveAmpe.Text = text.Substring(text.IndexOf(',') - 2, 6).Replace(',', '.');
+
+                    Z119.ATK.Common.Const.AMPE_RA = lblReceiveAmpe.Text;
+                }
+                else if (n == 3)
+                {
+                    string text = "000" + Double.Parse(input.Replace('.', ',')) + "000";
+                    if (text.IndexOf(',') < 0)
+                        text = text.Remove(text.Length - 3, 3) + ",000"; ;
+                    if (text.IndexOf(',') > 0)
+                        lblReceiveWoat.Text = text.Substring(text.IndexOf(',') - 2, 5).Replace(',', '.');
+
+                    n = 0;
+                }
             }
-                
-            else if (n == 2)
+            catch (Exception ex)
             {
-                string text = "000" + Double.Parse(input.Replace('.', ',')) + "000";
-                if (text.IndexOf(',') < 0)
-                    text = text.Remove(text.Length - 3, 3) + ",000"; ;
-                if (text.IndexOf(',') > 0)
-                    lblReceiveAmpe.Text = text.Substring(text.IndexOf(',') - 2, 6).Replace(',', '.');
-
-                Z119.ATK.Common.Const.AMPE_RA = lblReceiveAmpe.Text;
-            }
-            else if (n == 3)
-            {
-                string text = "000" + Double.Parse(input.Replace('.', ',')) + "000";
-                if (text.IndexOf(',') < 0)
-                    text = text.Remove(text.Length - 3, 3) + ",000"; ;
-                if (text.IndexOf(',') > 0)
-                    lblReceiveWoat.Text = text.Substring(text.IndexOf(',') - 2, 5).Replace(',', '.');
-
-                n = 0;
+                return;
             }
 
         }
@@ -335,6 +342,11 @@ namespace Z119.ATK.Shell
             LoadBindingModel model = _loadmanager.OpenFile();
             if (model != null)
                 ConvertDataFromModelToControls(model);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            serialPort1.Write(textBox1.Text);
         }
     }
 }

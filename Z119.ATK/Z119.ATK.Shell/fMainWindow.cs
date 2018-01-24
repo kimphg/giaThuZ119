@@ -237,7 +237,7 @@ namespace Z119.ATK.Shell
 
             frmTai.WindowState = FormWindowState.Normal;
             frmTai.StartPosition = FormStartPosition.Manual;
-            //frmTai.Show();
+            frmTai.Show();
             frmTai.Location = new Point(1247, 0);
 
             fcheck.WindowState = FormWindowState.Normal;

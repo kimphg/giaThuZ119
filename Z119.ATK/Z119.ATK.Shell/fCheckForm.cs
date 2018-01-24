@@ -609,6 +609,21 @@ namespace Z119.ATK.Shell
             //SaveStep();
         }
 
+        private void thưMụcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+             this.txbVonRa.Text =  Z119.ATK.Common.Const.AMPE_RA;
+        }
+
         
     }
     

@@ -59,7 +59,7 @@ namespace Z119.ATK.Shell
             lblAmpeSetPower4.Text = "05.00";
             lblVonLimitPower4.Text = "22.00";
             lblAmpeLimitPower4.Text = "11.00";
-            lblStatusRangPower4.Text = "Rang 1";
+            lblStatusRangPower4.Text = "Dải 1";
             lblDescriptionVonMaxPower4.Text = "20V";
             lblDescriptionAmpeMaxPower4.Text = "10A";
 
@@ -2230,11 +2230,11 @@ namespace Z119.ATK.Shell
         private void btnSelectedRang_Click(object sender, EventArgs e)
         {
             Button btn = (sender as Button);
-            if (btn.Text.Equals("Rang 1"))
+            if (btn.Text.Equals("Dải 1"))
             {
                 _powerManager.PowerControlAddress1.ChangedRangeForPower1(1);
                 _powerManager.PowerControlAddress1.StateRangForPower1 = Power.StateRang.RANG1;
-                lblStatusRangPower4.Text = "Rang 1";
+                lblStatusRangPower4.Text = "Dải 1";
                 lblDescriptionVonMaxPower4.Text = "20V";
                 lblDescriptionAmpeMaxPower4.Text = "10A";
                 lblLimitMinMaxPower4.Text = "20V\n10A";
@@ -2243,7 +2243,7 @@ namespace Z119.ATK.Shell
             {
                 _powerManager.PowerControlAddress1.ChangedRangeForPower1(2);
                 _powerManager.PowerControlAddress1.StateRangForPower1 = Power.StateRang.RANG2;
-                lblStatusRangPower4.Text = "Rang 2";
+                lblStatusRangPower4.Text = "Dải 2";
                 lblDescriptionVonMaxPower4.Text = "40V";
                 lblDescriptionAmpeMaxPower4.Text = "5A";
                 lblLimitMinMaxPower4.Text = "40V\n5A";
@@ -2342,7 +2342,7 @@ namespace Z119.ATK.Shell
             model.AmpeLimitPower1 = lblAmpeLimitPower4.Text;
             model.OnAmpeLimitPower1 = lblStatusLimitAmpePower4.Text == "ON" ? true : false;
             model.OnVonLimitPower1 = lblStatusLimitVonPower4.Text == "ON" ? true : false;
-            model.RangePower1 = lblStatusRangPower4.Text == "Rang 1" ? true : false;
+            model.RangePower1 = lblStatusRangPower4.Text == "Dải 1" ? true : false;
 
             model.VonSetPower2 = lblVonSetPower1.Text;
             model.AmpeSetPower2 = lblAmpeSetPower1.Text;
@@ -2405,7 +2405,7 @@ namespace Z119.ATK.Shell
             {
                 _powerManager.PowerControlAddress1.ChangedRangeForPower1(1);
                 _powerManager.PowerControlAddress1.StateRangForPower1 = Power.StateRang.RANG1;
-                lblStatusRangPower4.Text = "Rang 1";
+                lblStatusRangPower4.Text = "Dải 1";
                 lblDescriptionVonMaxPower4.Text = "20V";
                 lblDescriptionAmpeMaxPower4.Text = "10A";
                 lblLimitMinMaxPower4.Text = "20V\n10A";
@@ -2414,7 +2414,7 @@ namespace Z119.ATK.Shell
             {
                 _powerManager.PowerControlAddress1.ChangedRangeForPower1(2);
                 _powerManager.PowerControlAddress1.StateRangForPower1 = Power.StateRang.RANG2;
-                lblStatusRangPower4.Text = "Rang 2";
+                lblStatusRangPower4.Text = "Dải 2";
                 lblDescriptionVonMaxPower4.Text = "40V";
                 lblDescriptionAmpeMaxPower4.Text = "5A";
                 lblLimitMinMaxPower4.Text = "40V\n5A";
