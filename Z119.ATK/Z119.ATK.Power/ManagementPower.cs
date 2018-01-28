@@ -96,7 +96,9 @@ namespace Z119.ATK.Power
 
         public Z119.ATK.Model.BindingModel.PowerBindingModel OpenFile()
         {
-            return Z119.ATK.Common.ProjectManager.LoadObject<Z119.ATK.Model.BindingModel.PowerBindingModel>(Z119.ATK.Common.Const.FD_NGUON);
+            Z119.ATK.Model.BindingModel.PowerBindingModel model = Z119.ATK.Common.ProjectManager.LoadObject<Z119.ATK.Model.BindingModel.PowerBindingModel>(Z119.ATK.Common.Const.FD_NGUON);
+            
+            return model;
         }
 
 

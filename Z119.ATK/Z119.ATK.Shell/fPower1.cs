@@ -53,7 +53,7 @@ namespace Z119.ATK.Shell
 
         #region Methods ==============================================
 
-        public void ResertValuesPower1()
+        public void ResetValuesPower1()
         {
             lblVonSetPower4.Text = "00.00";
             lblAmpeSetPower4.Text = "05.00";
@@ -2319,7 +2319,7 @@ namespace Z119.ATK.Shell
 
         private void btnResetLimitPower4_Click(object sender, EventArgs e)
         {
-            ResertValuesPower1();
+            ResetValuesPower1();
         }
         
 
@@ -2376,11 +2376,12 @@ namespace Z119.ATK.Shell
 
         public void LoadDataIntoControlsFromModel(PowerBindingModel model)
         {
+            ResetValuesPower1();
             lblVonSetPower4.Text = model.VonSetPower1;
             lblAmpeSetPower4.Text = model.AmpeSetPower1;
             lblVonLimitPower4.Text = model.VonLimitPower1;
             lblAmpeLimitPower4.Text = model.AmpeLimitPower1;
-
+            if (lblVonLimitPower4.Text=="") ResetValuesPower1();
             if (model.OnAmpeLimitPower1)
             {
                 IsOnOffLimitAmpePower4 = false;

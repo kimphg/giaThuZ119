@@ -204,15 +204,23 @@ namespace Z119.ATK.Shell
 
         private void fScheme_DelPointData(object sender, EventArgs e)
         {
-            foreach (schemePoint p in Z119.ATK.Common.Const.schemePointList)
-            {
-                if (p.Selected)
-                {
-                    Z119.ATK.Common.Const.schemePointList.Remove(p);
-                    this.Refresh();
-                    break;
-                }
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
 
+            result = MessageBox.Show("Xóa điểm đo đã chọn?", "Xóa điểm đo", buttons);
+
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                foreach (schemePoint p in Z119.ATK.Common.Const.schemePointList)
+                {
+                    if (p.Selected)
+                    {
+                        Z119.ATK.Common.Const.schemePointList.Remove(p);
+                        this.Refresh();
+                        break;
+                    }
+
+                }
             }
         }
 
