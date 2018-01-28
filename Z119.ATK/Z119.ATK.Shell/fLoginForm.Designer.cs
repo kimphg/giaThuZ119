@@ -76,9 +76,9 @@
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label4.Location = new System.Drawing.Point(87, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(203, 31);
+            this.label4.Size = new System.Drawing.Size(218, 31);
             this.label4.TabIndex = 1;
-            this.label4.Text = "Nhà máy Z119";
+            this.label4.Text = "NHÀ MÁY Z119";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
@@ -86,7 +86,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.Control;
-            this.label3.Location = new System.Drawing.Point(64, 38);
+            this.label3.Location = new System.Drawing.Point(74, 40);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(241, 16);
             this.label3.TabIndex = 0;

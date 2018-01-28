@@ -130,6 +130,9 @@ namespace Z119.ATK.Shell
                 lblVonLimitPower1.ForeColor = Color.FromArgb(43, 63, 54);
                 lblAmpeLimitPower1.ForeColor = Color.FromArgb(43, 63, 54);
 
+                //lblVonSetPower1.Visible = true;
+                //lblAmpeLimitPower4.Visible = true;
+
                 IsOnPower1 = false;
 
                 #endregion End GUI ***********************

@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		XmlSettings\XmlSettingsProperty.cs = XmlSettings\XmlSettingsProperty.cs
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Z119.ATK.UnitTest", "Z119.ATK.UnitTest\Z119.ATK.UnitTest.csproj", "{7D04F497-0EDB-4A2B-9802-2F9E66B791B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -66,6 +68,10 @@ Global
 		{43C68BF0-3B35-4FC4-80F8-6500B8AE59B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43C68BF0-3B35-4FC4-80F8-6500B8AE59B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43C68BF0-3B35-4FC4-80F8-6500B8AE59B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D04F497-0EDB-4A2B-9802-2F9E66B791B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D04F497-0EDB-4A2B-9802-2F9E66B791B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D04F497-0EDB-4A2B-9802-2F9E66B791B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D04F497-0EDB-4A2B-9802-2F9E66B791B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -66,36 +66,6 @@
             this.btnDecimal = new System.Windows.Forms.Button();
             this.btnNumber0 = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.myPanel1 = new Z119.ATK.Shell.MyControls.MyPanel();
-            this.lblStatusRangPower4 = new System.Windows.Forms.Label();
-            this.lblStatusLimitAmpePower4 = new System.Windows.Forms.Label();
-            this.lblStatusLimitVonPower4 = new System.Windows.Forms.Label();
-            this.pnlResultPowerAddress1 = new Z119.ATK.Shell.MyControls.MyPanel();
-            this.txtResultPowerAddress1 = new System.Windows.Forms.TextBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.lblLimitMinMaxPower4 = new System.Windows.Forms.Label();
-            this.lblRegion1Power4 = new System.Windows.Forms.Panel();
-            this.myPanel4 = new Z119.ATK.Shell.MyControls.MyPanel();
-            this.lblDescriptionAmpeLimitPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionVonLimitPower4 = new System.Windows.Forms.Label();
-            this.lblAmpeLimitPower4 = new System.Windows.Forms.Label();
-            this.lblVonLimitPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionAmpeSetPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionVonSetPower4 = new System.Windows.Forms.Label();
-            this.lblAmpeSetPower4 = new System.Windows.Forms.Label();
-            this.lblVonSetPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionLimitPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionSetPower4 = new System.Windows.Forms.Label();
-            this.lblStatusPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionAmpeMaxPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionVonMaxPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionNameOfPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionWoatPower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionAmpePower4 = new System.Windows.Forms.Label();
-            this.lblDescriptionVonPower4 = new System.Windows.Forms.Label();
-            this.lblVonReceivePower4 = new System.Windows.Forms.Label();
-            this.lblWoatReceivePower4 = new System.Windows.Forms.Label();
-            this.lblAmpeReceivePower4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnResetLimitPowerAll = new System.Windows.Forms.Button();
             this.btnAmpeLimitPower3 = new System.Windows.Forms.Button();
@@ -128,6 +98,37 @@
             this.btnButtonDecimal = new System.Windows.Forms.Button();
             this.btnButtonNumber0 = new System.Windows.Forms.Button();
             this.btnButtonDelete = new System.Windows.Forms.Button();
+            this.btnOnOffPowerAll = new System.Windows.Forms.Button();
+            this.myPanel1 = new Z119.ATK.Shell.MyControls.MyPanel();
+            this.lblStatusRangPower4 = new System.Windows.Forms.Label();
+            this.lblStatusLimitAmpePower4 = new System.Windows.Forms.Label();
+            this.lblStatusLimitVonPower4 = new System.Windows.Forms.Label();
+            this.pnlResultPowerAddress1 = new Z119.ATK.Shell.MyControls.MyPanel();
+            this.txtResultPowerAddress1 = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lblLimitMinMaxPower4 = new System.Windows.Forms.Label();
+            this.lblRegion1Power4 = new System.Windows.Forms.Panel();
+            this.myPanel4 = new Z119.ATK.Shell.MyControls.MyPanel();
+            this.lblDescriptionAmpeLimitPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionVonLimitPower4 = new System.Windows.Forms.Label();
+            this.lblAmpeLimitPower4 = new System.Windows.Forms.Label();
+            this.lblVonLimitPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionAmpeSetPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionVonSetPower4 = new System.Windows.Forms.Label();
+            this.lblAmpeSetPower4 = new System.Windows.Forms.Label();
+            this.lblVonSetPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionLimitPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionSetPower4 = new System.Windows.Forms.Label();
+            this.lblStatusPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionAmpeMaxPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionVonMaxPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionNameOfPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionWoatPower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionAmpePower4 = new System.Windows.Forms.Label();
+            this.lblDescriptionVonPower4 = new System.Windows.Forms.Label();
+            this.lblVonReceivePower4 = new System.Windows.Forms.Label();
+            this.lblWoatReceivePower4 = new System.Windows.Forms.Label();
+            this.lblAmpeReceivePower4 = new System.Windows.Forms.Label();
             this.myPanel3 = new Z119.ATK.Shell.MyControls.MyPanel();
             this.lblStatusLimitAmpePower3 = new System.Windows.Forms.Label();
             this.lblStatusLimitVonPower3 = new System.Windows.Forms.Label();
@@ -211,14 +212,13 @@
             this.lblAmpeReceivePower2 = new System.Windows.Forms.Label();
             this.lblWoatReceivePower1 = new System.Windows.Forms.Label();
             this.lblAmpeReceivePower1 = new System.Windows.Forms.Label();
-            this.btnOnOffPowerAll = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel15.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.myPanel1.SuspendLayout();
             this.pnlResultPowerAddress1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.myPanel3.SuspendLayout();
             this.pnlResultPowerAddress2.SuspendLayout();
             this.SuspendLayout();
@@ -698,382 +698,6 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.BtnNumber_Click);
             // 
-            // myPanel1
-            // 
-            this.myPanel1.Controls.Add(this.lblStatusRangPower4);
-            this.myPanel1.Controls.Add(this.lblStatusLimitAmpePower4);
-            this.myPanel1.Controls.Add(this.lblStatusLimitVonPower4);
-            this.myPanel1.Controls.Add(this.pnlResultPowerAddress1);
-            this.myPanel1.Controls.Add(this.lblRegion1Power4);
-            this.myPanel1.Controls.Add(this.myPanel4);
-            this.myPanel1.Controls.Add(this.lblDescriptionAmpeLimitPower4);
-            this.myPanel1.Controls.Add(this.lblDescriptionVonLimitPower4);
-            this.myPanel1.Controls.Add(this.lblAmpeLimitPower4);
-            this.myPanel1.Controls.Add(this.lblVonLimitPower4);
-            this.myPanel1.Controls.Add(this.lblDescriptionAmpeSetPower4);
-            this.myPanel1.Controls.Add(this.lblDescriptionVonSetPower4);
-            this.myPanel1.Controls.Add(this.lblAmpeSetPower4);
-            this.myPanel1.Controls.Add(this.lblVonSetPower4);
-            this.myPanel1.Controls.Add(this.lblDescriptionLimitPower4);
-            this.myPanel1.Controls.Add(this.lblDescriptionSetPower4);
-            this.myPanel1.Controls.Add(this.lblStatusPower4);
-            this.myPanel1.Controls.Add(this.lblDescriptionAmpeMaxPower4);
-            this.myPanel1.Controls.Add(this.lblDescriptionVonMaxPower4);
-            this.myPanel1.Controls.Add(this.lblDescriptionNameOfPower4);
-            this.myPanel1.Controls.Add(this.lblDescriptionWoatPower4);
-            this.myPanel1.Controls.Add(this.lblDescriptionAmpePower4);
-            this.myPanel1.Controls.Add(this.lblDescriptionVonPower4);
-            this.myPanel1.Controls.Add(this.lblVonReceivePower4);
-            this.myPanel1.Controls.Add(this.lblWoatReceivePower4);
-            this.myPanel1.Controls.Add(this.lblAmpeReceivePower4);
-            this.myPanel1.ForeColor = System.Drawing.Color.Lime;
-            this.myPanel1.Location = new System.Drawing.Point(7, 29);
-            this.myPanel1.Margin = new System.Windows.Forms.Padding(2);
-            this.myPanel1.Name = "myPanel1";
-            this.myPanel1.Size = new System.Drawing.Size(567, 257);
-            this.myPanel1.TabIndex = 93;
-            // 
-            // lblStatusRangPower4
-            // 
-            this.lblStatusRangPower4.AutoSize = true;
-            this.lblStatusRangPower4.BackColor = System.Drawing.Color.Black;
-            this.lblStatusRangPower4.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatusRangPower4.Location = new System.Drawing.Point(29, 71);
-            this.lblStatusRangPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblStatusRangPower4.Name = "lblStatusRangPower4";
-            this.lblStatusRangPower4.Size = new System.Drawing.Size(56, 22);
-            this.lblStatusRangPower4.TabIndex = 89;
-            this.lblStatusRangPower4.Text = "Dải 1";
-            this.lblStatusRangPower4.Click += new System.EventHandler(this.lblStatusRangPower4_Click);
-            // 
-            // lblStatusLimitAmpePower4
-            // 
-            this.lblStatusLimitAmpePower4.AutoSize = true;
-            this.lblStatusLimitAmpePower4.BackColor = System.Drawing.Color.Black;
-            this.lblStatusLimitAmpePower4.Location = new System.Drawing.Point(231, 227);
-            this.lblStatusLimitAmpePower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblStatusLimitAmpePower4.Name = "lblStatusLimitAmpePower4";
-            this.lblStatusLimitAmpePower4.Size = new System.Drawing.Size(23, 13);
-            this.lblStatusLimitAmpePower4.TabIndex = 88;
-            this.lblStatusLimitAmpePower4.Text = "ON";
-            // 
-            // lblStatusLimitVonPower4
-            // 
-            this.lblStatusLimitVonPower4.AutoSize = true;
-            this.lblStatusLimitVonPower4.BackColor = System.Drawing.Color.Black;
-            this.lblStatusLimitVonPower4.Location = new System.Drawing.Point(231, 201);
-            this.lblStatusLimitVonPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblStatusLimitVonPower4.Name = "lblStatusLimitVonPower4";
-            this.lblStatusLimitVonPower4.Size = new System.Drawing.Size(23, 13);
-            this.lblStatusLimitVonPower4.TabIndex = 87;
-            this.lblStatusLimitVonPower4.Text = "ON";
-            // 
-            // pnlResultPowerAddress1
-            // 
-            this.pnlResultPowerAddress1.Controls.Add(this.txtResultPowerAddress1);
-            this.pnlResultPowerAddress1.Controls.Add(this.panel5);
-            this.pnlResultPowerAddress1.Controls.Add(this.lblLimitMinMaxPower4);
-            this.pnlResultPowerAddress1.ForeColor = System.Drawing.Color.Lime;
-            this.pnlResultPowerAddress1.Location = new System.Drawing.Point(110, 112);
-            this.pnlResultPowerAddress1.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlResultPowerAddress1.Name = "pnlResultPowerAddress1";
-            this.pnlResultPowerAddress1.Size = new System.Drawing.Size(316, 79);
-            this.pnlResultPowerAddress1.TabIndex = 86;
-            // 
-            // txtResultPowerAddress1
-            // 
-            this.txtResultPowerAddress1.BackColor = System.Drawing.Color.Black;
-            this.txtResultPowerAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtResultPowerAddress1.ForeColor = System.Drawing.Color.Lime;
-            this.txtResultPowerAddress1.Location = new System.Drawing.Point(70, 20);
-            this.txtResultPowerAddress1.Margin = new System.Windows.Forms.Padding(2);
-            this.txtResultPowerAddress1.Name = "txtResultPowerAddress1";
-            this.txtResultPowerAddress1.ReadOnly = true;
-            this.txtResultPowerAddress1.Size = new System.Drawing.Size(237, 41);
-            this.txtResultPowerAddress1.TabIndex = 30;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Lime;
-            this.panel5.Location = new System.Drawing.Point(10, 40);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(49, 2);
-            this.panel5.TabIndex = 29;
-            // 
-            // lblLimitMinMaxPower4
-            // 
-            this.lblLimitMinMaxPower4.AutoSize = true;
-            this.lblLimitMinMaxPower4.BackColor = System.Drawing.Color.Black;
-            this.lblLimitMinMaxPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLimitMinMaxPower4.Location = new System.Drawing.Point(4, 4);
-            this.lblLimitMinMaxPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblLimitMinMaxPower4.Name = "lblLimitMinMaxPower4";
-            this.lblLimitMinMaxPower4.Size = new System.Drawing.Size(70, 72);
-            this.lblLimitMinMaxPower4.TabIndex = 0;
-            this.lblLimitMinMaxPower4.Text = "20V\r\n10A\r\n";
-            // 
-            // lblRegion1Power4
-            // 
-            this.lblRegion1Power4.BackColor = System.Drawing.Color.Lime;
-            this.lblRegion1Power4.Location = new System.Drawing.Point(53, 37);
-            this.lblRegion1Power4.Margin = new System.Windows.Forms.Padding(2);
-            this.lblRegion1Power4.Name = "lblRegion1Power4";
-            this.lblRegion1Power4.Size = new System.Drawing.Size(45, 2);
-            this.lblRegion1Power4.TabIndex = 28;
-            // 
-            // myPanel4
-            // 
-            this.myPanel4.ForeColor = System.Drawing.Color.Lime;
-            this.myPanel4.Location = new System.Drawing.Point(563, 2);
-            this.myPanel4.Margin = new System.Windows.Forms.Padding(2);
-            this.myPanel4.Name = "myPanel4";
-            this.myPanel4.Size = new System.Drawing.Size(2, 358);
-            this.myPanel4.TabIndex = 59;
-            // 
-            // lblDescriptionAmpeLimitPower4
-            // 
-            this.lblDescriptionAmpeLimitPower4.AutoSize = true;
-            this.lblDescriptionAmpeLimitPower4.BackColor = System.Drawing.Color.Black;
-            this.lblDescriptionAmpeLimitPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescriptionAmpeLimitPower4.Location = new System.Drawing.Point(213, 210);
-            this.lblDescriptionAmpeLimitPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDescriptionAmpeLimitPower4.Name = "lblDescriptionAmpeLimitPower4";
-            this.lblDescriptionAmpeLimitPower4.Size = new System.Drawing.Size(17, 17);
-            this.lblDescriptionAmpeLimitPower4.TabIndex = 31;
-            this.lblDescriptionAmpeLimitPower4.Text = "A";
-            // 
-            // lblDescriptionVonLimitPower4
-            // 
-            this.lblDescriptionVonLimitPower4.AutoSize = true;
-            this.lblDescriptionVonLimitPower4.BackColor = System.Drawing.Color.Black;
-            this.lblDescriptionVonLimitPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescriptionVonLimitPower4.Location = new System.Drawing.Point(212, 186);
-            this.lblDescriptionVonLimitPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDescriptionVonLimitPower4.Name = "lblDescriptionVonLimitPower4";
-            this.lblDescriptionVonLimitPower4.Size = new System.Drawing.Size(17, 17);
-            this.lblDescriptionVonLimitPower4.TabIndex = 30;
-            this.lblDescriptionVonLimitPower4.Text = "V";
-            // 
-            // lblAmpeLimitPower4
-            // 
-            this.lblAmpeLimitPower4.AutoSize = true;
-            this.lblAmpeLimitPower4.BackColor = System.Drawing.Color.Black;
-            this.lblAmpeLimitPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmpeLimitPower4.Location = new System.Drawing.Point(153, 215);
-            this.lblAmpeLimitPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblAmpeLimitPower4.Name = "lblAmpeLimitPower4";
-            this.lblAmpeLimitPower4.Size = new System.Drawing.Size(61, 25);
-            this.lblAmpeLimitPower4.TabIndex = 29;
-            this.lblAmpeLimitPower4.Text = "11.00";
-            // 
-            // lblVonLimitPower4
-            // 
-            this.lblVonLimitPower4.AutoSize = true;
-            this.lblVonLimitPower4.BackColor = System.Drawing.Color.Black;
-            this.lblVonLimitPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVonLimitPower4.Location = new System.Drawing.Point(153, 189);
-            this.lblVonLimitPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblVonLimitPower4.Name = "lblVonLimitPower4";
-            this.lblVonLimitPower4.Size = new System.Drawing.Size(61, 25);
-            this.lblVonLimitPower4.TabIndex = 28;
-            this.lblVonLimitPower4.Text = "22.00";
-            // 
-            // lblDescriptionAmpeSetPower4
-            // 
-            this.lblDescriptionAmpeSetPower4.AutoSize = true;
-            this.lblDescriptionAmpeSetPower4.BackColor = System.Drawing.Color.Black;
-            this.lblDescriptionAmpeSetPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescriptionAmpeSetPower4.Location = new System.Drawing.Point(214, 150);
-            this.lblDescriptionAmpeSetPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDescriptionAmpeSetPower4.Name = "lblDescriptionAmpeSetPower4";
-            this.lblDescriptionAmpeSetPower4.Size = new System.Drawing.Size(17, 17);
-            this.lblDescriptionAmpeSetPower4.TabIndex = 27;
-            this.lblDescriptionAmpeSetPower4.Text = "A";
-            // 
-            // lblDescriptionVonSetPower4
-            // 
-            this.lblDescriptionVonSetPower4.AutoSize = true;
-            this.lblDescriptionVonSetPower4.BackColor = System.Drawing.Color.Black;
-            this.lblDescriptionVonSetPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescriptionVonSetPower4.Location = new System.Drawing.Point(213, 127);
-            this.lblDescriptionVonSetPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDescriptionVonSetPower4.Name = "lblDescriptionVonSetPower4";
-            this.lblDescriptionVonSetPower4.Size = new System.Drawing.Size(17, 17);
-            this.lblDescriptionVonSetPower4.TabIndex = 26;
-            this.lblDescriptionVonSetPower4.Text = "V";
-            // 
-            // lblAmpeSetPower4
-            // 
-            this.lblAmpeSetPower4.AutoSize = true;
-            this.lblAmpeSetPower4.BackColor = System.Drawing.Color.Black;
-            this.lblAmpeSetPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmpeSetPower4.Location = new System.Drawing.Point(153, 155);
-            this.lblAmpeSetPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblAmpeSetPower4.Name = "lblAmpeSetPower4";
-            this.lblAmpeSetPower4.Size = new System.Drawing.Size(61, 25);
-            this.lblAmpeSetPower4.TabIndex = 23;
-            this.lblAmpeSetPower4.Text = "05.00";
-            // 
-            // lblVonSetPower4
-            // 
-            this.lblVonSetPower4.AutoSize = true;
-            this.lblVonSetPower4.BackColor = System.Drawing.Color.Black;
-            this.lblVonSetPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVonSetPower4.Location = new System.Drawing.Point(153, 129);
-            this.lblVonSetPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblVonSetPower4.Name = "lblVonSetPower4";
-            this.lblVonSetPower4.Size = new System.Drawing.Size(61, 25);
-            this.lblVonSetPower4.TabIndex = 22;
-            this.lblVonSetPower4.Text = "00.00";
-            // 
-            // lblDescriptionLimitPower4
-            // 
-            this.lblDescriptionLimitPower4.AutoSize = true;
-            this.lblDescriptionLimitPower4.BackColor = System.Drawing.Color.Black;
-            this.lblDescriptionLimitPower4.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescriptionLimitPower4.Location = new System.Drawing.Point(58, 198);
-            this.lblDescriptionLimitPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDescriptionLimitPower4.Name = "lblDescriptionLimitPower4";
-            this.lblDescriptionLimitPower4.Size = new System.Drawing.Size(90, 22);
-            this.lblDescriptionLimitPower4.TabIndex = 21;
-            this.lblDescriptionLimitPower4.Text = "Giới Hạn";
-            // 
-            // lblDescriptionSetPower4
-            // 
-            this.lblDescriptionSetPower4.AutoSize = true;
-            this.lblDescriptionSetPower4.BackColor = System.Drawing.Color.Black;
-            this.lblDescriptionSetPower4.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescriptionSetPower4.Location = new System.Drawing.Point(106, 142);
-            this.lblDescriptionSetPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDescriptionSetPower4.Name = "lblDescriptionSetPower4";
-            this.lblDescriptionSetPower4.Size = new System.Drawing.Size(41, 22);
-            this.lblDescriptionSetPower4.TabIndex = 20;
-            this.lblDescriptionSetPower4.Text = "Đặt";
-            // 
-            // lblStatusPower4
-            // 
-            this.lblStatusPower4.AutoSize = true;
-            this.lblStatusPower4.BackColor = System.Drawing.Color.Black;
-            this.lblStatusPower4.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatusPower4.Location = new System.Drawing.Point(484, 8);
-            this.lblStatusPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblStatusPower4.Name = "lblStatusPower4";
-            this.lblStatusPower4.Size = new System.Drawing.Size(53, 37);
-            this.lblStatusPower4.TabIndex = 19;
-            this.lblStatusPower4.Text = "On";
-            // 
-            // lblDescriptionAmpeMaxPower4
-            // 
-            this.lblDescriptionAmpeMaxPower4.AutoSize = true;
-            this.lblDescriptionAmpeMaxPower4.BackColor = System.Drawing.Color.Black;
-            this.lblDescriptionAmpeMaxPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescriptionAmpeMaxPower4.Location = new System.Drawing.Point(56, 41);
-            this.lblDescriptionAmpeMaxPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDescriptionAmpeMaxPower4.Name = "lblDescriptionAmpeMaxPower4";
-            this.lblDescriptionAmpeMaxPower4.Size = new System.Drawing.Size(43, 24);
-            this.lblDescriptionAmpeMaxPower4.TabIndex = 18;
-            this.lblDescriptionAmpeMaxPower4.Text = "10A";
-            // 
-            // lblDescriptionVonMaxPower4
-            // 
-            this.lblDescriptionVonMaxPower4.AutoSize = true;
-            this.lblDescriptionVonMaxPower4.BackColor = System.Drawing.Color.Black;
-            this.lblDescriptionVonMaxPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescriptionVonMaxPower4.Location = new System.Drawing.Point(57, 10);
-            this.lblDescriptionVonMaxPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDescriptionVonMaxPower4.Name = "lblDescriptionVonMaxPower4";
-            this.lblDescriptionVonMaxPower4.Size = new System.Drawing.Size(43, 24);
-            this.lblDescriptionVonMaxPower4.TabIndex = 16;
-            this.lblDescriptionVonMaxPower4.Text = "20V";
-            // 
-            // lblDescriptionNameOfPower4
-            // 
-            this.lblDescriptionNameOfPower4.AutoSize = true;
-            this.lblDescriptionNameOfPower4.BackColor = System.Drawing.Color.Black;
-            this.lblDescriptionNameOfPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescriptionNameOfPower4.Location = new System.Drawing.Point(18, 20);
-            this.lblDescriptionNameOfPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDescriptionNameOfPower4.Name = "lblDescriptionNameOfPower4";
-            this.lblDescriptionNameOfPower4.Size = new System.Drawing.Size(34, 37);
-            this.lblDescriptionNameOfPower4.TabIndex = 15;
-            this.lblDescriptionNameOfPower4.Text = "1";
-            // 
-            // lblDescriptionWoatPower4
-            // 
-            this.lblDescriptionWoatPower4.AutoSize = true;
-            this.lblDescriptionWoatPower4.BackColor = System.Drawing.Color.Black;
-            this.lblDescriptionWoatPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescriptionWoatPower4.Location = new System.Drawing.Point(452, 169);
-            this.lblDescriptionWoatPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDescriptionWoatPower4.Name = "lblDescriptionWoatPower4";
-            this.lblDescriptionWoatPower4.Size = new System.Drawing.Size(35, 29);
-            this.lblDescriptionWoatPower4.TabIndex = 14;
-            this.lblDescriptionWoatPower4.Text = "W";
-            // 
-            // lblDescriptionAmpePower4
-            // 
-            this.lblDescriptionAmpePower4.AutoSize = true;
-            this.lblDescriptionAmpePower4.BackColor = System.Drawing.Color.Black;
-            this.lblDescriptionAmpePower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescriptionAmpePower4.Location = new System.Drawing.Point(453, 106);
-            this.lblDescriptionAmpePower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDescriptionAmpePower4.Name = "lblDescriptionAmpePower4";
-            this.lblDescriptionAmpePower4.Size = new System.Drawing.Size(28, 29);
-            this.lblDescriptionAmpePower4.TabIndex = 13;
-            this.lblDescriptionAmpePower4.Text = "A";
-            // 
-            // lblDescriptionVonPower4
-            // 
-            this.lblDescriptionVonPower4.AutoSize = true;
-            this.lblDescriptionVonPower4.BackColor = System.Drawing.Color.Black;
-            this.lblDescriptionVonPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescriptionVonPower4.Location = new System.Drawing.Point(453, 42);
-            this.lblDescriptionVonPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDescriptionVonPower4.Name = "lblDescriptionVonPower4";
-            this.lblDescriptionVonPower4.Size = new System.Drawing.Size(28, 29);
-            this.lblDescriptionVonPower4.TabIndex = 12;
-            this.lblDescriptionVonPower4.Text = "V";
-            // 
-            // lblVonReceivePower4
-            // 
-            this.lblVonReceivePower4.AutoSize = true;
-            this.lblVonReceivePower4.BackColor = System.Drawing.Color.Black;
-            this.lblVonReceivePower4.Font = new System.Drawing.Font("Quartz", 41.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVonReceivePower4.ForeColor = System.Drawing.Color.Lime;
-            this.lblVonReceivePower4.Location = new System.Drawing.Point(301, 42);
-            this.lblVonReceivePower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblVonReceivePower4.Name = "lblVonReceivePower4";
-            this.lblVonReceivePower4.Size = new System.Drawing.Size(144, 67);
-            this.lblVonReceivePower4.TabIndex = 2;
-            this.lblVonReceivePower4.Text = "00.00";
-            // 
-            // lblWoatReceivePower4
-            // 
-            this.lblWoatReceivePower4.AutoSize = true;
-            this.lblWoatReceivePower4.BackColor = System.Drawing.Color.Black;
-            this.lblWoatReceivePower4.Font = new System.Drawing.Font("Quartz", 41.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWoatReceivePower4.ForeColor = System.Drawing.Color.Lime;
-            this.lblWoatReceivePower4.Location = new System.Drawing.Point(301, 175);
-            this.lblWoatReceivePower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblWoatReceivePower4.Name = "lblWoatReceivePower4";
-            this.lblWoatReceivePower4.Size = new System.Drawing.Size(144, 67);
-            this.lblWoatReceivePower4.TabIndex = 4;
-            this.lblWoatReceivePower4.Text = "00.00";
-            // 
-            // lblAmpeReceivePower4
-            // 
-            this.lblAmpeReceivePower4.AutoSize = true;
-            this.lblAmpeReceivePower4.BackColor = System.Drawing.Color.Black;
-            this.lblAmpeReceivePower4.Font = new System.Drawing.Font("Quartz", 41.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAmpeReceivePower4.ForeColor = System.Drawing.Color.Lime;
-            this.lblAmpeReceivePower4.Location = new System.Drawing.Point(301, 110);
-            this.lblAmpeReceivePower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblAmpeReceivePower4.Name = "lblAmpeReceivePower4";
-            this.lblAmpeReceivePower4.Size = new System.Drawing.Size(144, 67);
-            this.lblAmpeReceivePower4.TabIndex = 3;
-            this.lblAmpeReceivePower4.Text = "00.00";
-            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
@@ -1502,6 +1126,393 @@
             this.btnButtonDelete.Text = "C";
             this.btnButtonDelete.UseVisualStyleBackColor = false;
             this.btnButtonDelete.Click += new System.EventHandler(this.Button_Click);
+            // 
+            // btnOnOffPowerAll
+            // 
+            this.btnOnOffPowerAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOnOffPowerAll.Location = new System.Drawing.Point(843, 56);
+            this.btnOnOffPowerAll.Margin = new System.Windows.Forms.Padding(2);
+            this.btnOnOffPowerAll.Name = "btnOnOffPowerAll";
+            this.btnOnOffPowerAll.Size = new System.Drawing.Size(47, 59);
+            this.btnOnOffPowerAll.TabIndex = 31;
+            this.btnOnOffPowerAll.UseVisualStyleBackColor = true;
+            this.btnOnOffPowerAll.Click += new System.EventHandler(this.ButtonOnOffPower_Click);
+            // 
+            // myPanel1
+            // 
+            this.myPanel1.Controls.Add(this.lblStatusRangPower4);
+            this.myPanel1.Controls.Add(this.lblStatusLimitAmpePower4);
+            this.myPanel1.Controls.Add(this.lblStatusLimitVonPower4);
+            this.myPanel1.Controls.Add(this.pnlResultPowerAddress1);
+            this.myPanel1.Controls.Add(this.lblRegion1Power4);
+            this.myPanel1.Controls.Add(this.myPanel4);
+            this.myPanel1.Controls.Add(this.lblDescriptionAmpeLimitPower4);
+            this.myPanel1.Controls.Add(this.lblDescriptionVonLimitPower4);
+            this.myPanel1.Controls.Add(this.lblAmpeLimitPower4);
+            this.myPanel1.Controls.Add(this.lblVonLimitPower4);
+            this.myPanel1.Controls.Add(this.lblDescriptionAmpeSetPower4);
+            this.myPanel1.Controls.Add(this.lblDescriptionVonSetPower4);
+            this.myPanel1.Controls.Add(this.lblAmpeSetPower4);
+            this.myPanel1.Controls.Add(this.lblVonSetPower4);
+            this.myPanel1.Controls.Add(this.lblDescriptionLimitPower4);
+            this.myPanel1.Controls.Add(this.lblDescriptionSetPower4);
+            this.myPanel1.Controls.Add(this.lblStatusPower4);
+            this.myPanel1.Controls.Add(this.lblDescriptionAmpeMaxPower4);
+            this.myPanel1.Controls.Add(this.lblDescriptionVonMaxPower4);
+            this.myPanel1.Controls.Add(this.lblDescriptionNameOfPower4);
+            this.myPanel1.Controls.Add(this.lblDescriptionWoatPower4);
+            this.myPanel1.Controls.Add(this.lblDescriptionAmpePower4);
+            this.myPanel1.Controls.Add(this.lblDescriptionVonPower4);
+            this.myPanel1.Controls.Add(this.lblVonReceivePower4);
+            this.myPanel1.Controls.Add(this.lblWoatReceivePower4);
+            this.myPanel1.Controls.Add(this.lblAmpeReceivePower4);
+            this.myPanel1.ForeColor = System.Drawing.Color.Lime;
+            this.myPanel1.Location = new System.Drawing.Point(7, 29);
+            this.myPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.myPanel1.Name = "myPanel1";
+            this.myPanel1.Size = new System.Drawing.Size(567, 257);
+            this.myPanel1.TabIndex = 93;
+            // 
+            // lblStatusRangPower4
+            // 
+            this.lblStatusRangPower4.AutoSize = true;
+            this.lblStatusRangPower4.BackColor = System.Drawing.Color.Black;
+            this.lblStatusRangPower4.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatusRangPower4.Location = new System.Drawing.Point(29, 71);
+            this.lblStatusRangPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStatusRangPower4.Name = "lblStatusRangPower4";
+            this.lblStatusRangPower4.Size = new System.Drawing.Size(56, 22);
+            this.lblStatusRangPower4.TabIndex = 89;
+            this.lblStatusRangPower4.Text = "Dải 1";
+            this.lblStatusRangPower4.Click += new System.EventHandler(this.lblStatusRangPower4_Click);
+            // 
+            // lblStatusLimitAmpePower4
+            // 
+            this.lblStatusLimitAmpePower4.AutoSize = true;
+            this.lblStatusLimitAmpePower4.BackColor = System.Drawing.Color.Black;
+            this.lblStatusLimitAmpePower4.Location = new System.Drawing.Point(231, 227);
+            this.lblStatusLimitAmpePower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStatusLimitAmpePower4.Name = "lblStatusLimitAmpePower4";
+            this.lblStatusLimitAmpePower4.Size = new System.Drawing.Size(23, 13);
+            this.lblStatusLimitAmpePower4.TabIndex = 88;
+            this.lblStatusLimitAmpePower4.Text = "ON";
+            // 
+            // lblStatusLimitVonPower4
+            // 
+            this.lblStatusLimitVonPower4.AutoSize = true;
+            this.lblStatusLimitVonPower4.BackColor = System.Drawing.Color.Black;
+            this.lblStatusLimitVonPower4.Location = new System.Drawing.Point(231, 201);
+            this.lblStatusLimitVonPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStatusLimitVonPower4.Name = "lblStatusLimitVonPower4";
+            this.lblStatusLimitVonPower4.Size = new System.Drawing.Size(23, 13);
+            this.lblStatusLimitVonPower4.TabIndex = 87;
+            this.lblStatusLimitVonPower4.Text = "ON";
+            // 
+            // pnlResultPowerAddress1
+            // 
+            this.pnlResultPowerAddress1.Controls.Add(this.txtResultPowerAddress1);
+            this.pnlResultPowerAddress1.Controls.Add(this.panel5);
+            this.pnlResultPowerAddress1.Controls.Add(this.lblLimitMinMaxPower4);
+            this.pnlResultPowerAddress1.ForeColor = System.Drawing.Color.Lime;
+            this.pnlResultPowerAddress1.Location = new System.Drawing.Point(110, 112);
+            this.pnlResultPowerAddress1.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlResultPowerAddress1.Name = "pnlResultPowerAddress1";
+            this.pnlResultPowerAddress1.Size = new System.Drawing.Size(316, 79);
+            this.pnlResultPowerAddress1.TabIndex = 86;
+            // 
+            // txtResultPowerAddress1
+            // 
+            this.txtResultPowerAddress1.BackColor = System.Drawing.Color.Black;
+            this.txtResultPowerAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtResultPowerAddress1.ForeColor = System.Drawing.Color.Lime;
+            this.txtResultPowerAddress1.Location = new System.Drawing.Point(70, 20);
+            this.txtResultPowerAddress1.Margin = new System.Windows.Forms.Padding(2);
+            this.txtResultPowerAddress1.Name = "txtResultPowerAddress1";
+            this.txtResultPowerAddress1.ReadOnly = true;
+            this.txtResultPowerAddress1.Size = new System.Drawing.Size(237, 41);
+            this.txtResultPowerAddress1.TabIndex = 30;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Lime;
+            this.panel5.Location = new System.Drawing.Point(10, 40);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(49, 2);
+            this.panel5.TabIndex = 29;
+            // 
+            // lblLimitMinMaxPower4
+            // 
+            this.lblLimitMinMaxPower4.AutoSize = true;
+            this.lblLimitMinMaxPower4.BackColor = System.Drawing.Color.Black;
+            this.lblLimitMinMaxPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLimitMinMaxPower4.Location = new System.Drawing.Point(4, 4);
+            this.lblLimitMinMaxPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLimitMinMaxPower4.Name = "lblLimitMinMaxPower4";
+            this.lblLimitMinMaxPower4.Size = new System.Drawing.Size(70, 72);
+            this.lblLimitMinMaxPower4.TabIndex = 0;
+            this.lblLimitMinMaxPower4.Text = "20V\r\n10A\r\n";
+            // 
+            // lblRegion1Power4
+            // 
+            this.lblRegion1Power4.BackColor = System.Drawing.Color.Lime;
+            this.lblRegion1Power4.Location = new System.Drawing.Point(53, 37);
+            this.lblRegion1Power4.Margin = new System.Windows.Forms.Padding(2);
+            this.lblRegion1Power4.Name = "lblRegion1Power4";
+            this.lblRegion1Power4.Size = new System.Drawing.Size(45, 2);
+            this.lblRegion1Power4.TabIndex = 28;
+            // 
+            // myPanel4
+            // 
+            this.myPanel4.ForeColor = System.Drawing.Color.Lime;
+            this.myPanel4.Location = new System.Drawing.Point(563, 2);
+            this.myPanel4.Margin = new System.Windows.Forms.Padding(2);
+            this.myPanel4.Name = "myPanel4";
+            this.myPanel4.Size = new System.Drawing.Size(2, 358);
+            this.myPanel4.TabIndex = 59;
+            // 
+            // lblDescriptionAmpeLimitPower4
+            // 
+            this.lblDescriptionAmpeLimitPower4.AutoSize = true;
+            this.lblDescriptionAmpeLimitPower4.BackColor = System.Drawing.Color.Black;
+            this.lblDescriptionAmpeLimitPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescriptionAmpeLimitPower4.Location = new System.Drawing.Point(213, 210);
+            this.lblDescriptionAmpeLimitPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDescriptionAmpeLimitPower4.Name = "lblDescriptionAmpeLimitPower4";
+            this.lblDescriptionAmpeLimitPower4.Size = new System.Drawing.Size(17, 17);
+            this.lblDescriptionAmpeLimitPower4.TabIndex = 31;
+            this.lblDescriptionAmpeLimitPower4.Text = "A";
+            // 
+            // lblDescriptionVonLimitPower4
+            // 
+            this.lblDescriptionVonLimitPower4.AutoSize = true;
+            this.lblDescriptionVonLimitPower4.BackColor = System.Drawing.Color.Black;
+            this.lblDescriptionVonLimitPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescriptionVonLimitPower4.Location = new System.Drawing.Point(212, 186);
+            this.lblDescriptionVonLimitPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDescriptionVonLimitPower4.Name = "lblDescriptionVonLimitPower4";
+            this.lblDescriptionVonLimitPower4.Size = new System.Drawing.Size(17, 17);
+            this.lblDescriptionVonLimitPower4.TabIndex = 30;
+            this.lblDescriptionVonLimitPower4.Text = "V";
+            // 
+            // lblAmpeLimitPower4
+            // 
+            this.lblAmpeLimitPower4.AutoSize = true;
+            this.lblAmpeLimitPower4.BackColor = System.Drawing.Color.Black;
+            this.lblAmpeLimitPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmpeLimitPower4.Location = new System.Drawing.Point(153, 215);
+            this.lblAmpeLimitPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAmpeLimitPower4.Name = "lblAmpeLimitPower4";
+            this.lblAmpeLimitPower4.Size = new System.Drawing.Size(61, 25);
+            this.lblAmpeLimitPower4.TabIndex = 29;
+            this.lblAmpeLimitPower4.Text = "11.00";
+            // 
+            // lblVonLimitPower4
+            // 
+            this.lblVonLimitPower4.AutoSize = true;
+            this.lblVonLimitPower4.BackColor = System.Drawing.Color.Black;
+            this.lblVonLimitPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVonLimitPower4.Location = new System.Drawing.Point(153, 189);
+            this.lblVonLimitPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblVonLimitPower4.Name = "lblVonLimitPower4";
+            this.lblVonLimitPower4.Size = new System.Drawing.Size(61, 25);
+            this.lblVonLimitPower4.TabIndex = 28;
+            this.lblVonLimitPower4.Text = "22.00";
+            // 
+            // lblDescriptionAmpeSetPower4
+            // 
+            this.lblDescriptionAmpeSetPower4.AutoSize = true;
+            this.lblDescriptionAmpeSetPower4.BackColor = System.Drawing.Color.Black;
+            this.lblDescriptionAmpeSetPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescriptionAmpeSetPower4.Location = new System.Drawing.Point(214, 150);
+            this.lblDescriptionAmpeSetPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDescriptionAmpeSetPower4.Name = "lblDescriptionAmpeSetPower4";
+            this.lblDescriptionAmpeSetPower4.Size = new System.Drawing.Size(17, 17);
+            this.lblDescriptionAmpeSetPower4.TabIndex = 27;
+            this.lblDescriptionAmpeSetPower4.Text = "A";
+            // 
+            // lblDescriptionVonSetPower4
+            // 
+            this.lblDescriptionVonSetPower4.AutoSize = true;
+            this.lblDescriptionVonSetPower4.BackColor = System.Drawing.Color.Black;
+            this.lblDescriptionVonSetPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescriptionVonSetPower4.Location = new System.Drawing.Point(213, 127);
+            this.lblDescriptionVonSetPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDescriptionVonSetPower4.Name = "lblDescriptionVonSetPower4";
+            this.lblDescriptionVonSetPower4.Size = new System.Drawing.Size(17, 17);
+            this.lblDescriptionVonSetPower4.TabIndex = 26;
+            this.lblDescriptionVonSetPower4.Text = "V";
+            // 
+            // lblAmpeSetPower4
+            // 
+            this.lblAmpeSetPower4.AutoSize = true;
+            this.lblAmpeSetPower4.BackColor = System.Drawing.Color.Black;
+            this.lblAmpeSetPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmpeSetPower4.Location = new System.Drawing.Point(153, 155);
+            this.lblAmpeSetPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAmpeSetPower4.Name = "lblAmpeSetPower4";
+            this.lblAmpeSetPower4.Size = new System.Drawing.Size(61, 25);
+            this.lblAmpeSetPower4.TabIndex = 23;
+            this.lblAmpeSetPower4.Text = "05.00";
+            // 
+            // lblVonSetPower4
+            // 
+            this.lblVonSetPower4.AutoSize = true;
+            this.lblVonSetPower4.BackColor = System.Drawing.Color.Black;
+            this.lblVonSetPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVonSetPower4.Location = new System.Drawing.Point(153, 129);
+            this.lblVonSetPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblVonSetPower4.Name = "lblVonSetPower4";
+            this.lblVonSetPower4.Size = new System.Drawing.Size(61, 25);
+            this.lblVonSetPower4.TabIndex = 22;
+            this.lblVonSetPower4.Text = "00.00";
+            // 
+            // lblDescriptionLimitPower4
+            // 
+            this.lblDescriptionLimitPower4.AutoSize = true;
+            this.lblDescriptionLimitPower4.BackColor = System.Drawing.Color.Black;
+            this.lblDescriptionLimitPower4.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescriptionLimitPower4.Location = new System.Drawing.Point(58, 198);
+            this.lblDescriptionLimitPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDescriptionLimitPower4.Name = "lblDescriptionLimitPower4";
+            this.lblDescriptionLimitPower4.Size = new System.Drawing.Size(90, 22);
+            this.lblDescriptionLimitPower4.TabIndex = 21;
+            this.lblDescriptionLimitPower4.Text = "Giới Hạn";
+            // 
+            // lblDescriptionSetPower4
+            // 
+            this.lblDescriptionSetPower4.AutoSize = true;
+            this.lblDescriptionSetPower4.BackColor = System.Drawing.Color.Black;
+            this.lblDescriptionSetPower4.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescriptionSetPower4.Location = new System.Drawing.Point(106, 142);
+            this.lblDescriptionSetPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDescriptionSetPower4.Name = "lblDescriptionSetPower4";
+            this.lblDescriptionSetPower4.Size = new System.Drawing.Size(41, 22);
+            this.lblDescriptionSetPower4.TabIndex = 20;
+            this.lblDescriptionSetPower4.Text = "Đặt";
+            // 
+            // lblStatusPower4
+            // 
+            this.lblStatusPower4.AutoSize = true;
+            this.lblStatusPower4.BackColor = System.Drawing.Color.Black;
+            this.lblStatusPower4.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatusPower4.Location = new System.Drawing.Point(484, 8);
+            this.lblStatusPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblStatusPower4.Name = "lblStatusPower4";
+            this.lblStatusPower4.Size = new System.Drawing.Size(53, 37);
+            this.lblStatusPower4.TabIndex = 19;
+            this.lblStatusPower4.Text = "On";
+            // 
+            // lblDescriptionAmpeMaxPower4
+            // 
+            this.lblDescriptionAmpeMaxPower4.AutoSize = true;
+            this.lblDescriptionAmpeMaxPower4.BackColor = System.Drawing.Color.Black;
+            this.lblDescriptionAmpeMaxPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescriptionAmpeMaxPower4.Location = new System.Drawing.Point(56, 41);
+            this.lblDescriptionAmpeMaxPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDescriptionAmpeMaxPower4.Name = "lblDescriptionAmpeMaxPower4";
+            this.lblDescriptionAmpeMaxPower4.Size = new System.Drawing.Size(43, 24);
+            this.lblDescriptionAmpeMaxPower4.TabIndex = 18;
+            this.lblDescriptionAmpeMaxPower4.Text = "10A";
+            // 
+            // lblDescriptionVonMaxPower4
+            // 
+            this.lblDescriptionVonMaxPower4.AutoSize = true;
+            this.lblDescriptionVonMaxPower4.BackColor = System.Drawing.Color.Black;
+            this.lblDescriptionVonMaxPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescriptionVonMaxPower4.Location = new System.Drawing.Point(57, 10);
+            this.lblDescriptionVonMaxPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDescriptionVonMaxPower4.Name = "lblDescriptionVonMaxPower4";
+            this.lblDescriptionVonMaxPower4.Size = new System.Drawing.Size(43, 24);
+            this.lblDescriptionVonMaxPower4.TabIndex = 16;
+            this.lblDescriptionVonMaxPower4.Text = "20V";
+            // 
+            // lblDescriptionNameOfPower4
+            // 
+            this.lblDescriptionNameOfPower4.AutoSize = true;
+            this.lblDescriptionNameOfPower4.BackColor = System.Drawing.Color.Black;
+            this.lblDescriptionNameOfPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescriptionNameOfPower4.Location = new System.Drawing.Point(18, 20);
+            this.lblDescriptionNameOfPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDescriptionNameOfPower4.Name = "lblDescriptionNameOfPower4";
+            this.lblDescriptionNameOfPower4.Size = new System.Drawing.Size(34, 37);
+            this.lblDescriptionNameOfPower4.TabIndex = 15;
+            this.lblDescriptionNameOfPower4.Text = "1";
+            // 
+            // lblDescriptionWoatPower4
+            // 
+            this.lblDescriptionWoatPower4.AutoSize = true;
+            this.lblDescriptionWoatPower4.BackColor = System.Drawing.Color.Black;
+            this.lblDescriptionWoatPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescriptionWoatPower4.Location = new System.Drawing.Point(452, 169);
+            this.lblDescriptionWoatPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDescriptionWoatPower4.Name = "lblDescriptionWoatPower4";
+            this.lblDescriptionWoatPower4.Size = new System.Drawing.Size(35, 29);
+            this.lblDescriptionWoatPower4.TabIndex = 14;
+            this.lblDescriptionWoatPower4.Text = "W";
+            // 
+            // lblDescriptionAmpePower4
+            // 
+            this.lblDescriptionAmpePower4.AutoSize = true;
+            this.lblDescriptionAmpePower4.BackColor = System.Drawing.Color.Black;
+            this.lblDescriptionAmpePower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescriptionAmpePower4.Location = new System.Drawing.Point(453, 106);
+            this.lblDescriptionAmpePower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDescriptionAmpePower4.Name = "lblDescriptionAmpePower4";
+            this.lblDescriptionAmpePower4.Size = new System.Drawing.Size(28, 29);
+            this.lblDescriptionAmpePower4.TabIndex = 13;
+            this.lblDescriptionAmpePower4.Text = "A";
+            // 
+            // lblDescriptionVonPower4
+            // 
+            this.lblDescriptionVonPower4.AutoSize = true;
+            this.lblDescriptionVonPower4.BackColor = System.Drawing.Color.Black;
+            this.lblDescriptionVonPower4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescriptionVonPower4.Location = new System.Drawing.Point(453, 42);
+            this.lblDescriptionVonPower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDescriptionVonPower4.Name = "lblDescriptionVonPower4";
+            this.lblDescriptionVonPower4.Size = new System.Drawing.Size(28, 29);
+            this.lblDescriptionVonPower4.TabIndex = 12;
+            this.lblDescriptionVonPower4.Text = "V";
+            // 
+            // lblVonReceivePower4
+            // 
+            this.lblVonReceivePower4.AutoSize = true;
+            this.lblVonReceivePower4.BackColor = System.Drawing.Color.Black;
+            this.lblVonReceivePower4.Font = new System.Drawing.Font("Quartz", 41.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVonReceivePower4.ForeColor = System.Drawing.Color.Lime;
+            this.lblVonReceivePower4.Location = new System.Drawing.Point(301, 42);
+            this.lblVonReceivePower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblVonReceivePower4.Name = "lblVonReceivePower4";
+            this.lblVonReceivePower4.Size = new System.Drawing.Size(144, 67);
+            this.lblVonReceivePower4.TabIndex = 2;
+            this.lblVonReceivePower4.Text = "00.00";
+            // 
+            // lblWoatReceivePower4
+            // 
+            this.lblWoatReceivePower4.AutoSize = true;
+            this.lblWoatReceivePower4.BackColor = System.Drawing.Color.Black;
+            this.lblWoatReceivePower4.Font = new System.Drawing.Font("Quartz", 41.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWoatReceivePower4.ForeColor = System.Drawing.Color.Lime;
+            this.lblWoatReceivePower4.Location = new System.Drawing.Point(301, 175);
+            this.lblWoatReceivePower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblWoatReceivePower4.Name = "lblWoatReceivePower4";
+            this.lblWoatReceivePower4.Size = new System.Drawing.Size(144, 67);
+            this.lblWoatReceivePower4.TabIndex = 4;
+            this.lblWoatReceivePower4.Text = "00.00";
+            // 
+            // lblAmpeReceivePower4
+            // 
+            this.lblAmpeReceivePower4.AutoSize = true;
+            this.lblAmpeReceivePower4.BackColor = System.Drawing.Color.Black;
+            this.lblAmpeReceivePower4.Font = new System.Drawing.Font("Quartz", 41.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmpeReceivePower4.ForeColor = System.Drawing.Color.Lime;
+            this.lblAmpeReceivePower4.Location = new System.Drawing.Point(301, 110);
+            this.lblAmpeReceivePower4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAmpeReceivePower4.Name = "lblAmpeReceivePower4";
+            this.lblAmpeReceivePower4.Size = new System.Drawing.Size(144, 67);
+            this.lblAmpeReceivePower4.TabIndex = 3;
+            this.lblAmpeReceivePower4.Text = "00.00";
             // 
             // myPanel3
             // 
@@ -2539,17 +2550,6 @@
             this.lblAmpeReceivePower1.TabIndex = 3;
             this.lblAmpeReceivePower1.Text = "00.00";
             // 
-            // btnOnOffPowerAll
-            // 
-            this.btnOnOffPowerAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnOnOffPowerAll.Location = new System.Drawing.Point(843, 56);
-            this.btnOnOffPowerAll.Margin = new System.Windows.Forms.Padding(2);
-            this.btnOnOffPowerAll.Name = "btnOnOffPowerAll";
-            this.btnOnOffPowerAll.Size = new System.Drawing.Size(47, 59);
-            this.btnOnOffPowerAll.TabIndex = 31;
-            this.btnOnOffPowerAll.UseVisualStyleBackColor = true;
-            this.btnOnOffPowerAll.Click += new System.EventHandler(this.ButtonOnOffPower_Click);
-            // 
             // fPower1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2557,6 +2557,7 @@
             this.ClientSize = new System.Drawing.Size(926, 661);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fPower1";
@@ -2568,12 +2569,12 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel15.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.myPanel1.ResumeLayout(false);
             this.myPanel1.PerformLayout();
             this.pnlResultPowerAddress1.ResumeLayout(false);
             this.pnlResultPowerAddress1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.myPanel3.ResumeLayout(false);
             this.myPanel3.PerformLayout();
             this.pnlResultPowerAddress2.ResumeLayout(false);
