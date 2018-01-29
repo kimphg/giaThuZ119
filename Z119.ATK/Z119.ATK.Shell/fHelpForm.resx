@@ -117,4 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Chức năng của thiết bị:
+-	Cung cấp đầy đủ và chính xác các loại nguồn nuôi với các tham số đảm bảo theo yêu cầu để cấp cho các modul, mảng chức năng thuộc phân hệ làm việc bình thường;
+-	Tạo ra các lệnh điều khiển các chế độ làm việc để cấp cho các phân khối,  modul, mảng chức năng;
+-	Điều khiển từ xa, thu thập và xử lý kết quả thông qua các thiết bị đo lường chuyên dụng được kết nối.</value>
+  </data>
 </root>

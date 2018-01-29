@@ -280,7 +280,7 @@ namespace Z119.ATK.Shell
             
         }
 
-        private void SaveData()
+        public void SaveData()
         {
             LoadBindingModel model = new LoadBindingModel();
             ConvertDataFromControlToModel(model);
@@ -348,5 +348,7 @@ namespace Z119.ATK.Shell
         {
             serialPort1.Write(textBox1.Text);
         }
+
+        
     }
 }

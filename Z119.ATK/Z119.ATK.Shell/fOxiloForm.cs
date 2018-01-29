@@ -90,53 +90,60 @@ namespace Z119.ATK.Shell
             continueRead = true;
             while(continueRead)
             {
-
-                if(manualMode)
+                try
                 {
-                    SharpVisaCLI.Program.Send(deviceName, req, (res) =>
+                    if (manualMode)
                     {
-                        UpdateParamFromOscillo();
-                        UnlockControl();
-                        this.Invoke((MethodInvoker)delegate { Blink(2); });
-                        DrawData(res);
-                        Thread.Sleep(3000);
-                        this.Invoke((MethodInvoker)delegate { Blink(3); });
-                        Thread.Sleep(3000);
-                    });
-                }
-                else
-                {
-                    //this.Invoke((MethodInvoker)delegate { Blink(1); });
-                    SharpVisaCLI.Program.Send(deviceName, req, (res) =>
-                    {
-                        DrawData(res);
-                    });
-                    frameCounter++;
-                    if (paraChanged)
-                    {
-                        this.Invoke((MethodInvoker)delegate
+                        SharpVisaCLI.Program.Send(deviceName, req, (res) =>
                         {
-                            comboBox_xscale.Text = strXScale;
-                            comboBox_yscale.Text = strYScale;
+                            UpdateParamFromOscillo();
+                            UnlockControl();
+                            this.Invoke((MethodInvoker)delegate { Blink(2); });
+                            DrawData(res);
+                            Thread.Sleep(3000);
+                            this.Invoke((MethodInvoker)delegate { Blink(3); });
+                            Thread.Sleep(3000);
                         });
-                        paraChanged = false;
-                        UpdateXscale();
-                        UpdateYscale();
                     }
-                    if (frameCounter >= 10)
+                    else
                     {
-                        try
+                        //this.Invoke((MethodInvoker)delegate { Blink(1); });
+                        SharpVisaCLI.Program.Send(deviceName, req, (res) =>
                         {
-                            this.Invoke((MethodInvoker)delegate { UpdateParamFromOscillo(); });
-                            frameCounter = 0;
-                        }
-                        catch (Exception e)
+                            DrawData(res);
+                        });
+                        frameCounter++;
+                        if (paraChanged)
                         {
-                            return;
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                comboBox_xscale.Text = strXScale;
+                                comboBox_yscale.Text = strYScale;
+                            });
+                            paraChanged = false;
+                            UpdateXscale();
+                            UpdateYscale();
                         }
+                        if (frameCounter >= 10)
+                        {
+                            try
+                            {
+                                this.Invoke((MethodInvoker)delegate { UpdateParamFromOscillo(); });
+                                frameCounter = 0;
+                            }
+                            catch (Exception e)
+                            {
+                                return;
+                            }
 
+                        }
                     }
                 }
+                catch (Exception e)
+                {
+                    return;
+                }
+                
                 
 
             }

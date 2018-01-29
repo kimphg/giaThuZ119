@@ -40,15 +40,14 @@
             this.tsmenuItemControlPower = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemControlSwitch = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemControlCheck = new System.Windows.Forms.ToolStripMenuItem();
-            this.tảiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadControllerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemControlOxilo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemControlAccessories = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmenuItemTool = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectionManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemSystem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemSystemEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemSystemCheck = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.connectionManageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +59,6 @@
             this.tsmenuItemProject,
             this.tsmenuItemProgram,
             this.tsmenuItemControl,
-            this.tsmenuItemTool,
             this.tsmenuItemSystem,
             this.tsmenuItemHelp});
             this.menuMain.Location = new System.Drawing.Point(0, 0);
@@ -129,7 +127,7 @@
             this.tsmenuItemControlPower,
             this.tsmenuItemControlSwitch,
             this.tsmenuItemControlCheck,
-            this.tảiToolStripMenuItem,
+            this.loadControllerToolStripMenuItem,
             this.tsmenuItemControlOxilo,
             this.tsmenuItemControlAccessories,
             this.connectionManageToolStripMenuItem});
@@ -158,12 +156,12 @@
             this.tsmenuItemControlCheck.Text = "Kiểm  tra";
             this.tsmenuItemControlCheck.Click += new System.EventHandler(this.tsmenuItemControlCheck_Click);
             // 
-            // tảiToolStripMenuItem
+            // loadControllerToolStripMenuItem
             // 
-            this.tảiToolStripMenuItem.Name = "tảiToolStripMenuItem";
-            this.tảiToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
-            this.tảiToolStripMenuItem.Text = "Tải";
-            this.tảiToolStripMenuItem.Click += new System.EventHandler(this.tảiToolStripMenuItem_Click);
+            this.loadControllerToolStripMenuItem.Name = "loadControllerToolStripMenuItem";
+            this.loadControllerToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
+            this.loadControllerToolStripMenuItem.Text = "Tải";
+            this.loadControllerToolStripMenuItem.Click += new System.EventHandler(this.tảiToolStripMenuItem_Click);
             // 
             // tsmenuItemControlOxilo
             // 
@@ -179,11 +177,12 @@
             this.tsmenuItemControlAccessories.Text = "Linh kiện";
             this.tsmenuItemControlAccessories.Click += new System.EventHandler(this.linhKiệnToolStripMenuItem_Click);
             // 
-            // tsmenuItemTool
+            // connectionManageToolStripMenuItem
             // 
-            this.tsmenuItemTool.Name = "tsmenuItemTool";
-            this.tsmenuItemTool.Size = new System.Drawing.Size(79, 25);
-            this.tsmenuItemTool.Text = "Công cụ";
+            this.connectionManageToolStripMenuItem.Name = "connectionManageToolStripMenuItem";
+            this.connectionManageToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.connectionManageToolStripMenuItem.Text = "Quản lý kết nối";
+            this.connectionManageToolStripMenuItem.Click += new System.EventHandler(this.connectionManageToolStripMenuItem_Click);
             // 
             // tsmenuItemSystem
             // 
@@ -197,14 +196,14 @@
             // tsmenuItemSystemEdit
             // 
             this.tsmenuItemSystemEdit.Name = "tsmenuItemSystemEdit";
-            this.tsmenuItemSystemEdit.Size = new System.Drawing.Size(147, 26);
+            this.tsmenuItemSystemEdit.Size = new System.Drawing.Size(152, 26);
             this.tsmenuItemSystemEdit.Text = "Tùy chỉnh";
             this.tsmenuItemSystemEdit.Click += new System.EventHandler(this.tsmenuItemSystemEdit_Click);
             // 
             // tsmenuItemSystemCheck
             // 
             this.tsmenuItemSystemCheck.Name = "tsmenuItemSystemCheck";
-            this.tsmenuItemSystemCheck.Size = new System.Drawing.Size(147, 26);
+            this.tsmenuItemSystemCheck.Size = new System.Drawing.Size(152, 26);
             this.tsmenuItemSystemCheck.Text = "Kiểm tra";
             this.tsmenuItemSystemCheck.Click += new System.EventHandler(this.tsmenuItemSystemCheck_Click);
             // 
@@ -214,13 +213,6 @@
             this.tsmenuItemHelp.Size = new System.Drawing.Size(81, 25);
             this.tsmenuItemHelp.Text = "Trợ giúp";
             this.tsmenuItemHelp.Click += new System.EventHandler(this.tsmenuItemHelp_Click);
-            // 
-            // connectionManageToolStripMenuItem
-            // 
-            this.connectionManageToolStripMenuItem.Name = "connectionManageToolStripMenuItem";
-            this.connectionManageToolStripMenuItem.Size = new System.Drawing.Size(219, 26);
-            this.connectionManageToolStripMenuItem.Text = "Connection manage";
-            this.connectionManageToolStripMenuItem.Click += new System.EventHandler(this.connectionManageToolStripMenuItem_Click);
             // 
             // fMainWindow
             // 
@@ -254,12 +246,11 @@
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemControlSwitch;
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemControlCheck;
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemControlOxilo;
-        private System.Windows.Forms.ToolStripMenuItem tsmenuItemTool;
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemSystem;
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemSystemEdit;
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemSystemCheck;
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemHelp;
-        private System.Windows.Forms.ToolStripMenuItem tảiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadControllerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemControlAccessories;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem connectionManageToolStripMenuItem;

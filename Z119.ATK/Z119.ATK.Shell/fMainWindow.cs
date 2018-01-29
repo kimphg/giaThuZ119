@@ -27,9 +27,6 @@ namespace Z119.ATK.Shell
             Left = Top = 0;
             Width = Screen.PrimaryScreen.WorkingArea.Width;
             Height = Screen.PrimaryScreen.WorkingArea.Height;
-
-            // Menu project
-            DisableMenu();
             Init(null,null);
             this.FormClosing += fMainWindow_FormClosing;
             //fOxiloForm formtest = new fOxiloForm();
@@ -48,7 +45,9 @@ namespace Z119.ATK.Shell
                 Z119.ATK.Common.Const.projMan.SaveProjectConfig();
                 fcheck.SaveData();
                 fScheme.SavePointList();
-                
+                 frmPower.SaveData();
+                 frmSwitch.SaveData();
+                 frmTai.SaveData();
                 //Z119.ATK.Common.ProjectManager.SaveObject(this, Z119.ATK.Common.Const.FILE_MAINWINDOW);
             }
             else if (result == DialogResult.No)
@@ -67,19 +66,8 @@ namespace Z119.ATK.Shell
 
         #region Methods =========================================
 
-        public void DisableMenu()
-        {
-            tsmenuItemProgram.Enabled = false;
-            tsmenuItemControl.Enabled = false;
-            tsmenuItemTool.Enabled = false;
-        }
 
-        public void EnableMenu()
-        {
-            tsmenuItemProgram.Enabled = true;
-            tsmenuItemControl.Enabled = true;
-            tsmenuItemTool.Enabled = true;
-        }
+
 
         // Hàm khởi tạo đầu tiên
         void Initialize()
@@ -186,7 +174,6 @@ namespace Z119.ATK.Shell
         {
             //(sender as Project.fOpen).Close();
             
-            EnableMenu();
             
             tsmenuItemSystem.Enabled = false;
             
@@ -217,16 +204,10 @@ namespace Z119.ATK.Shell
             frmTai.LoadData();
             fcheck.LoadData();
 
-            tsmenuItemControlPower.Enabled = false;
-            tsmenuItemControlSwitch.Enabled = false;
-            tảiToolStripMenuItem.Enabled = false;
-            tsmenuItemControlCheck.Enabled = false;
-
             frmPower.MdiParent = this;
             frmSwitch.MdiParent = this;
             frmTai.MdiParent = this;
             fcheck.MdiParent = this;
-
 
             frmPower.Show();
             frmPower.Location = new Point(0, 0);
@@ -259,7 +240,7 @@ namespace Z119.ATK.Shell
 
         private void FrmTai_FormClosing(object sender, FormClosingEventArgs e)
         {
-            tảiToolStripMenuItem.Enabled = true;
+            loadControllerToolStripMenuItem.Enabled = true;
         }
 
         private void FrmSwitch_FormClosing(object sender, FormClosingEventArgs e)
@@ -357,39 +338,75 @@ namespace Z119.ATK.Shell
 
         private void tsmenuItemControlPower_Click(object sender, EventArgs e)
         {
-            (sender as ToolStripMenuItem).Enabled = false;
-            fPower1 fpower = new fPower1();
-            frmPower.FormClosing += FrmPower_FormClosing;
-            fpower.MdiParent = this;
-            fpower.Show();
+            //(sender as ToolStripMenuItem).Enabled = false;
+
+            Form fc = Application.OpenForms["fPower1"];
+            if (fc == null)
+            {
+                fPower1 fpower = new fPower1();
+                frmPower.FormClosing += FrmPower_FormClosing;
+                fpower.MdiParent = this;
+                fpower.Show();
+            }
+            else
+            {
+                fc.BringToFront();
+            }
         }
 
         private void tsmenuItemControlSwitch_Click(object sender, EventArgs e)
         {
-            (sender as ToolStripMenuItem).Enabled = false;
-            fSwitchForm fswitch = new fSwitchForm();
-            frmSwitch.FormClosing += FrmSwitch_FormClosing;
-            fswitch.MdiParent = this;
-            fswitch.Show();
+            //(sender as ToolStripMenuItem).Enabled = false;
+
+            Form fc = Application.OpenForms["fSwitchForm"];
+            if (fc == null)
+            {
+                fSwitchForm fswitch = new fSwitchForm();
+                frmSwitch.FormClosing += FrmSwitch_FormClosing;
+                fswitch.MdiParent = this;
+                fswitch.Show();
+            }
+            else
+            {
+                fc.BringToFront();
+            }
         }
 
         private void tsmenuItemControlCheck_Click(object sender, EventArgs e)
         {
-            (sender as ToolStripMenuItem).Enabled = false;
-            fCheckForm fcheck = new fCheckForm();
-            fcheck.FormClosing += Fcheck_FormClosing;
-            fcheck.MdiParent = this;
-            fcheck.Show();
+            //(sender as ToolStripMenuItem).Enabled = false;
+            Form fc = Application.OpenForms["fCheckForm"];
+
+            if (fc == null)
+            {
+                fCheckForm fcheck = new fCheckForm();
+                fcheck.FormClosing += Fcheck_FormClosing;
+                fcheck.MdiParent = this;
+                fcheck.Show();
+            }
+            else
+            {
+                fc.BringToFront();
+            }
         }
 
         private void tsmenuItemControlOxilo_Click(object sender, EventArgs e)
         {
-            (sender as ToolStripMenuItem).Enabled = false;
-            fOxiloForm foxilo = new fOxiloForm();
-            foxilo.FormClosing += Foxilo_FormClosing;
-            foxilo.MdiParent = this;
-            foxilo.StartPosition = FormStartPosition.Manual;
-            foxilo.Show();
+            //(sender as ToolStripMenuItem).Enabled = false;
+            Form fc = Application.OpenForms["fOxiloForm"];
+
+            if (fc == null)
+            {
+                fOxiloForm foxilo = new fOxiloForm();
+                foxilo.FormClosing += Foxilo_FormClosing;
+                foxilo.MdiParent = this;
+                foxilo.StartPosition = FormStartPosition.Manual;
+                foxilo.Show();
+            }
+            else
+            {
+                fc.BringToFront();
+            }
         }
 
         private void Foxilo_FormClosing(object sender, FormClosingEventArgs e)
@@ -399,30 +416,54 @@ namespace Z119.ATK.Shell
 
         private void tsmenuItemProgramEditer_Click(object sender, EventArgs e)
         {
-            (sender as ToolStripMenuItem).Enabled = false;
-            fProgramForm fprogram = new fProgramForm();
-            fprogram.MdiParent = this;
-            fprogram.Show();
+            //(sender as ToolStripMenuItem).Enabled = false;
+
+            Form fc = Application.OpenForms["fProgramForm"];
+            if (fc == null)
+            {
+                fProgramForm fprogram = new fProgramForm();
+                fprogram.MdiParent = this;
+                fprogram.Show();
+            }
+            else
+            {
+                fc.BringToFront();
+            }
         }
 
         private void tảiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            (sender as ToolStripMenuItem).Enabled = false;
-            fLoadForm frm = new fLoadForm();
-            frmTai.FormClosing += FrmTai_FormClosing;
-            frm.MdiParent = this;
-            frm.Show();
+
+            Form fc = Application.OpenForms["fLoadForm"];
+            if (fc == null)
+            {
+                fLoadForm frm = new fLoadForm();
+                frm.MdiParent = this;
+                frm.Show();
+            }
+            else
+            {
+                fc.BringToFront();
+            }
         }
 
         private void tsmenuItemSystemEdit_Click(object sender, EventArgs e)
         {
-            (sender as ToolStripMenuItem).Enabled = false;
-            fSystemEditForm fsystemEdit = new fSystemEditForm();
-            fsystemEdit.MdiParent = this;
-            fsystemEdit.Done += FsystemEdit_Done;
-            fsystemEdit.FormClosing += FsystemEdit_FormClosing;
-            fsystemEdit.Show();
-            fsystemEdit.Location = new Point(555, 20);
+            
+            Form fc = Application.OpenForms["fSystemEditForm"];
+            if (fc == null)
+            {
+                fSystemEditForm fsystemEdit = new fSystemEditForm();
+                fsystemEdit.MdiParent = this;
+                fsystemEdit.Done += FsystemEdit_Done;
+                fsystemEdit.FormClosing += FsystemEdit_FormClosing;
+                fsystemEdit.Show();
+                fsystemEdit.Location = new Point(555, 20);
+            }
+            else
+            {
+                fc.BringToFront();
+            }
         }
 
         private void FsystemEdit_FormClosing(object sender, FormClosingEventArgs e)
@@ -438,18 +479,34 @@ namespace Z119.ATK.Shell
 
         private void tsmenuItemSystemCheck_Click(object sender, EventArgs e)
         {
-            (sender as ToolStripMenuItem).Enabled = false;
-            fSystemCheckingForm fsystemChecking = new fSystemCheckingForm();
-            fsystemChecking.MdiParent = this;
-            fsystemChecking.Show();
+
+            Form fc = Application.OpenForms["fSystemCheckingForm"];
+            if (fc == null)
+            {
+                fSystemCheckingForm fsystemChecking = new fSystemCheckingForm();
+                fsystemChecking.MdiParent = this;
+                fsystemChecking.Show();
+            }
+            else
+            {
+                fc.BringToFront();
+            }
         }
 
         private void tsmenuItemHelp_Click(object sender, EventArgs e)
         {
-            (sender as ToolStripMenuItem).Enabled = false;
-            fHelpForm fhelp = new fHelpForm();
-            fhelp.MdiParent = this;
-            fhelp.Show();
+            
+            Form fc = Application.OpenForms["fHelpForm"];
+            if (fc == null)
+            {
+                fHelpForm fhelp = new fHelpForm();
+                fhelp.MdiParent = this;
+                fhelp.Show();
+            }
+            else
+            {
+                fc.BringToFront();
+            }
         }
 
         private void linhKiệnToolStripMenuItem_Click(object sender, EventArgs e)
