@@ -508,7 +508,7 @@ namespace Z119.ATK.Shell
         }
         private void button6_Click(object sender, EventArgs e)
         {
-            if (label_kl_voltage.Text == "Đạt")
+            if (label_kl_voltage.Text == "Đạt" && label_kl_amp.Text == "Đạt")
             {
                 int index = listBox1.FindString(comboBoxStepNext.Text);
                 if (index > -1)

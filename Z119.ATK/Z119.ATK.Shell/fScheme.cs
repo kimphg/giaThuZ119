@@ -81,7 +81,11 @@ namespace Z119.ATK.Shell
 
         private void fScheme_SetEleName(object sender, EventArgs e)
         {
-            
+            if (!Const.isAdmin)
+            {
+                MessageBox.Show("Thao tác không thành công. Bạn không có quyền của người quản trị.");
+                return;
+            }
             foreach (schemeElement ele in Const.schemeElementList)
             {
                 if (ele.selected)
@@ -94,11 +98,17 @@ namespace Z119.ATK.Shell
 
         private void fScheme_DelElement(object sender, EventArgs e)
         {
+            if (!Const.isAdmin)
+            {
+                MessageBox.Show("Thao tác không thành công. Bạn không có quyền của người quản trị.");
+                return;
+            }
             foreach (schemeElement ele in Const.schemeElementList)
             {
                 if (ele.selected)
                 {
                     Const.schemeElementList.Remove(ele);
+                    return;
                 }
             } 
         }
@@ -117,6 +127,11 @@ namespace Z119.ATK.Shell
 
         private void fScheme_NewElement(object sender, EventArgs e)
         {
+            if (!Const.isAdmin)
+            {
+                MessageBox.Show("Thao tác không thành công. Bạn không có quyền của người quản trị.");
+                return;
+            }
             isAddingElement = true;
             pointElementTL = pOld;
         }
@@ -204,6 +219,11 @@ namespace Z119.ATK.Shell
 
         private void fScheme_DelPointData(object sender, EventArgs e)
         {
+            if (!Const.isAdmin)
+            {
+                MessageBox.Show("Thao tác không thành công. Bạn không có quyền của người quản trị.");
+                return;
+            }
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
 
@@ -245,7 +265,11 @@ namespace Z119.ATK.Shell
 
         private void fScheme_NewPoint(object sender, EventArgs e)
         {
-            
+            if (!Const.isAdmin)
+            {
+                MessageBox.Show("Thao tác không thành công. Bạn không có quyền của người quản trị.");
+                return;
+            }
             var formPosition = pOld;
             schemePoint schemePos = new schemePoint(toSchemePos(formPosition), getInputString("Nhập tên điểm đo"));//
             Z119.ATK.Common.Const.schemePointList.Add(schemePos);
