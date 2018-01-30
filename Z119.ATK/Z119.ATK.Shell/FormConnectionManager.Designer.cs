@@ -65,9 +65,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(138, 324);
+            this.button1.Location = new System.Drawing.Point(236, 286);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 25);
+            this.button1.Size = new System.Drawing.Size(113, 25);
             this.button1.TabIndex = 4;
             this.button1.Text = "Update";
             this.button1.UseVisualStyleBackColor = true;

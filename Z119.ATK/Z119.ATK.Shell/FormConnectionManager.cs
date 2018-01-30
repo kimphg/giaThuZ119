@@ -18,9 +18,13 @@ namespace Z119.ATK.Shell
             InitializeComponent();
             foreach (string s in SerialPort.GetPortNames())
             {
-                listBox1.Items.Add(s);
-                comboBox_LoadControl.Items.Add(s);
-                comboBox_switchControl.Items.Add(s);
+                if(s.Contains("USB"))
+                {
+                    listBox1.Items.Add(s);
+                    comboBox_LoadControl.Items.Add(s);
+                    comboBox_switchControl.Items.Add(s);
+                }
+                
                 
             }
             //comboBox_powerControl.DataSource = listBox1.Items;
