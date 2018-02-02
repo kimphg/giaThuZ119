@@ -55,9 +55,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txVolErr = new System.Windows.Forms.TextBox();
             this.txAmpErr = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -89,8 +91,8 @@
             this.panel18 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.button9 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -156,7 +158,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.panel14);
             this.splitContainer2.Size = new System.Drawing.Size(945, 651);
-            this.splitContainer2.SplitterDistance = 453;
+            this.splitContainer2.SplitterDistance = 452;
             this.splitContainer2.SplitterWidth = 11;
             this.splitContainer2.TabIndex = 0;
             this.splitContainer2.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer2_SplitterMoved);
@@ -171,7 +173,7 @@
             this.panel13.Location = new System.Drawing.Point(0, 0);
             this.panel13.Margin = new System.Windows.Forms.Padding(2);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(453, 651);
+            this.panel13.Size = new System.Drawing.Size(452, 651);
             this.panel13.TabIndex = 1;
             // 
             // button1
@@ -198,7 +200,7 @@
             this.panel14.Location = new System.Drawing.Point(0, 0);
             this.panel14.Margin = new System.Windows.Forms.Padding(2);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(481, 651);
+            this.panel14.Size = new System.Drawing.Size(482, 651);
             this.panel14.TabIndex = 2;
             // 
             // btnCloseOpenExpand2
@@ -206,7 +208,7 @@
             this.btnCloseOpenExpand2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCloseOpenExpand2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.btnCloseOpenExpand2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseOpenExpand2.Location = new System.Drawing.Point(426, 447);
+            this.btnCloseOpenExpand2.Location = new System.Drawing.Point(427, 447);
             this.btnCloseOpenExpand2.Margin = new System.Windows.Forms.Padding(2);
             this.btnCloseOpenExpand2.MaximumSize = new System.Drawing.Size(50, 200);
             this.btnCloseOpenExpand2.MinimumSize = new System.Drawing.Size(50, 50);
@@ -247,10 +249,10 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 134F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
             this.tableLayoutPanel1.Controls.Add(this.txbVonErrMax, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.txbAmpeSt, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.txbAmpeRa, 3, 2);
@@ -395,7 +397,7 @@
             this.label_kl_voltage.AutoSize = true;
             this.label_kl_voltage.BackColor = System.Drawing.Color.YellowGreen;
             this.label_kl_voltage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_kl_voltage.Location = new System.Drawing.Point(702, 44);
+            this.label_kl_voltage.Location = new System.Drawing.Point(695, 44);
             this.label_kl_voltage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_kl_voltage.Name = "label_kl_voltage";
             this.label_kl_voltage.Size = new System.Drawing.Size(35, 20);
@@ -407,7 +409,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(686, 8);
+            this.label7.Location = new System.Drawing.Point(679, 8);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 20);
@@ -420,10 +422,10 @@
             this.label_kl_amp.AutoSize = true;
             this.label_kl_amp.BackColor = System.Drawing.Color.IndianRed;
             this.label_kl_amp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_kl_amp.Location = new System.Drawing.Point(690, 72);
+            this.label_kl_amp.Location = new System.Drawing.Point(672, 82);
             this.label_kl_amp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_kl_amp.Name = "label_kl_amp";
-            this.label_kl_amp.Size = new System.Drawing.Size(59, 40);
+            this.label_kl_amp.Size = new System.Drawing.Size(82, 20);
             this.label_kl_amp.TabIndex = 10;
             this.label_kl_amp.Text = "Không đạt";
             // 
@@ -443,7 +445,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(547, 8);
+            this.label4.Location = new System.Drawing.Point(540, 8);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 20);
@@ -454,7 +456,7 @@
             // 
             this.txVolErr.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txVolErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txVolErr.Location = new System.Drawing.Point(553, 42);
+            this.txVolErr.Location = new System.Drawing.Point(547, 42);
             this.txVolErr.Margin = new System.Windows.Forms.Padding(2);
             this.txVolErr.Name = "txVolErr";
             this.txVolErr.ReadOnly = true;
@@ -465,23 +467,12 @@
             // 
             this.txAmpErr.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txAmpErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txAmpErr.Location = new System.Drawing.Point(553, 80);
+            this.txAmpErr.Location = new System.Drawing.Point(547, 80);
             this.txAmpErr.Margin = new System.Windows.Forms.Padding(2);
             this.txAmpErr.Name = "txAmpErr";
             this.txAmpErr.ReadOnly = true;
             this.txAmpErr.Size = new System.Drawing.Size(107, 24);
             this.txAmpErr.TabIndex = 8;
-            // 
-            // button2
-            // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Location = new System.Drawing.Point(866, 75);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(83, 34);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Cập nhật";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button8
             // 
@@ -505,6 +496,41 @@
             this.checkBox1.TabIndex = 11;
             this.checkBox1.Text = "Giá trị(V/A)";
             this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.Location = new System.Drawing.Point(866, 75);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(83, 34);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Cập nhật";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button9
+            // 
+            this.button9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button9.Location = new System.Drawing.Point(761, 77);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(99, 30);
+            this.button9.TabIndex = 12;
+            this.button9.Text = "Đo từ tải ";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.label12.Location = new System.Drawing.Point(766, 8);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(88, 20);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "Đo tự động";
             // 
             // panel2
             // 
@@ -646,6 +672,8 @@
             this.flowLayoutPanel1.Controls.Add(this.label11);
             this.flowLayoutPanel1.Controls.Add(this.comboBoxStepFail);
             this.flowLayoutPanel1.Controls.Add(this.button7);
+            this.flowLayoutPanel1.Controls.Add(this.button10);
+            this.flowLayoutPanel1.Controls.Add(this.button11);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(21, 525);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(333, 248);
@@ -787,14 +815,14 @@
             // mởToolStripMenuItem
             // 
             this.mởToolStripMenuItem.Name = "mởToolStripMenuItem";
-            this.mởToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.mởToolStripMenuItem.Size = new System.Drawing.Size(106, 26);
             this.mởToolStripMenuItem.Text = "Mở";
             this.mởToolStripMenuItem.Click += new System.EventHandler(this.mởToolStripMenuItem_Click);
             // 
             // lưuToolStripMenuItem
             // 
             this.lưuToolStripMenuItem.Name = "lưuToolStripMenuItem";
-            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(106, 26);
             this.lưuToolStripMenuItem.Text = "Lưu";
             this.lưuToolStripMenuItem.Click += new System.EventHandler(this.lưuToolStripMenuItem_Click);
             // 
@@ -843,29 +871,25 @@
             this.splitContainer1.SplitterWidth = 11;
             this.splitContainer1.TabIndex = 0;
             // 
-            // button9
+            // button10
             // 
-            this.button9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button9.Location = new System.Drawing.Point(761, 77);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(99, 30);
-            this.button9.TabIndex = 12;
-            this.button9.Text = "Đo từ tải ";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.button10.Location = new System.Drawing.Point(120, 198);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(88, 34);
+            this.button10.TabIndex = 11;
+            this.button10.Text = "Len";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // label12
+            // button11
             // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.label12.Location = new System.Drawing.Point(766, 8);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(88, 20);
-            this.label12.TabIndex = 9;
-            this.label12.Text = "Đo tự động";
+            this.button11.Location = new System.Drawing.Point(214, 198);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(89, 34);
+            this.button11.TabIndex = 12;
+            this.button11.Text = "Xuong";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // fCheckForm
             // 
@@ -973,5 +997,7 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
     }
 }

@@ -175,7 +175,6 @@ namespace Z119.ATK.Shell
             //(sender as Project.fOpen).Close();
             
             
-            tsmenuItemSystem.Enabled = false;
             
             if (frmPower != null)
                 frmPower.Close();
@@ -468,7 +467,7 @@ namespace Z119.ATK.Shell
 
         private void FsystemEdit_FormClosing(object sender, FormClosingEventArgs e)
         {
-            tsmenuItemSystemEdit.Enabled = true;
+            //tsmenuItemSystemEdit.Enabled = true;
         }
 
         private void FsystemEdit_Done(object sender, EventArgs e)
@@ -537,6 +536,12 @@ namespace Z119.ATK.Shell
             FormConnectionManager connectionMan = new FormConnectionManager();
             connectionMan.Show();
             
+        }
+
+        private void tsmenuItemSystem_Click(object sender, EventArgs e)
+        {
+            FormConnectionManager connectionMan = new FormConnectionManager();
+            connectionMan.Show();
         }
 
 

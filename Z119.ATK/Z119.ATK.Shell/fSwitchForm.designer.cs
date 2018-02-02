@@ -52,7 +52,6 @@
             this.thưMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mởTậpTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lưuTậpTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thuNhỏToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -306,8 +305,7 @@
             // 
             this.thưMụcToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mởTậpTinToolStripMenuItem,
-            this.lưuTậpTinToolStripMenuItem,
-            this.saveToolStripMenuItem});
+            this.lưuTậpTinToolStripMenuItem});
             this.thưMụcToolStripMenuItem.Name = "thưMụcToolStripMenuItem";
             this.thưMụcToolStripMenuItem.Size = new System.Drawing.Size(82, 25);
             this.thưMụcToolStripMenuItem.Text = "Thư mục";
@@ -325,13 +323,6 @@
             this.lưuTậpTinToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.lưuTậpTinToolStripMenuItem.Text = "Lưu tập tin";
             this.lưuTậpTinToolStripMenuItem.Click += new System.EventHandler(this.lưuTậpTinToolStripMenuItem_Click);
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
-            this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // thuNhỏToolStripMenuItem
             // 
@@ -412,7 +403,6 @@
         private System.Windows.Forms.ToolStripMenuItem lưuTậpTinToolStripMenuItem;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ToolStripMenuItem thuNhỏToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     }
 }
 

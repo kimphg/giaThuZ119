@@ -544,6 +544,7 @@ namespace Z119.ATK.Shell
         private void button5_Click(object sender, EventArgs e)
         {
             //Const.stepList.Remove(listBox1.SelectedItem as StepItem);
+            if (MessageBox.Show("Xóa bước đã chọn?", "Xóa bước", MessageBoxButtons.YesNo) == DialogResult.No) return;
             Const.stepList.Remove(this.textBoxStepName.Text);
             UpdateList();
         }
@@ -616,12 +617,41 @@ namespace Z119.ATK.Shell
 
         private void button8_Click(object sender, EventArgs e)
         {
-
+            this.txbVonRa.Text = fOxiloForm.MesVmean.ToString();
+            this.txbAmpeRa.Text = fOxiloForm.MesVpp.ToString();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
              this.txbVonRa.Text =  Z119.ATK.Common.Const.AMPE_RA;
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex == 0) return;
+            string key = listBox1.GetItemText(listBox1.SelectedItem);
+            string keynext = listBox1.GetItemText(listBox1.Items[listBox1.SelectedIndex - 1]);
+            if (Const.stepList.ContainsKey(key))
+            {
+                StepItem temp = Const.stepList[key];
+                Const.stepList[key] = Const.stepList[keynext];
+                Const.stepList[keynext] = temp;
+            }
+            UpdateList();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (listBox1.SelectedIndex == listBox1.Items.Count) return;
+            string key = listBox1.GetItemText(listBox1.SelectedItem);
+            string keynext = listBox1.GetItemText(listBox1.Items[listBox1.SelectedIndex + 1]);
+            if (Const.stepList.ContainsKey(key))
+            {
+                StepItem temp = Const.stepList[key];
+                Const.stepList[key] = Const.stepList[keynext];
+                Const.stepList[keynext] = temp;
+            }
+            UpdateList();
         }
 
         

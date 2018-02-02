@@ -31,7 +31,8 @@ namespace Z119.ATK.Shell
         private static string strYScale;
         private static volatile  bool paraChanged =  false;
         private bool manualMode = false;
-
+        public static double MesVpp;
+        public static double MesVmean;
         public fOxiloForm()
         {
             
@@ -58,7 +59,6 @@ namespace Z119.ATK.Shell
             this.StartPosition = FormStartPosition.Manual;
             this.Location = Z119.ATK.Common.Const.proConf.fOsciloLocation;
             this.TopMost = false;
-
             this.FormClosing += fOxiloForm_Onclosing;
             setProbe(1);
             SetOffset(0, 1);
@@ -178,6 +178,7 @@ namespace Z119.ATK.Shell
             getOscilloScaleX();
             getOscilloScaleY();
             getoscilloIDN();
+            Measure();
             if (!manualMode)
             {
                 try
@@ -191,6 +192,23 @@ namespace Z119.ATK.Shell
                 }
             }
             
+        }
+
+        private void Measure()
+        {
+            SharpVisaCLI.Program.Send(deviceName, ":MEAS:VPP?", (res) =>
+            {
+                //label2.Text = res.Substring(0, res.Length - 1);
+                textBoxMes1.Text = res + " V";
+                MesVpp = Double.Parse(res, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
+                //strXScale = comboBox_xscale.Text;
+            });
+            SharpVisaCLI.Program.Send(deviceName, ":MEAS:VAV?", (res) =>
+            {
+                //label2.Text = res.Substring(0, res.Length - 1);
+                textBoxMes2.Text = res + " V";
+                MesVmean = Double.Parse(res, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
+            });
         }
 
         private void getoscilloIDN()

@@ -65,7 +65,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(236, 286);
+            this.button1.Location = new System.Drawing.Point(293, 286);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 25);
             this.button1.TabIndex = 4;
@@ -106,7 +106,7 @@
             this.listBox2.FormattingEnabled = true;
             this.listBox2.Location = new System.Drawing.Point(17, 216);
             this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(120, 95);
+            this.listBox2.Size = new System.Drawing.Size(270, 95);
             this.listBox2.TabIndex = 8;
             this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
             // 

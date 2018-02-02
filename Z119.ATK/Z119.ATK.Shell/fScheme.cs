@@ -224,10 +224,10 @@ namespace Z119.ATK.Shell
                 MessageBox.Show("Thao tác không thành công. Bạn không có quyền của người quản trị.");
                 return;
             }
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            
             DialogResult result;
 
-            result = MessageBox.Show("Xóa điểm đo đã chọn?", "Xóa điểm đo", buttons);
+            result = MessageBox.Show("Xóa điểm đo đã chọn?", "Xóa điểm đo", MessageBoxButtons.YesNo);
 
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
