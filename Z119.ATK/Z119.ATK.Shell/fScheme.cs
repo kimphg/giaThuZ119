@@ -141,6 +141,19 @@ namespace Z119.ATK.Shell
             pOld = this.panel1.PointToClient(Cursor.Position);
             if(!CheckPointSelection(pOld))
                 CheckElementSelection(pOld);
+            Form fc = Application.OpenForms["fOxiloForm"];
+
+            if (fc == null)
+            {
+                fOxiloForm foxilo = new fOxiloForm();
+                //foxilo.MdiParent = this.MdiParent;
+                foxilo.StartPosition = FormStartPosition.Manual;
+                foxilo.Show();
+            }
+            else
+            {
+                fc.BringToFront();
+            }
         }
 
         private bool CheckElementSelection(Point pSelect)
@@ -399,7 +412,8 @@ namespace Z119.ATK.Shell
                         if (fc == null)
                         {
                             foxilo = new fOxiloForm();
-
+                            //foxilo.MdiParent = this.MdiParent;
+                            foxilo.StartPosition = FormStartPosition.Manual;
                             foxilo.Show();
                         }
                         p.DisplayDataToOscillo(fOxiloForm.dataArrayRef, fOxiloForm.dataArrayOld, fOxiloForm.dataArray);

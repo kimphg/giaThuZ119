@@ -37,11 +37,11 @@ namespace Z119.ATK.Shell
             remove { _stopAll -= value; }
         }
         
-        public fCheckForm()
+        public fCheckForm(Form parent )
         {
             InitializeComponent();
             _checkManager = new CheckManager();
-
+            this.MdiParent = parent;
             splitContainer2.SplitterDistance = splitContainer2.Width / 2;
             if (Z119.ATK.Common.Const.isAdmin)
             {
@@ -90,6 +90,7 @@ namespace Z119.ATK.Shell
             fSodoNL.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             fSodoNL.StartPosition = FormStartPosition.Manual;
             fSodoNL.TopLevel = false;
+            fSodoNL.MdiParent = this.MdiParent;
             fSodoNL.Location = new Point(0, 0);
             fSodoNL.LoadScheme();
             this.panel13.Controls.Add(fSodoNL);
@@ -102,6 +103,7 @@ namespace Z119.ATK.Shell
             fSodoLR.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             fSodoLR.StartPosition = FormStartPosition.Manual;
             fSodoLR.TopLevel = false;
+            fSodoLR.MdiParent = this.MdiParent;
             fSodoLR.Location = new Point(0, 0);
             fSodoLR.LoadScheme();
             this.panel14.Controls.Add(fSodoLR);
@@ -327,7 +329,7 @@ namespace Z119.ATK.Shell
         internal void LoadData()
         {
             List<StepItem> list = Z119.ATK.Common.ProjectManager.LoadObject<List<StepItem>>("quiTrinh.xml");
-            Const.stepList = new Dictionary<string,StepItem>();
+            Const.stepList = new SortedDictionary<string,StepItem>();
             foreach(StepItem si in list)
             {
                 Const.stepList.Add(si.mName,si);
@@ -624,6 +626,7 @@ namespace Z119.ATK.Shell
         private void button9_Click(object sender, EventArgs e)
         {
              this.txbVonRa.Text =  Z119.ATK.Common.Const.AMPE_RA;
+
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -652,6 +655,11 @@ namespace Z119.ATK.Shell
                 Const.stepList[keynext] = temp;
             }
             UpdateList();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            this.txbVonRa.Text = Z119.ATK.Common.Const.VON_RA;
         }
 
         

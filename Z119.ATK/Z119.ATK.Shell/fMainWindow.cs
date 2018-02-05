@@ -23,7 +23,7 @@ namespace Z119.ATK.Shell
             fMainWindow()
         {
             InitializeComponent();
-
+            Z119.ATK.Common.Const.mainForm = this;
             Left = Top = 0;
             Width = Screen.PrimaryScreen.WorkingArea.Width;
             Height = Screen.PrimaryScreen.WorkingArea.Height;
@@ -191,7 +191,7 @@ namespace Z119.ATK.Shell
             frmSwitch = new fSwitchForm();//frmSwitch = Z119.ATK.Common.ProjectManager.LoadObject<fSwitchForm>("fSwitchForm");//new fSwitchForm();
              //frmSwitch = new fSwitchForm();
              frmTai = new fLoadForm(); //frmTai = Z119.ATK.Common.ProjectManager.LoadObject<fLoadForm>("fLoadForm");
-             fcheck = new fCheckForm(); //fcheck = Z119.ATK.Common.ProjectManager.LoadObject<fCheckForm>("fCheckForm");
+             fcheck = new fCheckForm(this); //fcheck = Z119.ATK.Common.ProjectManager.LoadObject<fCheckForm>("fCheckForm");
 
             frmPower.FormClosing += FrmPower_FormClosing;
             frmSwitch.FormClosing += FrmSwitch_FormClosing;
@@ -378,7 +378,7 @@ namespace Z119.ATK.Shell
 
             if (fc == null)
             {
-                fCheckForm fcheck = new fCheckForm();
+                fCheckForm fcheck = new fCheckForm(this);
                 fcheck.FormClosing += Fcheck_FormClosing;
                 fcheck.MdiParent = this;
                 fcheck.Show();

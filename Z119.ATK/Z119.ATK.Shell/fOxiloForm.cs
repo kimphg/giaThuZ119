@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using Z119.ATK.Common;
 
 namespace Z119.ATK.Shell
 {
@@ -51,6 +52,7 @@ namespace Z119.ATK.Shell
             yGrid.Interval = (yRes / 8);
             chart1.ChartAreas[0].AxisY.MajorGrid = yGrid;
             //
+            this.MdiParent = Const.mainForm;
             //listBoxDevices.Items.Clear();
             //SharpVisaCLI.Program.List((inst) => { if (inst.Contains("USB"))listBoxDevices.Items.Add(inst); });
             //listBoxDevices.SetSelected(0,true);
@@ -196,18 +198,33 @@ namespace Z119.ATK.Shell
 
         private void Measure()
         {
-            SharpVisaCLI.Program.Send(deviceName, ":MEAS:VPP?", (res) =>
+            SharpVisaCLI.Program.Send(deviceName, ":MEAS:VPP? CHAN1", (res) =>
             {
                 //label2.Text = res.Substring(0, res.Length - 1);
-                textBoxMes1.Text = res + " V";
-                MesVpp = Double.Parse(res, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
+                if (res == "99e366")
+                {
+                    textBoxMes1.Text = "Thang đo không đúng";
+                }
+                else 
+                {
+                    textBoxMes1.Text = res + " V";
+                    MesVpp = Double.Parse(res, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
+                }
+                
                 //strXScale = comboBox_xscale.Text;
             });
             SharpVisaCLI.Program.Send(deviceName, ":MEAS:VAV?", (res) =>
             {
-                //label2.Text = res.Substring(0, res.Length - 1);
-                textBoxMes2.Text = res + " V";
-                MesVmean = Double.Parse(res, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
+                if (res == "99e366")
+                {
+                    textBoxMes2.Text = "Thang đo không đúng";
+                }
+                else
+                {
+                    textBoxMes2.Text = res + " V";
+                    MesVmean = Double.Parse(res, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
+                }
+                
             });
         }
 

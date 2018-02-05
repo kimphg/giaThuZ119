@@ -661,7 +661,7 @@ namespace Z119.ATK.Shell
                     case "U1":
                         dgvSwitch.Rows[i].Cells[1].Value = imageList1.Images["value0.png"];
                         break;
-                    case "U2":
+                    case "+U2":
                         dgvSwitch.Rows[i].Cells[1].Value = imageList1.Images["value1.png"];
                         break;
                     case "U3":
@@ -673,7 +673,7 @@ namespace Z119.ATK.Shell
                     case "Đất":
                         dgvSwitch.Rows[i].Cells[1].Value = imageList1.Images["value4.png"];
                         break;
-                    case "U ra":
+                    case "-U2":
                         dgvSwitch.Rows[i].Cells[1].Value = imageList1.Images["value5.png"];
                         break;
                     default:

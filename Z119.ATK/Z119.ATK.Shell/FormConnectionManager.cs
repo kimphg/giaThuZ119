@@ -35,6 +35,7 @@ namespace Z119.ATK.Shell
             Z119.ATK.Common.Const.proConf.loadCtrl   = comboBox_LoadControl.Text;
             //Z119.ATK.Common.Const.proConf.powerCtrl  = comboBox_powerControl.SelectedItem.ToString();
             Z119.ATK.Common.Const.proConf.switchCtrl = comboBox_switchControl.Text;
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
