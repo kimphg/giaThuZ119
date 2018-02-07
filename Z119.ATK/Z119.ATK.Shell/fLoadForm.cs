@@ -281,6 +281,7 @@ namespace Z119.ATK.Shell
 
         private void fTaiForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            return;
             timer1.Enabled = false;
             try
             {

@@ -1061,6 +1061,7 @@ namespace Z119.ATK.Shell
 
         private void fSwitchForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            return;
             IsOnPower = true;
             OnOffPower();
             DisConnectCOMPort();

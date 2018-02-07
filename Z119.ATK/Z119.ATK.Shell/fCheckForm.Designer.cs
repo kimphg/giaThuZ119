@@ -89,7 +89,6 @@
             this.thưMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mởToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lưuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chạyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel18 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -814,7 +813,6 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thưMụcToolStripMenuItem,
-            this.chạyToolStripMenuItem,
             this.hướngDẫnQuiTrìnhToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MinimumSize = new System.Drawing.Size(1200, 0);
@@ -837,23 +835,16 @@
             // mởToolStripMenuItem
             // 
             this.mởToolStripMenuItem.Name = "mởToolStripMenuItem";
-            this.mởToolStripMenuItem.Size = new System.Drawing.Size(106, 26);
+            this.mởToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.mởToolStripMenuItem.Text = "Mở";
             this.mởToolStripMenuItem.Click += new System.EventHandler(this.mởToolStripMenuItem_Click);
             // 
             // lưuToolStripMenuItem
             // 
             this.lưuToolStripMenuItem.Name = "lưuToolStripMenuItem";
-            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(106, 26);
+            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.lưuToolStripMenuItem.Text = "Lưu";
             this.lưuToolStripMenuItem.Click += new System.EventHandler(this.lưuToolStripMenuItem_Click);
-            // 
-            // chạyToolStripMenuItem
-            // 
-            this.chạyToolStripMenuItem.Name = "chạyToolStripMenuItem";
-            this.chạyToolStripMenuItem.Size = new System.Drawing.Size(80, 25);
-            this.chạyToolStripMenuItem.Text = "Kiểm tra";
-            this.chạyToolStripMenuItem.Click += new System.EventHandler(this.chạyToolStripMenuItem_Click);
             // 
             // timer1
             // 
@@ -964,7 +955,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripMenuItem mởToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lưuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem chạyToolStripMenuItem;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Panel panel1;

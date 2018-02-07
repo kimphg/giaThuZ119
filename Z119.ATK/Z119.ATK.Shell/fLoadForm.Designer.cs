@@ -781,27 +781,27 @@
             this.thoátToolStripMenuItem});
             this.thưMụcToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.thưMụcToolStripMenuItem.Name = "thưMụcToolStripMenuItem";
-            this.thưMụcToolStripMenuItem.Size = new System.Drawing.Size(82, 25);
-            this.thưMụcToolStripMenuItem.Text = "Thư mục";
+            this.thưMụcToolStripMenuItem.Size = new System.Drawing.Size(69, 25);
+            this.thưMụcToolStripMenuItem.Text = "Tập tin";
             // 
             // mởToolStripMenuItem
             // 
             this.mởToolStripMenuItem.Name = "mởToolStripMenuItem";
-            this.mởToolStripMenuItem.Size = new System.Drawing.Size(119, 26);
-            this.mởToolStripMenuItem.Text = "Mở";
+            this.mởToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
+            this.mởToolStripMenuItem.Text = "Mở tập tin";
             this.mởToolStripMenuItem.Click += new System.EventHandler(this.mởToolStripMenuItem_Click);
             // 
             // lưuToolStripMenuItem
             // 
             this.lưuToolStripMenuItem.Name = "lưuToolStripMenuItem";
-            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(119, 26);
-            this.lưuToolStripMenuItem.Text = "Lưu ";
+            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
+            this.lưuToolStripMenuItem.Text = "Lưu tập tin";
             this.lưuToolStripMenuItem.Click += new System.EventHandler(this.lưuToolStripMenuItem_Click);
             // 
             // thoátToolStripMenuItem
             // 
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(119, 26);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.thoátToolStripMenuItem.Text = "Thoát";
             // 
             // thuNhỏToolStripMenuItem

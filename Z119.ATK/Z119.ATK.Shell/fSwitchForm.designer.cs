@@ -310,8 +310,8 @@
             this.mởTậpTinToolStripMenuItem,
             this.lưuTậpTinToolStripMenuItem});
             this.thưMụcToolStripMenuItem.Name = "thưMụcToolStripMenuItem";
-            this.thưMụcToolStripMenuItem.Size = new System.Drawing.Size(82, 25);
-            this.thưMụcToolStripMenuItem.Text = "Thư mục";
+            this.thưMụcToolStripMenuItem.Size = new System.Drawing.Size(69, 25);
+            this.thưMụcToolStripMenuItem.Text = "Tập tin";
             // 
             // mởTậpTinToolStripMenuItem
             // 

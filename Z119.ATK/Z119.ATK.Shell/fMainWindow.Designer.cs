@@ -75,7 +75,7 @@
             // 
             this.tsmenuItemProjectOpen.Name = "tsmenuItemProjectOpen";
             this.tsmenuItemProjectOpen.Size = new System.Drawing.Size(152, 26);
-            this.tsmenuItemProjectOpen.Text = "Mở";
+            this.tsmenuItemProjectOpen.Text = "Mở/Tạo";
             this.tsmenuItemProjectOpen.Click += new System.EventHandler(this.tsmenuItemProjectOpen_Click);
             // 
             // tsmenuItemControl

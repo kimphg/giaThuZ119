@@ -175,12 +175,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="fProgramForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fProgramForm.Designer.cs">
-      <DependentUpon>fProgramForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Project\fCreate.cs">
       <SubType>Form</SubType>
     </Compile>

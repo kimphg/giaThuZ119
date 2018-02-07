@@ -416,7 +416,7 @@ namespace Z119.ATK.Shell
         private void tsmenuItemProgramEditer_Click(object sender, EventArgs e)
         {
             //(sender as ToolStripMenuItem).Enabled = false;
-
+            /*
             Form fc = Application.OpenForms["fProgramForm"];
             if (fc == null)
             {
@@ -427,7 +427,7 @@ namespace Z119.ATK.Shell
             else
             {
                 fc.BringToFront();
-            }
+            }*/
         }
 
         private void tảiToolStripMenuItem_Click(object sender, EventArgs e)

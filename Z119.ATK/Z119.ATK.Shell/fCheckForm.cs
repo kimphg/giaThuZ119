@@ -276,7 +276,7 @@ namespace Z119.ATK.Shell
 
         private void chạyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (chạyToolStripMenuItem.Text == "Kiểm tra")
+            /*if (chạyToolStripMenuItem.Text == "Kiểm tra")
             {
                 if (_startAll != null)
                     _startAll(this, null);
@@ -297,7 +297,7 @@ namespace Z119.ATK.Shell
 
                 chạyToolStripMenuItem.Text = "Kiểm tra";
                
-            }
+            }*/
         }
 
         
