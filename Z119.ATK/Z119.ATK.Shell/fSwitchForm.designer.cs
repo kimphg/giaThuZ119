@@ -55,6 +55,8 @@
             this.thuNhỏToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
             this.pnlMain.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -83,6 +85,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Location = new System.Drawing.Point(4, 142);
@@ -350,12 +353,28 @@
             this.imageList1.Images.SetKeyName(12, "value1.png");
             this.imageList1.Images.SetKeyName(13, "value5.png");
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(185, 550);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 13);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Trạng thái kết nối:";
+            // 
             // fSwitchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(346, 721);
             this.Controls.Add(this.pnlMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "fSwitchForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -364,6 +383,7 @@
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSwitch)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -403,6 +423,8 @@
         private System.Windows.Forms.ToolStripMenuItem lưuTậpTinToolStripMenuItem;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ToolStripMenuItem thuNhỏToolStripMenuItem;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

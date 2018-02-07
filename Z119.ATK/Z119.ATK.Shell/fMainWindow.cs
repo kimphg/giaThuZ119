@@ -52,7 +52,7 @@ namespace Z119.ATK.Shell
             }
             else if (result == DialogResult.No)
             {
-                
+               
             }
             else if (result == DialogResult.Cancel)
             {
@@ -494,17 +494,28 @@ namespace Z119.ATK.Shell
 
         private void tsmenuItemHelp_Click(object sender, EventArgs e)
         {
-            
-            Form fc = Application.OpenForms["fHelpForm"];
-            if (fc == null)
+
+            fHelpForm fhelp = Application.OpenForms["fHelpForm"] as fHelpForm;
+            if (fhelp == null)
             {
-                fHelpForm fhelp = new fHelpForm();
+                fhelp = new fHelpForm();
+                fhelp.SetTitle("Thông tin về thiết bị:");
+                fhelp.SetContent(@"Chức năng của thiết bị:
+-	Cung cấp đầy đủ và chính xác các loại nguồn nuôi với các tham số đảm bảo theo yêu cầu để cấp cho các modul, mảng chức năng thuộc phân hệ làm việc bình thường;
+-	Tạo ra các lệnh điều khiển các chế độ làm việc để cấp cho các phân khối,  modul, mảng chức năng;
+-	Điều khiển từ xa, thu thập và xử lý kết quả thông qua các thiết bị đo lường chuyên dụng được kết nối.");
                 fhelp.MdiParent = this;
                 fhelp.Show();
             }
             else
             {
-                fc.BringToFront();
+                fhelp.SetTitle("Thông tin về thiết bị:");
+                fhelp.SetContent(@"Chức năng của thiết bị:
+-	Cung cấp đầy đủ và chính xác các loại nguồn nuôi với các tham số đảm bảo theo yêu cầu để cấp cho các modul, mảng chức năng thuộc phân hệ làm việc bình thường;
+-	Tạo ra các lệnh điều khiển các chế độ làm việc để cấp cho các phân khối,  modul, mảng chức năng;
+-	Điều khiển từ xa, thu thập và xử lý kết quả thông qua các thiết bị đo lường chuyên dụng được kết nối.");
+                fhelp.MdiParent = this;
+                fhelp.BringToFront();
             }
         }
 
@@ -542,6 +553,11 @@ namespace Z119.ATK.Shell
         {
             FormConnectionManager connectionMan = new FormConnectionManager();
             connectionMan.Show();
+        }
+
+        private void saveToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
         }
 
 

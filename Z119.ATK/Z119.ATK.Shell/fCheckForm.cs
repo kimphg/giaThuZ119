@@ -227,17 +227,17 @@ namespace Z119.ATK.Shell
             //txbAmpeRa.Text = Z119.ATK.Common.Const.AMPE_RA;
             foreach (schemePoint p in Z119.ATK.Common.Const.schemePointList)
             {
-                if (p.Selected&&this.fSodoNL.isPointChanged)
+                if (p.Selected&&(fScheme.isPointChanged))
                 {
-                    txbAmpeSt.Text = p.mAmpSt.ToString();
-                    txAmpErrMax.Text = p.mAmpErrMax.ToString();
-                    txbAmpeRa.Text = p.mAmpMes.ToString();
-                    txAmpErr.Text = p.mAmpErr.ToString();
-                    txbVolSt.Text = p.mVolSt.ToString();
-                    txbVonErrMax.Text = p.mAmpErrMax.ToString();
-                    txbVonRa.Text = p.mVolMes.ToString();
-                    txVolErr.Text = p.mVolErr.ToString();
-                    this.fSodoNL.isPointChanged = false;
+                    txbAmpeSt.Text = p.mAmpSt.ToString("0.00");
+                    txAmpErrMax.Text = p.mAmpErrMax.ToString("0.00");
+                    txbAmpeRa.Text = p.mAmpMes.ToString("0.00");
+                    txAmpErr.Text = p.mAmpErr.ToString("0.00");
+                    txbVolSt.Text = p.mVolSt.ToString("0.00");
+                    txbVonErrMax.Text = p.mAmpErrMax.ToString("0.00");
+                    txbVonRa.Text = p.mVolMes.ToString("0.00");
+                    txVolErr.Text = p.mVolErr.ToString("0.00");
+                    fScheme.isPointChanged = false;
                 }
             }
             // 
@@ -291,8 +291,9 @@ namespace Z119.ATK.Shell
 
                 timer1.Enabled = false; 
 
-                txbVonRa.Text = Z119.ATK.Common.Const.VON_RA;
-                txbVonRa.Text = Z119.ATK.Common.Const.AMPE_RA;
+                //txbVonRa.Text = Z119.ATK.Common.Const.VON_RA;
+
+                //txbVonRa.Text = Z119.ATK.Common.Const.AMPE_RA;
 
                 chạyToolStripMenuItem.Text = "Kiểm tra";
                
@@ -376,8 +377,8 @@ namespace Z119.ATK.Shell
                 volSt = Double.Parse(txbVolSt.Text);
                 volErrMax = Double.Parse(txbVonErrMax.Text);
 
-                txAmpErr.Text = (ampMes - ampSt).ToString();
-                txVolErr.Text = (volMes - volSt).ToString();
+                txAmpErr.Text = (ampMes - ampSt).ToString("0.00");
+                txVolErr.Text = (volMes - volSt).ToString("0.00");
                 if (volMes > (volSt + volErrMax) || volMes < (volSt - volErrMax))
                 {
                     label_kl_voltage.BackColor = Color.Red; label_kl_voltage.Text = "Không đạt";
@@ -408,7 +409,7 @@ namespace Z119.ATK.Shell
                         p.mAmpErrMax = Double.Parse(txbVonErrMax.Text);
                         p.mVolMes = Double.Parse(txbVonRa.Text);
                         p.mVolErr = Double.Parse(txVolErr.Text);
-                        this.fSodoNL.isPointChanged = false;
+                        //this.fSodoNL.isPointChanged = false;
                     }
                 }
             }
@@ -660,6 +661,27 @@ namespace Z119.ATK.Shell
         private void button12_Click(object sender, EventArgs e)
         {
             this.txbVonRa.Text = Z119.ATK.Common.Const.VON_RA;
+        }
+
+        private void hướngDẫnQuiTrìnhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            fHelpForm fhelp = Application.OpenForms["fHelpForm"] as fHelpForm;
+            if (fhelp == null)
+            {
+                fhelp = new fHelpForm();
+                fhelp.MdiParent = this.MdiParent;
+                fhelp.SetTitle("Qui trình kiểm tra:");
+                fhelp.SetContent(Const.proConf.TEXT_Manual);
+                fhelp.Show();
+            }
+            else
+            {
+                fhelp.MdiParent = this.MdiParent;
+                fhelp.SetTitle("Qui trình kiểm tra:");
+                fhelp.SetContent(Const.proConf.TEXT_Manual);
+                fhelp.BringToFront();
+            }
         }
 
         

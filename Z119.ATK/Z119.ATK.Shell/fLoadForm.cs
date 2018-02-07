@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Z119.ATK.Common;
 using Z119.ATK.Load;
 using Z119.ATK.Model.BindingModel;
 
@@ -26,7 +27,7 @@ namespace Z119.ATK.Shell
         {
             InitializeComponent();
 
-            ConnectCOMPort();
+            //ConnectCOMPort();
 
             btnOnOff.BackgroundImage = Image.FromFile(Z119.ATK.Common.Const.ICON_POWER_OFF);
             btnOnOff.BackgroundImageLayout = ImageLayout.Stretch;
@@ -45,8 +46,9 @@ namespace Z119.ATK.Shell
         {
             try
             {
-                serialPort1.PortName = Z119.ATK.Common.Const.proConf.loadCtrl;
+                serialPort1.PortName = Z119.ATK.Common.Const.proConf.COM_loadCtrl;
                 serialPort1.Open();
+                
             }
             catch
             {
@@ -144,7 +146,7 @@ namespace Z119.ATK.Shell
                     btnOnOff.BackgroundImage = Image.FromFile(Z119.ATK.Common.Const.ICON_POWER_OFF);
                     btnOnOff.BackgroundImageLayout = ImageLayout.Stretch;
 
-                    serialPort1.WriteLine(Z119.ATK.Common.Const.OFFTAI);
+                    serialPort1.WriteLine(Z119.ATK.Common.Const.LOAD_OFFTAI);
                     timer1.Enabled = false;
 
                 }
@@ -163,10 +165,10 @@ namespace Z119.ATK.Shell
                     btnOnOff.BackgroundImageLayout = ImageLayout.Stretch;
                     IsOn = true;
 
-                    serialPort1.WriteLine(Z119.ATK.Common.Const.MODE_CC);
-                    serialPort1.WriteLine(Z119.ATK.Common.Const.CURR_VA + " " + (txbAValue.Text == "" ? "0" : txbAValue.Text));
-                    serialPort1.WriteLine(Z119.ATK.Common.Const.CURR_VB + " " + (txbBValue.Text == "" ? "0" : txbBValue.Text));
-                    serialPort1.WriteLine(Z119.ATK.Common.Const.ONTAI);
+                    serialPort1.WriteLine(Z119.ATK.Common.Const.LOAD_MODE_CC);
+                    serialPort1.WriteLine(Z119.ATK.Common.Const.LOAD_CURR_VA + " " + (txbAValue.Text == "" ? "0" : txbAValue.Text));
+                    serialPort1.WriteLine(Z119.ATK.Common.Const.LOAD_CURR_VB + " " + (txbBValue.Text == "" ? "0" : txbBValue.Text));
+                    serialPort1.WriteLine(Z119.ATK.Common.Const.LOAD_ONTAI);
 
                     timer1.Enabled = true;
                 }
@@ -184,7 +186,7 @@ namespace Z119.ATK.Shell
 
         private void btnDefaultReset_Click(object sender, EventArgs e)
         {
-            serialPort1.WriteLine(Z119.ATK.Common.Const.DEFAULR_RESERT);
+            serialPort1.WriteLine(Z119.ATK.Common.Const.LOAD_DEFAULT_RESET);
         }
 
         Action<String> SerialPortReceiveAction;
@@ -250,11 +252,27 @@ namespace Z119.ATK.Shell
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            
             try
             {
-                serialPort1.WriteLine(Z119.ATK.Common.Const.RECIVE_VON_TAI);
-                serialPort1.WriteLine(Z119.ATK.Common.Const.RECIVE_AMPE_TAI);
-                serialPort1.WriteLine(Z119.ATK.Common.Const.RECIVE_WOAT_TAI);
+                label1.Text = "Trạng thái kết nối:" + serialPort1.PortName + serialPort1.IsOpen.ToString();
+                
+                if (Const.proConf.COM_loadCtrl != serialPort1.PortName)
+                {
+                    if(serialPort1.IsOpen)serialPort1.Close();
+                    return;
+                    
+                }
+                else if (!serialPort1.IsOpen)
+                {
+                    serialPort1.PortName = Const.proConf.COM_loadCtrl;
+                    ConnectCOMPort();
+                    //serialPort1.Open();
+                }
+                serialPort1.WriteLine(Z119.ATK.Common.Const.RECEIVE_VON_TAI);
+                serialPort1.WriteLine(Z119.ATK.Common.Const.RECEIVE_AMPE_TAI);
+                serialPort1.WriteLine(Z119.ATK.Common.Const.RECEIVE_WOAT_TAI);
+                
             }
             catch (Exception)
             { }
@@ -266,7 +284,7 @@ namespace Z119.ATK.Shell
             timer1.Enabled = false;
             try
             {
-                serialPort1.WriteLine(Z119.ATK.Common.Const.OFFTAI);
+                serialPort1.WriteLine(Z119.ATK.Common.Const.LOAD_OFFTAI);
             }
             catch (Exception)
             { }

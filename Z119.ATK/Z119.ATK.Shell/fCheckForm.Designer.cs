@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fCheckForm));
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -59,6 +60,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -92,7 +94,7 @@
             this.panel18 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.button12 = new System.Windows.Forms.Button();
+            this.hướngDẫnQuiTrìnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -335,6 +337,7 @@
             // txbVonRa
             // 
             this.txbVonRa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txbVonRa.Cursor = System.Windows.Forms.Cursors.Cross;
             this.txbVonRa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbVonRa.Location = new System.Drawing.Point(390, 42);
             this.txbVonRa.Margin = new System.Windows.Forms.Padding(2);
@@ -519,6 +522,16 @@
             this.button8.Text = "Lấy giá trị Oxilo";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(745, 39);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(99, 30);
+            this.button12.TabIndex = 13;
+            this.button12.Text = "Lấy giá trị Ura tải";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // panel2
             // 
@@ -801,7 +814,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thưMụcToolStripMenuItem,
-            this.chạyToolStripMenuItem});
+            this.chạyToolStripMenuItem,
+            this.hướngDẫnQuiTrìnhToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.MinimumSize = new System.Drawing.Size(1200, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -879,15 +893,12 @@
             this.splitContainer1.SplitterWidth = 11;
             this.splitContainer1.TabIndex = 0;
             // 
-            // button12
+            // hướngDẫnQuiTrìnhToolStripMenuItem
             // 
-            this.button12.Location = new System.Drawing.Point(745, 39);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(99, 30);
-            this.button12.TabIndex = 13;
-            this.button12.Text = "Lấy giá trị Ura tải";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.hướngDẫnQuiTrìnhToolStripMenuItem.Name = "hướngDẫnQuiTrìnhToolStripMenuItem";
+            this.hướngDẫnQuiTrìnhToolStripMenuItem.Size = new System.Drawing.Size(163, 25);
+            this.hướngDẫnQuiTrìnhToolStripMenuItem.Text = "Hướng dẫn qui trình";
+            this.hướngDẫnQuiTrìnhToolStripMenuItem.Click += new System.EventHandler(this.hướngDẫnQuiTrìnhToolStripMenuItem_Click);
             // 
             // fCheckForm
             // 
@@ -896,6 +907,7 @@
             this.ClientSize = new System.Drawing.Size(1363, 815);
             this.Controls.Add(this.panel18);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "fCheckForm";
             this.Text = "KIỂM TRA";
@@ -997,5 +1009,6 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.ToolStripMenuItem hướngDẫnQuiTrìnhToolStripMenuItem;
     }
 }

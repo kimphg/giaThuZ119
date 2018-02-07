@@ -10,7 +10,7 @@ namespace Z119.ATK.Common
     public class ProjectConfiguration
     {
         public Size fSchemeSize;
-        public string loadCtrl;
+        public string COM_loadCtrl;
         public string switchCtrl;
         public string powerCtrl;
         public string oscilloCtrl;
@@ -24,6 +24,7 @@ namespace Z119.ATK.Common
 
         public Point fOsciloLocation;
         public Point fSchemeLocation;
+        public string TEXT_Manual;
     }
     public class Const
     {
@@ -71,7 +72,7 @@ namespace Z119.ATK.Common
         public static string READVON = ":MEAS?";
 
         // Reset
-        public static string DEFAULR_RESERT = "*RST";
+        public static string LOAD_DEFAULT_RESET = "*RST";
 
         // Cả hai nguồn đều sử dụng được kênh CH1 Address1, Address2
 		public static string ON_CHANEL1 = ":OUTP CH1,ON"; // Both of address
@@ -113,16 +114,16 @@ namespace Z119.ATK.Common
         //public static string CloseHienThi = "Hien_Thi.Tat_Hien_Thi";
 
         // Form Tai
-        public static string MODE_CC = ":MODE CC";
-        public static string CURR_VA = ":CURR:VA";
-        public static string CURR_VB = ":CURR:VB";
+        public static string LOAD_MODE_CC = ":MODE CC";
+        public static string LOAD_CURR_VA = ":CURR:VA";
+        public static string LOAD_CURR_VB = ":CURR:VB";
 
-        public static string ONTAI = ":INP ON";
-        public static string OFFTAI = ":INP OFF";
+        public static string LOAD_ONTAI = ":INP ON";
+        public static string LOAD_OFFTAI = ":INP OFF";
 
-        public static string RECIVE_VON_TAI = ":MEAS:VOLT?";
-        public static string RECIVE_AMPE_TAI = ":MEAS:CURR?";
-        public static string RECIVE_WOAT_TAI = ":MEAS:POW?";
+        public static string RECEIVE_VON_TAI = ":MEAS:VOLT?";
+        public static string RECEIVE_AMPE_TAI = ":MEAS:CURR?";
+        public static string RECEIVE_WOAT_TAI = ":MEAS:POW?";
 
         // Binding data from Tai to Check
         public static string VON_RA = "0";

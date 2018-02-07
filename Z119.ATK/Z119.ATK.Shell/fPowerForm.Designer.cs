@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fPowerForm));
             this.label1 = new System.Windows.Forms.Label();
             this.btnOn_OffPower1 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
@@ -1277,6 +1278,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(658, 722);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "fPowerForm";
             this.Text = "PowerForm";

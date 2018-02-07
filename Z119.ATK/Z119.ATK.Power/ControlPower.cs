@@ -104,7 +104,7 @@ namespace Z119.ATK.Power
                     case 3: PowerControl.Write(Z119.ATK.Common.Const.OFF_CHANEL3);
                         break;
                     default: return false;
-                        break;
+                        
                 }
                 return true;
             }
@@ -336,7 +336,7 @@ namespace Z119.ATK.Power
         {
             try
             {
-                PowerControl.Write(Z119.ATK.Common.Const.DEFAULR_RESERT);
+                PowerControl.Write(Z119.ATK.Common.Const.LOAD_DEFAULT_RESET);
             }
             catch (Exception)
             { }

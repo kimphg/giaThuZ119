@@ -66,7 +66,7 @@ namespace Z119.ATK.Shell
             _powerManager.PowerControlAddress1.ChangedRangeForPower1(1);
             _powerManager.PowerControlAddress1.StateRangForPower1 = Power.StateRang.RANG1;
             
-            _powerManager.PowerControlAddress1.DefaultReset();
+            //_powerManager.PowerControlAddress1.DefaultReset();
         }
 
         public void ResertValuesPower2()
@@ -2257,6 +2257,7 @@ namespace Z119.ATK.Shell
 
         private void fPower1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            return;
             try
             {
                 _powerManager.PowerControlAddress1.OffChanel(1);

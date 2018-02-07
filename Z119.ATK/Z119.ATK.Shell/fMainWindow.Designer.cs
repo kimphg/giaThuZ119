@@ -28,22 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fMainWindow));
             this.menuMain = new System.Windows.Forms.MenuStrip();
             this.tsmenuItemProject = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemProjectOpen = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmenuItemProjectExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmenuItemProgram = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmenuItemProgramEditer = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemControl = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemControlPower = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemControlSwitch = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmenuItemControlCheck = new System.Windows.Forms.ToolStripMenuItem();
             this.loadControllerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemControlOxilo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemControlAccessories = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemSystem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemHelp = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmenuItemProjectExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmenuItemControlCheck = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +52,6 @@
             this.menuMain.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmenuItemProject,
-            this.tsmenuItemProgram,
             this.tsmenuItemControl,
             this.tsmenuItemSystem,
             this.tsmenuItemHelp});
@@ -67,8 +65,8 @@
             // 
             this.tsmenuItemProject.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmenuItemProjectOpen,
-            this.tsmenuItemProjectExit,
-            this.saveToolStripMenuItem});
+            this.saveToolStripMenuItem,
+            this.tsmenuItemProjectExit});
             this.tsmenuItemProject.Name = "tsmenuItemProject";
             this.tsmenuItemProject.Size = new System.Drawing.Size(63, 25);
             this.tsmenuItemProject.Text = "Dự án";
@@ -80,41 +78,12 @@
             this.tsmenuItemProjectOpen.Text = "Mở";
             this.tsmenuItemProjectOpen.Click += new System.EventHandler(this.tsmenuItemProjectOpen_Click);
             // 
-            // tsmenuItemProjectExit
-            // 
-            this.tsmenuItemProjectExit.Name = "tsmenuItemProjectExit";
-            this.tsmenuItemProjectExit.Size = new System.Drawing.Size(152, 26);
-            this.tsmenuItemProjectExit.Text = "Thoát";
-            this.tsmenuItemProjectExit.Click += new System.EventHandler(this.tsmenuItemProjectExit_Click);
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
-            this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
-            // 
-            // tsmenuItemProgram
-            // 
-            this.tsmenuItemProgram.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmenuItemProgramEditer});
-            this.tsmenuItemProgram.Name = "tsmenuItemProgram";
-            this.tsmenuItemProgram.Size = new System.Drawing.Size(115, 25);
-            this.tsmenuItemProgram.Text = "Chương trình";
-            // 
-            // tsmenuItemProgramEditer
-            // 
-            this.tsmenuItemProgramEditer.Name = "tsmenuItemProgramEditer";
-            this.tsmenuItemProgramEditer.Size = new System.Drawing.Size(150, 26);
-            this.tsmenuItemProgramEditer.Text = "Soạn thảo";
-            this.tsmenuItemProgramEditer.Click += new System.EventHandler(this.tsmenuItemProgramEditer_Click);
-            // 
             // tsmenuItemControl
             // 
             this.tsmenuItemControl.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmenuItemControlCheck,
             this.tsmenuItemControlPower,
             this.tsmenuItemControlSwitch,
-            this.tsmenuItemControlCheck,
             this.loadControllerToolStripMenuItem,
             this.tsmenuItemControlOxilo,
             this.tsmenuItemControlAccessories});
@@ -125,50 +94,43 @@
             // tsmenuItemControlPower
             // 
             this.tsmenuItemControlPower.Name = "tsmenuItemControlPower";
-            this.tsmenuItemControlPower.Size = new System.Drawing.Size(185, 26);
+            this.tsmenuItemControlPower.Size = new System.Drawing.Size(175, 26);
             this.tsmenuItemControlPower.Text = "Nguồn";
             this.tsmenuItemControlPower.Click += new System.EventHandler(this.tsmenuItemControlPower_Click);
             // 
             // tsmenuItemControlSwitch
             // 
             this.tsmenuItemControlSwitch.Name = "tsmenuItemControlSwitch";
-            this.tsmenuItemControlSwitch.Size = new System.Drawing.Size(185, 26);
+            this.tsmenuItemControlSwitch.Size = new System.Drawing.Size(175, 26);
             this.tsmenuItemControlSwitch.Text = "Chuyển mạch";
             this.tsmenuItemControlSwitch.Click += new System.EventHandler(this.tsmenuItemControlSwitch_Click);
-            // 
-            // tsmenuItemControlCheck
-            // 
-            this.tsmenuItemControlCheck.Name = "tsmenuItemControlCheck";
-            this.tsmenuItemControlCheck.Size = new System.Drawing.Size(185, 26);
-            this.tsmenuItemControlCheck.Text = "Kiểm  tra";
-            this.tsmenuItemControlCheck.Click += new System.EventHandler(this.tsmenuItemControlCheck_Click);
             // 
             // loadControllerToolStripMenuItem
             // 
             this.loadControllerToolStripMenuItem.Name = "loadControllerToolStripMenuItem";
-            this.loadControllerToolStripMenuItem.Size = new System.Drawing.Size(185, 26);
+            this.loadControllerToolStripMenuItem.Size = new System.Drawing.Size(175, 26);
             this.loadControllerToolStripMenuItem.Text = "Tải";
             this.loadControllerToolStripMenuItem.Click += new System.EventHandler(this.tảiToolStripMenuItem_Click);
             // 
             // tsmenuItemControlOxilo
             // 
             this.tsmenuItemControlOxilo.Name = "tsmenuItemControlOxilo";
-            this.tsmenuItemControlOxilo.Size = new System.Drawing.Size(185, 26);
+            this.tsmenuItemControlOxilo.Size = new System.Drawing.Size(175, 26);
             this.tsmenuItemControlOxilo.Text = "Hiện sóng";
             this.tsmenuItemControlOxilo.Click += new System.EventHandler(this.tsmenuItemControlOxilo_Click);
             // 
             // tsmenuItemControlAccessories
             // 
             this.tsmenuItemControlAccessories.Name = "tsmenuItemControlAccessories";
-            this.tsmenuItemControlAccessories.Size = new System.Drawing.Size(185, 26);
+            this.tsmenuItemControlAccessories.Size = new System.Drawing.Size(175, 26);
             this.tsmenuItemControlAccessories.Text = "Linh kiện";
             this.tsmenuItemControlAccessories.Click += new System.EventHandler(this.linhKiệnToolStripMenuItem_Click);
             // 
             // tsmenuItemSystem
             // 
             this.tsmenuItemSystem.Name = "tsmenuItemSystem";
-            this.tsmenuItemSystem.Size = new System.Drawing.Size(86, 25);
-            this.tsmenuItemSystem.Text = "Hệ thống";
+            this.tsmenuItemSystem.Size = new System.Drawing.Size(70, 25);
+            this.tsmenuItemSystem.Text = "Kết nối";
             this.tsmenuItemSystem.Click += new System.EventHandler(this.tsmenuItemSystem_Click);
             // 
             // tsmenuItemHelp
@@ -178,6 +140,25 @@
             this.tsmenuItemHelp.Text = "Trợ giúp";
             this.tsmenuItemHelp.Click += new System.EventHandler(this.tsmenuItemHelp_Click);
             // 
+            // tsmenuItemProjectExit
+            // 
+            this.tsmenuItemProjectExit.Name = "tsmenuItemProjectExit";
+            this.tsmenuItemProjectExit.Size = new System.Drawing.Size(152, 26);
+            this.tsmenuItemProjectExit.Text = "Thoát";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.saveToolStripMenuItem.Text = "Lưu";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click_1);
+            // 
+            // tsmenuItemControlCheck
+            // 
+            this.tsmenuItemControlCheck.Name = "tsmenuItemControlCheck";
+            this.tsmenuItemControlCheck.Size = new System.Drawing.Size(175, 26);
+            this.tsmenuItemControlCheck.Text = "Kiểm  tra";
+            // 
             // fMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,7 +166,9 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(880, 515);
             this.Controls.Add(this.menuMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.KeyPreview = true;
             this.Name = "fMainWindow";
             this.Text = "GIÁ THỬ NGUỒN";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -201,19 +184,17 @@
         private System.Windows.Forms.MenuStrip menuMain;
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemProject;
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemProjectOpen;
-        private System.Windows.Forms.ToolStripMenuItem tsmenuItemProjectExit;
-        private System.Windows.Forms.ToolStripMenuItem tsmenuItemProgram;
-        private System.Windows.Forms.ToolStripMenuItem tsmenuItemProgramEditer;
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemControl;
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemControlPower;
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemControlSwitch;
-        private System.Windows.Forms.ToolStripMenuItem tsmenuItemControlCheck;
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemControlOxilo;
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemSystem;
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemHelp;
         private System.Windows.Forms.ToolStripMenuItem loadControllerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemControlAccessories;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmenuItemProjectExit;
+        private System.Windows.Forms.ToolStripMenuItem tsmenuItemControlCheck;
     }
 }
 

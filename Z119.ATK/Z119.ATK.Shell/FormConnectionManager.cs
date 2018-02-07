@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Z119.ATK.Common;
 
 namespace Z119.ATK.Shell
 {
@@ -22,8 +23,8 @@ namespace Z119.ATK.Shell
                     listBox1.Items.Add(s);
                     comboBox_LoadControl.Items.Add(s);
                     comboBox_switchControl.Items.Add(s);
-                
-                
+                    comboBox_LoadControl.Text = Const.proConf.COM_loadCtrl;
+                    comboBox_switchControl.Text = Const.proConf.switchCtrl;
                 
             }
             //comboBox_powerControl.DataSource = listBox1.Items;
@@ -32,7 +33,7 @@ namespace Z119.ATK.Shell
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Z119.ATK.Common.Const.proConf.loadCtrl   = comboBox_LoadControl.Text;
+            Z119.ATK.Common.Const.proConf.COM_loadCtrl   = comboBox_LoadControl.Text;
             //Z119.ATK.Common.Const.proConf.powerCtrl  = comboBox_powerControl.SelectedItem.ToString();
             Z119.ATK.Common.Const.proConf.switchCtrl = comboBox_switchControl.Text;
             

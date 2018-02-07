@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormConnectionManager));
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.comboBox_LoadControl = new System.Windows.Forms.ComboBox();
             this.comboBox_switchControl = new System.Windows.Forms.ComboBox();
@@ -133,6 +134,7 @@
             this.Controls.Add(this.comboBox_switchControl);
             this.Controls.Add(this.comboBox_LoadControl);
             this.Controls.Add(this.listBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormConnectionManager";
             this.Text = "FormConnectionManager";
             this.ResumeLayout(false);

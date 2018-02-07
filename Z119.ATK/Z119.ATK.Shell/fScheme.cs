@@ -50,8 +50,9 @@ namespace Z119.ATK.Shell
                 this.label9.Text = "Sơ đồ lắp ráp";
                 cmNoselect = new ContextMenu();
                 //cmNoselect.MenuItems.Add("Đặt điểm đo", new EventHandler(fScheme_NewPoint));
-                cmNoselect.MenuItems.Add("Lưu tất cả các điểm đo", new EventHandler(SavePointList));
+
                 cmNoselect.MenuItems.Add("Thêm linh kiện mới", new EventHandler(fScheme_NewElement));
+                cmNoselect.MenuItems.Add("Lưu tất cả các điểm đo", new EventHandler(SavePointList));
                 cmSelectPoint = new ContextMenu();
                 cmSelectPoint.MenuItems.Add("Lấy giá trị điểm đo", new EventHandler(fScheme_SavePointData));
                 cmSelectPoint.MenuItems.Add("Đặt giá trị tham chiếu", new EventHandler(fScheme_SavePointRefData));
@@ -384,7 +385,7 @@ namespace Z119.ATK.Shell
             this.Refresh();
         }
         fOxiloForm foxilo;
-        public bool isPointChanged;
+        public static bool isPointChanged;
         
         private int mType;
         private bool isAddingElement;

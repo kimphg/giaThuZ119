@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Z119.ATK.Common;
 using Z119.ATK.Model.BindingModel;
 using Z119.ATK.Switch;
 
@@ -118,6 +119,7 @@ namespace Z119.ATK.Shell
                 {
                     serialPort1.PortName = Z119.ATK.Common.Const.proConf.switchCtrl;
                     serialPort1.Open();
+                    
                     _switchManager.IsOn = true;
                 }
             }
@@ -1080,7 +1082,7 @@ namespace Z119.ATK.Shell
         {
             SwitchBindingModel model = _switchManager.OpenFile();
             if (model != null)
-                InputDataIntoDGVFromModel(model);//????
+                InputDataIntoDGVFromModel(model);//
         }
         private void lưuTậpTinToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -1236,6 +1238,22 @@ namespace Z119.ATK.Shell
                         default:
                             return;
                     }
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label2.Text = "Trạng thái kết nối:" + serialPort1.PortName + serialPort1.IsOpen.ToString();
+            if (Const.proConf.switchCtrl != serialPort1.PortName)
+            {
+                serialPort1.Close();
+
+            }
+            else if (!serialPort1.IsOpen)
+            {
+                serialPort1.PortName = Const.proConf.switchCtrl;
+                ConnectCOMPort();
+                
             }
         }
     }

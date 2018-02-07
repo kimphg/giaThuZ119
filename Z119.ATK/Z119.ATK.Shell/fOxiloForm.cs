@@ -207,6 +207,7 @@ namespace Z119.ATK.Shell
                 }
                 else 
                 {
+                    res = res.Substring(0, res.Length - 1);
                     textBoxMes1.Text = res + " V";
                     MesVpp = Double.Parse(res, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
                 }
@@ -221,6 +222,7 @@ namespace Z119.ATK.Shell
                 }
                 else
                 {
+                    res = res.Substring(0, res.Length - 1);
                     textBoxMes2.Text = res + " V";
                     MesVmean = Double.Parse(res, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
                 }
