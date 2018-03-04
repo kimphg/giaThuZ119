@@ -1,4 +1,5 @@
-﻿namespace Z119.ATK.Shell
+﻿using System;
+namespace Z119.ATK.Shell
 {
     partial class fPower1
     {
@@ -2565,6 +2566,7 @@
             this.Name = "fPower1";
             this.Text = "ĐK NGUỒN";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fPower1_FormClosing);
+            this.FormClosed += fPower1_FormClosed;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -2584,6 +2586,66 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        void fPower1_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+
+            try
+            {
+                _powerManager.PowerControlAddress1.OffChanel(1);
+            }
+            catch (Exception )
+            { }
+
+            try
+            {
+                _powerManager.PowerControlAddress2.OffChanel(1);
+            }
+            catch (Exception)
+            { }
+
+            try
+            {
+                _powerManager.PowerControlAddress2.OffChanel(2);
+            }
+            catch (Exception)
+            { }
+
+            try
+            {
+                _powerManager.PowerControlAddress2.OffChanel(3);
+            }
+            catch (Exception)
+            { }
+
+            try
+            {
+                _powerManager.Disconnection(1);
+            }
+            catch (Exception)
+            { }
+
+            try
+            {
+                _powerManager.Disconnection(2);
+            }
+            catch (Exception)
+            { }
+
+            try
+            {
+                _powerManager.Disconnection(3);
+            }
+            catch (Exception)
+            { }
+
+            try
+            {
+                _powerManager.Disconnection(4);
+            }
+            catch (Exception)
+            { }
         }
 
         #endregion

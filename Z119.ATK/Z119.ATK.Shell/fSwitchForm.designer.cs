@@ -380,6 +380,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐK CHUYỂN MẠCH";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fSwitchForm_FormClosing);
+            this.FormClosed += fSwitchForm_FormClosed;
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -395,6 +396,8 @@
             this.ResumeLayout(false);
 
 		}
+
+        
 
 		#endregion
 

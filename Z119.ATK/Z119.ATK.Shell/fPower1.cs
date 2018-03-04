@@ -96,7 +96,8 @@ namespace Z119.ATK.Shell
         {
             pnlResultPowerAddress2.Visible = false;
             //panel3.BackColor = Color.FromArgb(186, 192, 190);
-
+            btnOnOffPowerAll.BackgroundImage = Image.FromFile(Z119.ATK.Common.Const.ICON_POWER_OFF);
+            btnOnOffPowerAll.BackgroundImageLayout = ImageLayout.Stretch;
             {
                 #region GUI ***********************
 
@@ -1689,7 +1690,7 @@ namespace Z119.ATK.Shell
 
         private void ButtonOnOffPower_Click(object sender, EventArgs e)
         {
-            Button btn = (sender as Button);
+            Button btn = (sender as Button);//to do: check 
 
             if (btn.Name.Equals("btnOnOffPower1")) { OnOffPower1(); if (!IsOnPower1 && !IsOnPowerAll) { IsOnPowerAll = true; btnOnOffPowerAll.BackgroundImage = Image.FromFile(Z119.ATK.Common.Const.ICON_POWER_OFF); } }
             else if (btn.Name.Equals("btnOnOffPower2")) { OnOffPower2(); if (!IsOnPower2 && !IsOnPowerAll) { IsOnPowerAll = true; btnOnOffPowerAll.BackgroundImage = Image.FromFile(Z119.ATK.Common.Const.ICON_POWER_OFF); } }
@@ -2257,62 +2258,7 @@ namespace Z119.ATK.Shell
 
         private void fPower1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            return;
-            try
-            {
-                _powerManager.PowerControlAddress1.OffChanel(1);
-            }
-            catch (Exception)
-            { }
-
-            try
-            {
-                _powerManager.PowerControlAddress2.OffChanel(1);
-            }
-            catch (Exception)
-            { }
-
-            try
-            {
-                _powerManager.PowerControlAddress2.OffChanel(2);
-            }
-            catch (Exception)
-            { }
-
-            try
-            {
-                _powerManager.PowerControlAddress2.OffChanel(3);
-            }
-            catch (Exception)
-            { }
-
-            try
-            {
-                _powerManager.Disconnection(1);
-            }
-            catch (Exception)
-            { }
-
-            try
-            {
-                _powerManager.Disconnection(2);
-            }
-            catch (Exception)
-            { }
-
-            try
-            {
-                _powerManager.Disconnection(3);
-            }
-            catch (Exception)
-            { }
-
-            try
-            {
-                _powerManager.Disconnection(4);
-            }
-            catch (Exception)
-            { }
+            
             
         }
 
@@ -2378,9 +2324,15 @@ namespace Z119.ATK.Shell
         public void LoadDataIntoControlsFromModel(PowerBindingModel model)
         {
             ResetValuesPower1();
+            
             lblVonSetPower4.Text = model.VonSetPower1;
             lblAmpeSetPower4.Text = model.AmpeSetPower1;
             lblVonLimitPower4.Text = model.VonLimitPower1;
+            if (lblVonLimitPower4.Text == "")
+            { 
+                ResertValuesPower2();
+                return;
+            }
             lblAmpeLimitPower4.Text = model.AmpeLimitPower1;
             if (lblVonLimitPower4.Text=="") ResetValuesPower1();
             if (model.OnAmpeLimitPower1)
@@ -2513,6 +2465,8 @@ namespace Z119.ATK.Shell
             PowerBindingModel model = _powerManager.OpenFile();
             if (model != null)
                 LoadDataIntoControlsFromModel(model);
+            else
+                ResertValuesPower2();
         }
 
         private void tsmuItemOpenFile_Click(object sender, EventArgs e)

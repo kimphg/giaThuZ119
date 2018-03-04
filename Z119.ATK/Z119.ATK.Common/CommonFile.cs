@@ -225,6 +225,7 @@ namespace Z119.ATK.Common
         }
         public void SaveProjectConfig()
         {
+            
             SaveObject<ProjectConfiguration>(Const.proConf,Z119.ATK.Common.Const.FILE_CONFIG);
         }
         private  void initProject()
@@ -232,6 +233,9 @@ namespace Z119.ATK.Common
             if (File.Exists(Z119.ATK.Common.Const.PATH_CURRENT + "\\" + Z119.ATK.Common.Const.FILE_CONFIG))
             {
                 Const.proConf = LoadObject<ProjectConfiguration>(Z119.ATK.Common.Const.FILE_CONFIG);
+                if (Const.proConf.COM_loadCtrl == null) Const.proConf.COM_loadCtrl = "COM3";
+                if (Const.proConf.switchCtrl == null) Const.proConf.switchCtrl = "COM1";
+
             }
             // Tạo 3 Folder trong path current
             /*string fdNguon = Z119.ATK.Common.Const.PATH_CURRENT + @"\" + Z119.ATK.Common.Const.FD_NGUON;

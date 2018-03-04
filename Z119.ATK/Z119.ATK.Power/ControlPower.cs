@@ -126,8 +126,9 @@ namespace Z119.ATK.Power
                         break;
                     case 4: PowerControl.Write(Z119.ATK.Common.Const.SEND_POWER_CHANEL3 + von + "," + ampe);
                         break;
-                    default: return false;
-                        break;
+                    default: 
+                        return false;
+                        
                 }
                 return true;
             }

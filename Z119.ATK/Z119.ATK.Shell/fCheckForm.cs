@@ -513,6 +513,7 @@ namespace Z119.ATK.Shell
         {
             if (label_kl_voltage.Text == "Đạt" && label_kl_amp.Text == "Đạt")
             {
+                if(MessageBox.Show("Kết quả đo đạt yêu cầu, chuyển bước tiếp theo?", "Chuyển bước", MessageBoxButtons.YesNo) == DialogResult.No)return;
                 int index = listBox1.FindString(comboBoxStepNext.Text);
                 if (index > -1)
                     listBox1.SetSelected(index, true);
@@ -523,6 +524,7 @@ namespace Z119.ATK.Shell
             }
             else
             {
+                if (MessageBox.Show("Kết quả đo không đạt yêu cầu, chuyển bước tiếp theo?", "Chuyển bước", MessageBoxButtons.YesNo) == DialogResult.No) return;
                 int index = listBox1.FindString(comboBoxStepFail.Text);
                 if (index > -1)
                     listBox1.SetSelected(index, true);

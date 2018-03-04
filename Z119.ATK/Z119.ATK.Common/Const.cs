@@ -25,6 +25,13 @@ namespace Z119.ATK.Common
         public Point fOsciloLocation;
         public Point fSchemeLocation;
         public string TEXT_Manual;
+        public Point locationPower;
+        public Point locationSwitch;
+        public Point locationLoad;
+
+
+
+        public Point locationCheck { get; set; }
     }
     public class Const
     {

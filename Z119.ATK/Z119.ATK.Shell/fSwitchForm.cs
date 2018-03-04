@@ -126,7 +126,7 @@ namespace Z119.ATK.Shell
             catch
             {
                 //MessageBox.Show("Không thể mở cổng " + serialPort1.PortName, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                btnOnOff.Enabled = false;
+                //btnOnOff.Enabled = false;
                 _switchManager.IsOn = false;
             }
 
@@ -1061,12 +1061,15 @@ namespace Z119.ATK.Shell
 
         private void fSwitchForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            return;
+            
+        }
+        void fSwitchForm_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
+        {
+
             IsOnPower = true;
             OnOffPower();
             DisConnectCOMPort();
         }
-
         #endregion End Events *******************************
 
         private void mởTậpTinToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1248,11 +1251,13 @@ namespace Z119.ATK.Shell
             if (Const.proConf.switchCtrl != serialPort1.PortName)
             {
                 serialPort1.Close();
-
+                if (Const.proConf.switchCtrl == null) Const.proConf.switchCtrl = "COM1";
+                serialPort1.PortName = Const.proConf.switchCtrl;
+                label2.Text = "Trạng thái kết nối:Không";
             }
             else if (!serialPort1.IsOpen)
             {
-                serialPort1.PortName = Const.proConf.switchCtrl;
+                
                 ConnectCOMPort();
                 
             }

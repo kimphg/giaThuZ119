@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Z119.ATK.Common;
 using Z119.ATK.Shell.Project;
 
 namespace Z119.ATK.Shell
@@ -42,12 +43,17 @@ namespace Z119.ATK.Shell
             MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                Z119.ATK.Common.Const.projMan.SaveProjectConfig();
+                
+                Const.proConf.locationCheck = fcheck.Location;
                 fcheck.SaveData();
                 fScheme.SavePointList();
+                Const.proConf.locationPower = frmPower.Location;
                  frmPower.SaveData();
+                 Const.proConf.locationSwitch = frmSwitch.Location;
                  frmSwitch.SaveData();
+                 Const.proConf.locationLoad = frmTai.Location;
                  frmTai.SaveData();
+                 Z119.ATK.Common.Const.projMan.SaveProjectConfig();
                 //Z119.ATK.Common.ProjectManager.SaveObject(this, Z119.ATK.Common.Const.FILE_MAINWINDOW);
             }
             else if (result == DialogResult.No)
@@ -208,24 +214,30 @@ namespace Z119.ATK.Shell
             frmTai.MdiParent = this;
             fcheck.MdiParent = this;
 
+            
+            frmPower.Location = Common.Const.proConf.locationPower;
             frmPower.Show();
-            frmPower.Location = new Point(0, 0);
 
             frmSwitch.WindowState = FormWindowState.Normal;
             frmSwitch.StartPosition = FormStartPosition.Manual;
+            
+            frmSwitch.Location = Common.Const.proConf.locationSwitch;
+            if (frmSwitch.Location == new Point(0,0)) frmSwitch.Location  = new Point(929, 0);
             frmSwitch.Show();
-            frmSwitch.Location = new Point(929, 0);
 
             frmTai.WindowState = FormWindowState.Normal;
             frmTai.StartPosition = FormStartPosition.Manual;
+            
+            frmTai.Location = Common.Const.proConf.locationLoad;
+            if (frmTai.Location == new Point(0, 0)) frmTai.Location = new Point(1300, 0);
             frmTai.Show();
-            frmTai.Location = new Point(1247, 0);
 
             fcheck.WindowState = FormWindowState.Normal;
             fcheck.StartPosition = FormStartPosition.Manual;
             fcheck.Show();
-            fcheck.Location = new Point(100, 100);
-
+            
+            fcheck.Location = Common.Const.proConf.locationCheck;
+            if (fcheck.Location == new Point(0, 0)) fcheck.Location = new Point(40, 50);
             fcheck.StartAll += fcheck_StartAll;
             fcheck.StopAll += fcheck_StopAll;
             // newcode start

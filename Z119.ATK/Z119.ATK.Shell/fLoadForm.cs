@@ -19,7 +19,7 @@ namespace Z119.ATK.Shell
     {
         int SelectedValueSet = 1;
         StringBuilder strResult = new StringBuilder();
-        bool RunningTask = false;
+        //bool RunningTask = false;
 
         LoadManager _loadmanager = new LoadManager();
 
@@ -48,12 +48,12 @@ namespace Z119.ATK.Shell
             {
                 serialPort1.PortName = Z119.ATK.Common.Const.proConf.COM_loadCtrl;
                 serialPort1.Open();
-                
+                n = 0;
             }
             catch
             {
-                MessageBox.Show("Không thể mở cổng điều khiển tải " + serialPort1.PortName, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                btnOnOff.Enabled = false;
+                //MessageBox.Show("Không thể mở cổng điều khiển tải " + serialPort1.PortName, "lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //btnOnOff.Enabled = false;
             }
 
         }
@@ -232,7 +232,7 @@ namespace Z119.ATK.Shell
 
                     Z119.ATK.Common.Const.AMPE_RA = lblReceiveAmpe.Text;
                 }
-                else if (n == 3)
+                else 
                 {
                     string text = "000" + Double.Parse(input.Replace('.', ',')) + "000";
                     if (text.IndexOf(',') < 0)
@@ -242,6 +242,7 @@ namespace Z119.ATK.Shell
 
                     n = 0;
                 }
+                
             }
             catch (Exception ex)
             {
@@ -255,11 +256,13 @@ namespace Z119.ATK.Shell
             
             try
             {
-                label1.Text = "Trạng thái kết nối:" + serialPort1.PortName + serialPort1.IsOpen.ToString();
+                label1.Text = "Trạng thái kết nối: " + serialPort1.PortName + " "+serialPort1.IsOpen.ToString();
                 
                 if (Const.proConf.COM_loadCtrl != serialPort1.PortName)
                 {
                     if(serialPort1.IsOpen)serialPort1.Close();
+                    if (Const.proConf.COM_loadCtrl == null) Const.proConf.COM_loadCtrl = "COM3";
+                    serialPort1.PortName = Const.proConf.COM_loadCtrl;
                     return;
                     
                 }
@@ -279,9 +282,9 @@ namespace Z119.ATK.Shell
             
         }
 
-        private void fTaiForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void fTaiForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            return;
+            
             timer1.Enabled = false;
             try
             {

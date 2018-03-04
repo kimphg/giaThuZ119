@@ -845,7 +845,7 @@
             this.MaximizeBox = false;
             this.Name = "fLoadForm";
             this.Text = "ĐK TẢI";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fTaiForm_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.fTaiForm_FormClosed);
             this.panel1.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
