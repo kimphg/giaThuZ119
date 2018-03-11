@@ -2331,10 +2331,9 @@ namespace Z119.ATK.Shell
             if (lblVonLimitPower4.Text == "")
             { 
                 ResertValuesPower2();
-                return;
+                
             }
-            lblAmpeLimitPower4.Text = model.AmpeLimitPower1;
-            if (lblVonLimitPower4.Text=="") ResetValuesPower1();
+            
             if (model.OnAmpeLimitPower1)
             {
                 IsOnOffLimitAmpePower4 = false;
@@ -2381,7 +2380,9 @@ namespace Z119.ATK.Shell
             lblAmpeSetPower1.Text = model.AmpeSetPower2;
             lblVonLimitPower1.Text = model.VonLimitPower2;
             lblAmpeLimitPower1.Text = model.AmpeLimitPower2;
-
+            lblAmpeLimitPower4.Text = model.AmpeLimitPower1;
+            if (lblVonLimitPower1.Text == "")
+                ResetValuesPower1();
             if (model.OnAmpeLimitPower2)
             {
                 IsOnOffLimitAmpePower1 = false;

@@ -48,6 +48,18 @@ namespace Z119.ATK.Common
             
         }
 
+
+        public void copy(StepItem step)
+        {
+            mNextTrue = step.mNextTrue;
+            mNextFalse = step.mNextFalse;
+            mPoint = step.mPoint;
+            isDone = step.isDone;
+            selected = step.selected;
+            mDescription = step.mDescription;
+            mName = step.mName;
+            mType = step.mType;
+        }
     }
     public class schemeElement
     {

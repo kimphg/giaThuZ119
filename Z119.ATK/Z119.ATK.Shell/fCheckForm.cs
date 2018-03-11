@@ -240,6 +240,8 @@ namespace Z119.ATK.Shell
                     fScheme.isPointChanged = false;
                 }
             }
+            comboBoxStepPoint.DataSource = Const.schemePointList;
+            comboBoxStepPoint.DisplayMember = "MName";
             // 
             return;
             
@@ -260,8 +262,8 @@ namespace Z119.ATK.Shell
             //CheckBindingModel model = new CheckBindingModel();
             //ConvertControlsToModel(model);
             //_checkManager.SaveIntoFile(model);
-            List<StepItem> list = Const.stepList.Values.ToList();
-            Z119.ATK.Common.ProjectManager.SaveObject(list, "quiTrinh.xml");
+            
+            Z119.ATK.Common.ProjectManager.SaveObject(Const.stepList, "quiTrinh.xml");
         }
 
         private void cmbPrincipleDiagram_SelectionChangeCommitted(object sender, EventArgs e)
@@ -330,10 +332,10 @@ namespace Z119.ATK.Shell
         internal void LoadData()
         {
             List<StepItem> list = Z119.ATK.Common.ProjectManager.LoadObject<List<StepItem>>("quiTrinh.xml");
-            Const.stepList = new SortedDictionary<string,StepItem>();
+            Const.stepList = new List<StepItem>();
             foreach(StepItem si in list)
             {
-                Const.stepList.Add(si.mName,si);
+                Const.stepList.Add(si);
             }
             
             UpdateList();
@@ -470,14 +472,14 @@ namespace Z119.ATK.Shell
                 
                 StepItem newstep = new StepItem();
                 newstep.Init(p,  nextTrue);
-                Const.stepList.Add(p,newstep);
+                Const.stepList.Add(newstep);
                 UpdateList();
             }
             else if (type == 3)//dieu kien
             {
                 StepItem newstep = new StepItem();
                 newstep.Init(p, nextTrue, nextFalse);
-                Const.stepList.Add(p,newstep);
+                Const.stepList.Add(newstep);
                 UpdateList();
             }
             
@@ -485,18 +487,27 @@ namespace Z119.ATK.Shell
 
         private void UpdateList()
         {
+            int oldIndex = listBox1.SelectedIndex;
             var bindingSource1 = new BindingSource();
 
             // Bind BindingSource1 to the list of states.
             bindingSource1.DataSource = Const.stepList;
             listBox1.DataSource = bindingSource1;
-            listBox1.DisplayMember = "Key";
+            listBox1.DisplayMember = "MName";
             listBox1.BindingContext = this.BindingContext;
             listBox1.Refresh();
-            comboBoxStepFail.DataSource = Const.stepList.Keys.ToList();
-            comboBoxStepNext.DataSource = Const.stepList.Keys.ToList();
+            //listBox1.Sorted = false;
+            comboBoxStepFail.DataSource = Const.stepList;
+            comboBoxStepFail.DisplayMember = "MName";
+            comboBoxStepFail.Refresh();
+            comboBoxStepNext.DataSource = Const.stepList;
+            comboBoxStepNext.DisplayMember = "MName";
+            comboBoxStepNext.Refresh();
             comboBoxStepPoint.DataSource = Const.schemePointList;
             comboBoxStepPoint.DisplayMember = "MName";
+            comboBoxStepPoint.Refresh();
+
+            if (oldIndex>0) listBox1.SetSelected(oldIndex, true);
             //comboBoxStepPoint.ValueMember = "mName";
             //this.Invalidate();
         }
@@ -537,12 +548,14 @@ namespace Z119.ATK.Shell
 
         private StepItem FindItem(string p)
         {
-            if (Const.stepList.ContainsKey(p))
+            foreach(var step in Const.stepList)
             {
-                return Const.stepList[p];
+                if(step.mName==p)
+                {
+                    
+                    return step;
+                }
             }
-
-            else
                 return null;
         }
 
@@ -550,7 +563,8 @@ namespace Z119.ATK.Shell
         {
             //Const.stepList.Remove(listBox1.SelectedItem as StepItem);
             if (MessageBox.Show("Xóa bước đã chọn?", "Xóa bước", MessageBoxButtons.YesNo) == DialogResult.No) return;
-            Const.stepList.Remove(this.textBoxStepName.Text);
+            StepItem step = FindItem(this.textBoxStepName.Text);
+            if (step != null) Const.stepList.Remove(step);
             UpdateList();
         }
 
@@ -564,10 +578,11 @@ namespace Z119.ATK.Shell
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string key = listBox1.GetItemText(listBox1.SelectedItem);
-            if (Const.stepList.ContainsKey(key))
+            StepItem value = FindItem(key);
+            if (value != null)
             {
-                StepItem value = Const.stepList[key];
-                this.textBoxStepName.Text = key;
+                // Const.stepList[key];
+                this.textBoxStepName.Text = value.mName;
                 this.textBoxStepMota.Text = value.mDescription;
                 this.comboBoxStepPoint.Text = value.mPoint;
                 this.comboBoxStepNext.Text = value.mNextTrue;
@@ -580,14 +595,16 @@ namespace Z119.ATK.Shell
         private void button7_Click(object sender, EventArgs e)
         {
             SaveStep();
+            UpdateList();
         }
 
         private void SaveStep()
         {
             string key = listBox1.GetItemText(listBox1.SelectedItem);
-            if (Const.stepList.ContainsKey(key))
+            StepItem value = FindItem(key);
+            if (value != null)
             {
-                StepItem value = Const.stepList[key];
+                value.mName = textBoxStepName.Text;
                 value.mDescription = textBoxStepMota.Text;
                 value.mPoint = this.comboBoxStepPoint.Text;
                 value.mNextTrue = comboBoxStepNext.Text;
@@ -612,6 +629,7 @@ namespace Z119.ATK.Shell
 
         private void comboBoxStepPoint_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //UpdateList();
             //SaveStep();
         }
 
@@ -634,16 +652,13 @@ namespace Z119.ATK.Shell
 
         private void button10_Click(object sender, EventArgs e)
         {
+            
             if (listBox1.SelectedIndex == 0) return;
             string key = listBox1.GetItemText(listBox1.SelectedItem);
             string keynext = listBox1.GetItemText(listBox1.Items[listBox1.SelectedIndex - 1]);
-            if (Const.stepList.ContainsKey(key))
-            {
-                StepItem temp = Const.stepList[key];
-                Const.stepList[key] = Const.stepList[keynext];
-                Const.stepList[keynext] = temp;
-            }
+            SwapItems(key, keynext);
             UpdateList();
+            
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -651,13 +666,31 @@ namespace Z119.ATK.Shell
             if (listBox1.SelectedIndex == listBox1.Items.Count) return;
             string key = listBox1.GetItemText(listBox1.SelectedItem);
             string keynext = listBox1.GetItemText(listBox1.Items[listBox1.SelectedIndex + 1]);
-            if (Const.stepList.ContainsKey(key))
-            {
-                StepItem temp = Const.stepList[key];
-                Const.stepList[key] = Const.stepList[keynext];
-                Const.stepList[keynext] = temp;
-            }
+            SwapItems(key, keynext);
+            
             UpdateList();
+        }
+
+        private void SwapItems(string key, string keynext)
+        {
+
+            foreach (StepItem step in Const.stepList)
+            {
+                if (step.mName == key)
+                {
+                    foreach (StepItem stepnext in Const.stepList)
+                    {
+                        if (stepnext.mName == keynext)
+                        {
+                            StepItem temp = new StepItem();
+                            temp.copy(step);
+                            step.copy(stepnext);
+                            stepnext.copy(temp);
+                            return;
+                        }
+                    }
+                }
+            }
         }
 
         private void button12_Click(object sender, EventArgs e)
