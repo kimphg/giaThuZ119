@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fSwitchForm));
             this.pnlMain = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dgvSwitch = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -50,13 +51,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.thưMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mởTậpTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lưuTậpTinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thuNhỏToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label2 = new System.Windows.Forms.Label();
             this.pnlMain.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -92,6 +91,15 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(329, 706);
             this.panel3.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(185, 550);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 13);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Trạng thái kết nối:";
             // 
             // panel6
             // 
@@ -307,18 +315,10 @@
             // thưMụcToolStripMenuItem
             // 
             this.thưMụcToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mởTậpTinToolStripMenuItem,
             this.lưuTậpTinToolStripMenuItem});
             this.thưMụcToolStripMenuItem.Name = "thưMụcToolStripMenuItem";
             this.thưMụcToolStripMenuItem.Size = new System.Drawing.Size(69, 25);
             this.thưMụcToolStripMenuItem.Text = "Tập tin";
-            // 
-            // mởTậpTinToolStripMenuItem
-            // 
-            this.mởTậpTinToolStripMenuItem.Name = "mởTậpTinToolStripMenuItem";
-            this.mởTậpTinToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
-            this.mởTậpTinToolStripMenuItem.Text = "Mở tập tin";
-            this.mởTậpTinToolStripMenuItem.Click += new System.EventHandler(this.mởTậpTinToolStripMenuItem_Click);
             // 
             // lưuTậpTinToolStripMenuItem
             // 
@@ -359,15 +359,6 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(185, 550);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 13);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Trạng thái kết nối:";
-            // 
             // fSwitchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,7 +371,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐK CHUYỂN MẠCH";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fSwitchForm_FormClosing);
-            this.FormClosed += fSwitchForm_FormClosed;
             this.pnlMain.ResumeLayout(false);
             this.pnlMain.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -422,7 +412,6 @@
         private System.Windows.Forms.Button btnOnOff;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem thưMụcToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mởTậpTinToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lưuTậpTinToolStripMenuItem;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ToolStripMenuItem thuNhỏToolStripMenuItem;

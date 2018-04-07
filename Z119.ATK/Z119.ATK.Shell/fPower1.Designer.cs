@@ -32,7 +32,6 @@ namespace Z119.ATK.Shell
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fPower1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmuItemOpenFile = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmuItemSaveFile = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmuItemExit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmuItemRun = new System.Windows.Forms.ToolStripMenuItem();
@@ -243,19 +242,11 @@ namespace Z119.ATK.Shell
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmuItemOpenFile,
             this.tsmuItemSaveFile,
             this.tsmuItemExit});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(69, 25);
             this.fileToolStripMenuItem.Text = "Tập tin";
-            // 
-            // tsmuItemOpenFile
-            // 
-            this.tsmuItemOpenFile.Name = "tsmuItemOpenFile";
-            this.tsmuItemOpenFile.Size = new System.Drawing.Size(154, 26);
-            this.tsmuItemOpenFile.Text = "Mở tập tin";
-            this.tsmuItemOpenFile.Click += new System.EventHandler(this.tsmuItemOpenFile_Click);
             // 
             // tsmuItemSaveFile
             // 
@@ -2566,7 +2557,6 @@ namespace Z119.ATK.Shell
             this.Name = "fPower1";
             this.Text = "ĐK NGUỒN";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fPower1_FormClosing);
-            this.FormClosed += fPower1_FormClosed;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -2769,7 +2759,6 @@ namespace Z119.ATK.Shell
         private System.Windows.Forms.Label lblStatusLimitVonPower2;
         private System.Windows.Forms.Label lblStatusLimitAmpePower1;
         private System.Windows.Forms.Label lblStatusLimitVonPower1;
-        private System.Windows.Forms.ToolStripMenuItem tsmuItemOpenFile;
         private System.Windows.Forms.ToolStripMenuItem tsmuItemSaveFile;
         private System.Windows.Forms.ToolStripMenuItem tsmuItemExit;
         private System.Windows.Forms.ToolStripMenuItem tsmuItemRun;

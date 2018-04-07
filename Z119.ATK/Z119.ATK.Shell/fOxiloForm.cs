@@ -455,6 +455,11 @@ namespace Z119.ATK.Shell
             });
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
         
     }
 }

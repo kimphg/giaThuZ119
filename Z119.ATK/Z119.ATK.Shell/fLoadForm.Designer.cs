@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fLoadForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -84,13 +85,11 @@
             this.lblReceiveVon = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.thưMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mởToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lưuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thuNhỏToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -141,6 +140,16 @@
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(366, 180);
             this.panel14.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(3, 164);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Trạng thái kết nối:";
             // 
             // button1
             // 
@@ -776,20 +785,12 @@
             // thưMụcToolStripMenuItem
             // 
             this.thưMụcToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mởToolStripMenuItem,
             this.lưuToolStripMenuItem,
             this.thoátToolStripMenuItem});
             this.thưMụcToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.thưMụcToolStripMenuItem.Name = "thưMụcToolStripMenuItem";
             this.thưMụcToolStripMenuItem.Size = new System.Drawing.Size(69, 25);
             this.thưMụcToolStripMenuItem.Text = "Tập tin";
-            // 
-            // mởToolStripMenuItem
-            // 
-            this.mởToolStripMenuItem.Name = "mởToolStripMenuItem";
-            this.mởToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
-            this.mởToolStripMenuItem.Text = "Mở tập tin";
-            this.mởToolStripMenuItem.Click += new System.EventHandler(this.mởToolStripMenuItem_Click);
             // 
             // lưuToolStripMenuItem
             // 
@@ -820,16 +821,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(3, 164);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 13);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Trạng thái kết nối:";
             // 
             // fLoadForm
             // 
@@ -924,7 +915,6 @@
         private System.Windows.Forms.Button btnButtonNumber0;
         private System.Windows.Forms.Button btnButtonDelete;
         private System.Windows.Forms.Button btnButtonDecimal;
-        private System.Windows.Forms.ToolStripMenuItem mởToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lưuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
         private System.IO.Ports.SerialPort serialPort1;

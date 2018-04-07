@@ -542,7 +542,7 @@ namespace Z119.ATK.Shell
 
         private void FrmAcc_FormClosing(object sender, FormClosingEventArgs e)
         {
-            tsmenuItemControlAccessories.Enabled = true;
+            //tsmenuItemControlAccessories.Enabled = true;
         }
 
         #endregion End Menu item Control ============================================
