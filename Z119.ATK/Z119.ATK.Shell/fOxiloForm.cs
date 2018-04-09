@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -200,7 +201,10 @@ namespace Z119.ATK.Shell
         {
             SharpVisaCLI.Program.Send(deviceName, ":MEAS:VPP? CHAN1", (res) =>
             {
+                if (res.ElementAt(0) == '#') return;
                 //label2.Text = res.Substring(0, res.Length - 1);
+                Regex rgx = new Regex("[^a-zA-Z0-9 . -]");
+                res = rgx.Replace(res, "");
                 if (res == "99e366")
                 {
                     textBoxMes1.Text = "Thang đo không đúng";
@@ -209,13 +213,24 @@ namespace Z119.ATK.Shell
                 {
                     res = res.Substring(0, res.Length - 1);
                     textBoxMes1.Text = res + " V";
-                    MesVpp = Double.Parse(res, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
+                    try
+                    {
+
+                        MesVpp = Double.Parse(res, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
+                    }
+                    catch (FormatException)
+                    {
+                    }
                 }
                 
                 //strXScale = comboBox_xscale.Text;
             });
             SharpVisaCLI.Program.Send(deviceName, ":MEAS:VAV?", (res) =>
             {
+
+                if (res.ElementAt(0) == '#') return;
+                Regex rgx = new Regex("[^a-zA-Z0-9 . -]");
+                res = rgx.Replace(res, "");
                 if (res == "99e366")
                 {
                     textBoxMes2.Text = "Thang đo không đúng";
@@ -224,7 +239,13 @@ namespace Z119.ATK.Shell
                 {
                     res = res.Substring(0, res.Length - 1);
                     textBoxMes2.Text = res + " V";
-                    MesVmean = Double.Parse(res, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
+                    try
+                    {
+                        MesVmean = Double.Parse(res, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
+                    }
+                    catch (FormatException)
+                    { 
+                    }
                 }
                 
             });
@@ -234,25 +255,41 @@ namespace Z119.ATK.Shell
         {
             SharpVisaCLI.Program.Send(deviceName, "*IDN?", (res) =>
             {
-                label2.Text = res.Substring(0, res.Length - 1);
+                if (res.ElementAt(0) == '#') label2.Text = "Error: "+res;
+                else label2.Text = res.Substring(0, res.Length - 1);
                 //strXScale = comboBox_xscale.Text;
             });
         }
         private void getOscilloScaleX()
         {
-
-            SharpVisaCLI.Program.Send(deviceName, ":timebase:scale?", (res) =>
+            try
             {
-                string input = res.Substring(0, res.Length - 1);
-                double dbScaleX = Double.Parse(input, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
-                string unitX = "s";
-                if (dbScaleX < 1.0) { dbScaleX *= 1000.0; unitX = "ms"; }
-                if (dbScaleX < 1.0) { dbScaleX *= 1000.0; unitX = "us"; }
-                this.Invoke((MethodInvoker)delegate
+                SharpVisaCLI.Program.Send(deviceName, ":timebase:scale?", (res) =>
                 {
-                    comboBox_xscale.Text = dbScaleX.ToString() + " " + unitX;
+                    if (res.ElementAt(0) == '#') return;
+                    Regex rgx = new Regex("[^a-zA-Z0-9 . -]");
+                    res = rgx.Replace(res, "");
+                    string input = res.Substring(0, res.Length - 1);
+                    try
+                    {
+                        double dbScaleX = Double.Parse(input, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
+                        string unitX = "s";
+                        if (dbScaleX < 1.0) { dbScaleX *= 1000.0; unitX = "ms"; }
+                        if (dbScaleX < 1.0) { dbScaleX *= 1000.0; unitX = "us"; }
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            comboBox_xscale.Text = dbScaleX.ToString() + " " + unitX;
+                        });
+                    }
+                    catch (FormatException)
+                    {
+                    }
+                    
                 });
-            });
+            }
+            catch (Exception e)
+            { 
+            }
             
         }
         private void getOscilloScaleY()
@@ -260,14 +297,25 @@ namespace Z119.ATK.Shell
 
             SharpVisaCLI.Program.Send(deviceName, ":CHAN"+currentChanel.ToString()+":SCAL?", (res) =>
             {
-                string input = res.Substring(0, res.Length - 1);
-                double dbScaleY = Double.Parse(input, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
-                string unitY = "V";
-                if (dbScaleY < 1.0) { dbScaleY *= 1000.0; unitY = "mV"; }
-                if (dbScaleY < 1.0) { dbScaleY *= 1000.0; unitY = "uV"; }
-                this.Invoke((MethodInvoker)delegate {
-                    comboBox_yscale.Text = dbScaleY.ToString() + " " + unitY;
-                }); 
+                if (res.ElementAt(0) == '#') return;
+                Regex rgx = new Regex("[^a-zA-Z0-9 . -]");
+                res = rgx.Replace(res, "");
+                try
+                {
+                    string input = res.Substring(0, res.Length - 1);
+                    double dbScaleY = Double.Parse(input, System.Globalization.NumberStyles.Float, new CultureInfo("en-US"));
+                    string unitY = "V";
+                    if (dbScaleY < 1.0) { dbScaleY *= 1000.0; unitY = "mV"; }
+                    if (dbScaleY < 1.0) { dbScaleY *= 1000.0; unitY = "uV"; }
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        comboBox_yscale.Text = dbScaleY.ToString() + " " + unitY;
+                    });
+                }
+                catch (FormatException)
+                {
+                }
+                 
             });
 
         }
@@ -379,24 +427,36 @@ namespace Z119.ATK.Shell
 
         private void UpdateXscale()
         {
-            NumberFormatInfo nfi = new NumberFormatInfo();
-            nfi.NumberDecimalSeparator = ".";
-            if (strXScale.Split(' ').Count() < 2) strXScale = "100 us";
-            double val = Double.Parse(strXScale.Split(' ')[0]);
-            string unit = strXScale.Split(' ')[1];
-            if (unit == "ms") val /= 1000.0;
-            else if (unit == "us") val /= 1000000.0;
-            sendScaleX(val.ToString(nfi));
+            try
+            {
+                NumberFormatInfo nfi = new NumberFormatInfo();
+                nfi.NumberDecimalSeparator = ".";
+                if (strXScale.Split(' ').Count() < 2) strXScale = "100 us";
+                double val = Double.Parse(strXScale.Split(' ')[0]);
+                string unit = strXScale.Split(' ')[1];
+                if (unit == "ms") val /= 1000.0;
+                else if (unit == "us") val /= 1000000.0;
+                sendScaleX(val.ToString(nfi));
+            }
+            catch (FormatException)
+            {
+            }
         }
         private void UpdateYscale()
         {
-            NumberFormatInfo nfi = new NumberFormatInfo();
-            nfi.NumberDecimalSeparator = ".";
-            if (strYScale.Split(' ').Count() < 2) strYScale = "1 V";
-            double val = Double.Parse(strYScale.Split(' ')[0]);
-            string unit = strYScale.Split(' ')[1];
-            if (unit == "mV") val /= 1000.0;
-            sendScaleY(val.ToString(nfi));
+            try
+            {
+                NumberFormatInfo nfi = new NumberFormatInfo();
+                nfi.NumberDecimalSeparator = ".";
+                if (strYScale.Split(' ').Count() < 2) strYScale = "1 V";
+                double val = Double.Parse(strYScale.Split(' ')[0]);
+                string unit = strYScale.Split(' ')[1];
+                if (unit == "mV") val /= 1000.0;
+                sendScaleY(val.ToString(nfi));
+            }
+            catch (FormatException)
+            {
+            }
         }
         private void comboBox_yscale_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -447,6 +507,7 @@ namespace Z119.ATK.Shell
             string req = textBox1.Text;
             SharpVisaCLI.Program.Send(deviceName, req, (res) =>
             {
+
                 this.Invoke((MethodInvoker)delegate
                 {
                     textBox2.Text = res;

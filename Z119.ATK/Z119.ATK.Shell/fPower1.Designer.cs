@@ -2581,61 +2581,7 @@ namespace Z119.ATK.Shell
         void fPower1_FormClosed(object sender, System.Windows.Forms.FormClosedEventArgs e)
         {
 
-            try
-            {
-                _powerManager.PowerControlAddress1.OffChanel(1);
-            }
-            catch (Exception )
-            { }
-
-            try
-            {
-                _powerManager.PowerControlAddress2.OffChanel(1);
-            }
-            catch (Exception)
-            { }
-
-            try
-            {
-                _powerManager.PowerControlAddress2.OffChanel(2);
-            }
-            catch (Exception)
-            { }
-
-            try
-            {
-                _powerManager.PowerControlAddress2.OffChanel(3);
-            }
-            catch (Exception)
-            { }
-
-            try
-            {
-                _powerManager.Disconnection(1);
-            }
-            catch (Exception)
-            { }
-
-            try
-            {
-                _powerManager.Disconnection(2);
-            }
-            catch (Exception)
-            { }
-
-            try
-            {
-                _powerManager.Disconnection(3);
-            }
-            catch (Exception)
-            { }
-
-            try
-            {
-                _powerManager.Disconnection(4);
-            }
-            catch (Exception)
-            { }
+            OffPowerAll();
         }
 
         #endregion

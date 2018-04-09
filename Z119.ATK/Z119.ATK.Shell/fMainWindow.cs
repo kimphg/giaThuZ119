@@ -30,11 +30,19 @@ namespace Z119.ATK.Shell
             Height = Screen.PrimaryScreen.WorkingArea.Height;
             Init(null,null);
             this.FormClosing += fMainWindow_FormClosing;
+            this.FormClosed += fMainWindow_FormClosed;
             //fOxiloForm formtest = new fOxiloForm();
             //formtest.MdiParent = this;
 
             //formtest.Show();
             // End Menu project
+        }
+
+        void fMainWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //throw new NotImplementedException();
+            frmPower.OffPowerAll();
+            frmTai.OffLoad();
         }
 
         void fMainWindow_FormClosing(object sender, FormClosingEventArgs e)
@@ -560,11 +568,22 @@ namespace Z119.ATK.Shell
             connectionMan.Show();
             
         }
-
+        
         private void tsmenuItemSystem_Click(object sender, EventArgs e)
         {
-            FormConnectionManager connectionMan = new FormConnectionManager();
-            connectionMan.Show();
+            
+            Form fc = Application.OpenForms["FormConnectionManager"];
+            if (fc == null)
+            {
+                FormConnectionManager connectionMan = new FormConnectionManager();
+                
+                connectionMan.MdiParent = this;
+                connectionMan.Show();
+            }
+            else
+            {
+                fc.BringToFront();
+            }
         }
 
         private void saveToolStripMenuItem_Click_1(object sender, EventArgs e)

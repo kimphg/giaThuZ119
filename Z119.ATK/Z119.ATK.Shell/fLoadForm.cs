@@ -138,8 +138,8 @@ namespace Z119.ATK.Shell
                     lblReceiveAmpe.Text = "00.00";
                     lblReceiveWoat.Text = "00.00";
 
-                    Z119.ATK.Common.Const.VON_RA = "00.00";
-                    Z119.ATK.Common.Const.AMPE_RA = "00.00";
+                    Z119.ATK.Common.Const.VON_RA = "0.00";
+                    Z119.ATK.Common.Const.AMPE_RA = "0.00";
 
                     IsOn = false;
 
@@ -214,12 +214,12 @@ namespace Z119.ATK.Shell
                 if (n == 1)
                 {
                     string text = "000" + Double.Parse(input.Replace('.', ',')) + "000";
-                    if (text.IndexOf(',') < 0)
+                    if (text.IndexOf('.') < 0)
                         text = text.Remove(text.Length - 3, 3) + ",000"; ;
-                    if (text.IndexOf(',') > 0)
-                        lblReceiveVon.Text = text.Substring(text.IndexOf(',') - 2, 5).Replace(',', '.');
+                    if (text.IndexOf('.') > 0)
+                        lblReceiveVon.Text = text.Substring(text.IndexOf('.') - 2, 5).Replace('.', ',');
 
-                    Z119.ATK.Common.Const.VON_RA = lblReceiveVon.Text;
+                    Z119.ATK.Common.Const.VON_RA = Double.Parse(lblReceiveVon.Text).ToString();
                 }
 
                 else if (n == 2)
@@ -284,7 +284,11 @@ namespace Z119.ATK.Shell
 
         private void fTaiForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+
+            OffLoad();
+        }
+        public void OffLoad()
+        {
             timer1.Enabled = false;
             try
             {
@@ -295,7 +299,6 @@ namespace Z119.ATK.Shell
 
             IsOn = false;
         }
-
         private void lưuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveData();

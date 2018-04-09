@@ -32,12 +32,12 @@ namespace Z119.ATK.Common
         {
             if(nextTrue!=null)mNextTrue = nextTrue.mName;
             mName = name;
-            mType = "DK";
+            mType = "TT";
         }
         public void Init(string name, StepItem nextTrue, StepItem nextFalse)
         {
             mName = name;
-            mType = "TT";
+            mType = "DK";
             if (nextTrue != null) mNextTrue = nextTrue.mName;
             if (mNextFalse != null) mNextFalse = nextFalse.mName;
         }
@@ -106,6 +106,10 @@ namespace Z119.ATK.Common
             set { scaleX = value; }
         }
         private string scaleY = "";
+        public double mNoiseSt;
+        public double mNoiseErr;
+        public double mNoiseErrMax;
+        public double mNoiseMes;
 
         public string ScaleY
         {

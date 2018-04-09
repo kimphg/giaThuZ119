@@ -287,7 +287,7 @@ namespace Z119.ATK.Shell
             var formPosition = pOld;
             schemePoint schemePos = new schemePoint(toSchemePos(formPosition), getInputString("Nhập tên điểm đo"));//
             Z119.ATK.Common.Const.schemePointList.Add(schemePos);
-
+            isPointChanged = true;
             this.Refresh();
         }
 

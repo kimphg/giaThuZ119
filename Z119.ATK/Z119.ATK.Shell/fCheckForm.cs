@@ -49,6 +49,8 @@ namespace Z119.ATK.Shell
                 this.txbVonErrMax.Enabled = true;
                 this.txbAmpeSt.Enabled = true;
                 this.txAmpErrMax.Enabled = true;
+                this.textNoiseSt.Enabled = true;
+                this.textNoiseErrMax.Enabled = true;
                 comboBoxStepFail.Enabled = true;
                 comboBoxStepNext.Enabled = true;
                 comboBoxStepPoint.Enabled = true;
@@ -62,6 +64,8 @@ namespace Z119.ATK.Shell
                 this.txbVonErrMax.Enabled = false;
                 this.txbAmpeSt.Enabled = false;
                 this.txAmpErrMax.Enabled = false;
+                this.textNoiseSt.Enabled = false;
+                this.textNoiseErrMax.Enabled = false;
                 comboBoxStepFail.Enabled = false;
                 comboBoxStepNext.Enabled = false;
                 comboBoxStepPoint.Enabled = false;
@@ -200,22 +204,6 @@ namespace Z119.ATK.Shell
                 
         }
 
-        private void ConvertControlsToModel(CheckBindingModel model)
-        {
-            model.Von = txbVolSt.Text;
-            model.VonDenta = txbVonErrMax.Text;
-            model.Ampe = txbAmpeSt.Text;
-            //if (!string.IsNullOrEmpty(cmbAssemblyDiagram.Text))
-            //    model.AssemblyDiagram = cmbAssemblyDiagram.Text;
-            //else
-            //    model.AssemblyDiagram = "";
-
-            
-
-           // if (!string.IsNullOrEmpty(ricGuideDocument.Text))
-               // model.GuideDocument = ricGuideDocument.Text;
-            
-        }
 
         #endregion End Methods ****************************
 
@@ -225,23 +213,34 @@ namespace Z119.ATK.Shell
         {
             //txbVonRa.Text = Z119.ATK.Common.Const.VON_RA;
             //txbAmpeRa.Text = Z119.ATK.Common.Const.AMPE_RA;
-            foreach (schemePoint p in Z119.ATK.Common.Const.schemePointList)
+            if (fScheme.isPointChanged)
             {
-                if (p.Selected&&(fScheme.isPointChanged))
+                UpdatePoints();
+                fScheme.isPointChanged = false;
+                foreach (schemePoint p in Z119.ATK.Common.Const.schemePointList)
                 {
-                    txbAmpeSt.Text = p.mAmpSt.ToString("0.00");
-                    txAmpErrMax.Text = p.mAmpErrMax.ToString("0.00");
-                    txbAmpeRa.Text = p.mAmpMes.ToString("0.00");
-                    txAmpErr.Text = p.mAmpErr.ToString("0.00");
-                    txbVolSt.Text = p.mVolSt.ToString("0.00");
-                    txbVonErrMax.Text = p.mAmpErrMax.ToString("0.00");
-                    txbVonRa.Text = p.mVolMes.ToString("0.00");
-                    txVolErr.Text = p.mVolErr.ToString("0.00");
-                    fScheme.isPointChanged = false;
+                    if (p.Selected)
+                    {
+                        txbAmpeSt.Text = p.mAmpSt.ToString("0.00");
+                        txAmpErrMax.Text = p.mAmpErrMax.ToString("0.00");
+                        txbAmpeRa.Text = p.mAmpMes.ToString("0.00");
+                        txAmpErr.Text = p.mAmpErr.ToString("0.00");
+                        txbVolSt.Text = p.mVolSt.ToString("0.00");
+                        txbVonErrMax.Text = p.mAmpErrMax.ToString("0.00");
+                        txbVonRa.Text = p.mVolMes.ToString("0.00");
+                        txVolErr.Text = p.mVolErr.ToString("0.00");
+
+                        textNoiseSt.Text = p.mNoiseSt.ToString("0.00");
+                        textNoiseErrMax.Text = p.mNoiseErrMax.ToString("0.00");
+                        textNoiseErr.Text = p.mNoiseErr.ToString("0.00");
+                        textNoiseMes.Text = p.mNoiseMes.ToString("0.00");
+                            
+                        
+                    }
                 }
             }
-            comboBoxStepPoint.DataSource = Const.schemePointList;
-            comboBoxStepPoint.DisplayMember = "MName";
+            
+            
             // 
             return;
             
@@ -354,6 +353,11 @@ namespace Z119.ATK.Shell
 
         private void button2_Click(object sender, EventArgs e)
         {
+            UpdateMesValues();
+        }
+
+        private void UpdateMesValues()
+        {
             try
             {
                 if (txbAmpeRa.Text.IndexOf('.') > 0) txbAmpeRa.Text = txbAmpeRa.Text.Replace('.', ',');
@@ -364,23 +368,45 @@ namespace Z119.ATK.Shell
                 if (txAmpErrMax.Text.IndexOf('.') > 0) txAmpErrMax.Text = txAmpErrMax.Text.Replace('.', ',');
                 if (txAmpErr.Text.IndexOf('.') > 0) txAmpErr.Text = txAmpErr.Text.Replace('.', ',');
                 if (txVolErr.Text.IndexOf('.') > 0) txVolErr.Text = txVolErr.Text.Replace('.', ',');
+
+                if (this.textNoiseMes.Text.IndexOf('.') > 0) textNoiseMes.Text = textNoiseMes.Text.Replace('.', ',');
+                if (this.textNoiseSt.Text.IndexOf('.') > 0) textNoiseSt.Text = textNoiseSt.Text.Replace('.', ',');
+                if (this.textNoiseErrMax.Text.IndexOf('.') > 0) textNoiseErrMax.Text = textNoiseErrMax.Text.Replace('.', ',');
+                if (this.textNoiseErr.Text.IndexOf('.') > 0) textNoiseErr.Text = textNoiseErr.Text.Replace('.', ',');
+
                 double ampMes = 0;
                 double ampSt = 0;
                 double ampErrMax = Double.Parse(txAmpErrMax.Text);
-                double ampErr = 0;// Double.Parse(txAmpErr.Text);
+                //double ampErr = 0;// Double.Parse(txAmpErr.Text);
                 double volMes = 0;
-                double volErr = 0;// Double.Parse(txVolErr.Text);
+                //double volErr = 0;// Double.Parse(txVolErr.Text);
                 double volSt = 0;
                 double volErrMax = 0;
+                double noiMes = 0;
+                //double volErr = 0;// Double.Parse(txVolErr.Text);
+                double noiSt = 0;
+                double noiErrMax = 0;
 
                 ampMes = Double.Parse(txbAmpeRa.Text);
                 volMes = Double.Parse(txbVonRa.Text);
+                noiMes = Double.Parse(textNoiseMes.Text);
                 ampSt = Double.Parse(txbAmpeSt.Text);
                 volSt = Double.Parse(txbVolSt.Text);
+                noiSt = Double.Parse(textNoiseSt.Text);
                 volErrMax = Double.Parse(txbVonErrMax.Text);
+                noiErrMax = Double.Parse(textNoiseErrMax.Text);
 
                 txAmpErr.Text = (ampMes - ampSt).ToString("0.00");
                 txVolErr.Text = (volMes - volSt).ToString("0.00");
+                textNoiseErr.Text = (noiMes - noiSt).ToString("0.00");
+                if (noiMes > (noiSt + noiErrMax))
+                {
+                    label_kl_noise.BackColor = Color.Red; label_kl_noise.Text = "Không đạt";
+                }
+                else
+                {
+                    label_kl_noise.BackColor = Color.Green; label_kl_noise.Text = "Đạt";
+                }
                 if (volMes > (volSt + volErrMax) || volMes < (volSt - volErrMax))
                 {
                     label_kl_voltage.BackColor = Color.Red; label_kl_voltage.Text = "Không đạt";
@@ -411,6 +437,11 @@ namespace Z119.ATK.Shell
                         p.mAmpErrMax = Double.Parse(txbVonErrMax.Text);
                         p.mVolMes = Double.Parse(txbVonRa.Text);
                         p.mVolErr = Double.Parse(txVolErr.Text);
+
+                        p.mNoiseSt = Double.Parse(this.textNoiseSt.Text);
+                        p.mNoiseErr = Double.Parse(this.textNoiseErr.Text);
+                        p.mNoiseErrMax = Double.Parse(this.textNoiseErrMax.Text);
+                        p.mNoiseMes = Double.Parse(this.textNoiseMes.Text);
                         //this.fSodoNL.isPointChanged = false;
                     }
                 }
@@ -489,7 +520,8 @@ namespace Z119.ATK.Shell
         {
             int oldIndex = listBox1.SelectedIndex;
             var bindingSource1 = new BindingSource();
-
+            var bindingSource2 = new BindingSource();
+            var bindingSource3 = new BindingSource();
             // Bind BindingSource1 to the list of states.
             bindingSource1.DataSource = Const.stepList;
             listBox1.DataSource = bindingSource1;
@@ -497,19 +529,29 @@ namespace Z119.ATK.Shell
             listBox1.BindingContext = this.BindingContext;
             listBox1.Refresh();
             //listBox1.Sorted = false;
-            comboBoxStepFail.DataSource = Const.stepList;
+            bindingSource2.DataSource = Const.stepList;
+            comboBoxStepFail.DataSource = bindingSource2;
             comboBoxStepFail.DisplayMember = "MName";
             comboBoxStepFail.Refresh();
-            comboBoxStepNext.DataSource = Const.stepList;
+            bindingSource3.DataSource = Const.stepList;
+            comboBoxStepNext.DataSource = bindingSource3;
             comboBoxStepNext.DisplayMember = "MName";
             comboBoxStepNext.Refresh();
-            comboBoxStepPoint.DataSource = Const.schemePointList;
-            comboBoxStepPoint.DisplayMember = "MName";
-            comboBoxStepPoint.Refresh();
+            UpdatePoints();
 
             if (oldIndex>0) listBox1.SetSelected(oldIndex, true);
             //comboBoxStepPoint.ValueMember = "mName";
             //this.Invalidate();
+        }
+
+        private void UpdatePoints()
+        {
+            
+            var bindingSource2 = new BindingSource();
+            bindingSource2.DataSource = Const.schemePointList;
+            comboBoxStepPoint.DataSource = bindingSource2;
+            comboBoxStepPoint.DisplayMember = "MName";
+            //comboBoxStepPoint.Refresh();
         }
         void selectSchemePoint(string str)
         {
@@ -522,9 +564,22 @@ namespace Z119.ATK.Shell
         }
         private void button6_Click(object sender, EventArgs e)
         {
-            if (label_kl_voltage.Text == "Đạt" && label_kl_amp.Text == "Đạt")
+            string key = listBox1.GetItemText(listBox1.SelectedItem);
+            StepItem value = FindItem(key);
+            if (value.mType == "TT")
             {
-                if(MessageBox.Show("Kết quả đo đạt yêu cầu, chuyển bước tiếp theo?", "Chuyển bước", MessageBoxButtons.YesNo) == DialogResult.No)return;
+                if (MessageBox.Show("Chuyển bước tiếp theo?", "Chuyển bước", MessageBoxButtons.YesNo) == DialogResult.No) return;
+                int index = listBox1.FindString(comboBoxStepNext.Text);
+                if (index > -1)
+                    listBox1.SetSelected(index, true);
+                else
+                {
+                    return;
+                }
+            }
+            else if (label_kl_voltage.Text == "Đạt" && label_kl_amp.Text == "Đạt")
+            {
+                if (MessageBox.Show("Kết quả đo đạt yêu cầu, chuyển bước tiếp theo?", "Chuyển bước", MessageBoxButtons.YesNo) == DialogResult.No) return;
                 int index = listBox1.FindString(comboBoxStepNext.Text);
                 if (index > -1)
                     listBox1.SetSelected(index, true);
@@ -586,7 +641,21 @@ namespace Z119.ATK.Shell
                 this.textBoxStepMota.Text = value.mDescription;
                 this.comboBoxStepPoint.Text = value.mPoint;
                 this.comboBoxStepNext.Text = value.mNextTrue;
-                this.comboBoxStepFail.Text = value.mNextFalse;
+                
+                if (value.mType == "TT")
+                {
+                    this.label5.Text = "Tên thao tác:";
+                    this.comboBoxStepFail.Hide();// = "N/A";
+                    label11.Hide();
+                    this.comboBoxStepFail.Text = "N/A";
+                }
+                else 
+                {
+                    this.label5.Text = "Tên điều kiện:";
+                    this.comboBoxStepFail.Show();
+                    label11.Show();
+                    this.comboBoxStepFail.Text = value.mNextFalse;
+                }
                 selectSchemePoint(value.mPoint);
             }
             //UpdateList();
@@ -641,12 +710,12 @@ namespace Z119.ATK.Shell
         private void button8_Click(object sender, EventArgs e)
         {
             this.txbVonRa.Text = fOxiloForm.MesVmean.ToString();
-            this.txbAmpeRa.Text = fOxiloForm.MesVpp.ToString();
+            this.textNoiseMes.Text = fOxiloForm.MesVpp.ToString();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-             this.txbVonRa.Text =  Z119.ATK.Common.Const.AMPE_RA;
+             this.txbAmpeRa.Text =  Z119.ATK.Common.Const.AMPE_RA;
 
         }
 
@@ -717,6 +786,21 @@ namespace Z119.ATK.Shell
                 fhelp.SetContent(Const.proConf.TEXT_Manual);
                 fhelp.BringToFront();
             }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            UpdateMesValues();
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
 
         
