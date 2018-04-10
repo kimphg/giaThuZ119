@@ -86,7 +86,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.thưMụcToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lưuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thuNhỏToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -786,8 +785,7 @@
             // thưMụcToolStripMenuItem
             // 
             this.thưMụcToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lưuToolStripMenuItem,
-            this.thoátToolStripMenuItem});
+            this.lưuToolStripMenuItem});
             this.thưMụcToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.thưMụcToolStripMenuItem.Name = "thưMụcToolStripMenuItem";
             this.thưMụcToolStripMenuItem.Size = new System.Drawing.Size(69, 25);
@@ -799,12 +797,6 @@
             this.lưuToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
             this.lưuToolStripMenuItem.Text = "Lưu tập tin";
             this.lưuToolStripMenuItem.Click += new System.EventHandler(this.lưuToolStripMenuItem_Click);
-            // 
-            // thoátToolStripMenuItem
-            // 
-            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(154, 26);
-            this.thoátToolStripMenuItem.Text = "Thoát";
             // 
             // thuNhỏToolStripMenuItem
             // 
@@ -921,7 +913,6 @@
         private System.Windows.Forms.Button btnButtonDelete;
         private System.Windows.Forms.Button btnButtonDecimal;
         private System.Windows.Forms.ToolStripMenuItem lưuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.ToolStripMenuItem thuNhỏToolStripMenuItem;
         private System.Windows.Forms.Button button1;

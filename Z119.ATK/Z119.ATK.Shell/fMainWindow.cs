@@ -192,6 +192,7 @@ namespace Z119.ATK.Shell
             frmPower.WindowState = FormWindowState.Normal;
             frmPower.StartPosition = FormStartPosition.Manual;
             frmPower.Location = Common.Const.proConf.locationPower;
+            if (frmPower.Location.Y < 0) frmPower.Location = new Point(50, 50);
             frmPower.Show();
         }
         private void createCheckForm()
@@ -203,7 +204,7 @@ namespace Z119.ATK.Shell
             fcheck.WindowState = FormWindowState.Normal;
             fcheck.StartPosition = FormStartPosition.Manual;
             fcheck.Location = Common.Const.proConf.locationCheck;
-            if (fcheck.Location == new Point(0, 0)) fcheck.Location = new Point(40, 50);
+            if (fcheck.Location.Y< 0) fcheck.Location = new Point(50, 50);
             fcheck.StartAll += fcheck_StartAll;
             fcheck.StopAll += fcheck_StopAll;
             fcheck.Show();
@@ -216,6 +217,7 @@ namespace Z119.ATK.Shell
             frmSwitch.WindowState = FormWindowState.Normal;
             frmSwitch.StartPosition = FormStartPosition.Manual;
             frmSwitch.Location = Common.Const.proConf.locationSwitch;
+            if (frmSwitch.Location.Y < 0) frmSwitch.Location = new Point(50, 50);
             frmSwitch.LoadData();//todo here
             frmSwitch.Show();
         }
@@ -229,6 +231,8 @@ namespace Z119.ATK.Shell
             frmTai.StartPosition = FormStartPosition.Manual;
 
             frmTai.Location = Common.Const.proConf.locationLoad;
+
+            if (frmTai.Location.Y < 0) frmTai.Location = new Point(50, 50);
             frmTai.Show();
         }
         // Sau khi chon project thi bao len laf da chon

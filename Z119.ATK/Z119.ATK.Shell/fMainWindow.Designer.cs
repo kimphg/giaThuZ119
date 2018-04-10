@@ -33,7 +33,6 @@
             this.tsmenuItemProject = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemProjectOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmenuItemProjectExit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemControl = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemControlOxilo = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmenuItemControlPower = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,8 +63,7 @@
             // 
             this.tsmenuItemProject.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmenuItemProjectOpen,
-            this.saveToolStripMenuItem,
-            this.tsmenuItemProjectExit});
+            this.saveToolStripMenuItem});
             this.tsmenuItemProject.Name = "tsmenuItemProject";
             this.tsmenuItemProject.Size = new System.Drawing.Size(63, 25);
             this.tsmenuItemProject.Text = "Dự án";
@@ -73,22 +71,16 @@
             // tsmenuItemProjectOpen
             // 
             this.tsmenuItemProjectOpen.Name = "tsmenuItemProjectOpen";
-            this.tsmenuItemProjectOpen.Size = new System.Drawing.Size(135, 26);
+            this.tsmenuItemProjectOpen.Size = new System.Drawing.Size(152, 26);
             this.tsmenuItemProjectOpen.Text = "Mở/Tạo";
             this.tsmenuItemProjectOpen.Click += new System.EventHandler(this.tsmenuItemProjectOpen_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(135, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.saveToolStripMenuItem.Text = "Lưu";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click_1);
-            // 
-            // tsmenuItemProjectExit
-            // 
-            this.tsmenuItemProjectExit.Name = "tsmenuItemProjectExit";
-            this.tsmenuItemProjectExit.Size = new System.Drawing.Size(135, 26);
-            this.tsmenuItemProjectExit.Text = "Thoát";
             // 
             // tsmenuItemControl
             // 
@@ -184,7 +176,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemHelp;
         private System.Windows.Forms.ToolStripMenuItem loadControllerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tsmenuItemProjectExit;
         private System.Windows.Forms.ToolStripMenuItem tsmenuItemControlCheck;
     }
 }

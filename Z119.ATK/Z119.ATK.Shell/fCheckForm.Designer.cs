@@ -908,14 +908,14 @@
             // mởToolStripMenuItem
             // 
             this.mởToolStripMenuItem.Name = "mởToolStripMenuItem";
-            this.mởToolStripMenuItem.Size = new System.Drawing.Size(106, 26);
+            this.mởToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.mởToolStripMenuItem.Text = "Mở";
             this.mởToolStripMenuItem.Click += new System.EventHandler(this.mởToolStripMenuItem_Click);
             // 
             // lưuToolStripMenuItem
             // 
             this.lưuToolStripMenuItem.Name = "lưuToolStripMenuItem";
-            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(106, 26);
+            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.lưuToolStripMenuItem.Text = "Lưu";
             this.lưuToolStripMenuItem.Click += new System.EventHandler(this.lưuToolStripMenuItem_Click);
             // 
