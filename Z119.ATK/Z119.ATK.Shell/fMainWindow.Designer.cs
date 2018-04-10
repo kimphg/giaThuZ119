@@ -135,6 +135,7 @@
             this.tsmenuItemControlCheck.Name = "tsmenuItemControlCheck";
             this.tsmenuItemControlCheck.Size = new System.Drawing.Size(238, 26);
             this.tsmenuItemControlCheck.Text = "Chương trình kiểm  tra";
+            this.tsmenuItemControlCheck.Click += new System.EventHandler(this.tsmenuItemControlCheck_Click_1);
             // 
             // tsmenuItemSystem
             // 

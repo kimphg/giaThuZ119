@@ -35,6 +35,7 @@ namespace Z119.ATK.Shell
         {
             add { _stopAll += value; }
             remove { _stopAll -= value; }
+            
         }
         
         public fCheckForm(Form parent )
@@ -43,6 +44,8 @@ namespace Z119.ATK.Shell
             _checkManager = new CheckManager();
             this.MdiParent = parent;
             splitContainer2.SplitterDistance = splitContainer2.Width / 2;
+            this.FormClosing += fCheckForm_FormClosing;
+            label1.Text += " " + Z119.ATK.Common.Const.projectName;
             if (Z119.ATK.Common.Const.isAdmin)
             {
                 txbVolSt.Enabled = true;
@@ -117,6 +120,11 @@ namespace Z119.ATK.Shell
             //
             listBox1.MouseDoubleClick += listBox1_MouseDoubleClick;
             
+        }
+
+        void fCheckForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ;
         }
 
         void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -577,7 +585,7 @@ namespace Z119.ATK.Shell
                     return;
                 }
             }
-            else if (label_kl_voltage.Text == "Đạt" && label_kl_amp.Text == "Đạt")
+            else if (label_kl_voltage.Text == "Đạt" && label_kl_amp.Text == "Đạt" && label_kl_noise.Text=="Đạt")
             {
                 if (MessageBox.Show("Kết quả đo đạt yêu cầu, chuyển bước tiếp theo?", "Chuyển bước", MessageBoxButtons.YesNo) == DialogResult.No) return;
                 int index = listBox1.FindString(comboBoxStepNext.Text);
@@ -630,6 +638,16 @@ namespace Z119.ATK.Shell
             this.SaveData();
 
         }
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
+        }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string key = listBox1.GetItemText(listBox1.SelectedItem);
@@ -647,7 +665,7 @@ namespace Z119.ATK.Shell
                     this.label5.Text = "Tên thao tác:";
                     this.comboBoxStepFail.Hide();// = "N/A";
                     label11.Hide();
-                    this.comboBoxStepFail.Text = "N/A";
+                    //this.comboBoxStepFail.Text = "N/A";
                 }
                 else 
                 {
@@ -664,7 +682,7 @@ namespace Z119.ATK.Shell
         private void button7_Click(object sender, EventArgs e)
         {
             SaveStep();
-            UpdateList();
+           // UpdateList();
         }
 
         private void SaveStep()
@@ -683,23 +701,23 @@ namespace Z119.ATK.Shell
 
         private void comboBoxStepNext_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //SaveStep();
+            SaveStep();
         }
 
         private void comboBoxStepFail_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //SaveStep();
+            SaveStep();
         }
 
         private void textBoxStepMota_TextChanged(object sender, EventArgs e)
         {
-            //SaveStep();
+            SaveStep();
         }
 
         private void comboBoxStepPoint_SelectedIndexChanged(object sender, EventArgs e)
         {
             //UpdateList();
-            //SaveStep();
+            SaveStep();
         }
 
         private void thưMụcToolStripMenuItem_Click(object sender, EventArgs e)
@@ -725,6 +743,7 @@ namespace Z119.ATK.Shell
             if (listBox1.SelectedIndex == 0) return;
             string key = listBox1.GetItemText(listBox1.SelectedItem);
             string keynext = listBox1.GetItemText(listBox1.Items[listBox1.SelectedIndex - 1]);
+            listBox1.SetSelected(listBox1.SelectedIndex - 1, true);
             SwapItems(key, keynext);
             UpdateList();
             
@@ -735,6 +754,7 @@ namespace Z119.ATK.Shell
             if (listBox1.SelectedIndex == listBox1.Items.Count) return;
             string key = listBox1.GetItemText(listBox1.SelectedItem);
             string keynext = listBox1.GetItemText(listBox1.Items[listBox1.SelectedIndex + 1]);
+            listBox1.SetSelected(listBox1.SelectedIndex + 1, true);
             SwapItems(key, keynext);
             
             UpdateList();
@@ -799,6 +819,11 @@ namespace Z119.ATK.Shell
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxStepMota_TextChanged_1(object sender, EventArgs e)
         {
 
         }

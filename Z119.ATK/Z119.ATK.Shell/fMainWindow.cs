@@ -42,6 +42,7 @@ namespace Z119.ATK.Shell
         {
             //throw new NotImplementedException();
             frmPower.OffPowerAll();
+            frmPower.Disconnect();
             frmTai.OffLoad();
         }
 
@@ -182,7 +183,54 @@ namespace Z119.ATK.Shell
         fSwitchForm frmSwitch;
         fLoadForm frmTai;
         fCheckForm fcheck;
+        private void createPowerForm()
+        {
+            frmPower = new fPower1();
+            frmPower.FormClosing += FrmPower_FormClosing;
+            frmPower.MdiParent = this;
+            frmPower.LoadData();//todo here
+            frmPower.WindowState = FormWindowState.Normal;
+            frmPower.StartPosition = FormStartPosition.Manual;
+            frmPower.Location = Common.Const.proConf.locationPower;
+            frmPower.Show();
+        }
+        private void createCheckForm()
+        {
+            fcheck = new fCheckForm(this);
+            fcheck.FormClosing += Fcheck_FormClosing;
+            fcheck.MdiParent = this;
+            fcheck.LoadData();//todo here
+            fcheck.WindowState = FormWindowState.Normal;
+            fcheck.StartPosition = FormStartPosition.Manual;
+            fcheck.Location = Common.Const.proConf.locationCheck;
+            if (fcheck.Location == new Point(0, 0)) fcheck.Location = new Point(40, 50);
+            fcheck.StartAll += fcheck_StartAll;
+            fcheck.StopAll += fcheck_StopAll;
+            fcheck.Show();
+        }
+        private void createSwitchForm()
+        {
+            frmSwitch = new fSwitchForm();
+            frmSwitch.FormClosing += FrmSwitch_FormClosing;
+            frmSwitch.MdiParent = this;
+            frmSwitch.WindowState = FormWindowState.Normal;
+            frmSwitch.StartPosition = FormStartPosition.Manual;
+            frmSwitch.Location = Common.Const.proConf.locationSwitch;
+            frmSwitch.LoadData();//todo here
+            frmSwitch.Show();
+        }
+        private void createLoadForm()
+        {
+            frmTai = new fLoadForm();
+            frmTai.FormClosing += FrmTai_FormClosing;
+            frmTai.MdiParent = this;
+            frmTai.LoadData();//todo here
+            frmTai.WindowState = FormWindowState.Normal;
+            frmTai.StartPosition = FormStartPosition.Manual;
 
+            frmTai.Location = Common.Const.proConf.locationLoad;
+            frmTai.Show();
+        }
         // Sau khi chon project thi bao len laf da chon
         void Init(object sender, EventArgs e)
         {
@@ -199,57 +247,14 @@ namespace Z119.ATK.Shell
             if (fcheck != null)
                 fcheck.Close();
             
-            //MessageBox.Show("Đã chọn dự án");
+            createSwitchForm();
+            createLoadForm();
+            createPowerForm();
+            createCheckForm();
 
-             frmPower = new fPower1();//Z119.ATK.Common.ProjectManager.LoadObject<fPower1>("fPower1"); 
-            frmSwitch = new fSwitchForm();//frmSwitch = Z119.ATK.Common.ProjectManager.LoadObject<fSwitchForm>("fSwitchForm");//new fSwitchForm();
-             //frmSwitch = new fSwitchForm();
-             frmTai = new fLoadForm(); //frmTai = Z119.ATK.Common.ProjectManager.LoadObject<fLoadForm>("fLoadForm");
-             fcheck = new fCheckForm(this); //fcheck = Z119.ATK.Common.ProjectManager.LoadObject<fCheckForm>("fCheckForm");
-
-            frmPower.FormClosing += FrmPower_FormClosing;
-            frmSwitch.FormClosing += FrmSwitch_FormClosing;
-            frmTai.FormClosing += FrmTai_FormClosing;
-            fcheck.FormClosing += Fcheck_FormClosing;
-
-            frmPower.LoadData();
-            frmSwitch.LoadData();//todo here
-            frmTai.LoadData();
-            fcheck.LoadData();
-
-            frmPower.MdiParent = this;
-            frmSwitch.MdiParent = this;
-            frmTai.MdiParent = this;
-            fcheck.MdiParent = this;
-
-            
-            frmPower.Location = Common.Const.proConf.locationPower;
-            frmPower.Show();
-
-            frmSwitch.WindowState = FormWindowState.Normal;
-            frmSwitch.StartPosition = FormStartPosition.Manual;
-            
-            frmSwitch.Location = Common.Const.proConf.locationSwitch;
-            if (frmSwitch.Location == new Point(0,0)) frmSwitch.Location  = new Point(929, 0);
-            frmSwitch.Show();
-
-            frmTai.WindowState = FormWindowState.Normal;
-            frmTai.StartPosition = FormStartPosition.Manual;
-            
-            frmTai.Location = Common.Const.proConf.locationLoad;
-            if (frmTai.Location == new Point(0, 0)) frmTai.Location = new Point(1300, 0);
-            frmTai.Show();
-
-            fcheck.WindowState = FormWindowState.Normal;
-            fcheck.StartPosition = FormStartPosition.Manual;
-            fcheck.Show();
-            
-            fcheck.Location = Common.Const.proConf.locationCheck;
-            if (fcheck.Location == new Point(0, 0)) fcheck.Location = new Point(40, 50);
-            fcheck.StartAll += fcheck_StartAll;
-            fcheck.StopAll += fcheck_StopAll;
             // newcode start
-            
+            frmPower.OffPowerAll();
+            frmTai.OffLoad();
         }
 
         private void Fcheck_FormClosing(object sender, FormClosingEventArgs e)
@@ -380,16 +385,17 @@ namespace Z119.ATK.Shell
             Form fc = Application.OpenForms["fSwitchForm"];
             if (fc == null)
             {
-                fSwitchForm fswitch = new fSwitchForm();
-                frmSwitch.FormClosing += FrmSwitch_FormClosing;
-                fswitch.MdiParent = this;
-                fswitch.Show();
+                createSwitchForm();
+                
             }
             else
             {
+                fc.Show();
                 fc.BringToFront();
             }
         }
+
+        
 
         private void tsmenuItemControlCheck_Click(object sender, EventArgs e)
         {
@@ -401,10 +407,12 @@ namespace Z119.ATK.Shell
                 fCheckForm fcheck = new fCheckForm(this);
                 fcheck.FormClosing += Fcheck_FormClosing;
                 fcheck.MdiParent = this;
+                
                 fcheck.Show();
             }
             else
             {
+                fc.Show();
                 fc.BringToFront();
             }
         }
@@ -424,6 +432,7 @@ namespace Z119.ATK.Shell
             }
             else
             {
+                fc.Show();
                 fc.BringToFront();
             }
         }
@@ -462,6 +471,7 @@ namespace Z119.ATK.Shell
             }
             else
             {
+                fc.Show();
                 fc.BringToFront();
             }
         }
@@ -587,6 +597,11 @@ namespace Z119.ATK.Shell
         }
 
         private void saveToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tsmenuItemControlCheck_Click_1(object sender, EventArgs e)
         {
 
         }

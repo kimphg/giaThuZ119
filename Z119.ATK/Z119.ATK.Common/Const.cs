@@ -141,5 +141,6 @@ namespace Z119.ATK.Common
         public static bool IsWaitForLRLocation = false;
         public static string FILE_ELE_DATA = "element_data.xml";
         public static System.Windows.Forms.Form mainForm;
+        public static string projectName;
     }
 }

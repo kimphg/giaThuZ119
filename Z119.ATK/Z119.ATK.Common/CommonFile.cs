@@ -339,6 +339,8 @@ namespace Z119.ATK.Common
         {
             // Cập nhật lại path current
             Z119.ATK.Common.Const.PATH_CURRENT = profileList.SelectedItem.ToString();
+            string[] tmp = Z119.ATK.Common.Const.PATH_CURRENT.Split('\\');
+            if(tmp.Count()>0)Z119.ATK.Common.Const.projectName = tmp.ElementAt(tmp.Count()-1);
             initProject();
         }
         /// <summary>

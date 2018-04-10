@@ -41,26 +41,32 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txbVonErrMax = new System.Windows.Forms.TextBox();
-            this.txbAmpeSt = new System.Windows.Forms.TextBox();
-            this.txbAmpeRa = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txbVonRa = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txbVolSt = new System.Windows.Forms.TextBox();
-            this.txAmpErrMax = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label_kl_voltage = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label_kl_amp = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txVolErr = new System.Windows.Forms.TextBox();
-            this.txAmpErr = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.txbAmpeSt = new System.Windows.Forms.TextBox();
+            this.txAmpErrMax = new System.Windows.Forms.TextBox();
+            this.txbAmpeRa = new System.Windows.Forms.TextBox();
+            this.txAmpErr = new System.Windows.Forms.TextBox();
+            this.textNoiseSt = new System.Windows.Forms.TextBox();
+            this.textNoiseErrMax = new System.Windows.Forms.TextBox();
+            this.textNoiseMes = new System.Windows.Forms.TextBox();
+            this.textNoiseErr = new System.Windows.Forms.TextBox();
+            this.label_kl_amp = new System.Windows.Forms.Label();
+            this.label_kl_noise = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -82,7 +88,6 @@
             this.comboBoxStepNext = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.comboBoxStepFail = new System.Windows.Forms.ComboBox();
-            this.button7 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -95,12 +100,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.textNoiseSt = new System.Windows.Forms.TextBox();
-            this.textNoiseErrMax = new System.Windows.Forms.TextBox();
-            this.textNoiseMes = new System.Windows.Forms.TextBox();
-            this.textNoiseErr = new System.Windows.Forms.TextBox();
-            this.label_kl_noise = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -260,7 +259,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
             this.tableLayoutPanel1.Controls.Add(this.txbVonErrMax, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.txbVonRa, 3, 1);
@@ -312,29 +311,6 @@
             this.txbVonErrMax.TabIndex = 3;
             this.txbVonErrMax.Text = "0";
             // 
-            // txbAmpeSt
-            // 
-            this.txbAmpeSt.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbAmpeSt.Enabled = false;
-            this.txbAmpeSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbAmpeSt.Location = new System.Drawing.Point(114, 85);
-            this.txbAmpeSt.Margin = new System.Windows.Forms.Padding(2);
-            this.txbAmpeSt.Name = "txbAmpeSt";
-            this.txbAmpeSt.Size = new System.Drawing.Size(91, 24);
-            this.txbAmpeSt.TabIndex = 4;
-            this.txbAmpeSt.Text = "0";
-            // 
-            // txbAmpeRa
-            // 
-            this.txbAmpeRa.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txbAmpeRa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbAmpeRa.Location = new System.Drawing.Point(380, 85);
-            this.txbAmpeRa.Margin = new System.Windows.Forms.Padding(2);
-            this.txbAmpeRa.Name = "txbAmpeRa";
-            this.txbAmpeRa.Size = new System.Drawing.Size(107, 24);
-            this.txbAmpeRa.TabIndex = 8;
-            this.txbAmpeRa.Text = "0";
-            // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -384,18 +360,6 @@
             this.txbVolSt.TabIndex = 2;
             this.txbVolSt.Text = "0";
             // 
-            // txAmpErrMax
-            // 
-            this.txAmpErrMax.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txAmpErrMax.Enabled = false;
-            this.txAmpErrMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txAmpErrMax.Location = new System.Drawing.Point(240, 85);
-            this.txAmpErrMax.Margin = new System.Windows.Forms.Padding(2);
-            this.txAmpErrMax.Name = "txAmpErrMax";
-            this.txAmpErrMax.Size = new System.Drawing.Size(107, 24);
-            this.txAmpErrMax.TabIndex = 3;
-            this.txAmpErrMax.Text = "0";
-            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -433,19 +397,6 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "Kết luận";
             // 
-            // label_kl_amp
-            // 
-            this.label_kl_amp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label_kl_amp.AutoSize = true;
-            this.label_kl_amp.BackColor = System.Drawing.Color.IndianRed;
-            this.label_kl_amp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_kl_amp.Location = new System.Drawing.Point(642, 87);
-            this.label_kl_amp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label_kl_amp.Name = "label_kl_amp";
-            this.label_kl_amp.Size = new System.Drawing.Size(82, 20);
-            this.label_kl_amp.TabIndex = 10;
-            this.label_kl_amp.Text = "Không đạt";
-            // 
             // checkBox2
             // 
             this.checkBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -481,17 +432,6 @@
             this.txVolErr.Size = new System.Drawing.Size(107, 24);
             this.txVolErr.TabIndex = 7;
             // 
-            // txAmpErr
-            // 
-            this.txAmpErr.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txAmpErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txAmpErr.Location = new System.Drawing.Point(515, 85);
-            this.txAmpErr.Margin = new System.Windows.Forms.Padding(2);
-            this.txAmpErr.Name = "txAmpErr";
-            this.txAmpErr.ReadOnly = true;
-            this.txAmpErr.Size = new System.Drawing.Size(107, 24);
-            this.txAmpErr.TabIndex = 8;
-            // 
             // checkBox1
             // 
             this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -504,16 +444,26 @@
             this.checkBox1.Text = "Điện áp(V)";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // button12
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Location = new System.Drawing.Point(853, 85);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(83, 24);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Cập nhật";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button12.Location = new System.Drawing.Point(735, 31);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(99, 22);
+            this.button12.TabIndex = 13;
+            this.button12.Text = "Lấy giá trị Ura tải";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(3, 88);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(92, 17);
+            this.checkBox3.TabIndex = 11;
+            this.checkBox3.Text = "Dòng điện (A)";
+            this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // button9
             // 
@@ -537,15 +487,134 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // button12
+            // button2
             // 
-            this.button12.Location = new System.Drawing.Point(735, 31);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(99, 22);
-            this.button12.TabIndex = 13;
-            this.button12.Text = "Lấy giá trị Ura tải";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button2.Location = new System.Drawing.Point(853, 85);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(83, 24);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Cập nhật";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // txbAmpeSt
+            // 
+            this.txbAmpeSt.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txbAmpeSt.Enabled = false;
+            this.txbAmpeSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbAmpeSt.Location = new System.Drawing.Point(114, 85);
+            this.txbAmpeSt.Margin = new System.Windows.Forms.Padding(2);
+            this.txbAmpeSt.Name = "txbAmpeSt";
+            this.txbAmpeSt.Size = new System.Drawing.Size(91, 24);
+            this.txbAmpeSt.TabIndex = 4;
+            this.txbAmpeSt.Text = "0";
+            // 
+            // txAmpErrMax
+            // 
+            this.txAmpErrMax.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txAmpErrMax.Enabled = false;
+            this.txAmpErrMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txAmpErrMax.Location = new System.Drawing.Point(240, 85);
+            this.txAmpErrMax.Margin = new System.Windows.Forms.Padding(2);
+            this.txAmpErrMax.Name = "txAmpErrMax";
+            this.txAmpErrMax.Size = new System.Drawing.Size(107, 24);
+            this.txAmpErrMax.TabIndex = 3;
+            this.txAmpErrMax.Text = "0";
+            // 
+            // txbAmpeRa
+            // 
+            this.txbAmpeRa.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txbAmpeRa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbAmpeRa.Location = new System.Drawing.Point(380, 85);
+            this.txbAmpeRa.Margin = new System.Windows.Forms.Padding(2);
+            this.txbAmpeRa.Name = "txbAmpeRa";
+            this.txbAmpeRa.Size = new System.Drawing.Size(107, 24);
+            this.txbAmpeRa.TabIndex = 8;
+            this.txbAmpeRa.Text = "0";
+            // 
+            // txAmpErr
+            // 
+            this.txAmpErr.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txAmpErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txAmpErr.Location = new System.Drawing.Point(515, 85);
+            this.txAmpErr.Margin = new System.Windows.Forms.Padding(2);
+            this.txAmpErr.Name = "txAmpErr";
+            this.txAmpErr.ReadOnly = true;
+            this.txAmpErr.Size = new System.Drawing.Size(107, 24);
+            this.txAmpErr.TabIndex = 8;
+            // 
+            // textNoiseSt
+            // 
+            this.textNoiseSt.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textNoiseSt.Enabled = false;
+            this.textNoiseSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNoiseSt.Location = new System.Drawing.Point(114, 58);
+            this.textNoiseSt.Margin = new System.Windows.Forms.Padding(2);
+            this.textNoiseSt.Name = "textNoiseSt";
+            this.textNoiseSt.Size = new System.Drawing.Size(91, 24);
+            this.textNoiseSt.TabIndex = 4;
+            this.textNoiseSt.Text = "0";
+            // 
+            // textNoiseErrMax
+            // 
+            this.textNoiseErrMax.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textNoiseErrMax.Enabled = false;
+            this.textNoiseErrMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNoiseErrMax.Location = new System.Drawing.Point(240, 58);
+            this.textNoiseErrMax.Margin = new System.Windows.Forms.Padding(2);
+            this.textNoiseErrMax.Name = "textNoiseErrMax";
+            this.textNoiseErrMax.Size = new System.Drawing.Size(107, 24);
+            this.textNoiseErrMax.TabIndex = 3;
+            this.textNoiseErrMax.Text = "0";
+            // 
+            // textNoiseMes
+            // 
+            this.textNoiseMes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textNoiseMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNoiseMes.Location = new System.Drawing.Point(380, 58);
+            this.textNoiseMes.Margin = new System.Windows.Forms.Padding(2);
+            this.textNoiseMes.Name = "textNoiseMes";
+            this.textNoiseMes.Size = new System.Drawing.Size(107, 24);
+            this.textNoiseMes.TabIndex = 8;
+            this.textNoiseMes.Text = "0";
+            // 
+            // textNoiseErr
+            // 
+            this.textNoiseErr.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textNoiseErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textNoiseErr.Location = new System.Drawing.Point(515, 58);
+            this.textNoiseErr.Margin = new System.Windows.Forms.Padding(2);
+            this.textNoiseErr.Name = "textNoiseErr";
+            this.textNoiseErr.ReadOnly = true;
+            this.textNoiseErr.Size = new System.Drawing.Size(107, 24);
+            this.textNoiseErr.TabIndex = 8;
+            // 
+            // label_kl_amp
+            // 
+            this.label_kl_amp.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label_kl_amp.AutoSize = true;
+            this.label_kl_amp.BackColor = System.Drawing.Color.IndianRed;
+            this.label_kl_amp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_kl_amp.Location = new System.Drawing.Point(642, 87);
+            this.label_kl_amp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_kl_amp.Name = "label_kl_amp";
+            this.label_kl_amp.Size = new System.Drawing.Size(82, 20);
+            this.label_kl_amp.TabIndex = 10;
+            this.label_kl_amp.Text = "Không đạt";
+            // 
+            // label_kl_noise
+            // 
+            this.label_kl_noise.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label_kl_noise.AutoSize = true;
+            this.label_kl_noise.BackColor = System.Drawing.Color.IndianRed;
+            this.label_kl_noise.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_kl_noise.Location = new System.Drawing.Point(642, 59);
+            this.label_kl_noise.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_kl_noise.Name = "label_kl_noise";
+            this.label_kl_noise.Size = new System.Drawing.Size(82, 20);
+            this.label_kl_noise.TabIndex = 10;
+            this.label_kl_noise.Text = "Không đạt";
             // 
             // panel2
             // 
@@ -686,12 +755,11 @@
             this.flowLayoutPanel1.Controls.Add(this.comboBoxStepNext);
             this.flowLayoutPanel1.Controls.Add(this.label11);
             this.flowLayoutPanel1.Controls.Add(this.comboBoxStepFail);
-            this.flowLayoutPanel1.Controls.Add(this.button7);
             this.flowLayoutPanel1.Controls.Add(this.button10);
             this.flowLayoutPanel1.Controls.Add(this.button11);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(21, 525);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(19, 525);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(333, 248);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(337, 248);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
             // label5
@@ -709,7 +777,7 @@
             this.textBoxStepName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxStepName.Location = new System.Drawing.Point(3, 16);
             this.textBoxStepName.Name = "textBoxStepName";
-            this.textBoxStepName.Size = new System.Drawing.Size(286, 20);
+            this.textBoxStepName.Size = new System.Drawing.Size(321, 20);
             this.textBoxStepName.TabIndex = 2;
             // 
             // label6
@@ -728,15 +796,15 @@
             this.comboBoxStepPoint.FormattingEnabled = true;
             this.comboBoxStepPoint.Location = new System.Drawing.Point(59, 42);
             this.comboBoxStepPoint.Name = "comboBoxStepPoint";
-            this.comboBoxStepPoint.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxStepPoint.Size = new System.Drawing.Size(265, 21);
             this.comboBoxStepPoint.TabIndex = 1;
-            this.comboBoxStepPoint.SelectedIndexChanged += new System.EventHandler(this.comboBoxStepPoint_SelectedIndexChanged);
+            this.comboBoxStepPoint.LostFocus += new System.EventHandler(this.comboBoxStepPoint_SelectedIndexChanged);
             // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(186, 46);
+            this.label9.Location = new System.Drawing.Point(3, 66);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(37, 13);
             this.label9.TabIndex = 5;
@@ -745,18 +813,18 @@
             // textBoxStepMota
             // 
             this.textBoxStepMota.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBoxStepMota.Location = new System.Drawing.Point(3, 69);
+            this.textBoxStepMota.Location = new System.Drawing.Point(3, 82);
             this.textBoxStepMota.Multiline = true;
             this.textBoxStepMota.Name = "textBoxStepMota";
             this.textBoxStepMota.Size = new System.Drawing.Size(321, 69);
             this.textBoxStepMota.TabIndex = 3;
-            this.textBoxStepMota.TextChanged += new System.EventHandler(this.textBoxStepMota_TextChanged);
+            this.textBoxStepMota.LostFocus += new System.EventHandler(this.textBoxStepMota_TextChanged);
             // 
             // label10
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 148);
+            this.label10.Location = new System.Drawing.Point(3, 161);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(79, 13);
             this.label10.TabIndex = 6;
@@ -766,17 +834,17 @@
             // 
             this.comboBoxStepNext.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBoxStepNext.FormattingEnabled = true;
-            this.comboBoxStepNext.Location = new System.Drawing.Point(88, 144);
+            this.comboBoxStepNext.Location = new System.Drawing.Point(88, 157);
             this.comboBoxStepNext.Name = "comboBoxStepNext";
-            this.comboBoxStepNext.Size = new System.Drawing.Size(202, 21);
+            this.comboBoxStepNext.Size = new System.Drawing.Size(236, 21);
             this.comboBoxStepNext.TabIndex = 7;
-            this.comboBoxStepNext.SelectedIndexChanged += new System.EventHandler(this.comboBoxStepNext_SelectedIndexChanged);
+            this.comboBoxStepNext.LostFocus += new System.EventHandler(this.comboBoxStepNext_SelectedIndexChanged);
             // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 175);
+            this.label11.Location = new System.Drawing.Point(3, 188);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(142, 13);
             this.label11.TabIndex = 8;
@@ -786,39 +854,29 @@
             // 
             this.comboBoxStepFail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBoxStepFail.FormattingEnabled = true;
-            this.comboBoxStepFail.Location = new System.Drawing.Point(151, 171);
+            this.comboBoxStepFail.Location = new System.Drawing.Point(151, 184);
             this.comboBoxStepFail.Name = "comboBoxStepFail";
             this.comboBoxStepFail.Size = new System.Drawing.Size(173, 21);
             this.comboBoxStepFail.TabIndex = 9;
-            this.comboBoxStepFail.SelectedIndexChanged += new System.EventHandler(this.comboBoxStepFail_SelectedIndexChanged);
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(3, 198);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(111, 34);
-            this.button7.TabIndex = 10;
-            this.button7.Text = "Lưu";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.comboBoxStepFail.LostFocus += new System.EventHandler(this.comboBoxStepFail_SelectedIndexChanged);
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(120, 198);
+            this.button10.Location = new System.Drawing.Point(3, 211);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(88, 34);
+            this.button10.Size = new System.Drawing.Size(158, 34);
             this.button10.TabIndex = 11;
-            this.button10.Text = "Lên";
+            this.button10.Text = "Dịch vị trí lên";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(214, 198);
+            this.button11.Location = new System.Drawing.Point(167, 211);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(89, 34);
+            this.button11.Size = new System.Drawing.Size(157, 34);
             this.button11.TabIndex = 12;
-            this.button11.Text = "Xuống";
+            this.button11.Text = "Dịch vị trí xuống";
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
@@ -915,76 +973,6 @@
             this.timer3.Enabled = true;
             this.timer3.Interval = 15000;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(3, 88);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(92, 17);
-            this.checkBox3.TabIndex = 11;
-            this.checkBox3.Text = "Dòng điện (A)";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // textNoiseSt
-            // 
-            this.textNoiseSt.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textNoiseSt.Enabled = false;
-            this.textNoiseSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNoiseSt.Location = new System.Drawing.Point(114, 58);
-            this.textNoiseSt.Margin = new System.Windows.Forms.Padding(2);
-            this.textNoiseSt.Name = "textNoiseSt";
-            this.textNoiseSt.Size = new System.Drawing.Size(91, 24);
-            this.textNoiseSt.TabIndex = 4;
-            this.textNoiseSt.Text = "0";
-            // 
-            // textNoiseErrMax
-            // 
-            this.textNoiseErrMax.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textNoiseErrMax.Enabled = false;
-            this.textNoiseErrMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNoiseErrMax.Location = new System.Drawing.Point(240, 58);
-            this.textNoiseErrMax.Margin = new System.Windows.Forms.Padding(2);
-            this.textNoiseErrMax.Name = "textNoiseErrMax";
-            this.textNoiseErrMax.Size = new System.Drawing.Size(107, 24);
-            this.textNoiseErrMax.TabIndex = 3;
-            this.textNoiseErrMax.Text = "0";
-            // 
-            // textNoiseMes
-            // 
-            this.textNoiseMes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textNoiseMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNoiseMes.Location = new System.Drawing.Point(380, 58);
-            this.textNoiseMes.Margin = new System.Windows.Forms.Padding(2);
-            this.textNoiseMes.Name = "textNoiseMes";
-            this.textNoiseMes.Size = new System.Drawing.Size(107, 24);
-            this.textNoiseMes.TabIndex = 8;
-            this.textNoiseMes.Text = "0";
-            // 
-            // textNoiseErr
-            // 
-            this.textNoiseErr.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textNoiseErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNoiseErr.Location = new System.Drawing.Point(515, 58);
-            this.textNoiseErr.Margin = new System.Windows.Forms.Padding(2);
-            this.textNoiseErr.Name = "textNoiseErr";
-            this.textNoiseErr.ReadOnly = true;
-            this.textNoiseErr.Size = new System.Drawing.Size(107, 24);
-            this.textNoiseErr.TabIndex = 8;
-            // 
-            // label_kl_noise
-            // 
-            this.label_kl_noise.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label_kl_noise.AutoSize = true;
-            this.label_kl_noise.BackColor = System.Drawing.Color.IndianRed;
-            this.label_kl_noise.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_kl_noise.Location = new System.Drawing.Point(642, 59);
-            this.label_kl_noise.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label_kl_noise.Name = "label_kl_noise";
-            this.label_kl_noise.Size = new System.Drawing.Size(82, 20);
-            this.label_kl_noise.TabIndex = 10;
-            this.label_kl_noise.Text = "Không đạt";
             // 
             // fCheckForm
             // 
@@ -1088,7 +1076,6 @@
         private System.Windows.Forms.ComboBox comboBoxStepNext;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox comboBoxStepFail;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;

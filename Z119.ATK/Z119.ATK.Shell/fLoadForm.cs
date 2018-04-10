@@ -31,6 +31,7 @@ namespace Z119.ATK.Shell
 
             btnOnOff.BackgroundImage = Image.FromFile(Z119.ATK.Common.Const.ICON_POWER_OFF);
             btnOnOff.BackgroundImageLayout = ImageLayout.Stretch;
+            this.FormClosing += fLoadForm_FormClosing;
 
             #region GUI OFF
             lblReceiveVon.ForeColor = Color.Gray;
@@ -42,6 +43,19 @@ namespace Z119.ATK.Shell
             #endregion End GUI OFF
         }
 
+        void fLoadForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+        }
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
+        }
         public void ConnectCOMPort()
         {
             try
@@ -213,24 +227,24 @@ namespace Z119.ATK.Shell
             {
                 if (n == 1)
                 {
-                    string text = "000" + Double.Parse(input.Replace('.', ',')) + "000";
-                    if (text.IndexOf('.') < 0)
-                        text = text.Remove(text.Length - 3, 3) + ",000"; ;
-                    if (text.IndexOf('.') > 0)
-                        lblReceiveVon.Text = text.Substring(text.IndexOf('.') - 2, 5).Replace('.', ',');
+                    //string text = "000" + Double.Parse(input.Replace('.', ',')) + "000";
+                    //if (text.IndexOf('.') < 0)
+                        //text = text.Remove(text.Length - 3, 3) + ",000"; ;
+                    //if (input.IndexOf('.') > 0)
+                        lblReceiveVon.Text = input;//.Substring(input.IndexOf('.') - 2, 5).Replace('.', ',');
 
-                    Z119.ATK.Common.Const.VON_RA = Double.Parse(lblReceiveVon.Text).ToString();
+                        Z119.ATK.Common.Const.VON_RA = Double.Parse(lblReceiveVon.Text.Replace('.', ',')).ToString();
                 }
 
                 else if (n == 2)
                 {
-                    string text = "000" + Double.Parse(input.Replace('.', ',')) + "000";
-                    if (text.IndexOf(',') < 0)
-                        text = text.Remove(text.Length - 3, 3) + ",000"; ;
-                    if (text.IndexOf(',') > 0)
-                        lblReceiveAmpe.Text = text.Substring(text.IndexOf(',') - 2, 6).Replace(',', '.');
+                    //string text = "000" + Double.Parse(input.Replace('.', ',')) + "000";
+                   // if (text.IndexOf('.') < 0)
+                    //    text = text.Remove(text.Length - 3, 3) + ",000"; ;
+                   // if (input.IndexOf('.') > 0)
+                        lblReceiveAmpe.Text = input;//.Substring(input.IndexOf('.') - 2, 6).Replace('.', ',');
 
-                    Z119.ATK.Common.Const.AMPE_RA = lblReceiveAmpe.Text;
+                        Z119.ATK.Common.Const.AMPE_RA = Double.Parse(lblReceiveAmpe.Text.Replace('.', ',')).ToString();
                 }
                 else 
                 {
@@ -289,7 +303,7 @@ namespace Z119.ATK.Shell
         }
         public void OffLoad()
         {
-            timer1.Enabled = false;
+            //timer1.Enabled = false;
             try
             {
                 serialPort1.WriteLine(Z119.ATK.Common.Const.LOAD_OFFTAI);
@@ -371,7 +385,12 @@ namespace Z119.ATK.Shell
 
         private void button1_Click(object sender, EventArgs e)
         {
-            serialPort1.Write(textBox1.Text);
+            if (serialPort1.IsOpen) serialPort1.Write(textBox1.Text);
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+
         }
 
         

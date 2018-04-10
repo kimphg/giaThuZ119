@@ -892,33 +892,6 @@ namespace Z119.ATK.Shell
             catch (Exception)
             { }
 
-            try
-            {
-                _powerManager.Disconnection(1);
-            }
-            catch (Exception)
-            { }
-
-            try
-            {
-                _powerManager.Disconnection(2);
-            }
-            catch (Exception)
-            { }
-
-            try
-            {
-                _powerManager.Disconnection(3);
-            }
-            catch (Exception)
-            { }
-
-            try
-            {
-                _powerManager.Disconnection(4);
-            }
-            catch (Exception)
-            { }
         }
         public void OnOffPowerAll()
         {
@@ -2610,6 +2583,47 @@ namespace Z119.ATK.Shell
         private void lblStatusRangPower4_Click(object sender, EventArgs e)
         {
 
+        }
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
+        }
+        internal void Disconnect()
+        {
+
+            try
+            {
+                _powerManager.Disconnection(1);
+            }
+            catch (Exception)
+            { }
+
+            try
+            {
+                _powerManager.Disconnection(2);
+            }
+            catch (Exception)
+            { }
+
+            try
+            {
+                _powerManager.Disconnection(3);
+            }
+            catch (Exception)
+            { }
+
+            try
+            {
+                _powerManager.Disconnection(4);
+            }
+            catch (Exception)
+            { }
         }
     }
 }
