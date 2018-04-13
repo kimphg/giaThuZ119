@@ -52,18 +52,8 @@ namespace Z119.ATK.Shell
             MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                
-                Const.proConf.locationCheck = fcheck.Location;
-                fcheck.SaveData();
-                fScheme.SavePointList();
-                Const.proConf.locationPower = frmPower.Location;
-                 frmPower.SaveData();
-                 Const.proConf.locationSwitch = frmSwitch.Location;
-                 frmSwitch.SaveData();
-                 Const.proConf.locationLoad = frmTai.Location;
-                 frmTai.SaveData();
-                 Z119.ATK.Common.Const.projMan.SaveProjectConfig();
-                //Z119.ATK.Common.ProjectManager.SaveObject(this, Z119.ATK.Common.Const.FILE_MAINWINDOW);
+
+                saveEverything();
             }
             else if (result == DialogResult.No)
             {
@@ -327,6 +317,13 @@ namespace Z119.ATK.Shell
         #region MenuItem Project ===========================================
         private void tsmenuItemProjectOpen_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Bạn có muốn lưu phiên làm việc hiện tại vào dự án?", "Thoát dự án hiện tại",
+            MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+
+                saveEverything();
+            }
             
             Z119.ATK.Common.Const.projMan.LoadProject();
             Init(null,null);
@@ -337,6 +334,20 @@ namespace Z119.ATK.Shell
             frm.SelectedProject += frm_SelectedProject;
             frm.Tag = "Open";
             ShowForm(frm, "Open");*/
+        }
+
+        private void saveEverything()
+        {
+            Const.proConf.locationCheck = fcheck.Location;
+            fcheck.SaveData();
+            fScheme.SavePointList();
+            Const.proConf.locationPower = frmPower.Location;
+            frmPower.SaveData();
+            Const.proConf.locationSwitch = frmSwitch.Location;
+            frmSwitch.SaveData();
+            Const.proConf.locationLoad = frmTai.Location;
+            frmTai.SaveData();
+            Z119.ATK.Common.Const.projMan.SaveProjectConfig();
         }
         //#endregion
 

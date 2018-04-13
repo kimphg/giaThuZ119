@@ -40,6 +40,7 @@ namespace Z119.ATK.Shell
 
             btnOnOff.BackgroundImage = Image.FromFile(Z119.ATK.Common.Const.ICON_POWER_OFF);
             btnOnOff.BackgroundImageLayout = ImageLayout.Stretch;
+            this.FormClosed +=fSwitchForm_FormClosed;
             this.LoadData();
             ConnectCOMPort();
         }

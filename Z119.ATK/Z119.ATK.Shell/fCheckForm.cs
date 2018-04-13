@@ -45,6 +45,7 @@ namespace Z119.ATK.Shell
             this.MdiParent = parent;
             splitContainer2.SplitterDistance = splitContainer2.Width / 2;
             this.FormClosing += fCheckForm_FormClosing;
+            fScheme.isPointChanged = true;
             label1.Text += " " + Z119.ATK.Common.Const.projectName;
             if (Z119.ATK.Common.Const.isAdmin)
             {
@@ -124,7 +125,7 @@ namespace Z119.ATK.Shell
 
         void fCheckForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ;
+            
         }
 
         void listBox1_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -234,7 +235,7 @@ namespace Z119.ATK.Shell
                         txbAmpeRa.Text = p.mAmpMes.ToString("0.00");
                         txAmpErr.Text = p.mAmpErr.ToString("0.00");
                         txbVolSt.Text = p.mVolSt.ToString("0.00");
-                        txbVonErrMax.Text = p.mAmpErrMax.ToString("0.00");
+                        txbVonErrMax.Text = p.mVolErrMax.ToString("0.00");
                         txbVonRa.Text = p.mVolMes.ToString("0.00");
                         txVolErr.Text = p.mVolErr.ToString("0.00");
 
@@ -442,7 +443,7 @@ namespace Z119.ATK.Shell
                         p.mAmpMes = Double.Parse(txbAmpeRa.Text);
                         p.mAmpErr = Double.Parse(txAmpErr.Text);
                         p.mVolSt = Double.Parse(txbVolSt.Text);
-                        p.mAmpErrMax = Double.Parse(txbVonErrMax.Text);
+                        p.mVolErrMax = Double.Parse(txbVonErrMax.Text);
                         p.mVolMes = Double.Parse(txbVonRa.Text);
                         p.mVolErr = Double.Parse(txVolErr.Text);
 
@@ -679,19 +680,23 @@ namespace Z119.ATK.Shell
             //UpdateList();
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            SaveStep();
-           // UpdateList();
-        }
-
+    
         private void SaveStep()
         {
             string key = listBox1.GetItemText(listBox1.SelectedItem);
             StepItem value = FindItem(key);
             if (value != null)
             {
-                value.mName = textBoxStepName.Text;
+                if (value.mName != textBoxStepName.Text)
+                {
+                    foreach (StepItem step in Const.stepList)
+                    {
+                        if (step.mNextTrue == value.mName) step.mNextTrue = textBoxStepName.Text;
+                        if (step.mNextFalse == value.mName) step.mNextFalse = textBoxStepName.Text;
+                    }
+                    value.mName = textBoxStepName.Text;
+                    UpdateList();
+                }
                 value.mDescription = textBoxStepMota.Text;
                 value.mPoint = this.comboBoxStepPoint.Text;
                 value.mNextTrue = comboBoxStepNext.Text;
@@ -719,7 +724,10 @@ namespace Z119.ATK.Shell
             //UpdateList();
             SaveStep();
         }
-
+        private void textBoxStepName_LostFocus(object sender, System.EventArgs e)
+        {
+            SaveStep();
+        }
         private void thưMụcToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -823,7 +831,13 @@ namespace Z119.ATK.Shell
 
         }
 
-        private void textBoxStepMota_TextChanged_1(object sender, EventArgs e)
+
+        private void comboBoxStepNext_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxStepMota_TextChanged_2(object sender, EventArgs e)
         {
 
         }

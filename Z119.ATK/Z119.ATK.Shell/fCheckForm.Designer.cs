@@ -654,7 +654,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.93333F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.06667F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 261F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 377F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(376, 780);
             this.tableLayoutPanel2.TabIndex = 6;
             // 
@@ -673,7 +673,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(370, 76);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(370, 57);
             this.tableLayoutPanel3.TabIndex = 7;
             // 
             // button3
@@ -681,7 +681,7 @@
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button3.Location = new System.Drawing.Point(3, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(163, 32);
+            this.button3.Size = new System.Drawing.Size(163, 22);
             this.button3.TabIndex = 1;
             this.button3.Text = "Thêm thao tác";
             this.button3.UseVisualStyleBackColor = true;
@@ -690,9 +690,9 @@
             // button6
             // 
             this.button6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button6.Location = new System.Drawing.Point(172, 41);
+            this.button6.Location = new System.Drawing.Point(172, 31);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(195, 32);
+            this.button6.Size = new System.Drawing.Size(195, 23);
             this.button6.TabIndex = 4;
             this.button6.Text = "Tiếp tục";
             this.button6.UseVisualStyleBackColor = true;
@@ -703,7 +703,7 @@
             this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button4.Location = new System.Drawing.Point(172, 3);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(195, 32);
+            this.button4.Size = new System.Drawing.Size(195, 22);
             this.button4.TabIndex = 2;
             this.button4.Text = "Thêm điều kiện";
             this.button4.UseVisualStyleBackColor = true;
@@ -712,9 +712,9 @@
             // button5
             // 
             this.button5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button5.Location = new System.Drawing.Point(3, 41);
+            this.button5.Location = new System.Drawing.Point(3, 31);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(163, 32);
+            this.button5.Size = new System.Drawing.Size(163, 23);
             this.button5.TabIndex = 3;
             this.button5.Text = "Xóa";
             this.button5.UseVisualStyleBackColor = true;
@@ -736,9 +736,9 @@
             // 
             this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(3, 115);
+            this.listBox1.Location = new System.Drawing.Point(3, 96);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(370, 400);
+            this.listBox1.Size = new System.Drawing.Size(370, 303);
             this.listBox1.TabIndex = 8;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -757,9 +757,9 @@
             this.flowLayoutPanel1.Controls.Add(this.comboBoxStepFail);
             this.flowLayoutPanel1.Controls.Add(this.button10);
             this.flowLayoutPanel1.Controls.Add(this.button11);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(19, 525);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 409);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(337, 248);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(370, 364);
             this.flowLayoutPanel1.TabIndex = 9;
             // 
             // label5
@@ -777,7 +777,7 @@
             this.textBoxStepName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxStepName.Location = new System.Drawing.Point(3, 16);
             this.textBoxStepName.Name = "textBoxStepName";
-            this.textBoxStepName.Size = new System.Drawing.Size(321, 20);
+            this.textBoxStepName.Size = new System.Drawing.Size(364, 20);
             this.textBoxStepName.TabIndex = 2;
             // 
             // label6
@@ -796,7 +796,7 @@
             this.comboBoxStepPoint.FormattingEnabled = true;
             this.comboBoxStepPoint.Location = new System.Drawing.Point(59, 42);
             this.comboBoxStepPoint.Name = "comboBoxStepPoint";
-            this.comboBoxStepPoint.Size = new System.Drawing.Size(265, 21);
+            this.comboBoxStepPoint.Size = new System.Drawing.Size(308, 21);
             this.comboBoxStepPoint.TabIndex = 1;
             this.comboBoxStepPoint.LostFocus += new System.EventHandler(this.comboBoxStepPoint_SelectedIndexChanged);
             // 
@@ -816,15 +816,16 @@
             this.textBoxStepMota.Location = new System.Drawing.Point(3, 82);
             this.textBoxStepMota.Multiline = true;
             this.textBoxStepMota.Name = "textBoxStepMota";
-            this.textBoxStepMota.Size = new System.Drawing.Size(321, 69);
+            this.textBoxStepMota.Size = new System.Drawing.Size(364, 187);
             this.textBoxStepMota.TabIndex = 3;
+            this.textBoxStepMota.TextChanged += new System.EventHandler(this.textBoxStepMota_TextChanged_2);
             this.textBoxStepMota.LostFocus += new System.EventHandler(this.textBoxStepMota_TextChanged);
             // 
             // label10
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 161);
+            this.label10.Location = new System.Drawing.Point(3, 279);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(79, 13);
             this.label10.TabIndex = 6;
@@ -834,17 +835,18 @@
             // 
             this.comboBoxStepNext.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBoxStepNext.FormattingEnabled = true;
-            this.comboBoxStepNext.Location = new System.Drawing.Point(88, 157);
+            this.comboBoxStepNext.Location = new System.Drawing.Point(88, 275);
             this.comboBoxStepNext.Name = "comboBoxStepNext";
-            this.comboBoxStepNext.Size = new System.Drawing.Size(236, 21);
+            this.comboBoxStepNext.Size = new System.Drawing.Size(279, 21);
             this.comboBoxStepNext.TabIndex = 7;
+            this.comboBoxStepNext.SelectedIndexChanged += new System.EventHandler(this.comboBoxStepNext_SelectedIndexChanged_1);
             this.comboBoxStepNext.LostFocus += new System.EventHandler(this.comboBoxStepNext_SelectedIndexChanged);
             // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(3, 188);
+            this.label11.Location = new System.Drawing.Point(3, 306);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(142, 13);
             this.label11.TabIndex = 8;
@@ -854,15 +856,15 @@
             // 
             this.comboBoxStepFail.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.comboBoxStepFail.FormattingEnabled = true;
-            this.comboBoxStepFail.Location = new System.Drawing.Point(151, 184);
+            this.comboBoxStepFail.Location = new System.Drawing.Point(151, 302);
             this.comboBoxStepFail.Name = "comboBoxStepFail";
-            this.comboBoxStepFail.Size = new System.Drawing.Size(173, 21);
+            this.comboBoxStepFail.Size = new System.Drawing.Size(216, 21);
             this.comboBoxStepFail.TabIndex = 9;
             this.comboBoxStepFail.LostFocus += new System.EventHandler(this.comboBoxStepFail_SelectedIndexChanged);
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(3, 211);
+            this.button10.Location = new System.Drawing.Point(3, 329);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(158, 34);
             this.button10.TabIndex = 11;
@@ -872,7 +874,7 @@
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(167, 211);
+            this.button11.Location = new System.Drawing.Point(167, 329);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(157, 34);
             this.button11.TabIndex = 12;
@@ -908,14 +910,14 @@
             // mởToolStripMenuItem
             // 
             this.mởToolStripMenuItem.Name = "mởToolStripMenuItem";
-            this.mởToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.mởToolStripMenuItem.Size = new System.Drawing.Size(106, 26);
             this.mởToolStripMenuItem.Text = "Mở";
             this.mởToolStripMenuItem.Click += new System.EventHandler(this.mởToolStripMenuItem_Click);
             // 
             // lưuToolStripMenuItem
             // 
             this.lưuToolStripMenuItem.Name = "lưuToolStripMenuItem";
-            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.lưuToolStripMenuItem.Size = new System.Drawing.Size(106, 26);
             this.lưuToolStripMenuItem.Text = "Lưu";
             this.lưuToolStripMenuItem.Click += new System.EventHandler(this.lưuToolStripMenuItem_Click);
             // 
@@ -1017,6 +1019,8 @@
             this.PerformLayout();
 
         }
+
+        
 
         #endregion
         private System.Windows.Forms.Panel panel3;
