@@ -324,7 +324,8 @@ namespace Z119.ATK.Shell
 
                 saveEverything();
             }
-            
+            else if (result == DialogResult.Cancel) return;
+
             Z119.ATK.Common.Const.projMan.LoadProject();
             Init(null,null);
             //Application.Run(Z119.ATK.Common.ProjectManager.LoadObject<fMainWindow>(Z119.ATK.Common.Const.FILE_MAINWINDOW));

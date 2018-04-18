@@ -71,14 +71,14 @@
             // tsmenuItemProjectOpen
             // 
             this.tsmenuItemProjectOpen.Name = "tsmenuItemProjectOpen";
-            this.tsmenuItemProjectOpen.Size = new System.Drawing.Size(152, 26);
+            this.tsmenuItemProjectOpen.Size = new System.Drawing.Size(135, 26);
             this.tsmenuItemProjectOpen.Text = "Mở/Tạo";
             this.tsmenuItemProjectOpen.Click += new System.EventHandler(this.tsmenuItemProjectOpen_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(135, 26);
             this.saveToolStripMenuItem.Text = "Lưu";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click_1);
             // 
@@ -105,7 +105,7 @@
             // 
             this.tsmenuItemControlPower.Name = "tsmenuItemControlPower";
             this.tsmenuItemControlPower.Size = new System.Drawing.Size(238, 26);
-            this.tsmenuItemControlPower.Text = "Nguồn";
+            this.tsmenuItemControlPower.Text = "Nguồn lập trình";
             this.tsmenuItemControlPower.Click += new System.EventHandler(this.tsmenuItemControlPower_Click);
             // 
             // tsmenuItemControlSwitch

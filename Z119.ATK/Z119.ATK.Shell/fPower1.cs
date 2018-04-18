@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -42,8 +43,8 @@ namespace Z119.ATK.Shell
             Initialize();
 
             Innitialize1();
-
-
+            btnSelectedPower1.BackColor =  Color.FromArgb(189, 227, 114);
+            ChoosePower("NG2");
             if (_runRequiredFromServer != null)
                 _runRequiredFromServer(this, null);
         }
@@ -936,7 +937,7 @@ namespace Z119.ATK.Shell
         /// </summary>
         public void ChoosePower(string chanel)
         {
-            if (chanel.Equals("CH1"))
+            if (chanel.Equals("NG2"))
             {
                 PowerSelected = 1;
 
@@ -964,7 +965,7 @@ namespace Z119.ATK.Shell
                 }
             }
 
-            else if (chanel.Equals("CH2"))
+            else if (chanel.Equals("NG3"))
             {
                 PowerSelected = 2;
 
@@ -991,7 +992,7 @@ namespace Z119.ATK.Shell
                     lblDescriptionLimitPower3.ForeColor = Color.FromArgb(43, 63, 54);
                 }
             }
-            else if (chanel.Equals("CH3"))
+            else if (chanel.Equals("NG4"))
             {
                 PowerSelected = 3;
 
@@ -1301,7 +1302,7 @@ namespace Z119.ATK.Shell
                                 if (PowerSelected == 1)
                                 {
                                     #region GUI *****************
-
+                                    string oldValue = lblVonSetPower1.Text ;
                                     string text = "000" + Double.Parse(txtResultPowerAddress2.Text.Replace('.', ',')) + "000";
                                     if (text.IndexOf(',') < 0)
                                         text = text.Remove(text.Length - 3, 3) + ",000"; ;
@@ -1317,9 +1318,19 @@ namespace Z119.ATK.Shell
                                     #region Handling **************
                                     if (_powerManager.PowerControlAddress2.StateChanel1 == Power.State.OFF)
                                         return;
-
                                     string von = lblVonSetPower1.Text;
                                     string ampe = lblAmpeSetPower1.Text;
+                                    string maxVon = lblDescriptionVonMaxPower1.Text;
+                                    maxVon = maxVon.Replace("V", "");
+                                    maxVon = maxVon.Replace('.', ',');
+
+                                    if (Double.Parse(von.Replace('.', ',')) > Double.Parse(maxVon))
+                                    {
+                                        MessageBox.Show("Giá trị điện áp ngoài dải cho phép.");
+                                        lblVonSetPower1.Text = oldValue;
+                                        return;
+                                    }
+                                
                                     _powerManager.PowerControlAddress2.SendPower(von, ampe, 2);
 
                                     #endregion EndHandling *******************
@@ -1329,7 +1340,7 @@ namespace Z119.ATK.Shell
                                 else if (PowerSelected == 2)
                                 {
                                     #region GUI ***********************
-
+                                    string oldValue = lblVonSetPower2.Text;
                                     string text = "000" + Double.Parse(txtResultPowerAddress2.Text.Replace('.', ',')) + "000";
                                     if (text.IndexOf(',') < 0)
                                         text = text.Remove(text.Length - 3, 3) + ",000"; ;
@@ -1345,9 +1356,19 @@ namespace Z119.ATK.Shell
                                     #region Handling **************
                                     if (_powerManager.PowerControlAddress2.StateChanel2 == Power.State.OFF)
                                         return;
-
                                     string von = lblVonSetPower2.Text;
                                     string ampe = lblAmpeSetPower2.Text;
+                                    string maxVon = lblDescriptionVonMaxPower2.Text;
+                                    maxVon = maxVon.Replace("V", "");
+                                    maxVon = maxVon.Replace('.', ',');
+
+                                    if (Double.Parse(von.Replace('.', ',')) > Double.Parse(maxVon))
+                                    {
+                                        MessageBox.Show("Giá trị điện áp ngoài dải cho phép.");
+                                        lblVonSetPower2.Text = oldValue;
+                                        return;
+                                    }
+                                    
                                     _powerManager.PowerControlAddress2.SendPower(von, ampe, 3);
 
                                     #endregion EndHandling *******************
@@ -1358,7 +1379,7 @@ namespace Z119.ATK.Shell
                                 else if (PowerSelected == 3)
                                 {
                                     #region GUI **********************
-
+                                    string oldValue = lblVonSetPower3.Text;
                                     string text = "000" + Double.Parse(txtResultPowerAddress2.Text.Replace('.', ',')) + "000";
                                     if (text.IndexOf(',') < 0)
                                         text = text.Remove(text.Length - 3, 3) + ",000"; ;
@@ -1377,6 +1398,16 @@ namespace Z119.ATK.Shell
 
                                     string von = lblVonSetPower3.Text;
                                     string ampe = lblAmpeSetPower3.Text;
+                                    string maxVon = lblDescriptionVonMaxPower3.Text;
+                                    maxVon = maxVon.Replace("V", "");
+                                    maxVon = maxVon.Replace('.', ',');
+
+                                    if (Double.Parse(von.Replace('.', ',')) > Double.Parse(maxVon))
+                                    {
+                                        MessageBox.Show("Giá trị điện áp ngoài dải cho phép.");
+                                        lblVonSetPower3.Text = oldValue;
+                                        return;
+                                    }
                                     _powerManager.PowerControlAddress2.SendPower(von, ampe, 4);
 
                                     #endregion EndHandling *******************
@@ -2077,7 +2108,7 @@ namespace Z119.ATK.Shell
                             {
                                 // Check selected to set Von
                                 #region GUI *****************
-
+                                string oldValue = lblVonSetPower4.Text;
                                 string text = "000" + Double.Parse(txtResultPowerAddress1.Text.Replace('.', ',')) + "000";
                                 if (text.IndexOf(',') < 0)
                                     text = text.Remove(text.Length - 3, 3) + ",000"; ;
@@ -2096,6 +2127,17 @@ namespace Z119.ATK.Shell
 
                                 string von = lblVonSetPower4.Text;
                                 string ampe = lblAmpeSetPower4.Text;
+                                string maxVon = lblDescriptionVonMaxPower4.Text;
+                                maxVon = maxVon.Replace("V", "");
+                                maxVon = maxVon.Replace('.', ',');
+
+                                if (Double.Parse(von.Replace('.', ',')) > Double.Parse(maxVon))
+                                {
+                                    MessageBox.Show("Giá trị điện áp ngoài dải cho phép.");
+                                    lblVonSetPower4.Text = oldValue;
+                                    return;
+                                }
+                                
                                 _powerManager.PowerControlAddress1.SendPower(von, ampe, 1);
 
                                 #endregion EndHandling *******************
@@ -2121,7 +2163,7 @@ namespace Z119.ATK.Shell
                             if (Double.Parse(txtResultPowerAddress1.Text) > 0)
                             {
                                 #region GUI ********************
-
+                                string oldValue = lblAmpeSetPower4.Text;
                                 string text = "000" + Double.Parse(txtResultPowerAddress1.Text.Replace('.', ',')) + "000";
                                 if (text.IndexOf(',') < 0)
                                     text = text.Remove(text.Length - 3, 3) + ",000"; ;
@@ -2140,8 +2182,18 @@ namespace Z119.ATK.Shell
 
                                 string von = lblVonSetPower4.Text;
                                 string ampe = lblAmpeSetPower4.Text;
-                                _powerManager.PowerControlAddress1.SendPower(von, ampe, 1);
+                                
+                                string maxAmp =this.lblDescriptionAmpeMaxPower4.Text;
+                                maxAmp = Regex.Replace(maxAmp, "A", "");
+                                maxAmp = maxAmp.Replace('.', ',');
 
+                                if (Double.Parse(ampe.Replace('.', ',')) > Double.Parse(maxAmp))
+                                {
+                                    MessageBox.Show("Giá trị dòng điện ngoài dải cho phép.");
+                                    lblAmpeSetPower4.Text = oldValue;
+                                    return;
+                                }
+                                _powerManager.PowerControlAddress1.SendPower(von, ampe, 1);
                                 #endregion EndHandling *******************
 
                                 return;
@@ -2273,6 +2325,8 @@ namespace Z119.ATK.Shell
                 lblDescriptionVonMaxPower4.Text = "20V";
                 lblDescriptionAmpeMaxPower4.Text = "10A";
                 lblLimitMinMaxPower4.Text = "20V\n10A";
+                lblVonLimitPower4.Text = "22V";
+                lblAmpeLimitPower4.Text = "11A";
             }
             else
             {
@@ -2282,6 +2336,8 @@ namespace Z119.ATK.Shell
                 lblDescriptionVonMaxPower4.Text = "40V";
                 lblDescriptionAmpeMaxPower4.Text = "5A";
                 lblLimitMinMaxPower4.Text = "40V\n5A";
+                lblVonLimitPower4.Text = "44V";
+                lblAmpeLimitPower4.Text = "5.5A";
             }
         }
 
@@ -2624,6 +2680,134 @@ namespace Z119.ATK.Shell
             }
             catch (Exception)
             { }
+        }
+
+        private void lblVonReceivePower4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (_powerManager.PowerControlAddress1.StateChanel1 == Power.State.ON)
+            {
+                string mVon = lblVonReceivePower4.Text;
+                string maxVon = lblVonLimitPower4.Text;
+                mVon = Regex.Replace(mVon, "V", "");
+                maxVon = Regex.Replace(maxVon, "V", "");
+                maxVon = maxVon.Replace('.', ',');
+                mVon = mVon.Replace('.', ',');
+                
+                if (Double.Parse(mVon) > Double.Parse(maxVon))
+                {
+                    OnOffPower4();
+                    MessageBox.Show("Điện áp vượt quá giá trị cho phép.");
+
+                }
+
+                string mAmp = this.lblAmpeReceivePower4.Text;
+                string maxAmp = this.lblAmpeLimitPower4.Text;
+                mAmp = Regex.Replace(mAmp, "A", "");
+                maxAmp = Regex.Replace(maxAmp, "A", "");
+                maxAmp = maxAmp.Replace('.', ',');
+                mAmp = mAmp.Replace('.', ',');
+                if (Double.Parse(mAmp) > Double.Parse(maxAmp))
+                {
+                    OnOffPower4();
+                    MessageBox.Show("Điện áp vượt quá giá trị cho phép.");
+                }
+            }
+            if (_powerManager.PowerControlAddress2.StateChanel1 == Power.State.ON)
+            {
+                string mVon = lblVonReceivePower1.Text;
+                string maxVon = lblVonLimitPower1.Text;
+                mVon = Regex.Replace(mVon, "V", "");
+                maxVon = Regex.Replace(maxVon, "V", "");
+                maxVon = maxVon.Replace('.', ',');
+                mVon = mVon.Replace('.', ',');
+
+                if (Double.Parse(mVon) > Double.Parse(maxVon))
+                {
+                    OnOffPower1();
+                    MessageBox.Show("Điện áp vượt quá giá trị cho phép.");
+
+                }
+
+                string mAmp = this.lblAmpeReceivePower1.Text;
+                string maxAmp = this.lblAmpeLimitPower1.Text;
+                mAmp = Regex.Replace(mAmp, "A", "");
+                maxAmp = Regex.Replace(maxAmp, "A", "");
+                maxAmp = maxAmp.Replace('.', ',');
+                mAmp = mAmp.Replace('.', ',');
+                if (Double.Parse(mAmp) > Double.Parse(maxAmp))
+                {
+                    OnOffPower1();
+                    MessageBox.Show("Điện áp vượt quá giá trị cho phép.");
+                }
+            }
+            if (_powerManager.PowerControlAddress2.StateChanel2 == Power.State.ON)
+            {
+                string mVon = lblVonReceivePower2.Text;
+                string maxVon = lblVonLimitPower2.Text;
+                mVon = Regex.Replace(mVon, "V", "");
+                maxVon = Regex.Replace(maxVon, "V", "");
+                maxVon = maxVon.Replace('.', ',');
+                mVon = mVon.Replace('.', ',');
+
+                if (Double.Parse(mVon) > Double.Parse(maxVon))
+                {
+                    OnOffPower2();
+                    MessageBox.Show("Điện áp vượt quá giá trị cho phép.");
+
+                }
+
+                string mAmp = this.lblAmpeReceivePower2.Text;
+                string maxAmp = this.lblAmpeLimitPower2.Text;
+                mAmp = Regex.Replace(mAmp, "A", "");
+                maxAmp = Regex.Replace(maxAmp, "A", "");
+                maxAmp = maxAmp.Replace('.', ',');
+                mAmp = mAmp.Replace('.', ',');
+                if (Double.Parse(mAmp) > Double.Parse(maxAmp))
+                {
+                    OnOffPower2();
+                    MessageBox.Show("Điện áp vượt quá giá trị cho phép.");
+                }
+            }
+            if (_powerManager.PowerControlAddress2.StateChanel3 == Power.State.ON)
+            {
+                string mVon = lblVonReceivePower3.Text;
+                string maxVon = lblVonLimitPower3.Text;
+                mVon = Regex.Replace(mVon, "V", "");
+                maxVon = Regex.Replace(maxVon, "V", "");
+                maxVon = maxVon.Replace('.', ',');
+                mVon = mVon.Replace('.', ',');
+
+                if (Double.Parse(mVon) > Double.Parse(maxVon))
+                {
+                    OnOffPower3();
+                    MessageBox.Show("Điện áp vượt quá giá trị cho phép.");
+
+                }
+
+                string mAmp = this.lblAmpeReceivePower3.Text;
+                string maxAmp = this.lblAmpeLimitPower3.Text;
+                mAmp = Regex.Replace(mAmp, "A", "");
+                maxAmp = Regex.Replace(maxAmp, "A", "");
+                maxAmp = maxAmp.Replace('.', ',');
+                mAmp = mAmp.Replace('.', ',');
+                if (Double.Parse(mAmp) > Double.Parse(maxAmp))
+                {
+                    OnOffPower3();
+                    MessageBox.Show("Điện áp vượt quá giá trị cho phép.");
+                }
+            }
+
+
+        }
+
+        private void lblVonLimitPower4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
