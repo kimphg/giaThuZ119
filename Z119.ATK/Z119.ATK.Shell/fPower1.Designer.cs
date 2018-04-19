@@ -214,6 +214,7 @@ namespace Z119.ATK.Shell
             this.lblAmpeReceivePower2 = new System.Windows.Forms.Label();
             this.lblWoatReceivePower1 = new System.Windows.Forms.Label();
             this.lblAmpeReceivePower1 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -374,6 +375,7 @@ namespace Z119.ATK.Shell
             // 
             this.panel15.BackColor = System.Drawing.Color.Transparent;
             this.panel15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel15.Controls.Add(this.label9);
             this.panel15.Controls.Add(this.btnRang2Power4);
             this.panel15.Controls.Add(this.btnRang1Power4);
             this.panel15.Controls.Add(this.btnResetLimitPower4);
@@ -773,7 +775,7 @@ namespace Z119.ATK.Shell
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(24, 26);
             this.label3.TabIndex = 32;
-            this.label3.Text = "3";
+            this.label3.Text = "4";
             // 
             // btnSelectedPower3
             // 
@@ -809,7 +811,7 @@ namespace Z119.ATK.Shell
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(24, 26);
             this.label2.TabIndex = 32;
-            this.label2.Text = "2";
+            this.label2.Text = "3";
             // 
             // btnVonLimitPower2
             // 
@@ -832,7 +834,8 @@ namespace Z119.ATK.Shell
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(24, 26);
             this.label1.TabIndex = 32;
-            this.label1.Text = "1";
+            this.label1.Text = "2";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnAmpeLimitPower1
             // 
@@ -2545,6 +2548,17 @@ namespace Z119.ATK.Shell
             this.lblAmpeReceivePower1.TabIndex = 3;
             this.lblAmpeReceivePower1.Text = "00.00";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(64, 214);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(24, 26);
+            this.label9.TabIndex = 36;
+            this.label9.Text = "1";
+            // 
             // fPower1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2565,6 +2579,7 @@ namespace Z119.ATK.Shell
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel15.ResumeLayout(false);
+            this.panel15.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.myPanel1.ResumeLayout(false);
@@ -2771,5 +2786,6 @@ namespace Z119.ATK.Shell
         private System.Windows.Forms.Label lblDescriptionNameOfPower1;
         private System.Windows.Forms.ToolStripMenuItem thuNhỏToolStripMenuItem;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label9;
     }
 }

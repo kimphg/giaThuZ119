@@ -2809,5 +2809,10 @@ namespace Z119.ATK.Shell
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
