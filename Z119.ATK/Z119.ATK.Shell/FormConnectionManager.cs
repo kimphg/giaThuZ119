@@ -27,8 +27,10 @@ namespace Z119.ATK.Shell
                     comboBox_switchControl.Text = Const.proConf.switchCtrl;
                 
             }
+            if (Z119.ATK.Common.Const.isPower1On) listBox3.Items.Add(Z119.ATK.Common.Const.PowerAddress1);
+            if (Z119.ATK.Common.Const.isPower2On) listBox3.Items.Add(Z119.ATK.Common.Const.PowerAddress2);
             //comboBox_powerControl.DataSource = listBox1.Items;
-            SharpVisaCLI.Program.List((inst) => { if (inst.Contains("USB"))listBox2.Items.Add(inst); });
+            SharpVisaCLI.Program.List((inst) => { if (inst.Contains("DS"))listBox2.Items.Add(inst); });//USB0::0x1AB1::0x0588::DS1ET183710912::INSTR
         }
 
         private void button1_Click(object sender, EventArgs e)

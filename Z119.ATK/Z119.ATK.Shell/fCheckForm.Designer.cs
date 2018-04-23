@@ -45,15 +45,11 @@
             this.txbVonRa = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txbVolSt = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label_kl_voltage = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txVolErr = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button12 = new System.Windows.Forms.Button();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -100,6 +96,10 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -253,29 +253,26 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 8;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 124F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 129F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 97F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 115F));
+            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.button8, 6, 2);
             this.tableLayoutPanel1.Controls.Add(this.txbVonErrMax, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.txbVonRa, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.txbVolSt, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label_kl_voltage, 5, 1);
             this.tableLayoutPanel1.Controls.Add(this.label7, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox2, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.txVolErr, 4, 1);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.button12, 6, 1);
-            this.tableLayoutPanel1.Controls.Add(this.checkBox3, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.button9, 6, 3);
-            this.tableLayoutPanel1.Controls.Add(this.button8, 6, 2);
             this.tableLayoutPanel1.Controls.Add(this.button2, 7, 3);
             this.tableLayoutPanel1.Controls.Add(this.txbAmpeSt, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.txAmpErrMax, 2, 3);
@@ -287,14 +284,17 @@
             this.tableLayoutPanel1.Controls.Add(this.textNoiseErr, 4, 2);
             this.tableLayoutPanel1.Controls.Add(this.label_kl_amp, 5, 3);
             this.tableLayoutPanel1.Controls.Add(this.label_kl_noise, 5, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label12, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label13, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label14, 0, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(952, 112);
             this.tableLayoutPanel1.TabIndex = 2;
@@ -304,7 +304,7 @@
             this.txbVonErrMax.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbVonErrMax.Enabled = false;
             this.txbVonErrMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbVonErrMax.Location = new System.Drawing.Point(240, 30);
+            this.txbVonErrMax.Location = new System.Drawing.Point(224, 30);
             this.txbVonErrMax.Margin = new System.Windows.Forms.Padding(2);
             this.txbVonErrMax.Name = "txbVonErrMax";
             this.txbVonErrMax.Size = new System.Drawing.Size(107, 24);
@@ -316,7 +316,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(226, 4);
+            this.label8.Location = new System.Drawing.Point(210, 4);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(135, 20);
@@ -328,7 +328,7 @@
             this.txbVonRa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbVonRa.Cursor = System.Windows.Forms.Cursors.Cross;
             this.txbVonRa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbVonRa.Location = new System.Drawing.Point(380, 30);
+            this.txbVonRa.Location = new System.Drawing.Point(361, 30);
             this.txbVonRa.Margin = new System.Windows.Forms.Padding(2);
             this.txbVonRa.Name = "txbVonRa";
             this.txbVonRa.Size = new System.Drawing.Size(107, 24);
@@ -340,7 +340,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(397, 4);
+            this.label3.Location = new System.Drawing.Point(378, 4);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 20);
@@ -353,24 +353,12 @@
             this.txbVolSt.BackColor = System.Drawing.SystemColors.HighlightText;
             this.txbVolSt.Enabled = false;
             this.txbVolSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbVolSt.Location = new System.Drawing.Point(114, 30);
+            this.txbVolSt.Location = new System.Drawing.Point(98, 30);
             this.txbVolSt.Margin = new System.Windows.Forms.Padding(2);
             this.txbVolSt.Name = "txbVolSt";
             this.txbVolSt.Size = new System.Drawing.Size(91, 24);
             this.txbVolSt.TabIndex = 2;
             this.txbVolSt.Text = "0";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(110, 4);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Giá trị chuẩn";
             // 
             // label_kl_voltage
             // 
@@ -378,7 +366,7 @@
             this.label_kl_voltage.AutoSize = true;
             this.label_kl_voltage.BackColor = System.Drawing.Color.YellowGreen;
             this.label_kl_voltage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_kl_voltage.Location = new System.Drawing.Point(666, 32);
+            this.label_kl_voltage.Location = new System.Drawing.Point(647, 32);
             this.label_kl_voltage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_kl_voltage.Name = "label_kl_voltage";
             this.label_kl_voltage.Size = new System.Drawing.Size(35, 20);
@@ -390,31 +378,19 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(650, 4);
+            this.label7.Location = new System.Drawing.Point(631, 4);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 20);
             this.label7.TabIndex = 9;
             this.label7.Text = "Kết luận";
             // 
-            // checkBox2
-            // 
-            this.checkBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(8, 60);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(82, 17);
-            this.checkBox2.TabIndex = 11;
-            this.checkBox2.Text = "Độ gợn(mV)";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
-            // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(508, 4);
+            this.label4.Location = new System.Drawing.Point(489, 4);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 20);
@@ -425,28 +401,16 @@
             // 
             this.txVolErr.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txVolErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txVolErr.Location = new System.Drawing.Point(515, 30);
+            this.txVolErr.Location = new System.Drawing.Point(496, 30);
             this.txVolErr.Margin = new System.Windows.Forms.Padding(2);
             this.txVolErr.Name = "txVolErr";
             this.txVolErr.ReadOnly = true;
             this.txVolErr.Size = new System.Drawing.Size(107, 24);
             this.txVolErr.TabIndex = 7;
             // 
-            // checkBox1
-            // 
-            this.checkBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.checkBox1.Location = new System.Drawing.Point(11, 33);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(76, 17);
-            this.checkBox1.TabIndex = 11;
-            this.checkBox1.Text = "Điện áp(V)";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(735, 31);
+            this.button12.Location = new System.Drawing.Point(716, 31);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(99, 22);
             this.button12.TabIndex = 13;
@@ -454,23 +418,12 @@
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
-            // checkBox3
-            // 
-            this.checkBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(3, 88);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(92, 17);
-            this.checkBox3.TabIndex = 11;
-            this.checkBox3.Text = "Dòng điện (A)";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
             // button9
             // 
             this.button9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button9.Location = new System.Drawing.Point(735, 85);
+            this.button9.Location = new System.Drawing.Point(716, 86);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(99, 24);
+            this.button9.Size = new System.Drawing.Size(99, 23);
             this.button9.TabIndex = 12;
             this.button9.Text = "Lấy giá trị Ira tải ";
             this.button9.UseVisualStyleBackColor = true;
@@ -479,9 +432,9 @@
             // button8
             // 
             this.button8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button8.Location = new System.Drawing.Point(735, 59);
+            this.button8.Location = new System.Drawing.Point(716, 59);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(99, 20);
+            this.button8.Size = new System.Drawing.Size(99, 21);
             this.button8.TabIndex = 12;
             this.button8.Text = "Lấy giá trị Oxilo";
             this.button8.UseVisualStyleBackColor = true;
@@ -490,9 +443,9 @@
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Location = new System.Drawing.Point(853, 85);
+            this.button2.Location = new System.Drawing.Point(843, 86);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(83, 24);
+            this.button2.Size = new System.Drawing.Size(83, 23);
             this.button2.TabIndex = 3;
             this.button2.Text = "Cập nhật";
             this.button2.UseVisualStyleBackColor = true;
@@ -503,7 +456,7 @@
             this.txbAmpeSt.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbAmpeSt.Enabled = false;
             this.txbAmpeSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbAmpeSt.Location = new System.Drawing.Point(114, 85);
+            this.txbAmpeSt.Location = new System.Drawing.Point(98, 85);
             this.txbAmpeSt.Margin = new System.Windows.Forms.Padding(2);
             this.txbAmpeSt.Name = "txbAmpeSt";
             this.txbAmpeSt.Size = new System.Drawing.Size(91, 24);
@@ -515,7 +468,7 @@
             this.txAmpErrMax.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txAmpErrMax.Enabled = false;
             this.txAmpErrMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txAmpErrMax.Location = new System.Drawing.Point(240, 85);
+            this.txAmpErrMax.Location = new System.Drawing.Point(224, 85);
             this.txAmpErrMax.Margin = new System.Windows.Forms.Padding(2);
             this.txAmpErrMax.Name = "txAmpErrMax";
             this.txAmpErrMax.Size = new System.Drawing.Size(107, 24);
@@ -526,7 +479,7 @@
             // 
             this.txbAmpeRa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txbAmpeRa.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbAmpeRa.Location = new System.Drawing.Point(380, 85);
+            this.txbAmpeRa.Location = new System.Drawing.Point(361, 85);
             this.txbAmpeRa.Margin = new System.Windows.Forms.Padding(2);
             this.txbAmpeRa.Name = "txbAmpeRa";
             this.txbAmpeRa.Size = new System.Drawing.Size(107, 24);
@@ -537,7 +490,7 @@
             // 
             this.txAmpErr.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txAmpErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txAmpErr.Location = new System.Drawing.Point(515, 85);
+            this.txAmpErr.Location = new System.Drawing.Point(496, 85);
             this.txAmpErr.Margin = new System.Windows.Forms.Padding(2);
             this.txAmpErr.Name = "txAmpErr";
             this.txAmpErr.ReadOnly = true;
@@ -549,7 +502,7 @@
             this.textNoiseSt.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textNoiseSt.Enabled = false;
             this.textNoiseSt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNoiseSt.Location = new System.Drawing.Point(114, 58);
+            this.textNoiseSt.Location = new System.Drawing.Point(98, 58);
             this.textNoiseSt.Margin = new System.Windows.Forms.Padding(2);
             this.textNoiseSt.Name = "textNoiseSt";
             this.textNoiseSt.Size = new System.Drawing.Size(91, 24);
@@ -561,7 +514,7 @@
             this.textNoiseErrMax.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textNoiseErrMax.Enabled = false;
             this.textNoiseErrMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNoiseErrMax.Location = new System.Drawing.Point(240, 58);
+            this.textNoiseErrMax.Location = new System.Drawing.Point(224, 58);
             this.textNoiseErrMax.Margin = new System.Windows.Forms.Padding(2);
             this.textNoiseErrMax.Name = "textNoiseErrMax";
             this.textNoiseErrMax.Size = new System.Drawing.Size(107, 24);
@@ -572,7 +525,7 @@
             // 
             this.textNoiseMes.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textNoiseMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNoiseMes.Location = new System.Drawing.Point(380, 58);
+            this.textNoiseMes.Location = new System.Drawing.Point(361, 58);
             this.textNoiseMes.Margin = new System.Windows.Forms.Padding(2);
             this.textNoiseMes.Name = "textNoiseMes";
             this.textNoiseMes.Size = new System.Drawing.Size(107, 24);
@@ -583,7 +536,7 @@
             // 
             this.textNoiseErr.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textNoiseErr.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textNoiseErr.Location = new System.Drawing.Point(515, 58);
+            this.textNoiseErr.Location = new System.Drawing.Point(496, 58);
             this.textNoiseErr.Margin = new System.Windows.Forms.Padding(2);
             this.textNoiseErr.Name = "textNoiseErr";
             this.textNoiseErr.ReadOnly = true;
@@ -596,7 +549,7 @@
             this.label_kl_amp.AutoSize = true;
             this.label_kl_amp.BackColor = System.Drawing.Color.IndianRed;
             this.label_kl_amp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_kl_amp.Location = new System.Drawing.Point(642, 87);
+            this.label_kl_amp.Location = new System.Drawing.Point(623, 87);
             this.label_kl_amp.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_kl_amp.Name = "label_kl_amp";
             this.label_kl_amp.Size = new System.Drawing.Size(82, 20);
@@ -609,7 +562,7 @@
             this.label_kl_noise.AutoSize = true;
             this.label_kl_noise.BackColor = System.Drawing.Color.IndianRed;
             this.label_kl_noise.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_kl_noise.Location = new System.Drawing.Point(642, 59);
+            this.label_kl_noise.Location = new System.Drawing.Point(623, 59);
             this.label_kl_noise.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_kl_noise.Name = "label_kl_noise";
             this.label_kl_noise.Size = new System.Drawing.Size(82, 20);
@@ -976,6 +929,48 @@
             this.timer3.Interval = 15000;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(81, 4);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(125, 20);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Giá trị danh định";
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(11, 35);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(57, 13);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "Điện áp(V)";
+            // 
+            // label13
+            // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(8, 63);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(63, 13);
+            this.label13.TabIndex = 15;
+            this.label13.Text = "Độ gợn(mV)";
+            // 
+            // label14
+            // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(3, 91);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(73, 13);
+            this.label14.TabIndex = 15;
+            this.label14.Text = "Dòng điện (A)";
+            // 
             // fCheckForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1033,7 +1028,6 @@
         private System.Windows.Forms.TextBox txbAmpeSt;
         private System.Windows.Forms.TextBox txbVonErrMax;
         private System.Windows.Forms.TextBox txbVolSt;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel14;
@@ -1055,8 +1049,6 @@
         private System.Windows.Forms.Label label_kl_voltage;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label_kl_amp;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txVolErr;
         private System.Windows.Forms.TextBox txAmpErr;
@@ -1087,11 +1079,14 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.ToolStripMenuItem hướngDẫnQuiTrìnhToolStripMenuItem;
         private System.Windows.Forms.Timer timer3;
-        private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.TextBox textNoiseSt;
         private System.Windows.Forms.TextBox textNoiseErrMax;
         private System.Windows.Forms.TextBox textNoiseMes;
         private System.Windows.Forms.TextBox textNoiseErr;
         private System.Windows.Forms.Label label_kl_noise;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
     }
 }

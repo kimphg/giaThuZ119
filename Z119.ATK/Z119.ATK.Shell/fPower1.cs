@@ -1316,8 +1316,7 @@ namespace Z119.ATK.Shell
                                     #endregion EndGUI *********************
 
                                     #region Handling **************
-                                    if (_powerManager.PowerControlAddress2.StateChanel1 == Power.State.OFF)
-                                        return;
+                                    
                                     string von = lblVonSetPower1.Text;
                                     string ampe = lblAmpeSetPower1.Text;
                                     string maxVon = lblDescriptionVonMaxPower1.Text;
@@ -1330,7 +1329,8 @@ namespace Z119.ATK.Shell
                                         lblVonSetPower1.Text = oldValue;
                                         return;
                                     }
-                                
+                                    if (_powerManager.PowerControlAddress2.StateChanel1 == Power.State.OFF)
+                                        return;
                                     _powerManager.PowerControlAddress2.SendPower(von, ampe, 2);
 
                                     #endregion EndHandling *******************
@@ -2122,8 +2122,7 @@ namespace Z119.ATK.Shell
                                 #endregion EndGUI *********************
 
                                 #region Handling **************
-                                if (_powerManager.PowerControlAddress1.StateChanel1 == Power.State.OFF)
-                                    return;
+                                
 
                                 string von = lblVonSetPower4.Text;
                                 string ampe = lblAmpeSetPower4.Text;
@@ -2137,7 +2136,8 @@ namespace Z119.ATK.Shell
                                     lblVonSetPower4.Text = oldValue;
                                     return;
                                 }
-                                
+                                if (_powerManager.PowerControlAddress1.StateChanel1 == Power.State.OFF)
+                                    return;
                                 _powerManager.PowerControlAddress1.SendPower(von, ampe, 1);
 
                                 #endregion EndHandling *******************

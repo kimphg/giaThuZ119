@@ -33,7 +33,16 @@ namespace Z119.ATK.Power
         {
             try
             {
-                return PowerControlAddress1.Connection(Z119.ATK.Common.Const.Address1); // Nguồn 1 có hai Range đều sử dụng Chanel1
+                if (PowerControlAddress1.Connection(Z119.ATK.Common.Const.PowerAddress1)) // Nguồn 1 có hai Range đều sử dụng Chanel1
+                {
+                    Z119.ATK.Common.Const.isPower1On = true;
+                    return true;
+                }
+                else 
+                {
+                    Z119.ATK.Common.Const.isPower1On = false;
+                    return false;
+                }
             }
             catch (Exception)
             {
@@ -46,7 +55,16 @@ namespace Z119.ATK.Power
         {
             try
             {
-                return PowerControlAddress2.Connection(Z119.ATK.Common.Const.Address2); // Nguồn 2 - Nguồn 3 - Nguồn 4 (Nguồn 2: Chanel1 - Chanel2 - Chanel3)
+                //return PowerControlAddress2.Connection(Z119.ATK.Common.Const.PowerAddress2); 
+                if (PowerControlAddress1.Connection(Z119.ATK.Common.Const.PowerAddress2)) // Nguồn 2 - Nguồn 3 - Nguồn 4 (Nguồn 2: Chanel1 - Chanel2 - Chanel3)
+                {   Z119.ATK.Common.Const.isPower2On = true;
+                    return true;
+                }
+                else
+                {
+                    Z119.ATK.Common.Const.isPower2On = false;
+                    return false;
+                }
             }
             catch (Exception)
             {

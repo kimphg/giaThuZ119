@@ -13,7 +13,7 @@ namespace Z119.ATK.Common
         public string COM_loadCtrl;
         public string switchCtrl;
         public string powerCtrl;
-        public string oscilloCtrl;
+        public string oscilloCtrl="USB0::0x1AB1::0x0588::DS1ET183710912::INSTR";
         //public fMainWindow 
         public ProjectConfiguration()
         {
@@ -62,8 +62,9 @@ namespace Z119.ATK.Common
         // *********************************************************************************************//
 
         // For form Power
-        public static string Address1 = "USB0::0x1AB1::0x0E11::DP8H182500033::INSTR"; // Nguồn có 2 range đều sử dụng kênh 1
-        public static string Address2 = "USB0::0x1AB1::0x0E11::DP8C183402940::INSTR"; // Nguồn có 3 kênh
+        public static string PowerAddress1 = "USB0::0x1AB1::0x0E11::DP8H182500033::INSTR"; // Nguồn có 2 range đều sử dụng kênh 1
+        public static string PowerAddress2 = "USB0::0x1AB1::0x0E11::DP8C183402940::INSTR"; // Nguồn có 3 kênh
+        public static bool isPower1On = false,isPower2On = false;
 
         // Rang for power1
         public static string RANGE1 = ":OUTP:RANG P20V";

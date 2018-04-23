@@ -249,6 +249,8 @@ namespace Z119.ATK.Shell
             // newcode start
             frmPower.OffPowerAll();
             frmTai.OffLoad();
+            frmSwitch.IsOnPower = true;
+            frmSwitch.OnOffPower();
         }
 
         private void Fcheck_FormClosing(object sender, FormClosingEventArgs e)
@@ -620,6 +622,58 @@ namespace Z119.ATK.Shell
         private void tsmenuItemControlCheck_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void dDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("data");
+            Form textDialog = new Form();
+            textDialog.Text = "Nhập 1 lần mật khẩu cũ sau đó 2 lần mật khẩu mới";
+            TextBox textbox = new TextBox();
+            textbox.PasswordChar='*';
+            textDialog.Controls.Add(textbox);
+            textbox.Location = new System.Drawing.Point(10, 10);
+            TextBox textbox1 = new TextBox();
+            textDialog.Controls.Add(textbox1);
+            textbox1.Location = new System.Drawing.Point(10, 30);
+            TextBox textbox2 = new TextBox();
+            textDialog.Controls.Add(textbox2);
+            textbox2.Location = new System.Drawing.Point(10, 50);
+            Button button1 = new Button();
+            button1.Text = "OK";
+            textDialog.Controls.Add(button1);
+            textDialog.AcceptButton = button1;
+            button1.DialogResult = System.Windows.Forms.DialogResult.OK;
+            button1.Location = new System.Drawing.Point(10, 70);
+            string text = "";
+            // Show testDialog as a modal dialog and determine if DialogResult = OK.
+            if (textDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                if(key.GetValue("pass", "123456").ToString()!=textbox.Text)
+                {
+                    if (textbox.Text!="88888888")
+                    {
+                        MessageBox.Show("Mật khẩu cũ không đúng");
+                        return;
+                    }
+                    
+                }
+                // Read the contents of testDialog's TextBox.
+                if (textbox1.Text != textbox2.Text)
+                {
+                    MessageBox.Show("Mật khẩu không khớp giữa 2 lần nhập");
+                    return;
+                }
+                text = textbox.Text;
+            }
+            else
+            {
+                
+                return;
+            }
+            textDialog.Dispose();
+            
+            key.SetValue("pass", text);
         }
 
 

@@ -38,6 +38,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.listBox2 = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listBox1
@@ -66,7 +68,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(293, 286);
+            this.button1.Location = new System.Drawing.Point(312, 176);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 25);
             this.button1.TabIndex = 4;
@@ -105,7 +107,7 @@
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(17, 216);
+            this.listBox2.Location = new System.Drawing.Point(12, 192);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(270, 95);
             this.listBox2.TabIndex = 8;
@@ -114,17 +116,36 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 190);
+            this.label4.Location = new System.Drawing.Point(14, 176);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "Các ô xi lô  khả dụng";
             // 
+            // listBox3
+            // 
+            this.listBox3.FormattingEnabled = true;
+            this.listBox3.Location = new System.Drawing.Point(12, 319);
+            this.listBox3.Name = "listBox3";
+            this.listBox3.Size = new System.Drawing.Size(270, 95);
+            this.listBox3.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 303);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(122, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Các bộ nguồn khả dụng";
+            // 
             // FormConnectionManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 352);
+            this.ClientSize = new System.Drawing.Size(437, 481);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.listBox3);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -153,5 +174,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.Label label5;
     }
 }
