@@ -52,7 +52,7 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(176, 68);
             this.listBox1.TabIndex = 0;
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            //this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // comboBox_LoadControl
             // 
@@ -94,7 +94,7 @@
             this.label1.Size = new System.Drawing.Size(87, 16);
             this.label1.TabIndex = 5;
             this.label1.Text = "Điều khiển tải";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            //this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -118,7 +118,7 @@
             this.label3.Size = new System.Drawing.Size(156, 16);
             this.label3.TabIndex = 7;
             this.label3.Text = "Các cổng COM khả dụng";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            //this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // listBox2
             // 
@@ -142,7 +142,7 @@
             this.label4.Size = new System.Drawing.Size(130, 16);
             this.label4.TabIndex = 7;
             this.label4.Text = "Các ô xi lô  khả dụng";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            //this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // listBox3
             // 
@@ -154,7 +154,7 @@
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(348, 68);
             this.listBox3.TabIndex = 9;
-            this.listBox3.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
+            //this.listBox3.SelectedIndexChanged += new System.EventHandler(this.listBox3_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -166,7 +166,7 @@
             this.label5.Size = new System.Drawing.Size(149, 16);
             this.label5.TabIndex = 10;
             this.label5.Text = "Các bộ nguồn khả dụng";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            //this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // FormConnectionManager
             // 
@@ -189,7 +189,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormConnectionManager";
             this.Text = "FormConnectionManager";
-            this.Load += new System.EventHandler(this.FormConnectionManager_Load);
+           // this.Load += new System.EventHandler(this.FormConnectionManager_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

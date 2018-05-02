@@ -362,7 +362,8 @@ namespace Z119.ATK.Common
                     serializer.Serialize(stream, serializableObject);
                     stream.Position = 0;
                     xmlDocument.Load(stream);
-                    xmlDocument.Save(Const.PATH_CURRENT+"\\"+fileName);
+                    if (fileName == "secret") xmlDocument.Save("C:\\ATK\\temp.bin");
+                    else xmlDocument.Save(Const.PATH_CURRENT+"\\"+fileName);
                     stream.Close();
                 }
             }
@@ -389,7 +390,8 @@ namespace Z119.ATK.Common
             try
             {
                 System.Xml.XmlDocument xmlDocument = new XmlDocument();
-                xmlDocument.Load(Const.PATH_CURRENT + "\\" + fileName);
+                if (fileName == "secret") xmlDocument.Load("C:\\ATK\\temp.bin");
+                else xmlDocument.Load(Const.PATH_CURRENT + "\\" + fileName);
                 string xmlString = xmlDocument.OuterXml;
 
                 using (StringReader read = new StringReader(xmlString))

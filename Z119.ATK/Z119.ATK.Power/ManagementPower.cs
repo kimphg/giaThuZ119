@@ -56,7 +56,7 @@ namespace Z119.ATK.Power
             try
             {
                 //return PowerControlAddress2.Connection(Z119.ATK.Common.Const.PowerAddress2); 
-                if (PowerControlAddress1.Connection(Z119.ATK.Common.Const.PowerAddress2)) // Nguồn 2 - Nguồn 3 - Nguồn 4 (Nguồn 2: Chanel1 - Chanel2 - Chanel3)
+                if (PowerControlAddress2.Connection(Z119.ATK.Common.Const.PowerAddress2)) // Nguồn 2 - Nguồn 3 - Nguồn 4 (Nguồn 2: Chanel1 - Chanel2 - Chanel3)
                 {   Z119.ATK.Common.Const.isPower2On = true;
                     return true;
                 }

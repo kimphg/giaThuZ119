@@ -626,37 +626,45 @@ namespace Z119.ATK.Shell
 
         private void dDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("data");
+            List<fLoginForm.User> userList = Common.ProjectManager.LoadObject<List<fLoginForm.User>>("secret");
+            //Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("data");
+            Label label1 = new Label(); label1.Text = "Mật khẩu cũ:"; label1.Location = new System.Drawing.Point(10, 10);
+            Label label2 = new Label(); label2.Text = "Mật khẩu mới:"; label2.Location = new System.Drawing.Point(10, 40);
+            Label label3 = new Label(); label3.Text = "Lặp lại MK:"; label3.Location = new System.Drawing.Point(10, 70);
+            
             Form textDialog = new Form();
-            textDialog.Text = "Nhập 1 lần mật khẩu cũ sau đó 2 lần mật khẩu mới";
+            textDialog.Controls.Add(label1);
+            textDialog.Controls.Add(label2);
+            textDialog.Controls.Add(label3);
+            textDialog.Text = "Đổi mật khẩu";
             TextBox textbox = new TextBox();
             textbox.PasswordChar='*';
             textDialog.Controls.Add(textbox);
-            textbox.Location = new System.Drawing.Point(10, 10);
+            textbox.Location = new System.Drawing.Point(120, 10);
             TextBox textbox1 = new TextBox();
             textDialog.Controls.Add(textbox1);
-            textbox1.Location = new System.Drawing.Point(10, 40);
+            textbox1.Location = new System.Drawing.Point(120, 40);
+            textbox1.PasswordChar = '*';
             TextBox textbox2 = new TextBox();
             textDialog.Controls.Add(textbox2);
-            textbox2.Location = new System.Drawing.Point(10, 70);
+            textbox2.Location = new System.Drawing.Point(120, 70);
+            textbox2.PasswordChar = '*';
             Button button1 = new Button();
             button1.Text = "OK";
             textDialog.Controls.Add(button1);
             textDialog.AcceptButton = button1;
             button1.DialogResult = System.Windows.Forms.DialogResult.OK;
             button1.Location = new System.Drawing.Point(10, 100);
-            string text = "";
+            //string text = "";
             // Show testDialog as a modal dialog and determine if DialogResult = OK.
             if (textDialog.ShowDialog(this) == DialogResult.OK)
             {
-                if(key.GetValue("pass", "123456").ToString()!=textbox.Text)
+                string oldPass = userList.Find(x => x.EmployeeName == "Admin").EmployeePass;
+                if (oldPass != textbox.Text)
                 {
-                    if (textbox.Text!="88888888")
-                    {
-                        MessageBox.Show("Mật khẩu cũ không đúng");
-                        return;
-                    }
-                    
+                   MessageBox.Show("Mật khẩu cũ không đúng");
+                  return;
+                   
                 }
                 // Read the contents of testDialog's TextBox.
                 if (textbox1.Text != textbox2.Text)
@@ -664,7 +672,9 @@ namespace Z119.ATK.Shell
                     MessageBox.Show("Mật khẩu không khớp giữa 2 lần nhập");
                     return;
                 }
-                text = textbox.Text;
+                userList.Find(x => x.EmployeeName == "Admin").EmployeePass = textbox1.Text;
+                Common.ProjectManager.SaveObject(userList, "secret");
+                //text = textbox.Text;
             }
             else
             {
@@ -673,7 +683,7 @@ namespace Z119.ATK.Shell
             }
             textDialog.Dispose();
             
-            key.SetValue("pass", text);
+            //key.SetValue("pass", text);
         }
 
 

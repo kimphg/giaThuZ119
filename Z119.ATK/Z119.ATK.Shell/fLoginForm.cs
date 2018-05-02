@@ -34,13 +34,16 @@ namespace Z119.ATK.Shell
 
 		void LoadDataForConbobox()
 		{
-            Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("data");
-            Employees = new List<User>() { 
+            //Microsoft.Win32.RegistryKey key = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("data");
+            Employees = Common.ProjectManager.LoadObject<List<User>>("secret");
+            if (Employees.Count == 0)
+            {
+                Employees = new List<User>() { 
                 new User(){EmployeeId = "001", EmployeeName = "Operator",EmployeePass = ""},
-                new User(){EmployeeId = "002", EmployeeName = "Supervisor", EmployeePass = key.GetValue("pass", "123456").ToString()}
+                new User(){EmployeeId = "002", EmployeeName = "Admin", EmployeePass = "123456"}
             };
-           
-           
+                Common.ProjectManager.SaveObject(Employees, "secret");
+            }
             cmbNameLogin.SelectedIndexChanged += cmbNameLogin_SelectedIndexChanged;
             cmbNameLogin.DataSource = Employees;
             cmbNameLogin.DisplayMember = "EmployeeName";
