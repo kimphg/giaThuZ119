@@ -635,16 +635,16 @@ namespace Z119.ATK.Shell
             textbox.Location = new System.Drawing.Point(10, 10);
             TextBox textbox1 = new TextBox();
             textDialog.Controls.Add(textbox1);
-            textbox1.Location = new System.Drawing.Point(10, 30);
+            textbox1.Location = new System.Drawing.Point(10, 40);
             TextBox textbox2 = new TextBox();
             textDialog.Controls.Add(textbox2);
-            textbox2.Location = new System.Drawing.Point(10, 50);
+            textbox2.Location = new System.Drawing.Point(10, 70);
             Button button1 = new Button();
             button1.Text = "OK";
             textDialog.Controls.Add(button1);
             textDialog.AcceptButton = button1;
             button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            button1.Location = new System.Drawing.Point(10, 70);
+            button1.Location = new System.Drawing.Point(10, 100);
             string text = "";
             // Show testDialog as a modal dialog and determine if DialogResult = OK.
             if (textDialog.ShowDialog(this) == DialogResult.OK)
