@@ -1,6 +1,7 @@
 ﻿using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,23 @@ namespace Z119.ATK.Shell
         
         static void Main()                          
         {
+            foreach (Process PPath in Process.GetProcesses())
+            {
+                if (PPath.ProcessName == Process.GetCurrentProcess().ProcessName)
+                {
+                    if (PPath.Id == Process.GetCurrentProcess().Id) continue;
+                    DialogResult dialogResult = MessageBox.Show("Chương trình đã đang chạy, nhấn OK để tắt chương trình và mỏ phiên làm việc mới", "Cảnh báo", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        PPath.Kill();
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        return;
+                    }
+                    
+                }
+            }
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

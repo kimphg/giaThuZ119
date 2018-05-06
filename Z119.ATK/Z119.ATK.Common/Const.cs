@@ -39,12 +39,12 @@ namespace Z119.ATK.Common
         public static List<schemeElement> schemeElementList = new List<schemeElement>();
         public static List<StepItem> stepList = new List<StepItem>();
         // path Main
-        public static string PATH_ROOT =  @"C:\ATK\Config";
-        public static string PATH_PROJECT = @"C:\ATK\Projects";
-        public static string PATH_CURRENT = @"C:\ATK\";
+        public static string PATH_ROOT =  @"C:\TBN\Config";
+        public static string PATH_PROJECT = @"C:\TBN\Projects";
+        public static string PATH_CURRENT = @"C:\TBN\";
        // public static string FOLDER_ROOT = "DuAn";
         public static ProjectConfiguration proConf = new ProjectConfiguration(); 
-        public static string PROJECT_NAME = @"C:\ATK\Config";
+        public static string PROJECT_NAME = @"C:\TBN\Config";
         public static bool isAdmin = false;
         public static string FILE_NAME_PATH = "ProjectPath.txt";
         public static string IMAGES_LIBLARY_NAME = "HinhAnhLinhKien";

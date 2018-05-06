@@ -362,7 +362,7 @@ namespace Z119.ATK.Common
                     serializer.Serialize(stream, serializableObject);
                     stream.Position = 0;
                     xmlDocument.Load(stream);
-                    if (fileName == "secret") xmlDocument.Save("C:\\ATK\\temp.bin");
+                    if (fileName == "secret") xmlDocument.Save("C:\\TBN\\temp.bin");
                     else xmlDocument.Save(Const.PATH_CURRENT+"\\"+fileName);
                     stream.Close();
                 }
@@ -390,7 +390,7 @@ namespace Z119.ATK.Common
             try
             {
                 System.Xml.XmlDocument xmlDocument = new XmlDocument();
-                if (fileName == "secret") xmlDocument.Load("C:\\ATK\\temp.bin");
+                if (fileName == "secret") xmlDocument.Load("C:\\TBN\\temp.bin");
                 else xmlDocument.Load(Const.PATH_CURRENT + "\\" + fileName);
                 string xmlString = xmlDocument.OuterXml;
 
@@ -416,24 +416,7 @@ namespace Z119.ATK.Common
             return objectOut;
         }
         //new code ends here-----------------------------------------------------------------------------
-        public static void SaveIntoFile(object model, string folderPath)
-        {
-            SaveFileDialog sfd = new SaveFileDialog();
-
-            sfd.InitialDirectory = Z119.ATK.Common.Const.PATH_ROOT + @"\" + folderPath;
-
-            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                FileStream fs = new FileStream(sfd.FileName, FileMode.Create);
-                IFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(fs, model);
-                fs.Close();
-            }
-            else
-            {
-                // Do not something
-            }
-        }
+        
 
 
         public static object  OpenFile(string fileName)

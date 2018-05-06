@@ -440,6 +440,18 @@ namespace Z119.ATK.Shell
                                             text = text.Remove(text.Length - 3, 3) + ",000"; ;
                                         if (text.IndexOf(',') > 0)
                                             lblAmpeReceivePower1.Text = text.Substring(text.IndexOf(',') - 2, 5).Replace(',', '.');
+                                        double amp = Double.Parse(values[1].Replace('.', ','));
+
+                                        string maxAmp = lblAmpeLimitPower1.Text.Replace("A", "");
+
+                                        maxAmp = maxAmp.Replace('.', ',');
+                                        double ampMax = Double.Parse(maxAmp);
+                                        if (amp > ampMax)
+                                        {
+                                            OffPowerAll();
+                                            MessageBox.Show("Tắt nguồn do dòng điện quá mức cho phép.");
+                                            return;
+                                        }
                                     }
                                     if (Double.Parse(values[2].Replace('.', ',')) < 100)
                                     {
@@ -614,6 +626,18 @@ namespace Z119.ATK.Shell
                                             text = text.Remove(text.Length - 3, 3) + ",000"; ;
                                         if (text.IndexOf(',') > 0)
                                             lblAmpeReceivePower2.Text = text.Substring(text.IndexOf(',') - 2, 5).Replace(',', '.');
+                                        double amp = Double.Parse(values[1].Replace('.', ','));
+
+                                        string maxAmp = lblAmpeLimitPower2.Text.Replace("A", "");
+
+                                        maxAmp = maxAmp.Replace('.', ',');
+                                        double ampMax = Double.Parse(maxAmp);
+                                        if (amp > ampMax)
+                                        {
+                                            OffPowerAll();
+                                            MessageBox.Show("Tắt nguồn do dòng điện quá mức cho phép.");
+                                            return;
+                                        }
                                     }
                                     if (Double.Parse(values[2].Replace('.', ',')) < 100)
                                     {
@@ -789,6 +813,18 @@ namespace Z119.ATK.Shell
                                             text = text.Remove(text.Length - 3, 3) + ",000"; ;
                                         if (text.IndexOf(',') > 0)
                                             lblAmpeReceivePower3.Text = text.Substring(text.IndexOf(',') - 2, 5).Replace(',', '.');
+                                        double amp = Double.Parse(values[1].Replace('.', ','));
+
+                                        string maxAmp = lblAmpeLimitPower3.Text.Replace("A", "");
+
+                                        maxAmp = maxAmp.Replace('.', ',');
+                                        double ampMax = Double.Parse(maxAmp);
+                                        if (amp > ampMax)
+                                        {
+                                            OffPowerAll();
+                                            MessageBox.Show("Tắt nguồn do dòng điện quá mức cho phép.");
+                                            return;
+                                        }
                                     }
                                     if (Double.Parse(values[2].Replace('.', ',')) < 100)
                                     {
@@ -1909,6 +1945,19 @@ namespace Z119.ATK.Shell
                                             text = text.Remove(text.Length - 3, 3) + ",000"; ;
                                         if (text.IndexOf(',') > 0)
                                             lblAmpeReceivePower4.Text = text.Substring(text.IndexOf(',') - 2, 5).Replace(',', '.');
+                                        double amp = Double.Parse(values[1].Replace('.', ','));
+
+                                        string maxAmp = lblAmpeLimitPower4.Text.Replace("A", "");
+
+                                        maxAmp = maxAmp.Replace('.', ',');
+                                        double ampMax = Double.Parse(maxAmp);
+                                        if (amp > ampMax)
+                                        {
+                                            OffPowerAll();
+                                            MessageBox.Show("Tắt nguồn do dòng điện quá mức cho phép.");
+                                            return;
+                                        }
+
                                     }
                                         
                                     if (Double.Parse(values[2].Replace('.', ',')) < 100)

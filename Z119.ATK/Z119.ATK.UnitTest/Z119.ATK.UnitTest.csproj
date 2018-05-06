@@ -78,9 +78,9 @@
       <Project>{709656d8-8f0e-429c-8ae5-bbbd4bc548c9}</Project>
       <Name>Z119.ATK.Power</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Z119.ATK.Shell\Z119.ATK.Shell.csproj">
+    <ProjectReference Include="..\Z119.ATK.Shell\Z119.TBN.Shell.csproj">
       <Project>{2dde2ba7-1725-4d0d-a9ce-9d045b7f0178}</Project>
-      <Name>Z119.ATK.Shell</Name>
+      <Name>Z119.TBN.Shell</Name>
     </ProjectReference>
     <ProjectReference Include="..\Z119.ATK.Switch\Z119.ATK.Switch.csproj">
       <Project>{f4808307-7bc3-4a05-9957-e1ed4cfd329d}</Project>

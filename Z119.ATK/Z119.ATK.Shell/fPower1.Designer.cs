@@ -45,6 +45,7 @@ namespace Z119.ATK.Shell
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnRang2Power4 = new System.Windows.Forms.Button();
             this.btnRang1Power4 = new System.Windows.Forms.Button();
             this.btnResetLimitPower4 = new System.Windows.Forms.Button();
@@ -214,7 +215,6 @@ namespace Z119.ATK.Shell
             this.lblAmpeReceivePower2 = new System.Windows.Forms.Label();
             this.lblWoatReceivePower1 = new System.Windows.Forms.Label();
             this.lblAmpeReceivePower1 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -403,6 +403,17 @@ namespace Z119.ATK.Shell
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(260, 257);
             this.panel15.TabIndex = 94;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(64, 214);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(24, 26);
+            this.label9.TabIndex = 36;
+            this.label9.Text = "1";
             // 
             // btnRang2Power4
             // 
@@ -1210,7 +1221,7 @@ namespace Z119.ATK.Shell
             this.pnlResultPowerAddress1.Controls.Add(this.panel5);
             this.pnlResultPowerAddress1.Controls.Add(this.lblLimitMinMaxPower4);
             this.pnlResultPowerAddress1.ForeColor = System.Drawing.Color.Lime;
-            this.pnlResultPowerAddress1.Location = new System.Drawing.Point(110, 112);
+            this.pnlResultPowerAddress1.Location = new System.Drawing.Point(112, 110);
             this.pnlResultPowerAddress1.Margin = new System.Windows.Forms.Padding(2);
             this.pnlResultPowerAddress1.Name = "pnlResultPowerAddress1";
             this.pnlResultPowerAddress1.Size = new System.Drawing.Size(316, 79);
@@ -2547,17 +2558,6 @@ namespace Z119.ATK.Shell
             this.lblAmpeReceivePower1.Size = new System.Drawing.Size(101, 48);
             this.lblAmpeReceivePower1.TabIndex = 3;
             this.lblAmpeReceivePower1.Text = "00.00";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(64, 214);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(24, 26);
-            this.label9.TabIndex = 36;
-            this.label9.Text = "1";
             // 
             // fPower1
             // 
