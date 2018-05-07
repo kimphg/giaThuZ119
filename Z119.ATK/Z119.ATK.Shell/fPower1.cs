@@ -1473,6 +1473,16 @@ namespace Z119.ATK.Shell
                                 // Check selected to set Ampe
                                 if (PowerSelected == 1)
                                 {
+                                    strResult1.Clear();
+                                    pnlResultPowerAddress2.Visible = false;
+                                    double valueAmpSet = Double.Parse(txtResultPowerAddress2.Text.Replace('.', ','));
+
+                                    double valueAmpMax = Double.Parse(lblDescriptionAmpeMaxPower1.Text.Replace('.', ',').Replace("A", ""));
+                                    if (valueAmpSet > valueAmpMax)
+                                    {
+                                        MessageBox.Show("Giá trị quá mức cho phép");
+                                        return;
+                                    }
                                     #region GUI ********************
 
                                     string text = "000" + Double.Parse(txtResultPowerAddress2.Text.Replace('.', ',')) + "000";
@@ -1482,8 +1492,7 @@ namespace Z119.ATK.Shell
                                         lblAmpeSetPower1.Text = text.Substring(text.IndexOf(',') - 2, 5).Replace(',', '.');
 
                                     txtResultPowerAddress2.Text = "";
-                                    strResult1.Clear();
-                                    pnlResultPowerAddress2.Visible = false;
+                                    
 
                                     #endregion EndGUI *************************
 
@@ -1501,6 +1510,16 @@ namespace Z119.ATK.Shell
                                 }
                                 else if (PowerSelected == 2)
                                 {
+                                    strResult1.Clear();
+                                    pnlResultPowerAddress2.Visible = false;
+                                    double valueAmpSet = Double.Parse(txtResultPowerAddress2.Text.Replace('.', ','));
+
+                                    double valueAmpMax = Double.Parse(lblDescriptionAmpeMaxPower2.Text.Replace('.', ',').Replace("A", ""));
+                                    if (valueAmpSet > valueAmpMax)
+                                    {
+                                        MessageBox.Show("Giá trị quá mức cho phép");
+                                        return;
+                                    }
                                     #region GUI *************************
 
                                     string text = "000" + Double.Parse(txtResultPowerAddress2.Text.Replace('.', ',')) + "000";
@@ -1510,8 +1529,7 @@ namespace Z119.ATK.Shell
                                         lblAmpeSetPower2.Text = text.Substring(text.IndexOf(',') - 2, 5).Replace(',', '.');
 
                                     txtResultPowerAddress2.Text = "";
-                                    strResult1.Clear();
-                                    pnlResultPowerAddress2.Visible = false;
+                                    
 
                                     #endregion EndGUI **********************
 
@@ -1530,6 +1548,17 @@ namespace Z119.ATK.Shell
 
                                 else if (PowerSelected == 3)
                                 {
+                                    strResult1.Clear();
+                                    pnlResultPowerAddress2.Visible = false;
+
+                                    double valueAmpSet = Double.Parse(txtResultPowerAddress2.Text.Replace('.', ','));
+
+                                    double valueAmpMax = Double.Parse(lblDescriptionAmpeMaxPower3.Text.Replace('.', ',').Replace("A", ""));
+                                    if (valueAmpSet > valueAmpMax)
+                                    {
+                                        MessageBox.Show("Giá trị quá mức cho phép");
+                                        return;
+                                    }
                                     #region GUI ****************************
 
                                     string text = "000" + Double.Parse(txtResultPowerAddress2.Text.Replace('.', ',')) + "000";
@@ -1539,9 +1568,7 @@ namespace Z119.ATK.Shell
                                         lblAmpeSetPower3.Text = text.Substring(text.IndexOf(',') - 2, 5).Replace(',', '.');
 
                                     txtResultPowerAddress2.Text = "";
-                                    strResult1.Clear();
-                                    pnlResultPowerAddress2.Visible = false;
-
+                                    
                                     #endregion EndGUI *********************
 
                                     #region Handling **************
@@ -1676,15 +1703,24 @@ namespace Z119.ATK.Shell
 
                                 if (PowerSelected == 1)
                                 {
-                                    string text = "000" + Double.Parse(txtResultPowerAddress2.Text.Replace('.', ',')) + "000";
+                                    strResult1.Clear();
+                                    pnlResultPowerAddress2.Visible = false;
+                                    double valueAmpSet = Double.Parse(txtResultPowerAddress2.Text.Replace('.', ','));
+
+                                    double valueAmpMax = Double.Parse(lblDescriptionAmpeMaxPower1.Text.Replace('.', ',').Replace("A",""));
+                                    if (valueAmpSet > valueAmpMax)
+                                    {
+                                        MessageBox.Show("Giá trị quá mức cho phép");
+                                        return;
+                                    }
+                                    string text = "000" + valueAmpSet + "000";
                                     if (text.IndexOf(',') < 0)
                                         text = text.Remove(text.Length - 3, 3) + ",000"; ;
                                     if (text.IndexOf(',') > 0)
                                         lblAmpeLimitPower1.Text = text.Substring(text.IndexOf(',') - 2, 5).Replace(',', '.');
 
                                     txtResultPowerAddress2.Text = "";
-                                    strResult1.Clear();
-                                    pnlResultPowerAddress2.Visible = false;
+                                    
 
                                     #region Handling ********************
 
@@ -1699,6 +1735,16 @@ namespace Z119.ATK.Shell
                                 }
                                 else if (PowerSelected == 2)
                                 {
+                                    strResult1.Clear();
+                                    pnlResultPowerAddress2.Visible = false;
+                                    double valueAmpSet = Double.Parse(txtResultPowerAddress2.Text.Replace('.', ','));
+
+                                    double valueAmpMax = Double.Parse(lblDescriptionAmpeMaxPower2.Text.Replace('.', ',').Replace("A", ""));
+                                    if (valueAmpSet > valueAmpMax)
+                                    {
+                                        MessageBox.Show("Giá trị quá mức cho phép");
+                                        return;
+                                    }
                                     string text = "000" + Double.Parse(txtResultPowerAddress2.Text.Replace('.', ',')) + "000";
                                     if (text.IndexOf(',') < 0)
                                         text = text.Remove(text.Length - 3, 3) + ",000"; ;
@@ -1706,8 +1752,7 @@ namespace Z119.ATK.Shell
                                         lblAmpeLimitPower2.Text = text.Substring(text.IndexOf(',') - 2, 5).Replace(',', '.');
 
                                     txtResultPowerAddress2.Text = "";
-                                    strResult1.Clear();
-                                    pnlResultPowerAddress2.Visible = false;
+                                    
 
                                     #region Handling ********************
 
@@ -1723,6 +1768,16 @@ namespace Z119.ATK.Shell
                                 }
                                 else if (PowerSelected == 3)
                                 {
+                                    strResult1.Clear();
+                                    pnlResultPowerAddress2.Visible = false;
+                                    double valueAmpSet = Double.Parse(txtResultPowerAddress2.Text.Replace('.', ','));
+
+                                    double valueAmpMax = Double.Parse(lblDescriptionAmpeMaxPower3.Text.Replace('.', ',').Replace("A", ""));
+                                    if (valueAmpSet > valueAmpMax)
+                                    {
+                                        MessageBox.Show("Giá trị quá mức cho phép");
+                                        return;
+                                    }
                                     string text = "000" + Double.Parse(txtResultPowerAddress2.Text.Replace('.', ',')) + "000";
                                     if (text.IndexOf(',') < 0)
                                         text = text.Remove(text.Length - 3, 3) + ",000"; ;
@@ -1730,8 +1785,7 @@ namespace Z119.ATK.Shell
                                         lblAmpeLimitPower3.Text = text.Substring(text.IndexOf(',') - 2, 5).Replace(',', '.');
 
                                     txtResultPowerAddress2.Text = "";
-                                    strResult1.Clear();
-                                    pnlResultPowerAddress2.Visible = false;
+                                    
 
                                     #region Handling ********************
 
@@ -2212,6 +2266,16 @@ namespace Z119.ATK.Shell
                         {
                             if (Double.Parse(txtResultPowerAddress1.Text) > 0)
                             {
+                                strResult2.Clear();
+                                pnlResultPowerAddress1.Visible = false;
+                                double valueAmpSet = Double.Parse(txtResultPowerAddress1.Text.Replace('.', ','));
+
+                                double valueAmpMax = Double.Parse(lblDescriptionAmpeMaxPower4.Text.Replace('.', ',').Replace("A", ""));
+                                if (valueAmpSet > valueAmpMax)
+                                {
+                                    MessageBox.Show("Giá trị quá mức cho phép");
+                                    return;
+                                }
                                 #region GUI ********************
                                 string oldValue = lblAmpeSetPower4.Text;
                                 string text = "000" + Double.Parse(txtResultPowerAddress1.Text.Replace('.', ',')) + "000";
@@ -2221,8 +2285,7 @@ namespace Z119.ATK.Shell
                                     lblAmpeSetPower4.Text = text.Substring(text.IndexOf(',') - 2, 5).Replace(',', '.');
 
                                 txtResultPowerAddress1.Text = "";
-                                strResult2.Clear();
-                                pnlResultPowerAddress1.Visible = false;
+                                
 
                                 #endregion EndGUI *************************
 
@@ -2306,6 +2369,16 @@ namespace Z119.ATK.Shell
                         {
                             if (Double.Parse(txtResultPowerAddress1.Text) > 0)
                             {
+                                strResult2.Clear();
+                                pnlResultPowerAddress1.Visible = false;
+                                double valueAmpSet = Double.Parse(txtResultPowerAddress1.Text.Replace('.', ','));
+
+                                double valueAmpMax = Double.Parse(lblDescriptionAmpeMaxPower4.Text.Replace('.', ',').Replace("A", ""));
+                                if (valueAmpSet > valueAmpMax)
+                                {
+                                    MessageBox.Show("Giá trị quá mức cho phép");
+                                    return;
+                                }
                                 string text = "000" + Double.Parse(txtResultPowerAddress1.Text.Replace('.', ',')) + "000";
                                 if (text.IndexOf(',') < 0)
                                     text = text.Remove(text.Length - 3, 3) + ",000"; ;
@@ -2313,8 +2386,7 @@ namespace Z119.ATK.Shell
                                     lblAmpeLimitPower4.Text = text.Substring(text.IndexOf(',') - 2, 5).Replace(',', '.');
 
                                 txtResultPowerAddress1.Text = "";
-                                strResult2.Clear();
-                                pnlResultPowerAddress1.Visible = false;
+                                
 
                                 #region Handling ********************
 
