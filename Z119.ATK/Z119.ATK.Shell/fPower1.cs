@@ -1606,7 +1606,14 @@ namespace Z119.ATK.Shell
                                 if (PowerSelected == 1)
                                 {
                                     #region GUI *****************
-
+                                    strResult1.Clear();
+                                    pnlResultPowerAddress2.Visible = false;
+                                    double volValue = Double.Parse(txtResultPowerAddress2.Text.Replace('.', ','));
+                                    double volLimit = Double.Parse(lblDescriptionVonMaxPower1.Text.Replace('.', ',').Replace("V", ""));
+                                    if (volValue > volLimit)
+                                    {
+                                        MessageBox.Show("Giá trị điện áp quá mức cho phép"); return;
+                                    }
                                     string text = "000" + Double.Parse(txtResultPowerAddress2.Text.Replace('.', ',')) + "000";
                                     if (text.IndexOf(',') < 0)
                                         text = text.Remove(text.Length - 3, 3) + ",000"; ;
@@ -1633,6 +1640,14 @@ namespace Z119.ATK.Shell
                                 }
                                 else if (PowerSelected == 2)
                                 {
+                                    strResult1.Clear();
+                                    pnlResultPowerAddress2.Visible = false;
+                                    double volValue = Double.Parse(txtResultPowerAddress2.Text.Replace('.', ','));
+                                    double volLimit = Double.Parse(lblDescriptionVonMaxPower2.Text.Replace('.', ',').Replace("V", ""));
+                                    if (volValue > volLimit)
+                                    {
+                                        MessageBox.Show("Giá trị điện áp quá mức cho phép"); return;
+                                    }
                                     string text = "000" + Double.Parse(txtResultPowerAddress2.Text.Replace('.', ',')) + "000";
                                     if (text.IndexOf(',') < 0)
                                         text = text.Remove(text.Length - 3, 3) + ",000"; ;
@@ -1657,6 +1672,14 @@ namespace Z119.ATK.Shell
                                 }
                                 else if (PowerSelected == 3)
                                 {
+                                    strResult1.Clear();
+                                    pnlResultPowerAddress2.Visible = false;
+                                    double volValue = Double.Parse(txtResultPowerAddress2.Text.Replace('.', ','));
+                                    double volLimit = Double.Parse(lblDescriptionVonMaxPower3.Text.Replace('.', ',').Replace("V", ""));
+                                    if (volValue > volLimit)
+                                    {
+                                        MessageBox.Show("Giá trị điện áp quá mức cho phép"); return;
+                                    }
                                     string text = "000" + Double.Parse(txtResultPowerAddress2.Text.Replace('.', ',')) + "000";
                                     if (text.IndexOf(',') < 0)
                                         text = text.Remove(text.Length - 3, 3) + ",000"; ;
@@ -2328,7 +2351,14 @@ namespace Z119.ATK.Shell
                         {
                             if (Double.Parse(txtResultPowerAddress1.Text) > 0)
                             {
-
+                                strResult2.Clear();
+                                pnlResultPowerAddress2.Visible = false;
+                                double volValue = Double.Parse(txtResultPowerAddress1.Text.Replace('.', ','));
+                                double volLimit = Double.Parse(lblDescriptionVonMaxPower4.Text.Replace('.', ',').Replace("V", ""));
+                                if (volValue > volLimit)
+                                {
+                                    MessageBox.Show("Giá trị điện áp quá mức cho phép"); return;
+                                }
                                 string text = "000" + Double.Parse(txtResultPowerAddress1.Text.Replace('.', ',')) + "000";
                                 if (text.IndexOf(',') < 0)
                                     text = text.Remove(text.Length - 3, 3) + ",000"; ;
